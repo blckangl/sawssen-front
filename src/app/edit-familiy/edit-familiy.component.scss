@@ -1,0 +1,246 @@
+
+.get-in-touch {
+  max-width: 800px;
+  margin: 50px auto;
+  position: relative;
+
+}
+.get-in-touch .title {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 3.2em;
+  line-height: 48px;
+  padding-bottom: 48px;
+  color: #4010ff;
+  background: #4010ff;
+  background: -moz-linear-gradient(left,#00BCD4 0%,#4010ff 100%) !important;
+  background: -webkit-linear-gradient(left,#00BCD4  0%,#4010ff 100%) !important;
+  background: linear-gradient(to right,#00BCD4  0%,#4010ff  100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.contact-form .form-field {
+  position: relative;
+  margin: 32px 0;
+}
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #4010ff;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+.contact-form .input-text:focus {
+  outline: none;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label {
+  -webkit-transform: translateY(-24px);
+  transform: translateY(-24px);
+}
+.contact-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 11px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #4010ff;
+  cursor: text;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out,
+  -webkit-transform .2s ease-in-out;
+}
+.contact-form .submit-btn {
+  display: inline-block;
+  background-color: #000;
+  background-image: linear-gradient(125deg, #00BCD4,#4010ff);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  width:200px;
+  cursor: pointer;
+}
+
+.main__form{
+  background: #ffffff;
+}
+.note
+{
+  text-align: center;
+  height: 80px;
+  background: -webkit-linear-gradient(to right, #b6fbff, #4010ff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b6fbff,#4010ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #fff;
+  font-weight: bold;
+  line-height: 80px;
+}
+.form-content
+{
+  padding: 5%;
+  border: 1px solid #ced4da;
+  margin-bottom: 2%;
+}
+.form-control{
+  border-radius:1.5rem;
+}
+.btnSubmit
+{
+  border:none;
+  border-radius:1.5rem;
+  padding: 1%;
+  width: 20%;
+  cursor: pointer;
+  background: #4010ff;
+  color: #fff;
+}
+
+.compose-editor{
+  background: #dbdbdb;
+}
+
+.btn-get {
+  font-size: 1.8rem;
+  font-family: "Quicksand", sans-serif;
+  color: #fff !important;
+  text-transform: capitalize;
+  background-image: -webkit-gradient(linear, left top, right top, from(#718399), to(#00BCD4));
+  background-image: linear-gradient(to right,#00BCD4, #4010ff,#00BCD4);
+  padding: 10px 20px 10px;
+  position: relative;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+  text-transform: capitalize !important;
+}
+.btn-get::before {
+  position: absolute;
+  content: '';
+  top: 0;
+  height: 100%;
+  width: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left top, right top, from(#00BCD4), to(#718399));
+  background-image: linear-gradient(to right, #00BCD4, #718399);
+  -webkit-transition: .5s ease-out;
+  transition: .5s ease-out;
+}
+
+.main__form{
+  background: #ffffff;
+}
+btn-get {
+  font-size: 1.8rem;
+  font-family: "Quicksand", sans-serif;
+  color: #fff !important;
+  text-transform: capitalize;
+  background-image: linear-gradient(to right,  #00BCD4,#4010ff,#00BCD4);
+  padding: 10px 20px 10px;
+  position: relative;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.btn-set {
+  font-size: 1.8rem;
+  font-family: "Quicksand", sans-serif;
+  color: #fff !important;
+  text-transform: capitalize;
+  background-image: linear-gradient(to right, #f1fff8, #787878, #f1fff8);
+  padding: 10px 20px 10px;
+  position: relative;
+  border: 0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+.get-in-touch {
+  max-width: 800px;
+  margin: 50px auto;
+  position: relative;
+
+}
+.get-in-touch .title {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 3.2em;
+  line-height: 48px;
+  padding-bottom: 48px;
+  color: #4010ff;
+  background: #4010ff;
+  background: -moz-linear-gradient(left,#00BCD4 0%,#4010ff 100%) !important;
+  background: -webkit-linear-gradient(left,#00BCD4  0%,#4010ff 100%) !important;
+  background: linear-gradient(to right,#00BCD4  0%,#4010ff  100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.contact-form .form-field {
+  position: relative;
+  margin: 32px 0;
+}
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #4010ff;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+.contact-form .input-text:focus {
+  outline: none;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label {
+  -webkit-transform: translateY(-24px);
+  transform: translateY(-24px);
+}
+.contact-form .label {
+  position: absolute;
+  left: 20px;
+  bottom: 11px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #4010ff;
+  cursor: text;
+  transition: -webkit-transform .2s ease-in-out;
+  transition: transform .2s ease-in-out;
+  transition: transform .2s ease-in-out,
+  -webkit-transform .2s ease-in-out;
+}
+.contact-form .submit-btn {
+  display: inline-block;
+  background-color: #000;
+  background-image: linear-gradient(125deg, #00BCD4,#4010ff);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  width:200px;
+  cursor: pointer;
+}
+

@@ -1,0 +1,26 @@
+<div class="page-wrapper">
+  <!-- start header -->
+<app-topbar></app-topbar>
+  <!-- end header -->
+
+  <!-- start page container -->
+  <div class="page-container">
+    <!-- start sidebar menu -->
+    <div class="sidebar-container">
+<app-sidebar></app-sidebar>
+    </div>
+    <!-- end sidebar menu -->
+    <!-- start page content -->
+    <div class="page-content-wrapper">
+      <div class="page-content">
+      <router-outlet></router-outlet>
+      </div>
+    </div>
+    <!-- end page content -->
+
+  </div>
+  <!-- end page container -->
+  <!-- start footer -->
+ <app-footer></app-footer>
+  <!-- end footer -->
+</div>

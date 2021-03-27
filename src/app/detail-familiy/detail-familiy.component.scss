@@ -1,0 +1,163 @@
+
+.checkout-step
+{
+  /*background: #e8eef1;*/
+
+
+  background: #FFF;
+  font-size: 14px;
+  padding: 15px 10px;
+  position: relative;
+}
+
+
+/*Shyam*/
+
+
+.imc-jfheader
+{
+  background:#E0F5FF;
+  padding: 15px;
+}
+
+
+
+.btn-group .form-horizontal .btn[type="submit"] {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+
+}
+.form-horizontal .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+.form-group .form-control:last-child {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+@media screen and (min-width: 768px) {
+  #adv-search {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .dropdown.dropdown-lg {
+    position: static !important;
+  }
+  .dropdown.dropdown-lg .dropdown-menu {
+    min-width: 500px;
+  }
+
+
+
+  .modal-header h4 {
+    font-size: 10px;
+    color: #ffffff;
+    width: 500px;
+  }
+
+
+
+
+
+
+
+
+
+  .pt-100{
+    padding-top:100px;
+  }
+  .pb-100{
+    padding-top:100px;
+  }
+  .mb-60 {
+    margin-bottom: 60px;
+  }
+  .section-title p {
+    font-size: 24px;
+    font-family: Oleo Script;
+    margin-bottom: 0px;
+
+  }
+  .section-title h4 {
+    font-size: 40px;
+    text-transform: capitalize;
+    color: #FF5E18;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 25px;
+  }
+  .section-title h4::before {
+    width: 80px;
+    height: 1.5px;
+    bottom: 0;
+    left: 50%;
+    margin-left: -40px;
+  }
+  .section-title h4::before, .section-title h4::after {
+    position: absolute;
+    content: "";
+    background-color: #FF5E18;
+  }
+  .single_menu_list img {
+    max-width: 30%;
+    position: absolute;
+    left: 0px;
+    top: 0;
+    border: 1px solid #b8b8b8;
+    padding: 3px;
+    border-radius: 50%;
+    transition: .4s;
+  }
+  .menu_style1 .single_menu_list img {
+    position: static;
+    width: 100%;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 45px;
+  }
+  .single_menu_list h4 {
+    font-size: 20px;
+    border-bottom: 1px dashed #1d1d1d;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+  }
+  .single_menu_list h4 span {
+    float: right;
+    font-weight: bold;
+    color: #4010ff;
+    font-style: italic;
+  }
+  p {
+    font-weight: 300;
+    font-size: 14px;
+    color: #4010ff;
+
+
+  }
+  .menu_style1 .single_menu_list {
+    text-align: center;
+  }
+  .single_menu_list:hover img {
+    border-radius: 0;
+    transition: .4s;
+  }
+
+  h4{
+    color: #595959;
+    font-weight: bold;
+  }
+
+  h5{
+    font-weight: 300;
+    font-size: 14px;
+    color: #FF5E18;
+    font-weight: bold;
+  }
+
+
+
+}
+
+
+

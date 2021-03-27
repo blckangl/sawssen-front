@@ -1,0 +1,47 @@
+.note
+{
+  text-align: center;
+  height: 80px;
+  background: -webkit-linear-gradient(to right, #b6fbff, #4010ff);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #b6fbff,#4010ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: #fff;
+  font-weight: bold;
+  line-height: 80px;
+}
+.form-content
+{
+  padding: 5%;
+  border: 1px solid #fbfbfb;
+  margin-bottom: 2%;
+  background: #fbfbfb;
+}
+.form-control{
+  border-radius:1.5rem;
+}
+.btnSubmit
+{
+  border:none;
+  border-radius:1.5rem;
+  padding: 1%;
+  width: 20%;
+  cursor: pointer;
+  background: #4010ff;
+  color: #fff;
+}
+
+.compose-editor{
+  background: #fff;
+}
+
+.pull-right {
+  font-size: 1.8rem;
+  font-family: "Quicksand", sans-serif;
+  color: #fff !important;
+
+  background-image: linear-gradient(to right, #00BCD4, #4010ff, #00BCD4);
+}
+.control-label{
+  font-weight: bold;
+  color: #505050;
+}
