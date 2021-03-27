@@ -10,6 +10,7 @@ export class AjouteClientComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log("ok");
   }
 
 }
