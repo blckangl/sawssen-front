@@ -26,6 +26,25 @@ import { DetailFamiliyComponent } from './detail-familiy/detail-familiy.componen
 import { AllClientComponent } from './all-client/all-client.component';
 import { BouttonCreateOfferComponent } from './boutton-create-offer/boutton-create-offer.component';
 import { BouttonExportComponent } from './boutton-export/boutton-export.component';
+import { OffreProvisoireComponent } from './offre-provisoire/offre-provisoire.component';
+import { OffreFinalisesComponent } from './offre-finalises/offre-finalises.component';
+import { OffreRefusesComponent } from './offre-refuses/offre-refuses.component';
+import { OffreSignesComponent } from './offre-signes/offre-signes.component';
+import { BtnFinaliserComponent } from './btn-finaliser/btn-finaliser.component';
+import { BtnRefuseOffreFinaliseComponent } from './btn-refuse-offre-finalise/btn-refuse-offre-finalise.component';
+import { BtnSigneOffreFinaliseComponent } from './btn-signe-offre-finalise/btn-signe-offre-finalise.component';
+import { SyntheseProjetParOffreComponent } from './synthese-projet-par-offre/synthese-projet-par-offre.component';
+import { TestComponent } from './test/test.component';
+import { AnnulerSingComponent } from './annuler-sing/annuler-sing.component';
+import { AddQuotationComponent } from './add-quotation/add-quotation.component';
+import { AllQuotationComponent } from './all-quotation/all-quotation.component';
+import { DemandeEtudeConsultationComponent } from './demande-etude-consultation/demande-etude-consultation.component';
+import { ExquiseFaisabiliteInterneComponent } from './exquise-faisabilite-interne/exquise-faisabilite-interne.component';
+import { QuotationMouleComponent } from './quotation-moule/quotation-moule.component';
+import { OfferMouleComponent } from './offer-moule/offer-moule.component';
+import { AjoutQuotationMouleComponent } from './ajout-quotation-moule/ajout-quotation-moule.component';
+import { AjoutOffreMouleComponent } from './ajout-offre-moule/ajout-offre-moule.component';
+import { ProjectComponent } from './project/project.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +71,26 @@ import { BouttonExportComponent } from './boutton-export/boutton-export.componen
     DetailFamiliyComponent,
     AllClientComponent,
     BouttonCreateOfferComponent,
-    BouttonExportComponent
+    BouttonExportComponent,
+    OffreProvisoireComponent,
+    OffreFinalisesComponent,
+    OffreRefusesComponent,
+    OffreSignesComponent,
+    BtnFinaliserComponent,
+    BtnRefuseOffreFinaliseComponent,
+    BtnSigneOffreFinaliseComponent,
+    SyntheseProjetParOffreComponent,
+    TestComponent,
+    AnnulerSingComponent,
+    AddQuotationComponent,
+    AllQuotationComponent,
+    DemandeEtudeConsultationComponent,
+    ExquiseFaisabiliteInterneComponent,
+    QuotationMouleComponent,
+    OfferMouleComponent,
+    AjoutQuotationMouleComponent,
+    AjoutOffreMouleComponent,
+    ProjectComponent
   ],
   imports: [
     BrowserModule,

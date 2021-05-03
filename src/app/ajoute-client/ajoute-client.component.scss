@@ -1,0 +1,45 @@
+.note
+{
+  text-align: center;
+  height: 80px;
+ background: #FFFFFF;
+  color: #2154cf;
+  font-weight: bold;
+  line-height: 80px;
+}
+.form-content
+{
+  padding: 5%;
+  border: 1px solid #fbfbfb;
+  margin-bottom: 2%;
+  background: #fbfbfb;
+}
+.form-control{
+  border-radius:1.5rem;
+}
+.btnSubmit
+{
+  border:none;
+  border-radius:1.5rem;
+  padding: 1%;
+  width: 20%;
+  cursor: pointer;
+  background: #4010ff;
+  color: #fff;
+}
+
+.compose-editor{
+  background: #fff;
+}
+
+.pull-right {
+  font-size: 1.8rem;
+  font-family: "Quicksand", sans-serif;
+  color: #fff !important;
+
+  background: #2154cf;
+}
+.control-label{
+  font-weight: bold;
+  color: #505050;
+}

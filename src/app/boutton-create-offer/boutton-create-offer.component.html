@@ -1,4 +1,6 @@
 
+
+
 <nav class="navbar navbar-default navbar-static-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -8,79 +10,206 @@
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <div class="btn-compose pull-left" style="float: left;margin-left: 0%;">
-        <ol class="breadcrumb page-breadcrumb pull-left">
-          <li><i class="fa fa-plus-circle"></i>&nbsp;<a class="parent-item">New Offer</a>&nbsp;
-          </li>
-        </ol>
 
-      </div>
-      <ul class="nav navbar-nav navbar-right" style="float: right;">
-        <li>
-          <div class="col-2 col-lg-12" >
+      <ul class="nav navbar-nav">
+
+        <div id="custom-search-input">
+          <div class="input-group col-md-12">
+            <input type="text" class="  search-query form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                                    <button class="btn btn-default " type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
 
           </div>
+        </div>
 
-        </li>
+
       </ul>
+
+
+
 
 
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="col-xs-12 ">
 
 
-  <div class="div-container">
-    <div class="div-heading">
-      <h3 class="text-left heading" style="float: left;margin-left: 2%;" >Recipient  </h3>
-
-      <a class="btn btn-square-toround btn-xl btn-bordered-primary" style="float: left;margin-left: 1%;" data-toggle="modal" data-target="#floatLabelDemo-UP" > Select a recipient<i></i><span class="glyphicon glyphicon-chevron-down"></span></a>
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
 
 
-    </div>
-    <div class="div-content">
-      <div style="border:1px solid #F0AD4E;border-left:4px solid #f0ad4e; padding:10px 16px;margin-bottom:30px;;margin-top:30px;border-radius:3px 6px 6px 3px">
-        FOR THE DESIGNING PART<hr>
-        This is just based on placeholder attribute of your input element.<br>
-        Put the <kbd>label="..."</kbd> attribute insted of placeholder if the element does not support placeholder attribute.
-      </div>
-    </div>
-  </div>
-  <!-- Lable Animate Up Modal -->
-  <div class="modal fade" id="floatLabelDemo-UP" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-          <h4 class="modal-title" id="gridSystemModalLabel">Float Label | Animate UP</h4>
-        </div>
-        <div class="modal-body">
-          <div class="container-fluid">
-            <div class="form-group float-label">
-              <label class="label-AnimateUp"></label>
-              <input type="email" class="form-control label-input" placeholder="Email">
-            </div>
-            <div class="form-group float-label">
-              <label class="label-AnimateUp"></label>
-              <input type="password" class="form-control label-input" placeholder="Password">
-            </div>
-            <div class="form-group">
-              <button type="button" class="btn btn-bordered-primary">LogIn</button>
-              <button type="button" class="btn btn-bordered-warning" data-dismiss="modal">Cancel</button>
+  <nav class="navbar navbar-default navbar-static-top">
+    <div  id="country1" class="form-group col-md-12">
+      <ul class="nav navbar-nav">
+        <li class="dropdown" >
+          <a  class="dropdown-toggle  btn-bordered-primary" data-toggle="dropdown" style="color:#428bca; ">Select a receiver <span class="glyphicon  glyphicon-folder-open pull-right"></span></a>
+          <ul class="dropdown-menu ">
+            <li  class="nav-item nav-link active" id="nav-C-tab" data-toggle="tab"   href="#nav-C" role="tab" aria-controls="nav-C" aria-selected="true" style="background-color: #eee"><a style=" font-size: 18px;">Customer<span class="glyphicon glyphicon-equalize pull-right"  style="color:#428bca" ></span></a></li>
+            <li><a style=" font-size: 18px;">Sagem </a></li>
+            <li><a  style=" font-size: 18px;">Valeo</a></li>
+            <li><a  style=" font-size: 18px;">hutchinson</a></li>
+
+
+            <li class="divider"></li>
+
+
+          </ul>
+        </li>
+
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent1">
+          <div class="tab-pane fade show active " id="nav-C" role="tabpanel" aria-labelledby="nav-C-tab">
+
+
+            <div class="card edit-parameters btn-bordered-primary"  style="background:#fff;color:#0f1113;width:100%;right: 14px">
+              <div class="card-header" style="color:#428bca">
+                <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                      <span class="concept" for="country-select2">N° Project</span>
+                    </button>
+
+                  </div>
+                  <select id="country-select2" class="form-control" >
+                    <option></option>
+                    <option>Project N°1</option>
+                    <option>Project N°2</option>
+                    <option>Project N°3</option>
+                    <option>Project N°4</option>
+                    <option>Project N°5</option>
+                    <option>Project N°6</option>
+                    <option>Project N°7</option>
+                    <option>Project N°8</option>
+                  </select>
+                </div>
+              </div>
+              <div class="card-header" style="color:#428bca">
+                <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                      <span class="concept" for="country-select" >Quotation</span>
+                    </button>
+
+                  </div>
+                  <select id="country-select" class="form-control" >
+                    <option></option>
+                    <option>Quotation N°1</option>
+                    <option>Quotation N°2</option>
+                    <option>Quotation N°3</option>
+                    <option>Quotation N°4</option>
+                    <option>Quotation N°5</option>
+                    <option>Quotation N°6</option>
+                    <option>Quotation N°7</option>
+                    <option>Quotation N°8</option>
+                  </select>
+                </div>
+              </div>
+
+
+
+              <div class="card-header" style="color:#428bca">
+              <a routerLink="/ajouted" class="btn btn-primary btn-sm  pull-right"><b>+</b> Add new offer</a>
+              </div>
+              <div class="card-body ">
+
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">N°Offre</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">N° Quotation</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" >Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr  class="danger">
+                    <th scope="row">1</th>
+                    <td>OF1</td>
+                    <td>11/03/2021</td>
+                    <td>Quote1</td>
+                    <td>Sagem</td>
+                    <td>Injection</td>
+                    <td>220$</td>
+                    <td>Refused</td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span> </a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+
+                    </td>
+                  </tr>
+                  <tr >
+                    <th scope="row">2</th>
+                    <td>OF2</td>
+                    <td>22/03/2021</td>
+                    <td>Quote2</td>
+                    <td>Sagem</td>
+                    <td>Injection</td>
+                    <td>180$</td>
+                    <td>Finalized</td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span></a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span></a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
+
+                    </td>
+
+                  </tr>
+                  <tr class="active">
+                    <th scope="row">3</th>
+                    <td>OF3</td>
+                    <td>01/04/2021</td>
+                    <td>Quote3</td>
+                    <td>Sagem</td>
+                    <td>Injection</td>
+                    <td>120$</td>
+                    <td>Provisional</td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span></a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+
+                    </td>
+                  </tr>
+                  <tr class="success">
+                    <th scope="row">4</th>
+                    <td>OF3</td>
+                    <td>01/04/2021</td>
+                    <td>Quote4</td>
+                    <td>Sagem</td>
+                    <td>Injection</td>
+                    <td>120$</td>
+                    <td>Signed</td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span> </a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+
+
+
+              </div>
             </div>
           </div>
         </div>
-        <div class="modal-footer">
-          By <kbd>V!j@Y</kbd>
-        </div>
-      </div>
+
+
+      </ul>
     </div>
-  </div>
-
-
+  </nav>
 
 </div>
+
+
+
 

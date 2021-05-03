@@ -1,56 +1,65 @@
+<body class="login-body">
 
+<div class="image_cover">
+  <img src="../../assets/img/ccc.jpg" style=" height: 100vh; width: 100%;">
+</div>
+<div class="container" >
 
-<section class="login-block">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 login-sec">
-        <h2 class="text-center">Login </h2>
-        <form class="login-form">
-          <div class="form-group">
-            <label class="text-uppercase">Username</label>
-            <input type="text" class="form-control" placeholder="">
+  <form class="form-signin" >
+    <h2 class="form-signin-heading" style="color:black;"><h4>Authentification</h4></h2>
+    <div class="login-wrap">
+      <div class="form-group">
 
-          </div>
-          <div class="form-group">
-            <label  class="text-uppercase">Password</label>
-            <input type="password" class="form-control" placeholder="">
-          </div>
-
-
-          <div class="form-check">
-            <button type="submit" class="btn btn-login float-right">Submit</button>
-          </div>
-
-        </form>
-        <div class="copy-text">Berry Group <i class="fa fa-heart"></i> by <a href="http://grafreez.com">Promens Monastir</a></div>
-      </div>
-      <div class="col-md-8 banner-sec">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner" role="listbox">
-            <div class="carousel-item active">
-              <img class="d-block img-fluid" src="../../assets/img/c1.png"  alt="First slide">
-
-                <div class="banner-text">
-                  <h2>This is Heaven</h2>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
-
-              </div>
-            </div>
-          </div>
-
+        <input type="text" formControlName="username"  style="border-color: black;border-style: double"  placeholder="Username"  class="form-control"  />
+        <div  class="invalid-feedback">
+          <div >Nom d'utilisateur est obligatoire</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+      <div class="form-group">
+        <input type="password" formControlName="password"   style="border-color: black;border-style: double" placeholder="Password"  class="form-control"  />
+        <div  class="invalid-feedback">
+          <div >Mot de passe obligatoire</div>
+        </div>
+      </div>
+      <button  class="btn " type="submit" style="background: steelblue; color :black; margin-left: 90px">Connexion</button>
 
-<!------<footer>
-  <div class="row">
-    <div class="col-xl-12 mb-60">
-      <div class="section-title text-center">
-        <p></p>
-        <h3>Welcome</h3>
+
+
+    </div>
+
+
+
+  </form>
+
+</div>
+
+
+
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Forgot Password ?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Enter your e-mail address below to reset your password.</p>
+        <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+        <button class="btn btn-success" type="button">Submit</button>
       </div>
     </div>
   </div>
-</footer>-->
+</div>
+<!-- modal -->
+
+
+
+
+</body>

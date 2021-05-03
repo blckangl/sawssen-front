@@ -20,51 +20,117 @@
           </div>
         </div>
       </li>
-      <li class="nav-item start active open">
-        <a href="#" class="nav-link nav-toggle">
-          <i class="material-icons">dashboard</i>
-          <span class="title">Home</span>
+
+
+
+      <li  data-toggle="collapse" data-target="#ligne1" > <!--  class="nav-item active" -->
+        <a > <i class="material-icons">dashboard</i>Home
+          <span class="arrow"></span>
           <span class="selected"></span>
           <span class="arrow open"></span>
         </a>
-        <ul class="sub-menu">
-          <li class="nav-item active">
-            <a href="index-2.html" class="nav-link ">
-              <span class="title">Dashboard 1</span>
-              <span class="selected"></span>
-            </a>
-          </li>
-          <li class="nav-item ">
-            <a href="dashboard2.html" class="nav-link ">
-              <span class="title">Dashboard 2</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="dashboard3.html" class="nav-link ">
-              <span class="title">Dashboard 3</span>
-            </a>
-          </li>
-        </ul>
       </li>
+      <ul class="sub-menu collapse" id="ligne1">
+        <li  ><a routerLink="/"  class="list-group-item">Dashboard 1</a></li>
+        <li><a routerLink="/"  class="list-group-item">Dashboard 2</a></li>
+        <li>  <a routerLink="/"  class="list-group-item" >Dashboard 3</a></li>
+
+      </ul>
+
+
+
+
+
+
+
       <li class="nav-item">
-        <a href="#" class="nav-link nav-toggle"> <i class="material-icons">monetization_on</i>
-          <span class="title">RFQ & Offers</span> <span class="arrow"></span>
+        <a routerLink="/project" class="nav-link nav-toggle" > <i class="material-icons">store</i>
+          <span class="title">Manage Project</span> <span class="arrow"></span>
         </a>
-        <ul class="sub-menu">
-          <li class="nav-item">
-            <a routerLink="/etude" > <span class="title">Feasibility Study</span>
-            </a>
-          </li>
-          <li class="nav-item" >
-            <a routerLink="/ajouted" > <span class="title">Add Quotation </span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/" > <span class="title">Add Offer</span>
-            </a>
-          </li>
-        </ul>
+
       </li>
+
+
+      <li  data-toggle="collapse" data-target="#ligne3">
+        <a ><i class="material-icons">local_library</i>FCOM <span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="ligne3">
+        <li ><a routerLink="/demEtudeCons"  class="list-group-item">Study request</a></li>
+
+        <li><a routerLink="/etude"  class="list-group-item">Feasibility Study</a></li>
+        <li>  <a routerLink="/exquise"  class="list-group-item" >Exquisite & Internal Feasibility</a></li>
+
+      </ul>
+
+
+      <li  data-toggle="collapse" data-target="#ligne4">
+        <a ><i class="material-icons">monetization_on</i>Manage Quotation<span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="ligne4">
+        <li ><a routerLink="/addQuotation"  class="list-group-item">Add Quotation </a></li>
+
+        <li><a routerLink="/allQuotation" class="list-group-item">All Quotation</a></li>
+
+
+      </ul>
+
+
+      <li  data-toggle="collapse" data-target="#ligne5">
+        <a ><i class="material-icons">local_atm</i>Manage Offers<span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="ligne5">
+        <li ><a routerLink="/ajouteof"   class="list-group-item">Add Offer </a></li>
+
+        <li><a  routerLink="/"  class="list-group-item">All Offer</a></li>
+
+
+      </ul>
+
+
+      <li  data-toggle="collapse" data-target="#ligne6">
+        <a ><i class="material-icons">event_seat</i>Manage Mold<span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="ligne6">
+        <li ><a routerLink="/quotMoule"   class="list-group-item">Quotation Mold</a></li>
+
+        <li><a routerLink="/offreMoule"  class="list-group-item">Offer Mold</a></li>
+
+
+      </ul>
+
+      <li class="nav-item">
+        <a routerLink="/allClient" class="nav-link nav-toggle">
+          <i class="material-icons">dvr</i>
+          <span class="title">Manage Customers</span>
+                   <span class="arrow"></span>
+        </a>
+
+      </li>
+
+      <li class="nav-item">
+        <a routerLink="/AjouteMat" class="nav-link nav-toggle">
+          <i class="material-icons">add_shopping_cart</i>
+          <span class="title">Manage Materials</span>
+          <span class="arrow"></span>
+        </a>
+      </li>
+
+
+
+      <li  data-toggle="collapse" data-target="#ligne7">
+        <a ><i class="material-icons">group</i>Manage Managers<span class="arrow"></span></a>
+      </li>
+      <ul class="sub-menu collapse" id="ligne7">
+        <li ><a routerLink="/allMa" class="list-group-item">All Managers</a></li>
+
+        <li><a routerLink="/ajouteMag"  class="list-group-item">Add Manager</a></li>
+
+
+      </ul>
+
+
+
+
       <li class="nav-item">
         <a href="widget.html" class="nav-link nav-toggle"> <i class="material-icons">widgets</i>
           <span class="title">Prospecting</span>
@@ -104,69 +170,12 @@
       </li>
 
 
-
-      <li class="nav-item">
-        <a href="#" class="nav-link nav-toggle"> <i class="material-icons">group</i>
-          <span class="title">Manage Managers</span> <span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-          <li class="nav-item">
-            <a routerLink="/allMa" > <span class="title">All
-												Managers</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/ajouteMag" > <span class="title">Add
-												Manager</span>
-            </a>
-          </li>
-
-        </ul>
-      </li>
-
-      <li class="nav-item">
-        <a routerLink="/AjouteMat" class="nav-link nav-toggle">
-          <i class="material-icons">store</i>
-          <span class="title">Manage Materials</span>
-          <span class="arrow"></span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#" class="nav-link nav-toggle">
-          <i class="material-icons">dvr</i>
-          <span class="title">Manage Customers</span>
-          <span class="label label-rouded label-menu label-warning">new</span>
-          <span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-          <li class="nav-item">
-            <a href="ui_buttons.html" class="nav-link ">
-              <span class="title">All Customers</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="ui_tabs_accordions_navs.html" class="nav-link ">
-              <span class="title">Add Customer</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="ui_typography.html" class="nav-link ">
-              <span class="title">Edit Customer</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="notification.html" class="nav-link ">
-              <span class="title">About Customer</span>
-            </a>
-          </li>
-        </ul>
-      </li>
       <li class="nav-item">
         <a href="#" class="nav-link nav-toggle">
           <i class="material-icons">email</i>
           <span class="title">Email</span>
           <span class="arrow"></span>
-          <span class="label label-rouded label-menu label-danger">new</span>
+
         </a>
         <ul class="sub-menu">
           <li class="nav-item">
@@ -211,55 +220,34 @@
         </ul>
       </li>
 
-      <li class="nav-item">
-        <a href="javascript:;" class="nav-link nav-toggle"> <i
-          class="material-icons">description</i>
-          <span class="title">Export </span>
+
+
+<!--
+  <li class="nav-item">
+        <a href="javascript:;" class="nav-link nav-toggle">
+          <i class="material-icons">timeline</i>
+          <span class="title">Statistical</span>
           <span class="arrow"></span>
         </a>
         <ul class="sub-menu">
-          <li class="nav-item  ">
-            <a href="login.html" class="nav-link "> <span class="title">Login</span>
-            </a>
-          </li>
-          <li class="nav-item  ">
-            <a href="sign_up.html" class="nav-link "> <span class="title">Sign Up</span>
-            </a>
-          </li>
-          <li class="nav-item  ">
-            <a href="forgot_password.html" class="nav-link "> <span class="title">Forgot
-												Password</span>
-            </a>
-          </li>
-          <li class="nav-item"><a href="user_profile.html" class="nav-link "><span
-            class="title">Profile</span>
-          </a>
-          </li>
           <li class="nav-item">
-            <a href="contact.html" class="nav-link "> <span class="title">Contact Us</span>
+            <a href="charts_echarts.html" class="nav-link ">
+              <span class="title">eCharts</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="lock_screen.html" class="nav-link "> <span class="title">Lock
-												Screen</span>
+            <a href="charts_morris.html" class="nav-link ">
+              <span class="title">Morris Charts</span>
             </a>
           </li>
           <li class="nav-item">
-            <a href="page-404.html" class="nav-link "> <span class="title">404 Page</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="page-500.html" class="nav-link "> <span class="title">500 Page</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="blank_page.html" class="nav-link "> <span class="title">Blank
-												Page</span>
+            <a href="charts_chartjs.html" class="nav-link ">
+              <span class="title">Chartjs</span>
             </a>
           </li>
         </ul>
       </li>
-
+-->
     </ul>
   </div>
 </div>

@@ -2,10 +2,8 @@
 {
   text-align: center;
   height: 80px;
-  background: -webkit-linear-gradient(to right, #b6fbff, #4010ff);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #b6fbff,#4010ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-  color: #fff;
+  background: #FFFFFF;
+  color: #2154cf;
   font-weight: bold;
   line-height: 80px;
 }
@@ -39,7 +37,7 @@
   font-family: "Quicksand", sans-serif;
   color: #fff !important;
 
-  background-image: linear-gradient(to right, #00BCD4, #4010ff, #00BCD4);
+  background: #2154cf;
 }
 .control-label{
   font-weight: bold;

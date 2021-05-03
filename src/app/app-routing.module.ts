@@ -20,11 +20,31 @@ import {DetailFamiliyComponent} from './detail-familiy/detail-familiy.component'
 import {AllClientComponent} from './all-client/all-client.component';
 import {BouttonCreateOfferComponent} from './boutton-create-offer/boutton-create-offer.component';
 import {BouttonExportComponent} from './boutton-export/boutton-export.component';
+import {OffreProvisoireComponent} from './offre-provisoire/offre-provisoire.component';
+import {BtnFinaliserComponent} from './btn-finaliser/btn-finaliser.component';
+import {OffreFinalisesComponent} from './offre-finalises/offre-finalises.component';
+import {BtnRefuseOffreFinaliseComponent} from './btn-refuse-offre-finalise/btn-refuse-offre-finalise.component';
+import {BtnSigneOffreFinaliseComponent} from './btn-signe-offre-finalise/btn-signe-offre-finalise.component';
+import {SyntheseProjetParOffreComponent} from './synthese-projet-par-offre/synthese-projet-par-offre.component';
+import {TestComponent} from './test/test.component';
+import {AnnulerSingComponent} from './annuler-sing/annuler-sing.component';
+import {AddQuotationComponent} from './add-quotation/add-quotation.component';
+import {AllQuotationComponent} from './all-quotation/all-quotation.component';
+import {DemandeEtudeConsultationComponent} from './demande-etude-consultation/demande-etude-consultation.component';
+import {ExquiseFaisabiliteInterneComponent} from './exquise-faisabilite-interne/exquise-faisabilite-interne.component';
+import {QuotationMouleComponent} from './quotation-moule/quotation-moule.component';
+import {OfferMouleComponent} from './offer-moule/offer-moule.component';
+import {AjoutQuotationMouleComponent} from './ajout-quotation-moule/ajout-quotation-moule.component';
+import {AjoutOffreMouleComponent} from './ajout-offre-moule/ajout-offre-moule.component';
+import {OffreRefusesComponent} from './offre-refuses/offre-refuses.component';
+import {ProjectComponent} from './project/project.component';
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, children: [
       {path: 'ajouted', component: AjouteDevisComponent},
+      {path: 'addQuotation', component: AddQuotationComponent},
+      {path: 'allQuotation', component: AllQuotationComponent},
       {path: 'ajouteof', component: AjouteOffreComponent},
       {path: 'etude', component: EtudeFaiComponent},
       {path: 'manager', component: ManagerComponent},
@@ -40,8 +60,24 @@ const routes: Routes = [
       {path: 'detailFam', component: DetailFamiliyComponent},
       {path: 'allClient', component: AllClientComponent},
       {path: 'createOf', component: BouttonCreateOfferComponent},
-      {path: 'exportOf', component: BouttonExportComponent}]},
+      {path: 'exportOf', component: BouttonExportComponent},
+      {path: 'provisoireOf', component: OffreProvisoireComponent},
+      {path: 'finaOf', component: OffreFinalisesComponent} ,
+      {path: 'refuseOf', component: OffreRefusesComponent} ,
+      {path: 'SynteseOf', component: SyntheseProjetParOffreComponent},
+      {path: 'test', component: TestComponent},
+      {path: 'demEtudeCons', component: DemandeEtudeConsultationComponent},
+      {path: 'exquise', component: ExquiseFaisabiliteInterneComponent},
+      {path: 'quotMoule', component: QuotationMouleComponent},
+      {path: 'offreMoule', component: OfferMouleComponent},
+      {path: 'ajoutQuotMoule', component: AjoutQuotationMouleComponent},
+      {path: 'ajoutOfferMoule', component: AjoutOffreMouleComponent},
+      {path: 'project', component: ProjectComponent}  ]},
       {path: 'login', component: LoginComponent},
+      {path: 'btnFina', component: BtnFinaliserComponent},
+      {path: 'btnRefuseFina', component: BtnRefuseOffreFinaliseComponent},
+      {path: 'btnSignFina', component: BtnSigneOffreFinaliseComponent},
+      {path: 'annulerSign', component: AnnulerSingComponent}
 ];
 
 @NgModule({
