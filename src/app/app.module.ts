@@ -45,6 +45,8 @@ import { OfferMouleComponent } from './offer-moule/offer-moule.component';
 import { AjoutQuotationMouleComponent } from './ajout-quotation-moule/ajout-quotation-moule.component';
 import { AjoutOffreMouleComponent } from './ajout-offre-moule/ajout-offre-moule.component';
 import { ProjectComponent } from './project/project.component';
+import { AcceuilComponent } from './acceuil/acceuil.component';
+import { AddProjectComponent } from './add-project/add-project.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +92,9 @@ import { ProjectComponent } from './project/project.component';
     OfferMouleComponent,
     AjoutQuotationMouleComponent,
     AjoutOffreMouleComponent,
-    ProjectComponent
+    ProjectComponent,
+    AcceuilComponent,
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,

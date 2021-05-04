@@ -38,6 +38,8 @@ import {AjoutQuotationMouleComponent} from './ajout-quotation-moule/ajout-quotat
 import {AjoutOffreMouleComponent} from './ajout-offre-moule/ajout-offre-moule.component';
 import {OffreRefusesComponent} from './offre-refuses/offre-refuses.component';
 import {ProjectComponent} from './project/project.component';
+import {AcceuilComponent} from './acceuil/acceuil.component';
+import {AddProjectComponent} from './add-project/add-project.component';
 
 
 const routes: Routes = [
@@ -72,7 +74,9 @@ const routes: Routes = [
       {path: 'offreMoule', component: OfferMouleComponent},
       {path: 'ajoutQuotMoule', component: AjoutQuotationMouleComponent},
       {path: 'ajoutOfferMoule', component: AjoutOffreMouleComponent},
-      {path: 'project', component: ProjectComponent}  ]},
+      {path: 'project', component: ProjectComponent} ,
+      {path: 'acceuil', component: AcceuilComponent},
+      {path: 'addProject', component: AddProjectComponent} ]},
       {path: 'login', component: LoginComponent},
       {path: 'btnFina', component: BtnFinaliserComponent},
       {path: 'btnRefuseFina', component: BtnRefuseOffreFinaliseComponent},
