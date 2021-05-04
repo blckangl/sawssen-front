@@ -1,0 +1,201 @@
+
+
+
+<nav class="navbar navbar-default navbar-static-top">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav">
+
+        <div id="custom-search-input">
+          <div class="input-group col-md-12">
+            <input type="text" class="  search-query form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                                    <button class="btn btn-default " type="button">
+                                        <span class=" glyphicon glyphicon-search"></span>
+                                    </button>
+                                </span>
+
+          </div>
+        </div>
+
+
+      </ul>
+
+
+
+
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+
+
+  <nav class="navbar navbar-default navbar-static-top">
+    <div  id="country1" class="form-group col-md-12">
+
+
+
+        <div class="tab-content py-3 px-3 px-sm-0" >
+
+
+            <div class="card edit-parameters btn-bordered-primary"  style="background:#fff;color:#0f1113;width:100%;right: 14px">
+              <div class="card-header" style="color:#428bca">
+                <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                      <span class="concept" for="country-select2">N° Project</span>
+                    </button>
+
+                  </div>
+                  <select id="country-select2" class="form-control" >
+                    <option></option>
+                    <option>Project N°1</option>
+                    <option>Project N°2</option>
+                    <option>Project N°3</option>
+                    <option>Project N°4</option>
+                    <option>Project N°5</option>
+                    <option>Project N°6</option>
+                    <option>Project N°7</option>
+                    <option>Project N°8</option>
+                  </select>
+                </div>
+              </div>
+              <div class="card-header" style="color:#428bca">
+                <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                      <span class="concept" for="country-select" >Quotation</span>
+                    </button>
+
+                  </div>
+                  <select id="country-select" class="form-control" >
+                    <option></option>
+                    <option>Quotation N°1</option>
+                    <option>Quotation N°2</option>
+                    <option>Quotation N°3</option>
+                    <option>Quotation N°4</option>
+                    <option>Quotation N°5</option>
+                    <option>Quotation N°6</option>
+                    <option>Quotation N°7</option>
+                    <option>Quotation N°8</option>
+                  </select>
+                </div>
+              </div>
+
+
+
+              <div class="card-header" style="color:#428bca">
+                <a routerLink="/ajoutOfferMoule" class="btn btn-primary btn-sm  pull-right"><b>+</b> Add new offer</a>
+              </div>
+              <div class="card-body ">
+
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">N°Offre</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">N° Quotation</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" >Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr  class="danger">
+                    <th scope="row">1</th>
+                    <td>OF1</td>
+                    <td>11/03/2021</td>
+                    <td>Quote1</td>
+                    <td>Sagem</td>
+                    <td>Injection</td>
+                    <td>220$</td>
+                    <td>Refused</td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span> </a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+
+                    </td>
+                  </tr>
+                  <tr >
+                    <th scope="row">2</th>
+                    <td>OF2</td>
+                    <td>22/03/2021</td>
+                    <td>Quote2</td>
+                    <td>Sagem</td>
+                    <td>Injection</td>
+                    <td>180$</td>
+                    <td>Finalized</td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span></a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span></a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
+
+                    </td>
+
+                  </tr>
+                  <tr class="active">
+                    <th scope="row">3</th>
+                    <td>OF3</td>
+                    <td>01/04/2021</td>
+                    <td>Quote3</td>
+                    <td>Sagem</td>
+                    <td>Injection</td>
+                    <td>120$</td>
+                    <td>Provisional</td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span></a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+
+                    </td>
+                  </tr>
+                  <tr class="success">
+                    <th scope="row">4</th>
+                    <td>OF3</td>
+                    <td>01/04/2021</td>
+                    <td>Quote4</td>
+                    <td>Sagem</td>
+                    <td>Injection</td>
+                    <td>120$</td>
+                    <td>Signed</td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span> </a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+
+
+
+              </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+  </nav>
+
+</div>
+
+
+
+
