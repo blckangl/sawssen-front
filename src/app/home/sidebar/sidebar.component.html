@@ -64,7 +64,7 @@
 
 
       <li  data-toggle="collapse" data-target="#ligne4">
-        <a ><i class="material-icons">monetization_on</i>Manage Quotation<span class="arrow"></span></a>
+        <a ><i class="material-icons" *ngIf="isadmin()">monetization_on</i>Manage Quotation<span class="arrow"></span></a>
       </li>
       <ul class="sub-menu collapse" id="ligne4">
         <li ><a routerLink="/addQuotation"  class="list-group-item">Add Quotation </a></li>
