@@ -40,6 +40,9 @@ import {OffreRefusesComponent} from './offre-refuses/offre-refuses.component';
 import {ProjectComponent} from './project/project.component';
 import {AcceuilComponent} from './acceuil/acceuil.component';
 import {AddProjectComponent} from './add-project/add-project.component';
+import {OffreSignesComponent} from './offre-signes/offre-signes.component';
+import {DevisEssaiComponent} from './devis-essai/devis-essai.component';
+import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
 
 
 const routes: Routes = [
@@ -65,6 +68,7 @@ const routes: Routes = [
       {path: 'exportOf', component: BouttonExportComponent},
       {path: 'provisoireOf', component: OffreProvisoireComponent},
       {path: 'finaOf', component: OffreFinalisesComponent} ,
+      {path: 'signOf', component: OffreSignesComponent},
       {path: 'refuseOf', component: OffreRefusesComponent} ,
       {path: 'SynteseOf', component: SyntheseProjetParOffreComponent},
       {path: 'test', component: TestComponent},
@@ -76,7 +80,9 @@ const routes: Routes = [
       {path: 'ajoutOfferMoule', component: AjoutOffreMouleComponent},
       {path: 'project', component: ProjectComponent} ,
       {path: 'acceuil', component: AcceuilComponent},
-      {path: 'addProject', component: AddProjectComponent} ]},
+      {path: 'addProject', component: AddProjectComponent},
+      {path: 'devisEssai', component: DevisEssaiComponent},
+      {path: 'offreEssai', component: OffreEssaiComponent} ]},
       {path: 'login', component: LoginComponent},
       {path: 'btnFina', component: BtnFinaliserComponent},
       {path: 'btnRefuseFina', component: BtnRefuseOffreFinaliseComponent},

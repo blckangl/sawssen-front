@@ -47,6 +47,8 @@ import { AjoutOffreMouleComponent } from './ajout-offre-moule/ajout-offre-moule.
 import { ProjectComponent } from './project/project.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { AddProjectComponent } from './add-project/add-project.component';
+import { DevisEssaiComponent } from './devis-essai/devis-essai.component';
+import { OffreEssaiComponent } from './offre-essai/offre-essai.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +96,9 @@ import { AddProjectComponent } from './add-project/add-project.component';
     AjoutOffreMouleComponent,
     ProjectComponent,
     AcceuilComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    DevisEssaiComponent,
+    OffreEssaiComponent
   ],
   imports: [
     BrowserModule,
