@@ -1,51 +1,68 @@
+<body class="login-body">
 
-<link rel="stylesheet" href="../../assets/css/pages/extra_pages.css">
-<!-- favicon -->
+<div class="image_cover">
+<!--
+  /*<img src="../../assets/img/ccc.jpg" style=" height: 100vh; width: 100%;">
+-->
+</div>
+<div class="container" >
+
+  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <h2 class="form-signin-heading" style="color:black;"><h4>Authentification</h4></h2>
+    <div class="login-wrap">
+      <div class="form-group">
+
+        <input type="text"   style="border-color: black;border-style: double"  placeholder="Username"  class="form-control"   formControlName="username" [ngClass]="{'is-invalid': submit && f.username.errors}">
+        <div *ngIf="submit && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors?.required"> Nom d'utilisateur est obligatoire</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="password"    style="border-color: black;border-style: double" placeholder="Password"  class="form-control"  formControlName="password" [ngClass]="{'is-invalid': submit && f.password.errors}">
+        <div *ngIf="submit && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors?.required"> Mot de passe obligatoire</div>
+        </div>
+
+      </div>
+      <button  class="btn " type="submit" style="background: steelblue; color :black; margin-left: 90px">Connexion</button>
 
 
-<div class="limiter">
-  <div class="container-login100 page-background" >
-    <div class="wrap-login100">
-      <form class="login100-form validate-form">
 
-        <img alt="" src="../../assets/img/main-logo.png">
+    </div>
 
-        <span class="login100-form-title p-b-34 p-t-27">
-						Log in
-					</span>
-        <div class="wrap-input100 validate-input" data-validate="Enter username">
-          <input class="input100" type="text" name="username" placeholder="Username">
-          <span class="focus-input100" data-placeholder="&#xf207;"></span>
-        </div>
-        <div class="wrap-input100 validate-input" data-validate="Enter password">
-          <input class="input100" type="password" name="pass" placeholder="Password">
-          <span class="focus-input100" data-placeholder="&#xf191;"></span>
-        </div>
-        <div class="contact100-form-checkbox">
-          <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-          <label class="label-checkbox100" for="ckb1">
-            Remember me
-          </label>
-        </div>
-        <div class="container-login100-form-btn">
-          <button class="login100-form-btn">
-            Login
-          </button>
-        </div>
-        <div class="text-center p-t-30">
-          <a class="txt1" >
-            Forgot Password?
-          </a>
-        </div>
-      </form>
+
+
+  </form>
+
+</div>
+
+
+
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Forgot Password ?</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Enter your e-mail address below to reset your password.</p>
+        <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+        <button class="btn btn-success" type="button">Submit</button>
+      </div>
     </div>
   </div>
 </div>
-
-<!-- start js include path -->
-<script src="../../assets/plugins/jquery/jquery.min.js"></script>
-<!-- bootstrap -->
-<script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="../../assets/js/pages/extra-pages/pages.js"></script>
+<!-- modal -->
 
 
+
+
+</body>

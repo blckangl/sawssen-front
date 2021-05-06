@@ -47,8 +47,8 @@ import { AjoutOffreMouleComponent } from './ajout-offre-moule/ajout-offre-moule.
 import { ProjectComponent } from './project/project.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { AddProjectComponent } from './add-project/add-project.component';
-import { DevisEssaiComponent } from './devis-essai/devis-essai.component';
-import { OffreEssaiComponent } from './offre-essai/offre-essai.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -96,13 +96,14 @@ import { OffreEssaiComponent } from './offre-essai/offre-essai.component';
     AjoutOffreMouleComponent,
     ProjectComponent,
     AcceuilComponent,
-    AddProjectComponent,
-    DevisEssaiComponent,
-    OffreEssaiComponent
+    AddProjectComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
