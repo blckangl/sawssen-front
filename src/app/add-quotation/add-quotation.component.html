@@ -1,39 +1,21 @@
 
-
-
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-
+    <div class="input-group">
+      <div class="input-group-btn search-panel">
+        <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
+          <span id="search_concept">Filter by</span> <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu">
+          <li><a >Month</a></li>
+          <li><a >Year</a></li>
+        </ul>
+      </div>
+      <input type="hidden" name="search_param" value="all" id="search_param">
+      <input type="text" class="form-control" name="x" placeholder="Search ...">
+      <span class="input-group-btn">
+                    <button class="btn " type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
     </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <ul class="nav navbar-nav">
-
-        <div id="custom-search-input">
-          <div class="input-group col-md-12">
-            <input type="text" class="  search-query form-control" placeholder="Search" />
-            <span class="input-group-btn">
-                                    <button class="btn btn-default " type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-
-          </div>
-        </div>
-
-
-      </ul>
-
-
-
-
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
 </nav>
 
 

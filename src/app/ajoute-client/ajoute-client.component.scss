@@ -21,10 +21,10 @@
 {
   border:none;
   border-radius:1.5rem;
-  padding: 1%;
-  width: 20%;
+  padding: 0.75%;
+  width: 10%;
   cursor: pointer;
-  background: #4010ff;
+  background:  #2154cf;
   color: #fff;
 }
 
@@ -42,4 +42,10 @@
 .control-label{
   font-weight: bold;
   color: #505050;
+}
+
+.btn-compose {
+  padding-right:100px;
+  border-right:1.5px solid #E3E3E3;
+
 }

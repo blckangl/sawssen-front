@@ -2,10 +2,10 @@
  *  Document   : plugins.css
  *  Author     : RedStar Theme
  *  Description: stylesheet for third  party plugin customizations
- 
- 
+
+
  				STRUCTURE
- 				
+
  				1. Bootstrap DatePicker
  				2. Bootstrap Daterangepicker
  				3. Bootstrap  Datetimepicker
@@ -24,8 +24,8 @@
 				16. Select2
 				17. iCheck
 				18. Color Picker
- 				
- 				
+
+
  */
 /**********************************
 		1. Bootstrap DatePicker
@@ -288,6 +288,7 @@
 .modal-open.page-overflow .page-container .navbar-fixed-bottom,
 .modal-open.page-overflow .page-container .navbar-fixed-top {
     overflow-y: auto !important
+
 }
 
 .modal-scrollable {

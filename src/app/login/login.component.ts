@@ -39,13 +39,15 @@ export class LoginComponent implements OnInit {
   onLogin() {
     console.log('username', this.loginForm.value.username);
     console.log('password', this.loginForm.value.password);
-    this.authService.login(this.loginForm.value.username, this.loginForm.value.password).subscribe(rep => {
+    console.log('data', this.loginForm.value);
+
+    this.authService.login(this.loginForm.value).subscribe(rep => {
 console.log('username', this.loginForm.value.username);
 console.log('password', this.loginForm.value.password);
 
 const jwt = rep.headers.get('Authorization');
 this.authService.saveToken(jwt);
-this.router.navigateByUrl('/home');
+this.router.navigateByUrl('');
     }, error1 => {
 
 

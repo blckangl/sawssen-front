@@ -23,27 +23,17 @@
 
 
 
-      <li  data-toggle="collapse" data-target="#ligne1" > <!--  class="nav-item active" -->
-        <a > <i class="material-icons">dashboard</i>Home
+     <!-- <li  data-toggle="collapse" data-target="#ligne1" *ngIf="isCommercial()||isDirecteur()||isTechnicien()"> &lt;!&ndash;  class="nav-item active" &ndash;&gt;
+        <a> <i class="material-icons">dashboard</i>Home
           <span class="arrow"></span>
           <span class="selected"></span>
           <span class="arrow open"></span>
         </a>
-      </li>
-      <ul class="sub-menu collapse" id="ligne1">
-        <li  ><a routerLink="/"  class="list-group-item">Dashboard 1</a></li>
-        <li><a routerLink="/"  class="list-group-item">Dashboard 2</a></li>
-        <li>  <a routerLink="/"  class="list-group-item" >Dashboard 3</a></li>
-
-      </ul>
+      </li>-->
 
 
 
-
-
-
-
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isAssistanteCommercial()||isDirecteur()||isCommercial()||isTechnicien() ">
         <a routerLink="/project" class="nav-link nav-toggle" > <i class="material-icons">store</i>
           <span class="title">Commercial Piloting</span> <span class="arrow"></span>
         </a>
@@ -51,7 +41,33 @@
       </li>
 
 
-      <li  data-toggle="collapse" data-target="#ligne3">
+      <li class="nav-item" *ngIf="isTechnicien()||isDirecteur()||isCommercial()">
+              <a href="javascript:;" class="nav-link nav-toggle">
+                <i class="material-icons">local_library</i>
+                <span class="title">FCOM </span>
+                <span class="arrow"></span>
+              </a>
+              <ul class="sub-menu">
+                <li class="nav-item">
+                  <a routerLink="/demEtudeCons"  class="nav-link ">
+                    <span class="title">Study request</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/etude"  class="nav-link ">
+                    <span class="title">Feasibility Study</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a a routerLink="/exquise" class="nav-link ">
+                    <span class="title">Exquisite & Internal Feasibility</span>
+                  </a>
+                </li>
+              </ul>
+            </li>
+
+
+    <!--  <li  data-toggle="collapse" data-target="#ligne3" *ngIf="isTechnicien()||isDirecteur()||isCommercial()">
         <a ><i class="material-icons">local_library</i>FCOM <span class="arrow"></span></a>
       </li>
       <ul class="sub-menu collapse" id="ligne3">
@@ -61,44 +77,64 @@
         <li>  <a routerLink="/exquise"  class="list-group-item" >Exquisite & Internal Feasibility</a></li>
 
       </ul>
+-->
 
+      <li class="nav-item" *ngIf="isTechnicien()||isCommercial()||isDirecteur()  ">
+        <a routerLink="/addQuotation"  class="nav-link nav-toggle"><i class="material-icons">monetization_on</i>
+          <span class="title">Manage Quotation </span><span class="arrow"></span>
+        </a>
 
-      <li  data-toggle="collapse" data-target="#ligne4">
-        <a ><i class="material-icons" *ngIf="isadmin()">monetization_on</i>Manage Quotation<span class="arrow"></span></a>
       </li>
-      <ul class="sub-menu collapse" id="ligne4">
-        <li ><a routerLink="/addQuotation"  class="list-group-item">Add Quotation </a></li>
 
-        <li><a routerLink="/allQuotation" class="list-group-item">All Quotation</a></li>
+      <li class="nav-item" *ngIf="isTechnicien()||isDirecteur()||isCommercial()  " >
+        <a routerLink="/ajouteof"  class="nav-link nav-toggle"><i class="material-icons">local_atm</i>
+          <span class="title">Manage Offers </span><span class="arrow"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="isTechnicien() ||isCommercial()||isDirecteur()">
+        <a href="javascript:;" class="nav-link nav-toggle">
+          <i class="material-icons">event_seat</i>
+          <span class="title">Manage Mold </span>
+          <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+          <li class="nav-item">
+            <a routerLink="/quotMoule"   class="nav-link ">
+              <span class="title">Quotation Mold </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a  routerLink="/offreMoule"  class="nav-link ">
+              <span class="title">Offer Mold</span>
+            </a>
+          </li>
+        </ul>
+      </li>
 
 
+      <li class="nav-item" *ngIf="isAutresResponsables()||isDirecteur()||isCommercial()||isTechnicien() ">
+        <a  class="nav-link nav-toggle"> <i class="material-icons">widgets</i>
+          <span class="title">Manage Trial</span>
+        </a>
+
+      <ul class="sub-menu">
+        <li class="nav-item">
+          <a routerLink="/devisEssai"   class="nav-link ">
+            <span class="title">Trial Quote</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/offreEssai"   class="nav-link ">
+            <span class="title">Trial Offer </span>
+          </a>
+        </li>
       </ul>
 
-
-      <li  data-toggle="collapse" data-target="#ligne5">
-        <a ><i class="material-icons">local_atm</i>Manage Offers<span class="arrow"></span></a>
       </li>
-      <ul class="sub-menu collapse" id="ligne5">
-        <li ><a routerLink="/ajouteof"   class="list-group-item">Add Offer </a></li>
-
-        <li><a  routerLink="/"  class="list-group-item">All Offer</a></li>
 
 
-      </ul>
-
-
-      <li  data-toggle="collapse" data-target="#ligne6">
-        <a ><i class="material-icons">event_seat</i>Manage Mold<span class="arrow"></span></a>
-      </li>
-      <ul class="sub-menu collapse" id="ligne6">
-        <li ><a routerLink="/quotMoule"   class="list-group-item">Quotation Mold</a></li>
-
-        <li><a routerLink="/offreMoule"  class="list-group-item">Offer Mold</a></li>
-
-
-      </ul>
-
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isDirecteur()||isCommercial()||isAssistanteCommercial()||isTechnicien()">
         <a routerLink="/allClient" class="nav-link nav-toggle">
           <i class="material-icons">dvr</i>
           <span class="title">Manage Customers</span>
@@ -107,7 +143,7 @@
 
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isresponsableachat()||isTechnicien()||isDirecteur()||isCommercial()">
         <a routerLink="/AjouteMat" class="nav-link nav-toggle">
           <i class="material-icons">add_shopping_cart</i>
           <span class="title">Manage Materials</span>
@@ -117,115 +153,43 @@
 
 
 
-      <li  data-toggle="collapse" data-target="#ligne7">
-        <a ><i class="material-icons">group</i>Manage Managers<span class="arrow"></span></a>
-      </li>
-      <ul class="sub-menu collapse" id="ligne7">
-        <li ><a routerLink="/allMa" class="list-group-item">All Managers</a></li>
-
-        <li><a routerLink="/ajouteMag"  class="list-group-item">Add Manager</a></li>
-
-
-      </ul>
-
-
-      <li class="nav-item">
-        <a href="widget.html" class="nav-link nav-toggle"> <i class="material-icons">widgets</i>
-          <span class="title">Manage Trial</span>
+      <li class="nav-item" *ngIf="isDirecteur()">
+        <a routerLink="/allMa" class="nav-link nav-toggle">
+          <i class="material-icons">group</i>
+          <span class="title">Manage Managers</span>
+          <span class="arrow"></span>
         </a>
+
       </li>
 
-      <li class="nav-item">
+
+      <li class="nav-item" *ngIf=" isDirecteur()||isCommercial()||isTechnicien() ">
         <a href="widget.html" class="nav-link nav-toggle"> <i class="material-icons">widgets</i>
           <span class="title">Prospecting</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isDirecteur() ">
         <a href="#" class="nav-link nav-toggle"> <i class="material-icons">business</i>
           <span class="title">Traceability</span> <span class="arrow"></span>
         </a>
-        <ul class="sub-menu">
-          <li class="nav-item">
-            <a href="all_department.html" class="nav-link "> <span class="title">All
-												Departments</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="add_department.html" class="nav-link "> <span class="title">Add
-												Department</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="add_department_bootstrap.html" class="nav-link "> <span
-              class="title">Add Department Bootstrap</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="edit_department.html" class="nav-link "> <span class="title">Edit
-												Department</span>
-            </a>
-          </li>
-        </ul>
+
       </li>
 
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isDirecteur()||isTechnicien()||isCommercial()||isAssistanteCommercial() ">
         <a href="javascript:;" class="nav-link nav-toggle">
           <i class="material-icons">timeline</i>
           <span class="title">Statistical</span>
           <span class="arrow"></span>
         </a>
-        <ul class="sub-menu">
-          <li class="nav-item">
-            <a href="charts_echarts.html" class="nav-link ">
-              <span class="title">eCharts</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="charts_morris.html" class="nav-link ">
-              <span class="title">Morris Charts</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="charts_chartjs.html" class="nav-link ">
-              <span class="title">Chartjs</span>
-            </a>
-          </li>
-        </ul>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isDirecteur() ||isCommercial()||isTechnicien()||isresponsableachat()||isAssistanteCommercial()||isAutresResponsables()">
         <a href="event.html" class="nav-link nav-toggle"> <i class="material-icons">event</i>
           <span class="title">Action Plans & KPI's</span>
         </a>
       </li>
 
-<!--
-  <li class="nav-item">
-        <a href="javascript:;" class="nav-link nav-toggle">
-          <i class="material-icons">timeline</i>
-          <span class="title">Statistical</span>
-          <span class="arrow"></span>
-        </a>
-        <ul class="sub-menu">
-          <li class="nav-item">
-            <a href="charts_echarts.html" class="nav-link ">
-              <span class="title">eCharts</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="charts_morris.html" class="nav-link ">
-              <span class="title">Morris Charts</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="charts_chartjs.html" class="nav-link ">
-              <span class="title">Chartjs</span>
-            </a>
-          </li>
-        </ul>
-      </li>
--->
     </ul>
   </div>
 </div>

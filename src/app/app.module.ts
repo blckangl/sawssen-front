@@ -49,6 +49,8 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { AddProjectComponent } from './add-project/add-project.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {DevisEssaiComponent} from './devis-essai/devis-essai.component';
+import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +98,9 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     AjoutOffreMouleComponent,
     ProjectComponent,
     AcceuilComponent,
-    AddProjectComponent
+    AddProjectComponent,
+    DevisEssaiComponent,
+    OffreEssaiComponent
   ],
   imports: [
     BrowserModule,

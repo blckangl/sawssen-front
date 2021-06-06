@@ -1,40 +1,24 @@
 
 
-
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <ul class="nav navbar-nav">
-
-        <div id="custom-search-input">
-          <div class="input-group col-md-12">
-            <input type="text" class="  search-query form-control" placeholder="Search" />
-            <span class="input-group-btn">
-                                    <button class="btn btn-default " type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-
-          </div>
-        </div>
-
-
+  <div class="input-group">
+    <div class="input-group-btn search-panel">
+      <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
+        <span id="search_concept">Filter by</span> <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a >Month</a></li>
+        <li><a >Year</a></li>
       </ul>
-
-
-
-
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+    <input type="hidden" name="search_param" value="all" id="search_param">
+    <input type="text" class="form-control" name="x" placeholder="Search ...">
+    <span class="input-group-btn">
+                    <button class="btn " type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+  </div>
 </nav>
+
 
 
 <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
@@ -82,11 +66,41 @@
             </select>
           </div>
         </div>
+        <div class="card-header" style="color:#428bca">
+          <div class="form-group multiple-form-group input-group">
+            <div class="input-group-btn input-group-select">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                <span class="concept" for="country-select" >Select N° Quotation</span>
+              </button>
 
+            </div>
+            <select id="country-select1" class="form-control" >
+              <option></option>
+              <option>Quotation N°1</option>
+              <option>Quotation N°2</option>
 
+            </select>
+          </div>
+        </div>
+        <div class="card-header" style="color:#428bca">
+          <div class="form-group multiple-form-group input-group">
+            <div class="input-group-btn input-group-select">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                <span class="concept" for="country-select" >Select N° Price </span>
+              </button>
+
+            </div>
+            <select id="country-select7" class="form-control" >
+              <option></option>
+              <option>Quotation N°1</option>
+              <option>Quotation N°2</option>
+
+            </select>
+          </div>
+        </div>
 
         <div class="card-header" style="color:#428bca">
-          <a routerLink="/ajoutQuotMoule" class="btn btn-primary btn-sm  pull-right"><b>+</b> Add new quotation moule</a>
+          <a routerLink="/ajoutQuotMoule" class="btn btn-primary btn-sm  pull-right"><b>+</b> Add new quotation mold</a>
         </div>
         <div class="card-body ">
 
@@ -94,7 +108,7 @@
             <thead>
             <tr>
               <th scope="col">Id</th>
-              <th scope="col">N° Quotation</th>
+              <th scope="col">N° Quotation Mold</th>
               <th scope="col">Date</th>
               <th scope="col">Customer</th>
               <th scope="col">Project</th>

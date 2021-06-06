@@ -13,8 +13,28 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit() {
   }
-  isadmin() {
-    return this.authService.isAdmin();
+  isCommercial() {
+    return this.authService.isCommercial();
+  }
+  isTechnicien() {
+    return this.authService.isTechnicien();
+  }
+  isresponsableachat() {
+    return this.authService. isresponsableachat();
+  }
+  isDirecteur() {
+    return this.authService. isDirecteur();
+  }
+  isAssistanteCommercial() {
+    return this.authService. isAssistanteCommercial();
+  }
+
+  isAutresResponsables() {
+    return this.authService. isAutresResponsables();
+  }
+
+  isDirection() {
+    return this.authService. isDirection();
   }
 
 }

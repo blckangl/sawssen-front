@@ -2,10 +2,10 @@
  *  Document   : material_style.css
  *  Author     : RedStar Theme
  *  Description: This style sheet is used for customize material design components.
- 
- 
+
+
  				[Table Of Content]
- 				
+
  				1. MENU
  				2. TABLE
  				3. BADGES
@@ -132,6 +132,7 @@
 }
 .page-header.navbar .page-logo{
 	line-height: 1.7 !important;
+
 }
 .txt-full-width {
     width: 100% !important;

@@ -1060,7 +1060,7 @@
     	width: 100%;
     }
 }
-@media (max-width:455px){	
+@media (max-width:455px){
 	.res-email-btn{
 		padding-left: 40px;
 	}

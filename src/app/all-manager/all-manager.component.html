@@ -1,37 +1,94 @@
 
-  <div class="col-md-12">
 
-              <div class="tab-content">
+
+
+<nav class="navbar navbar-default navbar-static-top">
+
+
+  <div class="collapse navbar-collapse" >
+    <div class="btn-compose pull-left" style="float: left;margin-left: 0%;">
+
+      <h3>
+        Managers List</h3>
+
+
+    </div>
+    <ul class="nav navbar-nav">
+      <li>
+        <div class="col-2 col-lg-12" >
+          <form class="navbar-form navbar-left" method="GET" role="search">
+            <div class="form-group">
+
+              <input type="text" name="q" class="form-control" placeholder="Search">
+
+            </div>
+            <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+          </form>
+        </div>
+
+      </li>
+    </ul>
+
+
+
+    <ul class="nav navbar-nav navbar-right" style="float: right;margin-right: 1%;">
+      <a class="btn btn-lg btn-h btn-outline dropdown-toggle pull-right"  data-toggle="dropdown" ><i class="fa fa-chain-broken"></i> <i></i><span>Tools</span>  <i></i> <i class="fa fa-angle-down"></i></a>
+
+      <ul class="dropdown-menu pull-right">
+        <li>
+          <a href="javascript:;">
+            <i class="fa fa-print"></i> Print </a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            <i class="fa fa-file-pdf-o"></i> Save as
+            PDF </a>
+        </li>
+        <li>
+          <a href="javascript:;">
+            <i class="fa fa-file-excel-o"></i>
+            Export to Excel </a>
+        </li>
+      </ul>
+    </ul>
+
+
+
+
+    <ul class="nav navbar-nav navbar-right" style="float: right;margin-right: 1%;">
+      <a class="btn btn-lg btn-primary" routerLink="/ajouteMag" ><i class="fa fa-user-circle"></i>
+        Add New <i class="fa fa-plus"></i>
+      </a>
+
+    </ul>
+
+  </div>
+
+</nav>
+<br>
+
+
+
+
+<div class="tab-content">
                 <div class="tab-pane active fontawesome-demo" id="tab1">
                   <div class="row">
                     <div class="col-md-12">
-                      <div class="card card-topline-yellow">
-                        <div class="card-head">
-                          <header>
-                            <h1> Managers List</h1>
-                          </header>
-                          <div class="tools">
-                            <a class="fa fa-repeat btn-color box-refresh"
-                               href="javascript:;"></a>
-                            <a class="t-collapse btn-color fa fa-chevron-down"
-                               href="javascript:;"></a>
-                            <a class="t-close btn-color fa fa-times"
-                               href="javascript:;"></a>
-                          </div>
-                        </div>
-                        <div class="card-body ">
-                          <div class="row">
+
+
+
+                         <!-- <div class="row">
                             <div class="col-md-6 col-sm-6 col-6">
                               <div class="btn-group">
                                 <a routerLink="/ajouteMag" id="addRow"
-                                   class="btn btn-info">  <i class="fa fa-user-circle"></i>
+                                   class="btn " style="background: #e77808;color: #FFFFFF ">  <i class="fa fa-user-circle"></i>
                                   Add New <i class="fa fa-plus"></i>
                                 </a>
                               </div>
                             </div>
                             <div class="col-md-6 col-sm-6 col-6">
                               <div class="btn-group pull-right">
-                                <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                                <a class="btn   btn-outline dropdown-toggle" style="background: #2154cf ; color: #FFFFFF"
                                    data-toggle="dropdown">Tools
                                   <i class="fa fa-angle-down"></i>
                                 </a>
@@ -53,21 +110,21 @@
                                 </ul>
                               </div>
                             </div>
-                          </div>
+                          </div>-->
                           <div class="table-scrollable">
                             <table
                               class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
                               id="example4">
                               <thead>
-                              <tr>
-                                <th></th>
-                                <th> Name </th>
-                                <th> Designation </th>
-                                <th> Mobile </th>
-                                <th> Email </th>
-                                <th> Address </th>
-                                <th>Joining Date</th>
-                                <th> Action  </th>
+                              <tr style="padding: 25px">
+                                <th >Photo</th>
+                                <th class="center" > Name </th>
+                                <th class="center"> Designation </th>
+                                <th class="center"> Mobile </th>
+                                <th class="center"> Email </th>
+                                <th class="center"> Address </th>
+                                <th class="center">Joining Date</th>
+                                <th class="center" > Action  </th>
                               </tr>
                               </thead>
                               <tbody>
@@ -77,14 +134,14 @@
                                        alt="">
                                 </td>
                                 <td>Rajesh</td>
-                                <td class="center">Clerk</td>
+                                <td >Clerk</td>
                                 <td><a href="tel:4444565756">
                                   4444565756 </a></td>
                                 <td><a href="mailto:shuxer@gmail.com">
                                   rajesh@gmail.com </a></td>
-                                <td class="center">22,tilak appt. surat</td>
-                                <td class="center">22 Feb 2000</td>
-                                <td>
+                                <td >22,tilak appt. surat</td>
+                                <td >22 Feb 2000</td>
+                                <td class="center" >
 
                                   <a routerLink="/manager"
                                      class="btn btn-success btn-xs">
@@ -162,14 +219,14 @@
                                        alt="">
                                 </td>
                                 <td>Pooja Patel</td>
-                                <td class="center">Librarian</td>
+                                <td >Librarian</td>
                                 <td><a href="tel:444786876">
                                   444786876 </a></td>
                                 <td><a href="mailto:shuxer@gmail.com">
                                   pooja@gmail.com </a></td>
-                                <td class="center">22,tilak appt. surat</td>
-                                <td class="center">27 Aug 2005</td>
-                                <td>
+                                <td>22,tilak appt. surat</td>
+                                <td >27 Aug 2005</td>
+                                <td class="center" >
 
                                   <a routerLink="/manager"
                                      class="btn btn-success btn-xs">
@@ -240,265 +297,13 @@
                                   </div>
                                 </td>
                               </tr>
-                              <tr class="odd gradeX">
-                                <td class="patient-img">
-                                  <img src="../assets/img/std/std2.jpg"
-                                       alt="">
-                                </td>
-                                <td>Sarah Smith</td>
-                                <td class="center">Librarian</td>
-                                <td><a href="tel:44455546456">
-                                  44455546456 </a></td>
-                                <td><a href="mailto:shuxer@gmail.com">
-                                  sarah@gmail.com </a></td>
-                                <td class="center">22,tilak appt. surat</td>
-                                <td class="center">05 Jun 2011</td>
-                                <td>
-
-                                  <a routerLink="/manager"
-                                     class="btn btn-success btn-xs">
-                                    <i class="fa fa-home"></i>
-                                  </a>
-                                  <a routerLink="/editMag"
-                                     class="btn btn-primary btn-xs">
-                                    <i class="fa fa-pencil"></i>
-                                  </a>
-                                  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#ve">
-                                    <i class="fa fa-trash-o "></i>
-                                  </button>
-                                  <div id="ve" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalGenericMessageLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                      <div class="modal-content">
-
-                                        <div class="modal-body">
-
-
-                                          <div class="col-lg-12 text-center">
-                                            <label class="content-header">Are you sure?</label>
-
-                                            <div class="col-lg-12 text-center">
-                                              <div class="col-lg-8">
-                                                <br>
-                                                <button type="button" class="mdl-button  btn-g" data-toggle="modal" data-target="#okh" >Yes, delete here</button>
-
-                                                <div id="okh" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalGenericMessageLabel" aria-hidden="true">
-                                                  <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-
-                                                      <div class="modal-body">
-
-                                                        <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
-                                                          <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
-                                                          <span class="swal2-success-line-tip"></span>
-                                                          <span class="swal2-success-line-long"></span>
-                                                          <div class="swal2-success-ring"></div>
-                                                          <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
-                                                          <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
-                                                        </div>
-                                                        <div class="col-lg-12 text-center">
-                                                          <label class="content-header">Deleted!</label>
-
-                                                          <h6>Material has been deleted</h6>
-                                                          <br>
-                                                          <button type="button"
-                                                                  class="mdl-button  btn-g">OK</button>
-                                                        </div>
-                                                      </div>
-
-                                                    </div><!-- /.modal-content -->
-                                                  </div><!-- /.modal-dialog -->
-                                                </div>
-                                              </div>
-                                              <div class="col-lg-4">
-                                                <br>
-                                                <button type="button"
-                                                        class="mdl-button btn-h ">Cancel</button>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                      </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                  </div>
-                                </td>
-                              </tr>
-
-                              <tr class="odd gradeX">
-                                <td class="patient-img">
-                                  <img src="../assets/img/std/std3.jpg"
-                                       alt="">
-                                </td>
-                                <td>John Deo</td>
-                                <td class="center">Peon</td>
-                                <td><a href="tel:444543564">
-                                  444543564 </a></td>
-                                <td><a href="mailto:shuxer@gmail.com">
-                                  john@gmail.com </a></td>
-                                <td class="center">22,tilak appt. surat</td>
-                                <td class="center">15 Feb 2012</td>
-                                <td>
-
-                                  <a routerLink="/manager"
-                                     class="btn btn-success btn-xs">
-                                    <i class="fa fa-home"></i>
-                                  </a>
-                                  <a routerLink="/editMag"
-                                     class="btn btn-primary btn-xs">
-                                    <i class="fa fa-pencil"></i>
-                                  </a>
-                                  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#re">
-                                    <i class="fa fa-trash-o "></i>
-                                  </button>
-                                  <div id="re" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalGenericMessageLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                      <div class="modal-content">
-
-                                        <div class="modal-body">
-
-
-                                          <div class="col-lg-12 text-center">
-                                            <label class="content-header">Are you sure?</label>
-
-                                            <div class="col-lg-12 text-center">
-                                              <div class="col-lg-8">
-                                                <br>
-                                                <button type="button" class="mdl-button  btn-g" data-toggle="modal" data-target="#okz" >Yes, delete here</button>
-
-                                                <div id="okz" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalGenericMessageLabel" aria-hidden="true">
-                                                  <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-
-                                                      <div class="modal-body">
-
-                                                        <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
-                                                          <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
-                                                          <span class="swal2-success-line-tip"></span>
-                                                          <span class="swal2-success-line-long"></span>
-                                                          <div class="swal2-success-ring"></div>
-                                                          <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
-                                                          <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
-                                                        </div>
-                                                        <div class="col-lg-12 text-center">
-                                                          <label class="content-header">Deleted!</label>
-
-                                                          <h6>Material has been deleted</h6>
-                                                          <br>
-                                                          <button type="button"
-                                                                  class="mdl-button  btn-g">OK</button>
-                                                        </div>
-                                                      </div>
-
-                                                    </div><!-- /.modal-content -->
-                                                  </div><!-- /.modal-dialog -->
-                                                </div>
-                                              </div>
-                                              <div class="col-lg-4">
-                                                <br>
-                                                <button type="button"
-                                                        class="mdl-button btn-h ">Cancel</button>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                      </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                  </div>
-                                </td>
-                              </tr>
-
-                              <tr class="odd gradeX">
-                                <td class="patient-img">
-                                  <img src="../assets/img/std/std4.jpg"
-                                       alt="">
-                                </td>
-                                <td>Jay Soni</td>
-                                <td class="center">Purchase Officer</td>
-                                <td><a href="tel:444543564">
-                                  444543564 </a></td>
-                                <td><a href="mailto:shuxer@gmail.com">
-                                  kenh@gmail.com </a></td>
-                                <td class="center">22,tilak appt. surat</td>
-                                <td class="center">12 Nov 2012</td>
-                                <td>
-
-                                  <a routerLink="/manager"
-                                     class="btn btn-success btn-xs">
-                                    <i class="fa fa-home"></i>
-                                  </a>
-                                  <a routerLink="/editMag"
-                                     class="btn btn-primary btn-xs">
-                                    <i class="fa fa-pencil"></i>
-                                  </a>
-                                  <button class="btn btn-danger btn-xs" data-toggle="modal" data-target="#rr">
-                                    <i class="fa fa-trash-o "></i>
-                                  </button>
-                                  <div id="rr" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalGenericMessageLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                      <div class="modal-content">
-
-                                        <div class="modal-body">
-
-
-                                          <div class="col-lg-12 text-center">
-                                            <label class="content-header">Are you sure?</label>
-
-                                            <div class="col-lg-12 text-center">
-                                              <div class="col-lg-8">
-                                                <br>
-                                                <button type="button" class="mdl-button  btn-g" data-toggle="modal" data-target="#okr" >Yes, delete here</button>
-
-                                                <div id="okr" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="modalGenericMessageLabel" aria-hidden="true">
-                                                  <div class="modal-dialog modal-dialog-centered" role="document">
-                                                    <div class="modal-content">
-
-                                                      <div class="modal-body">
-
-                                                        <div class="swal2-icon swal2-success swal2-animate-success-icon" style="display: flex;">
-                                                          <div class="swal2-success-circular-line-left" style="background-color: rgb(255, 255, 255);"></div>
-                                                          <span class="swal2-success-line-tip"></span>
-                                                          <span class="swal2-success-line-long"></span>
-                                                          <div class="swal2-success-ring"></div>
-                                                          <div class="swal2-success-fix" style="background-color: rgb(255, 255, 255);"></div>
-                                                          <div class="swal2-success-circular-line-right" style="background-color: rgb(255, 255, 255);"></div>
-                                                        </div>
-                                                        <div class="col-lg-12 text-center">
-                                                          <label class="content-header">Deleted!</label>
-
-                                                          <h6>Material has been deleted</h6>
-                                                          <br>
-                                                          <button type="button"
-                                                                  class="mdl-button  btn-g">OK</button>
-                                                        </div>
-                                                      </div>
-
-                                                    </div><!-- /.modal-content -->
-                                                  </div><!-- /.modal-dialog -->
-                                                </div>
-                                              </div>
-                                              <div class="col-lg-4">
-                                                <br>
-                                                <button type="button"
-                                                        class="mdl-button btn-h ">Cancel</button>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-
-                                      </div><!-- /.modal-content -->
-                                    </div><!-- /.modal-dialog -->
-                                  </div>
-
-                                </td>
-                              </tr>
 
                               </tbody>
                             </table>
                           </div>
                         </div>
-                      </div>
-                    </div>
+
+
                   </div>
                 </div>
                 <div class="tab-pane" id="tab2">
@@ -655,10 +460,9 @@
                 </div>
               </div>
 
-          </div>
 
 
-<!-- start js include path -->
+
 <script src="../../assets/plugins/jquery/jquery.min.js"></script>
 <script src="../../assets/plugins/popper/popper.js"></script>
 <script src="../../assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
