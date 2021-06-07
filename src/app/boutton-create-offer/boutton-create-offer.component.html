@@ -1,48 +1,27 @@
-
-
-
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-      <ul class="nav navbar-nav">
-
-        <div id="custom-search-input">
-          <div class="input-group col-md-12">
-            <input type="text" class="  search-query form-control" placeholder="Search" />
-            <span class="input-group-btn">
-                                    <button class="btn btn-default " type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-
-          </div>
-        </div>
-
-
+  <div class="input-group">
+    <div class="input-group-btn search-panel">
+      <button type="button" class="btn  dropdown-toggle" data-toggle="dropdown">
+        <span id="search_concept">Filter by</span> <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li><a >Month</a></li>
+        <li><a >Year</a></li>
       </ul>
-
-
-
-
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div>
+    <input type="hidden" name="search_param" value="all" id="search_param">
+    <input type="text" class="form-control" name="x" placeholder="Search ...">
+    <span class="input-group-btn">
+                    <button class="btn " type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+  </div>
 </nav>
 
 
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
 
 
-  <nav class="navbar navbar-default navbar-static-top">
-    <div  id="country1" class="form-group col-md-12">
-      <ul class="nav navbar-nav">
+<div  class="form-group col-md-12">
+      <ul class="nav navbar-nav ">
         <li class="dropdown" >
           <a  class="dropdown-toggle  btn-bordered-primary" data-toggle="dropdown" style="color:#428bca; ">Select a receiver <span class="glyphicon  glyphicon-folder-open pull-right"></span></a>
           <ul class="dropdown-menu ">
@@ -57,7 +36,6 @@
 
           </ul>
         </li>
-
         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent1">
           <div class="tab-pane fade show active " id="nav-C" role="tabpanel" aria-labelledby="nav-C-tab">
 
@@ -205,11 +183,7 @@
 
 
       </ul>
-    </div>
-  </nav>
-
 </div>
-
 
 
 

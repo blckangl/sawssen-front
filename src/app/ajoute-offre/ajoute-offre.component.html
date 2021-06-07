@@ -1,37 +1,40 @@
 
 
 
+
 <nav class="navbar navbar-default navbar-static-top">
 
-    <!-- Brand and toggle get grouped for better mobile display -->
+
     <div class="navbar-header">
 
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
       <div class="btn-compose pull-left" style="float: left;margin-left: 0%;">
-        <ol class="breadcrumb page-breadcrumb pull-left">
-          <li><i class="fa fa-home"></i>&nbsp;<a class="parent-item">Offers (0)</a>&nbsp;
-          </li>
-        </ol>
+
+        <h3> Manage Offer</h3>
+
 
       </div>
       <ul class="nav navbar-nav">
         <li>
           <div class="col-2 col-lg-12" >
-            <form class="navbar-form navbar-left" method="GET" role="search">
-              <div class="form-group">
-
-                <input type="text" name="q" class="form-control" placeholder="Search">
-
+            <div class="card-header" style="color:#428bca">
+              <div class="input-group">
+                <input type="hidden" name="search_param" value="all" id="search_param1">
+                <input type="text" class="form-control" name="x" placeholder="Search ...">
+                <span class="input-group-btn">
+                    <button class="btn " type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
               </div>
-              <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-            </form>
+            </div>
           </div>
 
         </li>
       </ul>
+
+
 
 
 
@@ -47,9 +50,10 @@
     </div><!-- /.navbar-collapse -->
 
 </nav>
+<nav class="navbar navbar-default navbar-static-top">
 
 
-
+</nav>
   <nav>
     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
       <a class="nav-item nav-link active" id="nav-all-tab" data-toggle="tab" href="#nav-all" role="tab" aria-controls="nav-all" aria-selected="true">All</a>
