@@ -1,0 +1,278 @@
+
+
+/*Navbar*/
+.navbar-default {
+  background-color:#fff;
+  border-bottom-color:#E3E3E3;
+}
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus{
+  background-color:transparent!important;
+}
+.btn-compose {
+  padding-right:100px;
+  border-right:1.5px solid #E3E3E3;
+
+}
+.float-label{
+  font-size:10px;
+}
+input[type="text"].form-control,
+input[type="search"].form-control{
+  border:none;
+  border-bottom:1px dotted #CFCFCF;
+}
+textarea {
+  border:1px dotted #CFCFCF!important;
+  height:130px!important;
+}
+
+h1.content-title{
+
+  text-align:center;
+  margin-top:0;
+  margin-bottom:20px;
+  font-family: 'Open Sans', sans-serif!important;
+  font-size: 14px;font-weight: 500;
+}
+/*Compose*/
+.btn-send{
+  text-align:center;
+  margin-top:20px;
+}
+/*mail list*/
+
+
+
+h1.page-header {
+  margin-top: -5px;
+}
+
+
+.btn-h {
+  color:#FFFFFF;
+
+  background:#e77808;
+}
+
+
+
+a.box-btn {
+  background-color:#2154cf;
+  padding: 8px 50px;
+  display: inline-block;
+  color: #fff;
+  text-transform: capitalize;
+  border-radius: 3px;
+  font-size: 18px;
+
+
+
+}
+
+.ds-btn li{ list-style:none; float:left; padding:10px; }
+
+
+.filterable {
+  margin-top: 15px;
+}
+.filterable .panel-heading .pull-right {
+  margin-top: -20px;
+}
+.filterable .filters input[disabled] {
+  background-color: transparent;
+  border: none;
+  cursor: auto;
+  box-shadow: none;
+  padding: 0;
+  height: auto;
+}
+.filterable .filters input[disabled]::-webkit-input-placeholder {
+  color: #333;
+}
+.filterable .filters input[disabled]::-moz-placeholder {
+  color: #333;
+}
+.filterable .filters input[disabled]:-ms-input-placeholder {
+  color: #333;
+}
+
+
+.invoice header {
+  padding: 10px 0;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #3989c6
+}
+
+.invoice .company-details {
+  text-align: right
+}
+
+.invoice .company-details .name {
+  margin-top: 0;
+  margin-bottom: 0
+}
+
+.invoice .contacts {
+  margin-bottom: 20px
+}
+
+.invoice .invoice-to {
+  text-align: left
+}
+
+.invoice .invoice-to .to {
+  margin-top: 0;
+  margin-bottom: 0
+}
+
+.invoice .invoice-details {
+  text-align: right
+}
+
+.invoice .invoice-details .invoice-id {
+  margin-top: 0;
+  color: #3989c6
+}
+
+.invoice main {
+  padding-bottom: 50px
+}
+
+.invoice main .thanks {
+  margin-top: -100px;
+  font-size: 2em;
+  margin-bottom: 50px
+}
+
+.invoice main .notices {
+  padding-left: 6px;
+  border-left: 6px solid #3989c6
+}
+
+.invoice main .notices .notice {
+  font-size: 1.2em
+}
+
+.invoice table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  margin-bottom: 20px
+}
+
+.invoice table td,.invoice table th {
+  padding: 15px;
+  //background: #eee;
+  border-bottom: 1px solid #ddd
+}
+
+
+
+.invoice table td h3 {
+  margin: 0;
+
+  color: #3989c6;
+  font-size: 1.2em
+}
+
+.invoice table .qty,.invoice table .total,.invoice table .unit {
+  text-align: right;
+  font-size: 1.2em
+}
+
+.invoice table .no {
+  color: #fff;
+
+  background: #2154cf
+}
+
+.invoice table .unit {
+  background: #ddd
+}
+
+.invoice table .total {
+  background: #2154cf;
+  color: #fff
+}
+
+
+button,
+input {
+  font-family: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+}
+
+
+.nav-tabs {
+  border: 0;
+  padding: 15px 0.7rem;
+}
+
+.nav-tabs:not(.nav-tabs-neutral)>.nav-item>.nav-link.active {
+  box-shadow: 0px 5px 35px 0px rgba(0, 0, 0, 0.3);
+}
+
+.card .nav-tabs {
+  border-top-right-radius: 0.1875rem;
+  border-top-left-radius: 0.1875rem;
+}
+
+.nav-tabs>.nav-item>.nav-link {
+  color: #888888;
+  margin: 0;
+  margin-right: 5px;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 30px;
+  font-size: 14px;
+  padding: 11px 23px;
+  line-height: 1.5;
+}
+
+.nav-tabs>.nav-item>.nav-link:hover {
+  background-color: transparent;
+}
+
+.nav-tabs>.nav-item>.nav-link.active {
+  background-color:#2154cf;
+  border-radius: 30px;
+  color: #FFFFFF;
+}
+
+.nav-tabs>.nav-item>.nav-link i.now-ui-icons {
+  font-size: 18px;
+  position: relative;
+  top: 1px;
+  margin-right: 3px;
+}
+
+.nav-tabs.nav-tabs-neutral>.nav-item>.nav-link {
+  color: #FFFFFF;
+}
+
+.nav-tabs.nav-tabs-neutral>.nav-item>.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #FFFFFF;
+}
+
+.card {
+  border: 0;
+  border-radius: 0.1875rem;
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin-bottom: 30px;
+  box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+.card .card-header {
+  background-color: transparent;
+  border-bottom: 0;
+  background-color: transparent;
+  border-radius: 0;
+  padding: 0;
+}
+
+
