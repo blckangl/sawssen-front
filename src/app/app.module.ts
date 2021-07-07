@@ -51,6 +51,9 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DevisEssaiComponent} from './devis-essai/devis-essai.component';
 import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
+import { AjoutePackagingComponent } from './ajoute-packaging/ajoute-packaging.component';
+import { AjouteTransportComponent } from './ajoute-transport/ajoute-transport.component';
+import { ExporteOffreComponent } from './exporte-offre/exporte-offre.component';
 
 @NgModule({
   declarations: [
@@ -100,7 +103,10 @@ import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
     AcceuilComponent,
     AddProjectComponent,
     DevisEssaiComponent,
-    OffreEssaiComponent
+    OffreEssaiComponent,
+    AjoutePackagingComponent,
+    AjouteTransportComponent,
+    ExporteOffreComponent
   ],
   imports: [
     BrowserModule,
