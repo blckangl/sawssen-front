@@ -8,7 +8,7 @@ import {environment} from '../../environments/environment';
   providedIn: 'root'
 })
 export class AuthentificationService {
-  jwt: string;
+  jwt = localStorage.getItem('token');
   username: string;
   // tslint:disable-next-line:ban-types
   roles: Array<String>;
@@ -47,7 +47,7 @@ export class AuthentificationService {
   }
 
   saveToken(jwt: string) {
-    sessionStorage.setItem('token', jwt);
+    localStorage.setItem('token', jwt);
     this.jwt = jwt;
     this.parseJWT();
   }
@@ -86,12 +86,12 @@ export class AuthentificationService {
   }
 
   loadToken() {
-    this.jwt = sessionStorage.getItem('token');
+    this.jwt = localStorage.getItem('token');
     this.parseJWT();
   }
 
   logout() {
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
     this.initParams();
 
   }

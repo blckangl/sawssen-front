@@ -41,8 +41,7 @@ import {ProjectComponent} from './project/project.component';
 import {AcceuilComponent} from './acceuil/acceuil.component';
 import {AddProjectComponent} from './add-project/add-project.component';
 import {OffreSignesComponent} from './offre-signes/offre-signes.component';
-import {DevisEssaiComponent} from './devis-essai/devis-essai.component';
-import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
+
 
 
 const routes: Routes = [
@@ -79,8 +78,8 @@ const routes: Routes = [
       {path: 'project', component: ProjectComponent} ,
       {path: 'acceuil', component: AcceuilComponent},
       {path: 'addProject', component: AddProjectComponent},
-      {path: 'devisEssai', component: DevisEssaiComponent},
-      {path: 'offreEssai', component: OffreEssaiComponent} ,
+     // {path: 'devisEssai', component: DevisEssaiComponent},
+    //  {path: 'offreEssai', component: OffreEssaiComponent} ,
       {path: 'allQuotation', component: AllQuotationComponent},
       {path: 'exportOf', component: BouttonExportComponent}]},
       {path: 'login', component: LoginComponent},
