@@ -11,7 +11,8 @@ export class AuthentificationService {
   jwt = localStorage.getItem('token');
   username: string;
   // tslint:disable-next-line:ban-types
-  roles: Array<String>;
+
+  roles = [];
 
   constructor(private http: HttpClient) {
 

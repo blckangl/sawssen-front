@@ -21,37 +21,43 @@
 
 
 <div  class="form-group col-md-12">
-
-<!--
-  <li id="nav-C-tab" data-toggle="tab"   href="#nav-C" role="tab" aria-controls="nav-C"></li>
--->
       <ul class="nav navbar-nav ">
-        <li class="dropdown" >
-          <a  class="dropdown-toggle  btn-bordered-primary" data-toggle="dropdown" style="color:#428bca; " >Select a receiver
-            <span class="glyphicon  glyphicon-folder-open pull-right"></span></a>
-          <ul class="dropdown-menu ">
 
-            <li name="client" [ngModel]="selectclient" (change)='onChangeSelectedClient($event)' [ngModelOptions]="{standalone: true}">
-              <option style=" font-size: 18px;"  selected="{{s.fullname}}" [value]="s.id" *ngFor="let s of listclient">{{s.fullname}}</option>
-            </li >
+         <!--   <li><a style=" font-size: 18px;">Sagem </a></li>
+            <li><a  style=" font-size: 18px;">Valeo</a></li>
+            <li><a  style=" font-size: 18px;">hutchinson</a></li>-->
+
+        <div class="card-header" style="color:#428bca">
+          <div class="form-group multiple-form-group input-group">
+            <div class="input-group-btn input-group-select">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                <span class="concept" for="country-select2">Selecet Client</span>
+              </button>
+
+            </div>
+            <select id="country-select22" class="form-control"  name="client"  [ngModel]="selectclient"  (change)="onChangeSelectedClient($event)" >
+              <option></option>
+              <option  selected="{{s.fullname}}" [value]="s.id" *ngFor="let s of listclient"  style=" font-size: 18px;">
+                {{s.fullname}}</option>
+            </select>
+          </div>
+        </div>
+
 
 
             <li class="divider"></li>
 
 
-          </ul>
-        </li>
+
         <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent1">
-<!--
-          <div class="tab-pane fade show active " id="nav-C" role="tabpanel" aria-labelledby="nav-C-tab">
--->
+          <div *ngIf="state">
 
 
             <div class="card edit-parameters btn-bordered-primary"  style="background:#fff;color:#0f1113;width:100%;right: 14px">
               <div class="card-header" style="color:#428bca">
                 <div class="form-group multiple-form-group input-group">
                   <div class="input-group-btn input-group-select">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
                       <span class="concept" for="country-select2">N° Project</span>
                     </button>
 
@@ -186,9 +192,7 @@
               </div>
             </div>
           </div>
-<!--
         </div>
--->
 
 
       </ul>
