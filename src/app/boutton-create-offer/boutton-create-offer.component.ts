@@ -3,6 +3,7 @@ import {ClientService} from '../services/client.service';
 import {ProjetService} from '../services/projet.service';
 import {DevisService} from '../services/devis.service';
 import {OffreService} from '../services/offre.service';
+import {state} from '@angular/animations';
 
 @Component({
   selector: 'app-boutton-create-offer',
@@ -14,6 +15,7 @@ export class BouttonCreateOfferComponent implements OnInit {
   listprojet;
   listdevis;
   listoffre;
+  state: boolean;
 aux;
   id;
   client;
@@ -31,8 +33,15 @@ show: boolean;
     this.getallclient();
     this.getallDevis();
     this.getallProjet();
-    this.getOffreByClient();
+    this.servOffre.getoffreByClient(this.selectclient).subscribe(resultat => {
 
+
+      this.listoffrebyClient = resultat ;
+
+      console.log('listoffrebyClient', this.listoffrebyClient);
+
+
+    });
   }
 
 
@@ -63,20 +72,6 @@ show: boolean;
 
 
 
-
-
-  getOffreByClient() {
-
-    this.servOffre.getoffreByClient(this.id).subscribe(resultat => {
-
-
-      this.listoffrebyClient = resultat ;
-
-      console.log('listoffrebyClient', this.listoffrebyClient);
-
-
-    });
-  }
 
 
 
@@ -119,6 +114,9 @@ show: boolean;
 
     this.selectclient = event.target.value;
     console.log('selectclient', this.selectclient);
+
+    this.state = true;
+
   }
 
 
