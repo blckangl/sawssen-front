@@ -10,8 +10,7 @@ import {environment} from '../../environments/environment';
 export class AuthentificationService {
   jwt = localStorage.getItem('token');
   username: string;
-  // tslint:disable-next-line:ban-types
-  roles: Array<String>;
+  roles: string [];
 
   constructor(private http: HttpClient) {
 
@@ -31,11 +30,11 @@ export class AuthentificationService {
   }*/
 
 
- /* getprofile(id) {
-    let headers = new HttpHeaders({'authorization': 'Bearer ' + this.jwt});
+  /* getprofile(id) {
+     let headers = new HttpHeaders({'authorization': 'Bearer ' + this.jwt});
 
-    return this.http.get(environment.baseUrl + '/commercial/byId/' , +id,{headers: headers});
-  }*/
+     return this.http.get(environment.baseUrl + '/commercial/byId/' , +id,{headers: headers});
+   }*/
 
 
   parseJWT() {
@@ -53,50 +52,92 @@ export class AuthentificationService {
   }
 
   isTechnicien() {
-    return this.roles.indexOf('TECHNICIEN') >= 0;
+    if (this.roles) {
+
+      if (this.roles.indexOf('TECHNICIEN') >= 0) {
+
+        return this.roles.indexOf('TECHNICIEN') >= 0;
+
+      }
+    }
   }
+
 
   isresponsableachat() {
-    return this.roles.indexOf('RESPONSABLEACHAT') >= 0;
+    if (this.roles) {
+      if (this.roles.indexOf('RESPONSABLEACHAT') >= 0) {
 
+
+        return this.roles.indexOf('RESPONSABLEACHAT') >= 0;
+      }
+    }
   }
+
 
   isCommercial() {
-    return this.roles.indexOf('COMMERCIAL') >= 0;
+    if (this.roles) {
+      if (this.roles.indexOf('COMMERCIAL') >= 0) {
 
+        return this.roles.indexOf('COMMERCIAL') >= 0;
+      }
+    }
   }
+
+
   isDirecteur() {
-    return this.roles.indexOf('DIRECTEUR') >= 0;
+    if (this.roles) {
+      if (this.roles.indexOf('DIRECTEUR') >= 0) {
 
+        return this.roles.indexOf('DIRECTEUR') >= 0;
+      }
+    }
   }
+
+
   isAssistanteCommercial() {
-  return this.roles.indexOf('ASSISTANTECOMMERCIAL') >= 0;
+    if (this.roles) {
+      if (this.roles.indexOf('ASSISTANTECOMMERCIAL') >= 0) {
+
+        return this.roles.indexOf('ASSISTANTECOMMERCIAL') >= 0;
+      }
+    }
   }
 
-  isAutresResponsables() {
-    return this.roles.indexOf('AUTRESRESPONSABLES') >= 0;
-  }
 
-  isDirection() {
-    return this.roles.indexOf('DIRECTION') >= 0;
+isAutresResponsables() {
+  if (this.roles) {
+    if (this.roles.indexOf('AUTRESRESPONSABLES') >= 0) {
+
+      return this.roles.indexOf('AUTRESRESPONSABLES') >= 0;
+    }
   }
-  isAuthenticated() {
+}
+
+isDirection() {
+  if (this.roles) {
+    if (this.roles.indexOf('DIRECTION') >= 0) {
+
+      return this.roles.indexOf('DIRECTION') >= 0;
+    }
+  }
+  }
+isAuthenticated() {
 
     return this.roles && (this.isDirection() || this.isCommercial() || this.isresponsableachat());
   }
 
-  loadToken() {
+loadToken() {
     this.jwt = localStorage.getItem('token');
     this.parseJWT();
   }
 
-  logout() {
+logout() {
     localStorage.removeItem('token');
     this.initParams();
 
   }
 
-  initParams() {
+initParams() {
     this.jwt = undefined;
     this.username = undefined;
     this.roles = undefined;

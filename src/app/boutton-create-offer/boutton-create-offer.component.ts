@@ -21,6 +21,7 @@ aux;
   selectprojet;
   selectdevis;
 listoffrebyClient;
+show: boolean;
   constructor(private  servclient: ClientService, private  servprojet: ProjetService , private  servdevis: DevisService , private servOffre: OffreService) { }
 
 
@@ -36,8 +37,7 @@ listoffrebyClient;
 
 
   getallclient() {
-
-   this.servclient.all().subscribe(result => {
+    this.servclient.all().subscribe(result => {
 
 
       this.listclient = result ;
@@ -115,6 +115,8 @@ listoffrebyClient;
 
 
   public onChangeSelectedClient(event) {
+    this.show = true;
+
     this.selectclient = event.target.value;
     console.log('selectclient', this.selectclient);
   }
