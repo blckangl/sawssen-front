@@ -42,7 +42,7 @@
             <li class="divider"></li>
 
 
-        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent1" *ngIf !="show">
+        <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent1"  *ngIf="show === true">
 <!--
           <div class="tab-pane fade show active " id="nav-C" role="tabpanel" aria-labelledby="nav-C-tab">
 -->
@@ -57,16 +57,11 @@
                     </button>
 
                   </div>
-                  <select id="country-select2" class="form-control" >
+                  <select id="country-select2" class="form-control"  name="projet" [ngModel]="selectprojet" (change)='onChangeSelectedProjet($event)' [ngModelOptions]="{standalone: true}">
                     <option></option>
-                    <option>Project N°1</option>
-                    <option>Project N°2</option>
-                    <option>Project N°3</option>
-                    <option>Project N°4</option>
-                    <option>Project N°5</option>
-                    <option>Project N°6</option>
-                    <option>Project N°7</option>
-                    <option>Project N°8</option>
+
+                    <option selected="{{s.projet}}" [value]="s.id" *ngFor="let s of listprojet">{{s.projet}}</option>
+
                   </select>
                 </div>
               </div>
@@ -78,16 +73,10 @@
                     </button>
 
                   </div>
-                  <select id="country-select" class="form-control" >
+                  <select id="country-select" class="form-control"  name="devis" [ngModel]="selectdevis" (change)='onChangeSelectedDevis($event)' [ngModelOptions]="{standalone: true}">
                     <option></option>
-                    <option>Quotation N°1</option>
-                    <option>Quotation N°2</option>
-                    <option>Quotation N°3</option>
-                    <option>Quotation N°4</option>
-                    <option>Quotation N°5</option>
-                    <option>Quotation N°6</option>
-                    <option>Quotation N°7</option>
-                    <option>Quotation N°8</option>
+                    <option selected="{{s.NumDocDevis}}" [value]="s.id" *ngFor="let s of listdevis">{{s.NumDocDevis}}</option>
+
                   </select>
                 </div>
               </div>
@@ -114,68 +103,21 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <tr  class="danger">
-                    <th scope="row">1</th>
-                    <td>OF1</td>
-                    <td>11/03/2021</td>
-                    <td>Quote1</td>
-                    <td>Sagem</td>
-                    <td>Injection</td>
-                    <td>220$</td>
-                    <td>Refused</td>
-                    <td>
-                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
-                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span> </a>
-                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
 
-                    </td>
-                  </tr>
-                  <tr >
-                    <th scope="row">2</th>
-                    <td>OF2</td>
-                    <td>22/03/2021</td>
-                    <td>Quote2</td>
-                    <td>Sagem</td>
-                    <td>Injection</td>
-                    <td>180$</td>
-                    <td>Finalized</td>
-                    <td>
-                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span></a>
-                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span></a>
-                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span></a>
-
-                    </td>
-
-                  </tr>
-                  <tr class="active">
+                  <tr class="active" *ngFor="let e of listoffre" >
                     <th scope="row">3</th>
-                    <td>OF3</td>
-                    <td>01/04/2021</td>
-                    <td>Quote3</td>
-                    <td>Sagem</td>
-                    <td>Injection</td>
-                    <td>120$</td>
-                    <td>Provisional</td>
+                    <td>{{}}</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td>
                       <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
                       <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span></a>
                       <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
 
-                    </td>
-                  </tr>
-                  <tr class="success">
-                    <th scope="row">4</th>
-                    <td>OF3</td>
-                    <td>01/04/2021</td>
-                    <td>Quote4</td>
-                    <td>Sagem</td>
-                    <td>Injection</td>
-                    <td>120$</td>
-                    <td>Signed</td>
-                    <td>
-                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
-                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span> </a>
-                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
                     </td>
                   </tr>
 
