@@ -27,4 +27,31 @@ export class DevisService {
     return this.http.get(environment.baseUrl + '/devis' + '/' + id, {headers});
 
   }
+
+  delete(id) {
+    const headers = new HttpHeaders({authorization: 'Bearer ' +  this.authService.jwt});
+
+
+    return this.http.delete(environment.baseUrl + '/devis/delete/' + id, {headers});
+
+
+  }
+  update(c, id, idC, idP) {
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+    return this.http.put( environment.baseUrl + '/devis/edit/' + id + '/' + idC + '/' + idP , c, {headers});
+
+
+  }
+
+
+
+
+  add(c, idC, idP) {
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+    return this.http.post( environment.baseUrl + '/devis/add/' + idC + '/' + idP , c, {headers});
+
+
+  }
+
+
 }

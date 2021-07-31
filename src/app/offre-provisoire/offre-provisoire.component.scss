@@ -197,7 +197,7 @@ h1.page-header {
 
   padding:3px 0px;
   margin-bottom:0px;
-  width: 1385px;
+  width: 2000px;
 
 }
 
@@ -285,8 +285,14 @@ h1.page-header {
   font-size: 1.2em
 }
 
+.invoice table td h4 {
+  margin: 0;
+  font-weight: 400;
+  color: #3989c6;
+
+}
 .invoice table .qty,.invoice table .total,.invoice table .unit {
-  text-align: right;
+  text-align: center;
   font-size: 1.2em
 }
 

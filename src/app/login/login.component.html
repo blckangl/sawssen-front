@@ -1,67 +1,51 @@
+<div class="bg-img">
 
-
-<div class="image_cover">
-<!--
-  /*<img src="../../assets/img/ccc.jpg" style=" height: 100vh; width: 100%;">
--->
-</div>
-<div class="container" >
-
-  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)="onLogin()">
-    <h2 class="form-signin-heading" style="color:black;"><h4>Authentification</h4></h2>
-    <div class="login-wrap">
-      <div class="form-group">
-
-        <input type="text"   style="border-color: black;border-style: double"  placeholder="Username"  class="form-control"   formControlName="username" [ngClass]="{'is-invalid': submit && f.username.errors}">
+  <div class="content">
+    <header>Authentication</header>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" >
+      <div class="field" style="  border: 4px solid #3498db" >
+        <span class="fa fa-user" ></span>
+        <input type="text" required  placeholder="Username " class="form-control"   formControlName="username" [ngClass]="{'is-invalid': submit && f.username.errors}" >
         <div *ngIf="submit && f.username.errors" class="invalid-feedback">
           <div *ngIf="f.username.errors?.required"> Nom d'utilisateur est obligatoire</div>
         </div>
       </div>
-      <div class="form-group">
-        <input type="password"    style="border-color: black;border-style: double" placeholder="Password"  class="form-control"  formControlName="password" [ngClass]="{'is-invalid': submit && f.password.errors}">
+      <div class="field space" style="  border: 4px solid #3498db">
+        <span class="fa fa-lock"></span>
+        <input type="password" class="pass-key" required placeholder="Password"  class="form-control"  formControlName="password" [ngClass]="{'is-invalid': submit && f.password.errors}">
         <div *ngIf="submit && f.password.errors" class="invalid-feedback">
           <div *ngIf="f.password.errors?.required"> Mot de passe obligatoire</div>
         </div>
-
+        <span class="show">SHOW</span>
       </div>
-      <button  class="btn " type="submit" style="background: steelblue; color :black; margin-left: 90px">Connexion</button>
-
-
-
-    </div>
-
-
-
-  </form>
-
-</div>
-
-
-
-<!-- Modal -->
-<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Forgot Password ?</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="pass">
+        <a >Forgot Password?</a>
       </div>
-      <div class="modal-body">
-        <p>Enter your e-mail address below to reset your password.</p>
-        <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+      <div class="field">
+        <input type="submit" value="LOGIN">
+      </div>
+    </form>
 
-      </div>
-      <div class="modal-footer">
-        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-        <button class="btn btn-success" type="button">Submit</button>
-      </div>
-    </div>
+
   </div>
+
+  <div class="cont">
+    <a>Sales Dashboard</a>
+  </div>
+
 </div>
-<!-- modal -->
-
-
-
-
+<!--<script>
+  const pass_field = document.querySelector('.pass-key');
+  const showBtn = document.querySelector('.show');
+  showBtn.addEventListener('click', function(){
+    if(pass_field.type === "password"){
+      pass_field.type = "text";
+      showBtn.textContent = "HIDE";
+      showBtn.style.color = "#3498db";
+    }else{
+      pass_field.type = "password";
+      showBtn.textContent = "SHOW";
+      showBtn.style.color = "#222";
+    }
+  });
+</script>-->

@@ -28,13 +28,12 @@ export class OffreService {
   }
 
 
-  update(c, id,idC, idP, idD) {
+  update(c, id, idC, idP, idD) {
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
     return this.http.put( environment.baseUrl + '/offre/edit/' + id + '/' + idC + '/' + idP + '/'  + idD, c, {headers});
 
 
   }
-
 
 
 

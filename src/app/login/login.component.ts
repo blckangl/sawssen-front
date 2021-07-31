@@ -4,6 +4,9 @@ import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
+import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'app-login',
@@ -11,7 +14,9 @@ import {BehaviorSubject} from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private  authService: AuthentificationService, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
+
+  constructor(private  authService: AuthentificationService,
+              private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
 
   }
 
@@ -36,6 +41,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
+
   onLogin() {
     console.log('username', this.loginForm.value.username);
     console.log('password', this.loginForm.value.password);
@@ -49,7 +55,7 @@ const jwt = rep.headers.get('Authorization');
 this.authService.saveToken(jwt);
 this.router.navigateByUrl('');
     }, error1 => {
-
+Swal.fire('Error ! ' , 'Check your data ! ');
 
 
 

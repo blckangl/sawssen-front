@@ -43,6 +43,8 @@ import {AddProjectComponent} from './add-project/add-project.component';
 import {OffreSignesComponent} from './offre-signes/offre-signes.component';
 import {DevisEssaiComponent} from './devis-essai/devis-essai.component';
 import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
+import {AjoutePackagingComponent} from './ajoute-packaging/ajoute-packaging.component';
+import {AjouteTransportComponent} from './ajoute-transport/ajoute-transport.component';
 
 
 const routes: Routes = [
@@ -64,7 +66,7 @@ const routes: Routes = [
       {path: 'detailFam', component: DetailFamiliyComponent},
       {path: 'allClient', component: AllClientComponent},
       {path: 'createOf', component: BouttonCreateOfferComponent},
-      {path: 'provisoireOf', component: OffreProvisoireComponent},
+
       {path: 'finaOf', component: OffreFinalisesComponent} ,
       {path: 'signOf', component: OffreSignesComponent},
       {path: 'refuseOf', component: OffreRefusesComponent} ,
@@ -82,11 +84,14 @@ const routes: Routes = [
       {path: 'devisEssai', component: DevisEssaiComponent},
       {path: 'offreEssai', component: OffreEssaiComponent} ,
       {path: 'allQuotation', component: AllQuotationComponent},
-      {path: 'exportOf', component: BouttonExportComponent}]},
+      {path: 'exportOf', component: BouttonExportComponent},
+      {path: 'ajoutePack', component: AjoutePackagingComponent},
+      {path: 'ajouteTran', component: AjouteTransportComponent}]},
       {path: 'login', component: LoginComponent},
       {path: 'btnFina', component: BtnFinaliserComponent},
       {path: 'btnRefuseFina', component: BtnRefuseOffreFinaliseComponent},
       {path: 'btnSignFina', component: BtnSigneOffreFinaliseComponent},
+  {path: 'provisoireOf', component: OffreProvisoireComponent},
       {path: 'annulerSign', component: AnnulerSingComponent}
 ];
 
