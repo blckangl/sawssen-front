@@ -25,6 +25,7 @@ aux;
   selectdevis;
 listoffrebyClient;
 show = false;
+idDevis;
   constructor(private  servclient: ClientService, private  servprojet: ProjetService , private  servdevis: DevisService , private servOffre: OffreService) { }
 
 
@@ -113,6 +114,8 @@ show = false;
 
 
       this.listoffrebyClient = resultat ;
+      this.idDevis = this.listoffrebyClient['0'].devis.id ;
+      console.log('idDevis', this.idDevis);
 
       console.log('listoffrebyClient', this.listoffrebyClient);
 

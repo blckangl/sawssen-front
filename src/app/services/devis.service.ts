@@ -24,7 +24,7 @@ export class DevisService {
 
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
 
-    return this.http.get(environment.baseUrl + '/devis' + '/' + id, {headers});
+    return this.http.get(environment.baseUrl + '/devis/byid' + '/' + id, {headers});
 
   }
 

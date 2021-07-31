@@ -49,7 +49,7 @@ import {AjouteTransportComponent} from './ajoute-transport/ajoute-transport.comp
 
 const routes: Routes = [
   {path: '', component: HomeComponent, children: [
-      {path: 'ajouted', component: AjouteDevisComponent},
+      {path: 'ajouted/:idDevis', component: AjouteDevisComponent},
       {path: 'addQuotation', component: AddQuotationComponent},
       {path: 'ajouteof', component: AjouteOffreComponent},
       {path: 'etude', component: EtudeFaiComponent},

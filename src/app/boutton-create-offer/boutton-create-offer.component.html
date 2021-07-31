@@ -60,7 +60,7 @@
                   <select id="country-select2" class="form-control"  name="projet" [ngModel]="selectprojet" (change)='onChangeSelectedProjet($event)' [ngModelOptions]="{standalone: true}">
                     <option></option>
 
-                    <option selected="{{s.projet}}" [value]="s.id" *ngFor="let s of listprojet">{{s.projet}}</option>
+                    <option selected="{{s.projet}}" [value]="s.id" *ngFor="let s of listprojet">{{s.acheteur}}</option>
 
                   </select>
                 </div>
@@ -75,7 +75,7 @@
                   </div>
                   <select id="country-select" class="form-control"  name="devis" [ngModel]="selectdevis" (change)='onChangeSelectedDevis($event)' [ngModelOptions]="{standalone: true}">
                     <option></option>
-                    <option selected="{{s.NumDocDevis}}" [value]="s.id" *ngFor="let s of listdevis">{{s.NumDocDevis}}</option>
+                    <option selected="{{s.NumDocDevis}}" [value]="s.id" *ngFor="let s of listdevis">{{s.annualQty}}</option>
 
                   </select>
                 </div>
@@ -84,7 +84,7 @@
 
 
               <div class="card-header" style="color:#428bca">
-              <a routerLink="/ajouted" class="btn btn-primary btn-sm  pull-right"><b>+</b> Add new offer</a>
+              <a routerLink="/ajouted/{{idDevis}}" class="btn btn-primary btn-sm  pull-right"><b>+</b> Add new offer</a>
               </div>
               <div class="card-body ">
 
@@ -104,13 +104,13 @@
                   </thead>
                   <tbody>
 
-                  <tr class="active" *ngFor="let e of listoffre" >
-                    <th scope="row">3</th>
-                    <td>{{}}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                  <tr class="active" *ngFor="let e of listoffrebyClient">
+                    <th scope="row">{{e.id}}</th>
+                    <td>{{e.numoff}}</td>
+                    <td>{{e.date}}</td>
+                    <td>{{e.devis.numdevis}}</td>
+                    <td>{{e.client.fullname}}</td>
+                    <td>{{e.projet.chefpro}}</td>
                     <td></td>
                     <td></td>
                     <td>
