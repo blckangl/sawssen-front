@@ -23,7 +23,7 @@ aux;
   selectclient;
   selectprojet;
   selectdevis;
-listoffrebyClient;
+listoffrebyDevis;
 show = false;
 idDevis;
   constructor(private  servclient: ClientService, private  servprojet: ProjetService , private  servdevis: DevisService , private servOffre: OffreService) { }
@@ -109,18 +109,15 @@ idDevis;
     this.selectclient = event.target.value;
     console.log('selectclient', this.selectclient);
 
-    this.state = true;
-    this.servOffre.getoffreByClient(this.selectclient).subscribe(resultat => {
 
 
-      this.listoffrebyClient = resultat ;
-      this.idDevis = this.listoffrebyClient['0'].devis.id ;
-      console.log('idDevis', this.idDevis);
-
-      console.log('listoffrebyClient', this.listoffrebyClient);
-
-
+    this.servprojet.getProjetByClient(this.selectclient).subscribe(res => {
+      this.listprojet = res ;
+      console.log('listprojet', res);
     });
+
+
+
 
   }
 
@@ -130,6 +127,24 @@ idDevis;
   public onChangeSelectedDevis(event) {
     this.selectdevis = event.target.value;
     console.log('selectdevis', this.selectdevis);
+
+
+
+    this.state = true;
+    this.servOffre.getoffreByDevis(this.selectdevis).subscribe(resultat => {
+
+
+      this.listoffrebyDevis = resultat ;
+      this.idDevis = this.listoffrebyDevis['0'].devis.id ;
+      console.log('idDevis', this.idDevis);
+
+      console.log('listoffrebyDevis', this.listoffrebyDevis);
+
+
+    });
+
+
+
   }
 
 
@@ -140,8 +155,12 @@ idDevis;
   public onChangeSelectedProjet(event) {
     this.selectprojet = event.target.value;
     console.log('selectprojet', this.selectprojet);
-  }
 
+    this.servdevis.getDevisbyProjet(this.selectprojet).subscribe(rep => {
+      this.listdevis = rep ;
+      console.log('listdevis', rep);
+    });
+  }
 
 
 

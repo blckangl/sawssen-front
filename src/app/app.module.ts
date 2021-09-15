@@ -51,14 +51,13 @@ import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {DevisEssaiComponent} from './devis-essai/devis-essai.component';
 import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
-import {AjoutePackagingComponent} from './ajoute-packaging/ajoute-packaging.component';
-import {AjouteTransportComponent} from './ajoute-transport/ajoute-transport.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    AjoutePackagingComponent,
-    AjouteTransportComponent,
+   // AjoutePackagingComponent,
+  //  AjouteTransportComponent,
     HomeComponent,
     SidebarComponent,
     TopbarComponent,

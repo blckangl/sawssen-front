@@ -17,6 +17,15 @@ export class ProjetService {
     return this.http.get(environment.baseUrl + '/projet/all', {headers});
 
   }
+
+
+  getProjetByClient(idC) {
+
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+
+    return this.http.get(environment.baseUrl + '/projet/byclient/' + idC , {headers});
+
+  }
   delete(id) {
     const headers = new HttpHeaders({authorization: 'Bearer ' +  this.authService.jwt});
 

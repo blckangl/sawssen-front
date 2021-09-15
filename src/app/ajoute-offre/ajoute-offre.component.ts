@@ -20,9 +20,9 @@ selectprojet;
   constructor(private serclient: ClientService , private serdevis: DevisService , private  servprojet: ProjetService) { }
 
   ngOnInit() {
-    this.getprojet();
+    this.getprojetByClient();
     this.getclient();
-    this.getDevis();
+    this.getDevisByprojet();
   }
 
   public onChangeClient(event) {
@@ -55,19 +55,18 @@ getclient() {
     });
 }
 
-  getprojet() {
+  getprojetByClient() {
 
 
-    this.servprojet.all().subscribe(res => {
+    this.servprojet.getProjetByClient(this.selectclient).subscribe(res => {
       this.listprojet = res ;
       console.log('listprojet', res);
     });
   }
 
-  getDevis() {
+  getDevisByprojet() {
 
-
-    this.serdevis.all().subscribe(rep => {
+    this.serdevis.getDevisbyProjet(this.selectprojet).subscribe(rep => {
       this.listdevis = rep ;
       console.log('listdevis', rep);
     });

@@ -48,15 +48,23 @@ export class OffreService {
 
 
 
-  getoffreByClient(id) {
+  getoffreByDevis(id) {
 
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
 
-    return this.http.get(environment.baseUrl + '/offre/byclient' + '/' + id, {headers});
+    return this.http.get(environment.baseUrl + '/offre/bydevis' + '/' + id, {headers});
 
   }
 
 
+
+  getbyId(id) {
+
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+
+    return this.http.get(environment.baseUrl + '/offre/byid' + '/' + id, {headers});
+
+  }
 
 
 }

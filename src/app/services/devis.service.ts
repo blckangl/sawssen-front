@@ -20,6 +20,14 @@ export class DevisService {
 
   }
 
+  getDevisbyProjet(idP) {
+
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+
+    return this.http.get(environment.baseUrl + '/devis/byclient/' +  idP , {headers});
+
+  }
+
   getbyId(id) {
 
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});

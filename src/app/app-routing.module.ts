@@ -43,15 +43,14 @@ import {AddProjectComponent} from './add-project/add-project.component';
 import {OffreSignesComponent} from './offre-signes/offre-signes.component';
 import {DevisEssaiComponent} from './devis-essai/devis-essai.component';
 import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
-import {AjoutePackagingComponent} from './ajoute-packaging/ajoute-packaging.component';
-import {AjouteTransportComponent} from './ajoute-transport/ajoute-transport.component';
+
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent, children: [
-      {path: 'ajouted/:idDevis', component: AjouteDevisComponent},
-      {path: 'addQuotation', component: AddQuotationComponent},
-      {path: 'ajouteof', component: AjouteOffreComponent},
+        {path: 'ajouted/:idDevis', component: AjouteDevisComponent},
+        {path: 'addQuotation', component: AddQuotationComponent},
+        {path: 'ajouteof',     component: AjouteOffreComponent},
       {path: 'etude', component: EtudeFaiComponent},
       {path: 'manager', component: ManagerComponent},
       {path: 'ajouteMag', component: AjouteManagerComponent},
@@ -85,8 +84,9 @@ const routes: Routes = [
       {path: 'offreEssai', component: OffreEssaiComponent} ,
       {path: 'allQuotation', component: AllQuotationComponent},
       {path: 'exportOf', component: BouttonExportComponent},
-      {path: 'ajoutePack', component: AjoutePackagingComponent},
-      {path: 'ajouteTran', component: AjouteTransportComponent}]},
+      //{path: 'ajoutePack', component: AjoutePackagingComponent},
+    //  {path: 'ajouteTran', component: AjouteTransportComponent}
+      ]},
       {path: 'login', component: LoginComponent},
       {path: 'btnFina', component: BtnFinaliserComponent},
       {path: 'btnRefuseFina', component: BtnRefuseOffreFinaliseComponent},

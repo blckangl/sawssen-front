@@ -2,7 +2,7 @@
 
   <div class="content">
     <header>Authentication</header>
-    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" >
+    <form [formGroup]="loginForm" >
       <div class="field" style="  border: 4px solid #3498db" >
         <span class="fa fa-user" ></span>
         <input type="text" required  placeholder="Username " class="form-control"   formControlName="username" [ngClass]="{'is-invalid': submit && f.username.errors}" >
@@ -22,7 +22,7 @@
         <a >Forgot Password?</a>
       </div>
       <div class="field">
-        <input type="submit" value="LOGIN">
+        <input type="submit" value="LOGIN" (click)="onLogin()">
       </div>
     </form>
 

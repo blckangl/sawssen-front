@@ -104,14 +104,14 @@
                   </thead>
                   <tbody>
 
-                  <tr class="active" *ngFor="let e of listoffrebyClient">
+                  <tr class="active" *ngFor="let e of listoffrebyDevis">
                     <th scope="row">{{e.id}}</th>
                     <td>{{e.numoff}}</td>
                     <td>{{e.date}}</td>
                     <td>{{e.devis.numdevis}}</td>
                     <td>{{e.client.fullname}}</td>
-                    <td>{{e.projet.chefpro}}</td>
-                    <td></td>
+                    <td>{{e.projet.designation}}</td>
+                    <td>{{e.total}}</td>
                     <td></td>
                     <td>
                       <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
