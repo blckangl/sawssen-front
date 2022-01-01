@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {HomeComponent} from './home/home.component';
 import {AjouteDevisComponent} from './Offre/ajoute-devis/ajoute-devis.component';
 import {LoginComponent} from './login/login.component';
@@ -42,59 +42,60 @@ import {AlloffremoldComponent} from './Mold/alloffremold/alloffremold.component'
 import {ExportdevisComponent} from './Devis/exportdevis/exportdevis.component';
 import {TracabiliteSalesComponent} from './Tracabilite/tracabilite-sales/tracabilite-sales.component';
 import {TracabpurchComponent} from './Tracabilite/tracabpurch/tracabpurch.component';
-
-
-
+import {AuthGuard} from './auth-guard.service';
 
 
 const routes: Routes = [
   {path: '', component: LoginComponent},
-  {path: 'home', component: HomeComponent, children: [
-      {path: 'ajouted/:idOffre', component: AjouteDevisComponent},
-      {path: 'ajoutedevis/:idClient/:idProjet', component: AjouteDeviscalculComponent},
-      {path: 'addQuotation', component: AddQuotationComponent},
-      {path: 'listdevis', component: ListDevisComponent},
-      {path: 'ajouteof', component: AjouteOffreComponent},
-      {path: 'etude', component: EtudeFaiComponent},
-      {path: 'manager', component: ManagerComponent},
-      {path: 'allMa', component: AllManagerComponent},
-      {path: 'matiere/:idfamily', component: MatiereComponent},
-      {path: 'AjouteMat', component: AjouteMatiereComponent},
-      {path: 'detailMat/:idmaterial', component: DetailMatiereComponent},
-      {path: 'allClient', component: AllClientComponent},
-      {path: 'createOf', component: BouttonCreateOfferComponent},
-      {path: 'SynteseOf', component: SyntheseProjetParOffreComponent},
-      {path: 'demEtudeCons', component: DemandeEtudeConsultationComponent},
-      {path: 'exquise', component: ExquiseFaisabiliteInterneComponent},
-      {path: 'quotMoule', component: QuotationMouleComponent},
-      {path: 'offreMoule', component: OfferMouleComponent},
-      {path: 'ajoutQuotMoule', component: AjoutQuotationMouleComponent},
-      {path: 'ajoutOfferMoule', component: AjoutOffreMouleComponent},
-      {path: 'project', component: ProjectComponent} ,
-      {path: 'acceuil', component: AcceuilComponent},
-      {path: 'devisEssai', component: DevisEssaiComponent},
-      {path: 'offreEssai', component: OffreEssaiComponent} ,
-      {path: 'database' , component: DatabaseComponent},
-      {path: 'allDem' , component: AllDemandeconComponent},
-      {path: 'alletude' , component: AllEtudeComponent},
-      {path: 'testt' , component: Test2Component},
-      {path: 'allexquise' , component: AllExquiseComponent},
-      {path: 'allDevEss' , component: AlldevisEssaiComponent},
-      {path: 'allOffrEss' , component: AlloffreEssaiComponent},
-      {path: 'editdev/:idDevisEssai' , component: EditDevisEssaiComponent},
-      {path: 'editoff' , component: EditOffreEssaiComponent},
-      {path: 'tracesales' , component: TracabiliteSalesComponent},
-      {path: 'tracrecpur' , component: TracabpurchComponent},
-      {path: 'tracrecrec' , component: TracabiliteReclamComponent},
-      {path: 'reclamation' , component: ReclamationComponent},
-      {path: 'exportd' , component: ExportdevisComponent},
-      {path: 'allmolddevis' , component: AlldevismoldComponent},
-      {path: 'allmoldoffre' , component: AlloffremoldComponent},
-    ]}
+  {
+    path: 'home', component: HomeComponent, children: [
+      {path: 'ajouted/:idOffre', component: AjouteDevisComponent, canActivate: [AuthGuard]},
+      {path: 'ajoutedevis/:idClient/:idProjet', component: AjouteDeviscalculComponent, canActivate: [AuthGuard]},
+      {path: 'addQuotation', component: AddQuotationComponent, canActivate: [AuthGuard]},
+      {path: 'listdevis', component: ListDevisComponent, canActivate: [AuthGuard]},
+      {path: 'ajouteof', component: AjouteOffreComponent, canActivate: [AuthGuard]},
+      {path: 'etude', component: EtudeFaiComponent, canActivate: [AuthGuard]},
+      {path: 'manager', component: ManagerComponent, canActivate: [AuthGuard]},
+      {path: 'allMa', component: AllManagerComponent, canActivate: [AuthGuard]},
+      {path: 'matiere/:idfamily', component: MatiereComponent, canActivate: [AuthGuard]},
+      {path: 'AjouteMat', component: AjouteMatiereComponent, canActivate: [AuthGuard]},
+      {path: 'detailMat/:idmaterial', component: DetailMatiereComponent, canActivate: [AuthGuard]},
+      {path: 'allClient', component: AllClientComponent, canActivate: [AuthGuard]},
+      {path: 'createOf', component: BouttonCreateOfferComponent, canActivate: [AuthGuard]},
+      {path: 'SynteseOf', component: SyntheseProjetParOffreComponent, canActivate: [AuthGuard]},
+      {path: 'demEtudeCons', component: DemandeEtudeConsultationComponent, canActivate: [AuthGuard]},
+      {path: 'exquise', component: ExquiseFaisabiliteInterneComponent, canActivate: [AuthGuard]},
+      {path: 'quotMoule', component: QuotationMouleComponent, canActivate: [AuthGuard]},
+      {path: 'offreMoule', component: OfferMouleComponent, canActivate: [AuthGuard]},
+      {path: 'ajoutQuotMoule', component: AjoutQuotationMouleComponent, canActivate: [AuthGuard]},
+      {path: 'ajoutOfferMoule', component: AjoutOffreMouleComponent, canActivate: [AuthGuard]},
+      {path: 'project', component: ProjectComponent, canActivate: [AuthGuard]},
+      {path: 'acceuil', component: AcceuilComponent, canActivate: [AuthGuard]},
+      {path: 'devisEssai', component: DevisEssaiComponent, canActivate: [AuthGuard]},
+      {path: 'offreEssai', component: OffreEssaiComponent, canActivate: [AuthGuard]},
+      {path: 'database', component: DatabaseComponent, canActivate: [AuthGuard]},
+      {path: 'allDem', component: AllDemandeconComponent, canActivate: [AuthGuard]},
+      {path: 'alletude', component: AllEtudeComponent, canActivate: [AuthGuard]},
+      {path: 'testt', component: Test2Component, canActivate: [AuthGuard]},
+      {path: 'allexquise', component: AllExquiseComponent, canActivate: [AuthGuard]},
+      {path: 'allDevEss', component: AlldevisEssaiComponent, canActivate: [AuthGuard]},
+      {path: 'allOffrEss', component: AlloffreEssaiComponent, canActivate: [AuthGuard]},
+      {path: 'editdev/:idDevisEssai', component: EditDevisEssaiComponent, canActivate: [AuthGuard]},
+      {path: 'editoff', component: EditOffreEssaiComponent, canActivate: [AuthGuard]},
+      {path: 'tracesales', component: TracabiliteSalesComponent, canActivate: [AuthGuard]},
+      {path: 'tracrecpur', component: TracabpurchComponent, canActivate: [AuthGuard]},
+      {path: 'tracrecrec', component: TracabiliteReclamComponent, canActivate: [AuthGuard]},
+      {path: 'reclamation', component: ReclamationComponent, canActivate: [AuthGuard]},
+      {path: 'exportd', component: ExportdevisComponent, canActivate: [AuthGuard]},
+      {path: 'allmolddevis', component: AlldevismoldComponent, canActivate: [AuthGuard]},
+      {path: 'allmoldoffre', component: AlloffremoldComponent, canActivate: [AuthGuard]},
+    ]
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

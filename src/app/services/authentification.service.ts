@@ -12,7 +12,7 @@ export class AuthentificationService {
   username: string;
   roles: string [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private jwtHelper: JwtHelperService) {
 
   }
 
@@ -21,6 +21,7 @@ export class AuthentificationService {
     return this.http.post(environment.baseUrl + '/login', data, {observe: 'response'});
 
   }
+
   //
   // registeradmin(c) {
   //   const headers = new HttpHeaders({authorization: 'Bearer ' + this.jwt});
@@ -40,7 +41,7 @@ export class AuthentificationService {
   getprofile() {
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.jwt});
 
-    return this.http.get(environment.baseUrl + '/user/users/' , {headers});
+    return this.http.get(environment.baseUrl + '/user/users/', {headers});
   }
 
   parseJWT() {
@@ -55,7 +56,6 @@ export class AuthentificationService {
     localStorage.setItem('token', jwt);
     this.jwt = jwt;
     this.parseJWT();
-
 
 
   }
@@ -113,40 +113,41 @@ export class AuthentificationService {
   }
 
 
-isAutresResponsables() {
-  if (this.roles) {
-    if (this.roles.indexOf('AUTRESRESPONSABLES') >= 0) {
+  isAutresResponsables() {
+    if (this.roles) {
+      if (this.roles.indexOf('AUTRESRESPONSABLES') >= 0) {
 
-      return this.roles.indexOf('AUTRESRESPONSABLES') >= 0;
+        return this.roles.indexOf('AUTRESRESPONSABLES') >= 0;
+      }
     }
   }
-}
 
-isDirection() {
-  if (this.roles) {
-    if (this.roles.indexOf('DIRECTION') >= 0) {
+  isDirection() {
+    if (this.roles) {
+      if (this.roles.indexOf('DIRECTION') >= 0) {
 
-      return this.roles.indexOf('DIRECTION') >= 0;
+        return this.roles.indexOf('DIRECTION') >= 0;
+      }
     }
   }
-  }
-isAuthenticated() {
+
+  isAuthenticated() {
 
     return this.roles && (this.isDirection() || this.isCommercial() || this.isresponsableachat() || this.isAssistanteCommercial() ||
       this.isAdmin() || this.isAutresResponsables() || this.isDirecteur() || this.isTechnicien());
   }
 
-loadToken() {
+  loadToken() {
     this.jwt = localStorage.getItem('token');
     this.parseJWT();
   }
 
-logout() {
+  logout() {
     localStorage.removeItem('token');
     this.initParams();
   }
 
-initParams() {
+  initParams() {
     this.jwt = undefined;
     this.username = undefined;
     this.roles = undefined;
@@ -158,6 +159,15 @@ initParams() {
 
         return this.roles.indexOf('ADMIN') >= 0;
       }
+    }
+  }
+
+  isAuth(): boolean {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return !this.jwtHelper.isTokenExpired(token);
+    } else {
+      return false;
     }
   }
 }
