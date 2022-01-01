@@ -1,0 +1,185 @@
+
+<div class="borderBox light bordered card-box">
+<div class="tab-pane active fontawesome-demo" >
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-box">
+        <div class="card-head">
+          <header>List of Families</header>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="col-2 col-lg-12">
+                <form class="navbar-form navbar-left" method="GET" role="search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="namefamily" [(ngModel)]="namefamily" (ngModelChange)="Search()" placeholder="Enter Family Name...">
+                    <span class="input-group-btn">
+							<button class="btn submit"><i class="icon-magnifier"></i></button></span>
+                  </div>
+                </form>
+              </div>
+
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-6">
+              <div class="btn-group">
+                <div class="btn-group">
+                  <a class="btn btn-info" data-toggle="modal" data-target="#addFam"><i class="fa fa-cart-plus"></i>Add New <i class="fa fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-6">
+              <div class="btn-group pull-right">
+                <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                   data-toggle="dropdown">Tools
+                  <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                  <li>
+                    <a href="javascript:;">
+                      <i class="fa fa-print"></i> Print </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <i class="fa fa-file-pdf-o"></i> Save as
+                      PDF </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <i class="fa fa-file-excel-o"></i>
+                      Export to Excel </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="table-scrollable">
+            <table
+              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+              id="example4">
+              <thead>
+              <tr>
+                <th>
+                  <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline">
+                    <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /><span></span></label>
+                </th>
+                <th class="text-center">Family Name</th>
+                <th class="text-center">Materials / Commercial Reference</th>
+                <th class="text-center">Edit</th>
+                <th class="text-center">Remove </th>
+                <th class="text-center">Joining Date</th>
+                <th class="text-center">Traceability</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="odd gradeX" *ngFor="let e of listFamily| paginate: { itemsPerPage:10, currentPage: p };">
+                <td>
+                  <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>
+                </td>
+
+                <td class="text-center"><a>{{e.namefamily}}</a></td>
+                <td class="text-center">
+                  <button class="btn btn-primary btn-xs" routerLink="/home/matiere/{{e.id}}"><i class="fa fa-list"></i>
+                </button>
+                </td>
+                <td class="text-center">
+                  <button class="btn btn-primary btn-xs"><i class="fa fa-pencil"  data-toggle="modal" data-target="#editfam" (click)="recuper(e.id,e.namefamily)"></i></button>
+                </td>
+                <td class="text-center">
+                  <button class="btn btn-danger btn-xs" type="submit" ><i class="fa fa-trash-o" (click)="supprimer(e.id)"></i></button>
+                </td>
+                <td class="text-center"><a>{{e.date}}</a></td>
+                <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <br>
+          <div class=" pull-right">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="addFam" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Family </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addFamily">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Family Name</label><input type="text" class="form-control" formControlName="namefamily"  placeholder="Family Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date"  value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()" >Save & Return</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel2" role="dialog" tabindex="-1" id="editfam" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Family </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addFamily">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label >Family Name </label><input type="text" class="form-control" formControlName="namefamily">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Joining Date</label>
+              <input type="date" class="form-control" formControlName="date"  value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="edit()" >Save & Return</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+

@@ -1,0 +1,61 @@
+
+<div class="borderBox light bordered card-box">
+  <div class="tab-pane active fontawesome-demo" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-box">
+          <div class="card-head">
+            <header>All Reclamation</header>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <div class="col-2 col-lg-12" >
+                  <form class="navbar-form navbar-left" method="GET" role="search" >
+                    <div class="input-group"  >
+                      <input type="text" class="form-control" placeholder="Search..." >
+                      <span class="input-group-btn">
+							<button class="btn submit"><i class="icon-magnifier"></i></button></span>
+                    </div>
+                  </form>
+                </div>
+
+              </li>
+            </ul>
+          </div>
+          <div class="card-body ">
+            <div class="row">
+
+              <div class="col-md-4 column sortable"  *ngFor="let e of listerec  | paginate: { itemsPerPage: 8, currentPage: p }">
+                <!-- BEGIN Portlet PORTLET-->
+                <div class="card">
+
+                  <div class="card-header">{{e.appUser.lastname}} &nbsp; {{e.appUser.firstName}}
+                    <button class="btn btn-success btn-sm pull-right"><i class="fa fa-trash-o" (click)="supprimer(e.id)"></i></button></div>
+                  <div class="card-body">
+                    <h5 style="color: #007bff"> Sujet : &nbsp; {{e.sujet}}</h5>
+                    <p style="color: brown"> Contenu : &nbsp;{{e.description}} </p>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+            <div class=" pull-right">
+              <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+
+
+
+

@@ -1,0 +1,309 @@
+<div class="borderBox light bordered card-box">
+  <div class="tab-pane active fontawesome-demo">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-box">
+          <div class="card-head">
+            <header>All Customers</header>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <div class="col-2 col-lg-12">
+                  <form class="navbar-form navbar-left" method="GET" role="search">
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search..." name="query">
+                      <span class="input-group-btn">
+							<button class="btn submit"><i class="icon-magnifier"></i></button></span>
+                    </div>
+                  </form>
+                </div>
+
+              </li>
+            </ul>
+          </div>
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-6">
+                <div class="btn-group">
+                  <div class="btn-group">
+                    <a class="btn btn-info" data-toggle="modal" data-target="#addcli">Add New <i class="fa fa-plus"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <div class="btn-group pull-right">
+                  <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                     data-toggle="dropdown">Tools
+                    <i class="fa fa-angle-down"></i>
+                  </a>
+                  <ul class="dropdown-menu pull-right">
+                    <li>
+                      <a href="javascript:;">
+                        <i class="fa fa-print"></i> Print </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <i class="fa fa-file-pdf-o"></i> Save as
+                        PDF </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <i class="fa fa-file-excel-o"></i>
+                        Export to Excel </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4" *ngFor="let e of listClient">
+              <div class="card card-box">
+                <div class="card-body no-padding ">
+                  <div class="doctor-profile">
+                    <img src="{{e.profile}}" class="doctor-pic" alt="">
+                    <div class="profile-usertitle">
+                      <div class="doctor-name">{{e.fullname}} </div>
+                      <div class="name-center"> Responsable Commercial<br/><a
+                        style="color: #0d47a1;font-family:'Bauhaus 93';font-size:20px">{{e.contact}}</a></div>
+                    </div>
+
+                    <p><span><i class="fa fa-envelope"></i>: <b>{{e.emacom}}</b></span></p>
+
+                    <div>
+                      <p style="color: #044d73"><span><i class="fa fa-phone"></i>: <b> {{e.mobcc}} </b></span></p>
+                    </div>
+                    <p><span><i class="fa fa-building"></i>:  <b> {{e.adresse}}</b></span></p>
+
+                    <div class="profile-userbuttons">
+                      <button class="btn btn-circle btn-success btn-sm"><i class="fa fa-home"></i></button>
+                      <button class="btn btn-circle btn-primary btn-sm">
+                        <i class="fa fa-pencil" data-toggle="modal" data-target="#editcli"
+                           (click)="recuper(e.id,e.fullname,e.sector,e.activity,e.adresse,e.country,e.mobile,e.fax,e.email,e.contact,e.emacom,e.mobcc,e.num,e.cap,e.busn,e.crea,e.source,e.info,e.profile,e.product,e.websi)"></i>
+                      </button>
+                      <button class="btn btn-circle btn-danger btn-sm" type="submit"><i class="fa fa-trash-o"
+                                                                                        (click)="supprimer(e.id)"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="addcli" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Customer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addClient">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label>Full Name</label><input type="text" class="form-control" formControlName="fullname"
+                                             placeholder="Full Name">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Sector</label><input type="text" class="form-control" formControlName="sector"
+                                          placeholder="Sector">
+            </div>
+
+            <div class="form-group col-md-4">
+              <label>Activity</label><input type="text" class="form-control" formControlName="activity"
+                                            placeholder="Activity">
+            </div>
+            <div class="form-group col-md-8">
+              <label>Address</label><input type="text" class="form-control" formControlName="adresse"
+                                           placeholder="Address">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Country</label><input type="text" class="form-control" formControlName="country"
+                                           placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobile"
+                                              placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Fax No.</label><input type="text" class="form-control" formControlName="fax" placeholder="Fax No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="text" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Contact / Commercial</label><input type="text" class="form-control" formControlName="contact"
+                                                        placeholder="Contact / Commercial">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email Commercial</label><input type="text" class="form-control" formControlName="emacom"
+                                                    placeholder="Email Commercial">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.Commercial</label><input type="text" class="form-control" formControlName="mobcc"
+                                                        placeholder="Mobile No.Commercial">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Number of employees</label><input type="text" class="form-control" formControlName="num"
+                                                       placeholder="Number of employees">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Capital DT</label><input type="text" class="form-control" formControlName="cap"
+                                              placeholder="Capital DT">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Business Structure</label><input type="text" class="form-control" formControlName="busn"
+                                                      placeholder="Business Structure">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Creation Date</label><input type="text" class="form-control" formControlName="crea"
+                                                 placeholder="Creation Date">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Source</label><input type="text" class="form-control" formControlName="source"
+                                          placeholder="Source">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Information</label><input type="text" class="form-control" formControlName="info"
+                                               placeholder="Information">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <!--     <input type="file" id="file" class="form-control" formControlName="profile" name="profile" accept="image/*"  (change)="fileChangeEvent($event.target)">-->
+            </div>
+            <div class="form-group col-md-6">
+              <label>Product Picture</label><input type="file" class="form-control" formControlName="product">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Website</label><input type="text" class="form-control" formControlName="websi"
+                                           placeholder="Website">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label><input type="date" class="form-control" formControlName="joinindate"
+                                                value="date">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()">Save & Return</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel2" role="dialog" tabindex="-1" id="editcli" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Customer</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addClient">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label>Full Name</label><input type="text" class="form-control" formControlName="fullname">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Sector</label><input type="text" class="form-control" formControlName="sector">
+            </div>
+
+            <div class="form-group col-md-4">
+              <label>Activity</label><input type="text" class="form-control" formControlName="activity">
+            </div>
+            <div class="form-group col-md-8">
+              <label>Address</label><input type="text" class="form-control" formControlName="adresse">
+            </div>
+            <div class="form-group col-md-4">
+              <label>Country</label><input type="text" class="form-control" formControlName="country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobile">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Fax No.</label><input type="text" class="form-control" formControlName="fax">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="text" class="form-control" formControlName="email">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Contact / Commercial</label><input type="text" class="form-control" formControlName="contact">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email Commercial</label><input type="text" class="form-control" formControlName="emacom">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.Commercial</label><input type="text" class="form-control" formControlName="mobcc">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Number of employees</label><input type="text" class="form-control" formControlName="num">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Capital DT</label><input type="text" class="form-control" formControlName="cap">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Business Structure</label><input type="text" class="form-control" formControlName="busn">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Creation Date</label><input type="text" class="form-control" formControlName="crea">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Source</label><input type="text" class="form-control" formControlName="source">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Information</label><input type="text" class="form-control" formControlName="info">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <input type="file" class="form-control" formControlName="profile">
+              <!--     <input type="file" class="form-control" formControlName="profile" (change)="fileChangeEvent($event.target)"/>-->
+            </div>
+            <div class="form-group col-md-6">
+              <label>Product Picture</label>
+              <input type="file" class="form-control" formControlName="product">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Website</label><input type="text" class="form-control" formControlName="websi">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label><input type="date" class="form-control" formControlName="joinindate"
+                                                value="date">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="edit()">Save & Return</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

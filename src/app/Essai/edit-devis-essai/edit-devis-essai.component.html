@@ -1,0 +1,706 @@
+<div class="borderBox light bordered card-box">
+    <div class="tab-pane active fontawesome-demo" >
+      <form [formGroup]="addDevisEssai" (ngSubmit)="edit()">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-box">
+            <div class="card-head">
+              <header>INJECTION TRIAL QUOTE</header>
+            </div>
+
+            <div class="card-body ">
+
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-6">
+                  <input type="text" class="form-control"  formControlName="service" [(ngModel)]="DetailsEssai.service">
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <input type="text" class="form-control"  formControlName="numdoc" [(ngModel)]="DetailsEssai.numdoc">
+                </div>
+              </div>
+              <hr>
+              <table class="table table-bordered  " >
+                <thead  >
+                <tr class="filters" >
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF">Date</th>
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF" >Customer</th>
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF">Project</th>
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF">Mold Number </th>
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF">Reference</th>
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF">Part Name</th>
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF">Part Number</th>
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF">Destination</th>
+                  <th class="text-center" style="background: #2154cf;color: #FFFFFF">Sales Manager</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr >
+                  <th><input type="date" size="10" class="form-control" formControlName="date"  value="{{currentDate | date:'yyyy-MM-dd'}}"disabled></th>
+                  <th><input type="text" size="10" class="form-control" formControlName="client"[(ngModel)]="DetailsEssai.client" ></th>
+                  <th><input type="text" size="10" class="form-control" formControlName="proj"[(ngModel)]="DetailsEssai.proj"></th>
+                  <th><input type="text" size="10" class="form-control" formControlName="mold"[(ngModel)]="DetailsEssai.mold"></th>
+                  <th><input type="text" size="10" class="form-control" formControlName="ref"[(ngModel)]="DetailsEssai.ref"></th>
+                  <th><input type="text" size="10" class="form-control" formControlName="name"[(ngModel)]="DetailsEssai.name"></th>
+                  <th><input type="text" size="10" class="form-control" formControlName="number"[(ngModel)]="DetailsEssai.number"></th>
+                  <th><input type="text" size="10" class="form-control" formControlName="dest"[(ngModel)]="DetailsEssai.dest"></th>
+                  <th><input type="text" size="10" class="form-control" formControlName="sales"[(ngModel)]="DetailsEssai.sales"></th>
+                </tr>
+                </tbody>
+              </table>
+              <hr>
+              <div class="card">
+                <div class="card-header">
+                  <ul class="nav nav-tabs justify-content-center" role="tablist">
+                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#material" role="tab">Material</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#process" role="tab">Process</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#metrology" role="tab">Metrology</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#project" role="tab">Project Monitoring</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#other" role="tab">Other Service</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#packaging" role="tab">Packaging</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#transport" role="tab">Transport</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#work" role="tab">Reworks</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#spare" role="tab">Spare Part</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#margin" role="tab">Margin</a></li>
+                  </ul>
+                </div>
+                <div class="card-body">
+                  <!-- Tab panes -->
+                  <div class="tab-content text-center">
+
+                    <div class="tab-pane active" id="material" role="tabpanel">
+                      <div class="invoice">
+                        <table class="table table-bordered" >
+                          <thead>
+                          <tr>
+                            <th class="col-md-2" style="text-decoration: underline;background:#FFFFFF;" >Material</th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th class="text-center" style="background:#FFFFFF">Price </th>
+                            <th class="text-center" style=";background:#FFFFFF">Cost</th>
+                            <th class="text-center" style=";background:#FFFFFF">Margin</th>
+                            <th class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <th style=" background:#FFFFFF" > Material Purchase </th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="matqu"[(ngModel)]="DetailsEssai.matqu"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="purp"[(ngModel)]="DetailsEssai.purp"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="cosma"[(ngModel)]="DetailsEssai.cosma"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="marma"[(ngModel)]="DetailsEssai.marma"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="offma"[(ngModel)]="DetailsEssai.offma"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Component Purchase </th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="comqu"[(ngModel)]="DetailsEssai.comqu"></td>
+                            <td style="background: #FFFFFF"><input type="number"size="10" class="form-control" formControlName="purco"[(ngModel)]="DetailsEssai.purco"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="cospu"[(ngModel)]="DetailsEssai.cospu"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="marcom"[(ngModel)]="DetailsEssai.marcom"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="offpur"[(ngModel)]="DetailsEssai.offpur"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other  </th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="othqu"[(ngModel)]="DetailsEssai.othqu"></td>
+                            <td style="background: #FFFFFF" ><input type="number" size="10" class="form-control" formControlName="purot"[(ngModel)]="DetailsEssai.purot"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="cosu"[(ngModel)]="DetailsEssai.cosu"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="marothe"[(ngModel)]="DetailsEssai.marothe"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="offeoth"[(ngModel)]="DetailsEssai.offeoth"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="color:  #2154cf;background :#ddd"><input type="number" size="10" class="form-control" formControlName="cosd" [(ngModel)]="DetailsEssai.cosd"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="color:  #2154cf;background: #ddd;"><input type="number" size="10" class="form-control" formControlName="offtota"[(ngModel)]="DetailsEssai.offtota"></th>
+                          </tr>
+                          <tr>
+                            <th >Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="cost"[(ngModel)]="DetailsEssai.cost"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="offmar"[(ngModel)]="DetailsEssai.offmar"></th>
+                          </tr>
+                          <tr>
+                            <th >Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="cosq"[(ngModel)]="DetailsEssai.cosq"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="offtot"[(ngModel)]="DetailsEssai.offtot"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="process" role="tabpanel">
+                      <div class="invoice ">
+                        <table class="table table-bordered  " >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Process</th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <th style="background:#FFFFFF" > Machine </th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="proma"[(ngModel)]="DetailsEssai.proma"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="promu"[(ngModel)]="DetailsEssai.promu"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="proco"[(ngModel)]="DetailsEssai.proco"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="mapr"[(ngModel)]="DetailsEssai.mapr"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prmc"[(ngModel)]="DetailsEssai.prmc"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Operator</th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="proop"[(ngModel)]="DetailsEssai.proop"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="propr"[(ngModel)]="DetailsEssai.propr"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="procop"[(ngModel)]="DetailsEssai.procop"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prpr"[(ngModel)]="DetailsEssai.prpr"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pr"[(ngModel)]="DetailsEssai.pr"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Technician</th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="protec"[(ngModel)]="DetailsEssai.protec"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prote"[(ngModel)]="DetailsEssai.prote"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="propc"[(ngModel)]="DetailsEssai.propc"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="mete"[(ngModel)]="DetailsEssai.mete"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtc"[(ngModel)]="DetailsEssai.prtc"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Other</th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prooth"[(ngModel)]="DetailsEssai.prooth"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prootc"[(ngModel)]="DetailsEssai.prootc"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="proth"[(ngModel)]="DetailsEssai.proth"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="protu"[(ngModel)]="DetailsEssai.protu"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prot"[(ngModel)]="DetailsEssai.prot"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prto"[(ngModel)]="DetailsEssai.prto"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ofpr"[(ngModel)]="DetailsEssai.ofpr"></th>
+                          </tr>
+                          <tr>
+                            <th>Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prma"[(ngModel)]="DetailsEssai.prma"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ofpa"[(ngModel)]="DetailsEssai.ofpa"></th>
+                          </tr>
+                          <tr>
+                            <th >Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prat"[(ngModel)]="DetailsEssai.prat"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ofd"[(ngModel)]="DetailsEssai.ofd"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="metrology" role="tabpanel">
+                      <div class="invoice ">
+                        <table class="table table-bordered  " >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF">Metrology</th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="vme"[(ngModel)]="DetailsEssai.vme"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="qume"[(ngModel)]="DetailsEssai.qume"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prme"[(ngModel)]="DetailsEssai.prme"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="come"[(ngModel)]="DetailsEssai.come"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="mame"[(ngModel)]="DetailsEssai.mame"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="ofme"[(ngModel)]="DetailsEssai.ofme"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other  </th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="qumeq"[(ngModel)]="DetailsEssai.qumeq"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prime"[(ngModel)]="DetailsEssai.prime"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pme"[(ngModel)]="DetailsEssai.pme"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="cme"[(ngModel)]="DetailsEssai.cme"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="mgme"[(ngModel)]="DetailsEssai.mgme"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="comec"[(ngModel)]="DetailsEssai.comec"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="tame"[(ngModel)]="DetailsEssai.tame"></th>
+                          </tr>
+                          <tr>
+                            <th>Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="marme"[(ngModel)]="DetailsEssai.marme"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="txme"[(ngModel)]="DetailsEssai.txme" ></th>
+                          </tr>
+                          <tr>
+                            <th >Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="text" size="10" class="form-control" formControlName="tome"[(ngModel)]="DetailsEssai.tome"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="text" size="10" class="form-control" formControlName="tvme"[(ngModel)]="DetailsEssai.tvme"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="project" role="tabpanel">
+                      <div class="invoice ">
+                        <table class="table table-bordered  " >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Project Monitoring </th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="prv"[(ngModel)]="DetailsEssai.prv"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prq"[(ngModel)]="DetailsEssai.prq"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pri"[(ngModel)]="DetailsEssai.pri"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prc"[(ngModel)]="DetailsEssai.prc"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prm"[(ngModel)]="DetailsEssai.prm"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prr"[(ngModel)]="DetailsEssai.prr"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other </th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pro"[(ngModel)]="DetailsEssai.pro"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prt"[(ngModel)]="DetailsEssai.prt"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prth"[(ngModel)]="DetailsEssai.prth"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prco"[(ngModel)]="DetailsEssai.prco"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pry"[(ngModel)]="DetailsEssai.pry"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prti"[(ngModel)]="DetailsEssai.prti"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd"><input type="number" size="10" class="form-control" formControlName="proo"[(ngModel)]="DetailsEssai.proo"></th>
+                          </tr>
+                          <tr>
+                            <th >Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prmq"[(ngModel)]="DetailsEssai.prmq"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="prx"[(ngModel)]="DetailsEssai.prx"></th>
+                          </tr>
+                          <tr>
+                            <th >Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prtt"[(ngModel)]="DetailsEssai.prtt"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="pra"[(ngModel)]="DetailsEssai.pra"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="other" role="tabpanel">
+                      <div class="invoice ">
+                        <table class="table table-bordered  " >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Other Service  </th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="background: #FFFFFF"><input type="text"  size="10" class="form-control" formControlName="otv"[(ngModel)]="DetailsEssai.otv"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otq"[(ngModel)]="DetailsEssai.otq"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otp"[(ngModel)]="DetailsEssai.otp"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otc"[(ngModel)]="DetailsEssai.otc"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otm"[(ngModel)]="DetailsEssai.otm"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="oto"[(ngModel)]="DetailsEssai.oto"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other </th>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otu"[(ngModel)]="DetailsEssai.otu"></td>
+                            <td style="background: #FFFFFF" ><input type="number" size="10" class="form-control" formControlName="otpi"[(ngModel)]="DetailsEssai.otpi"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otco"[(ngModel)]="DetailsEssai.otco"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otmo"[(ngModel)]="DetailsEssai.otmo"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ott"[(ngModel)]="DetailsEssai.ott"></td>
+                          </tr>
+                          <tr>
+                            <th   style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="color:  #2154cf;background :#ddd"><input type="number" size="10" class="form-control" formControlName="otss"[(ngModel)]="DetailsEssai.otss"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="color:  #2154cf;background: #ddd;"><input type="number" size="10" class="form-control" formControlName="otsq"[(ngModel)]="DetailsEssai.otsq"></th>
+                          </tr>
+                          <tr>
+                            <th>Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="otma"[(ngModel)]="DetailsEssai.otma"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="otqs"[(ngModel)]="DetailsEssai.otqs"></th>
+                          </tr>
+                          <tr>
+                            <th>Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="otze"[(ngModel)]="DetailsEssai.otze"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="otvg"[(ngModel)]="DetailsEssai.otvg"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="packaging" role="tabpanel">
+                      <div class="invoice ">
+                        <table class="table table-bordered  " >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Packaging </th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="background: #FFFFFF"><input type="text"  size="10" class="form-control" formControlName="pckv"[(ngModel)]="DetailsEssai.pckv"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pckq"[(ngModel)]="DetailsEssai.pckq"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pckc"[(ngModel)]="DetailsEssai.pckc"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pcks"[(ngModel)]="DetailsEssai.pcks"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pckr"[(ngModel)]="DetailsEssai.pckr"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pckf"[(ngModel)]="DetailsEssai.pckf"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other  </th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pcky"[(ngModel)]="DetailsEssai.pcky"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pcki"[(ngModel)]="DetailsEssai.pcki"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pcke"[(ngModel)]="DetailsEssai.pcke"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pckii"[(ngModel)]="DetailsEssai.pckii"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pckk"[(ngModel)]="DetailsEssai.pckk"></td>
+                          </tr>
+                          <tr>
+                            <th   style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="pckss"[(ngModel)]="DetailsEssai.pckss"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="pckm"[(ngModel)]="DetailsEssai.pckm"></th>
+                          </tr>
+                          <tr>
+                            <th>Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="pcka"[(ngModel)]="DetailsEssai.pcka"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="pckh"[(ngModel)]="DetailsEssai.pckh"></th>
+                          </tr>
+                          <tr>
+                            <th>Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="color:  #2154cf;background :#ddd"><input type="number" size="10" class="form-control" formControlName="pckaq"[(ngModel)]="DetailsEssai.pckaq"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="color:  #2154cf;background: #ddd;"><input type="number" size="10" class="form-control" formControlName="pckg"[(ngModel)]="DetailsEssai.pckg"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="transport" role="tabpanel">
+                      <div class="invoice ">
+                        <table class="table table-bordered  " >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Transport </th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="prtvi"[(ngModel)]="DetailsEssai.prtvi"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtq"[(ngModel)]="DetailsEssai.prtq"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtv"[(ngModel)]="DetailsEssai.prtv"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtm"[(ngModel)]="DetailsEssai.prtm"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtl"[(ngModel)]="DetailsEssai.prtl"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtb"[(ngModel)]="DetailsEssai.prtb"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other  </th>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtu"[(ngModel)]="DetailsEssai.prtu"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtr"[(ngModel)]="DetailsEssai.prtr"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtx"[(ngModel)]="DetailsEssai.prtx"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prta"[(ngModel)]="DetailsEssai.prta"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtf"[(ngModel)]="DetailsEssai.prtf"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prtfe"[(ngModel)]="DetailsEssai.prtfe"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="prtp"[(ngModel)]="DetailsEssai.prtp"></th>
+                          </tr>
+                          <tr>
+                            <th>Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prtre"[(ngModel)]="DetailsEssai.prtre"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="prtw"[(ngModel)]="DetailsEssai.prtw"></th>
+                          </tr>
+                          <tr>
+                            <th >Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prtez"[(ngModel)]="DetailsEssai.prtez"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="prmt"[(ngModel)]="DetailsEssai.prmt"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="work" role="tabpanel">
+                      <div class="invoice ">
+                        <table class="table table-bordered  " >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Reworks</th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="wov"[(ngModel)]="DetailsEssai.wov"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="woq"[(ngModel)]="DetailsEssai.woq"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="wod"[(ngModel)]="DetailsEssai.wod"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="wos"[(ngModel)]="DetailsEssai.wos"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="wom"[(ngModel)]="DetailsEssai.wom"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="wof"[(ngModel)]="DetailsEssai.wof"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other  </th>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="wok"[(ngModel)]="DetailsEssai.wok"></td>
+                            <td style="background: #FFFFFF" ><input type="number" size="10" class="form-control" formControlName="wog"[(ngModel)]="DetailsEssai.wog"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="won"[(ngModel)]="DetailsEssai.won"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="wou"[(ngModel)]="DetailsEssai.wou"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="wor"[(ngModel)]="DetailsEssai.wor"></td>
+                          </tr>
+                          <tr>
+                            <th   style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="wop"[(ngModel)]="DetailsEssai.wop"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="wob"[(ngModel)]="DetailsEssai.wob"></th>
+                          </tr>
+                          <tr>
+                            <th>Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="woz"[(ngModel)]="DetailsEssai.woz"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="wow"[(ngModel)]="DetailsEssai.wow"></th>
+                          </tr>
+                          <tr>
+                            <th >Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="woa"[(ngModel)]="DetailsEssai.woa"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="woj"[(ngModel)]="DetailsEssai.woj"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="spare" role="tabpanel">
+                      <div class="invoice">
+                        <table class="table table-bordered" >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Spare Part </th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="background: #FFFFFF"><input type="text"  size="10" class="form-control" formControlName="ayp"[(ngModel)]="DetailsEssai.ayp"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="aya"[(ngModel)]="DetailsEssai.aya"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ayz"[(ngModel)]="DetailsEssai.ayz"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="aye"[(ngModel)]="DetailsEssai.aye"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ayr"[(ngModel)]="DetailsEssai.ayr"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ayt"[(ngModel)]="DetailsEssai.ayt"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other  </th>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ayu"[(ngModel)]="DetailsEssai.ayu"></td>
+                            <td style="background: #FFFFFF" ><input type="number"  size="10" class="form-control" formControlName="ayi"[(ngModel)]="DetailsEssai.ayi"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="ayo"[(ngModel)]="DetailsEssai.ayo"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="abp"[(ngModel)]="DetailsEssai.abp"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="ayq"[(ngModel)]="DetailsEssai.ayq"></td>
+                          </tr>
+                          <tr>
+                            <th   style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="ayw"[(ngModel)]="DetailsEssai.ayw"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ayg"[(ngModel)]="DetailsEssai.ayg"></th>
+                          </tr>
+                          <tr>
+                            <th >Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="ayx"[(ngModel)]="DetailsEssai.ayx"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="aym"[(ngModel)]="DetailsEssai.aym"></th>
+                          </tr>
+                          <tr>
+                            <th >Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="ayha"[(ngModel)]="DetailsEssai.ayha"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="ayv"[(ngModel)]="DetailsEssai.ayv"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                    <div class="tab-pane" id="margin" role="tabpanel">
+                      <div class="invoice ">
+                        <table class="table table-bordered  " >
+                          <thead>
+                          <tr>
+                            <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Margin </th>
+                            <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                            <th  class="text-center" style="background:#FFFFFF">Price </th>
+                            <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                            <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                            <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                            <td style="background: #FFFFFF"><input type="text"  size="10" class="form-control" formControlName="ina"[(ngModel)]="DetailsEssai.ina"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="inz"[(ngModel)]="DetailsEssai.inz"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control"  formControlName="ine"[(ngModel)]="DetailsEssai.ine"></td>
+                            <td style="background: #FFFFFF"><input type="number" size="10" class="form-control"  formControlName="inr"[(ngModel)]="DetailsEssai.inr"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="itn"[(ngModel)]="DetailsEssai.itn"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="iny"[(ngModel)]="DetailsEssai.iny"></td>
+                          </tr>
+                          <tr>
+                            <th style="background:#FFFFFF"> Other  </th>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="inu"[(ngModel)]="DetailsEssai.inu"></td>
+                            <td style="background: #FFFFFF" ><input type="number" size="10" class="form-control" formControlName="ini"[(ngModel)]="DetailsEssai.ini"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ino"[(ngModel)]="DetailsEssai.ino"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="inp"[(ngModel)]="DetailsEssai.inp"></td>
+                            <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="inq"[(ngModel)]="DetailsEssai.inq"></td>
+                          </tr>
+                          <tr>
+                            <th   style="background:#FFFFFF">Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="ins" [(ngModel)]="DetailsEssai.ins"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="ing" [(ngModel)]="DetailsEssai.ing"></th>
+                          </tr>
+                          <tr>
+                            <th>Margin</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="ind" [(ngModel)]="DetailsEssai.ind"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="inh" [(ngModel)]="DetailsEssai.inh"></th>
+                          </tr>
+                          <tr>
+                            <th >Total</th>
+                            <td colspan="2" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="inf" [(ngModel)]="DetailsEssai.inf"></th>
+                            <td colspan="1" style="background:#FFFFFF"></td>
+                            <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ink" [(ngModel)]="DetailsEssai.ink"></th>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <a style="font-family:Bahnschrift ;margin-left: 1%;"> Macro-Planning  </a>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="text" class="form-control"  formControlName="macro" required [(ngModel)]="DetailsEssai.macro">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <a style="font-family:Bahnschrift ;margin-left: 1%;"> Condition</a>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <textarea type="text" height="175px" class="form-control" formControlName="cond" required  [(ngModel)]="DetailsEssai.cond"> </textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <a style="font-family:Bahnschrift ;margin-left: 1%;">  Validity of the offer </a>
+              </div>
+
+              <div class="row">
+                <div class="form-group col-md-12">
+                  <input type="date" class="form-control" formControlName="validity"  required [(ngModel)]="DetailsEssai.validity">
+                </div>
+              </div>
+
+              <br><br><br>
+              <button type="reset"  class="btn btn-default " style="float: right;padding: 8px 40px;font-size: 16px;">Cancel</button>
+              <button type="submit" class="btn btn-primary " style="float: right;margin-right: 1%;padding: 8px 50px;font-size: 16px;">Save</button>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+
+</div>
+
+
+
+

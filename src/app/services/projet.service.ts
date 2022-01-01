@@ -19,13 +19,6 @@ export class ProjetService {
   }
 
 
-  getProjetByClient(idC) {
-
-    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
-
-    return this.http.get(environment.baseUrl + '/projet/byclient/' + idC , {headers});
-
-  }
   delete(id) {
     const headers = new HttpHeaders({authorization: 'Bearer ' +  this.authService.jwt});
 
@@ -36,7 +29,7 @@ export class ProjetService {
   }
 
 
-  update(c, id, idC) {
+  update( id, idC , c) {
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
     return this.http.put( environment.baseUrl + '/projet/edit/' + id + '/' + idC , c, {headers});
 
@@ -46,7 +39,7 @@ export class ProjetService {
 
 
 
-  add(c, idC) {
+  ajout(idC, c) {
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
     return this.http.post( environment.baseUrl + '/projet/add/' + idC , c, {headers});
 
@@ -55,14 +48,35 @@ export class ProjetService {
 
 
 
-
-  getprojetByClient(id) {
+  getbyclient(idC) {
 
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
 
-    return this.http.get(environment.baseUrl + '/projet/byclient' + '/' + id, {headers});
+    return this.http.get(environment.baseUrl + '/projet/byclient/' + idC , {headers});
 
   }
 
 
+
+  getbyId(id) {
+
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+
+    return this.http.get(environment.baseUrl + '/projet/byid' + '/' + id, {headers});
+
+  }
+
+  getProjetbyproject(project) {
+
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+
+    return this.http.get(environment.baseUrl + '/projet/project?' + 'project=' + project, {headers});
+
+  }
+  getProjetbydesignation(designation) {
+
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+
+    return this.http.get(environment.baseUrl + '/projet/designation?' + 'designation=' + designation, {headers});
+  }
 }

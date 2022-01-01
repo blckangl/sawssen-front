@@ -21,21 +21,27 @@ export class AuthentificationService {
     return this.http.post(environment.baseUrl + '/login', data, {observe: 'response'});
 
   }
+  //
+  // registeradmin(c) {
+  //   const headers = new HttpHeaders({authorization: 'Bearer ' + this.jwt});
+  //   return this.http.post(environment.baseUrl + '/admin/register', c, {headers});
+  //
+  //
+  // }
+  //
+  // registercomm(c) {
+  //   const headers = new HttpHeaders({authorization: 'Bearer ' + this.jwt});
+  //   return this.http.post( environment.baseUrl + '/commercial/register/' , c, {headers});
+  // }
+  //
+  //
 
-  /*register(data) {
+
+  getprofile() {
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.jwt});
-    return this.http.post(environment.baseUrl + '/admin/add', data, {headers});
 
-
-  }*/
-
-
-  /* getprofile(id) {
-     let headers = new HttpHeaders({'authorization': 'Bearer ' + this.jwt});
-
-     return this.http.get(environment.baseUrl + '/commercial/byId/' , +id,{headers: headers});
-   }*/
-
+    return this.http.get(environment.baseUrl + '/user/users/' , {headers});
+  }
 
   parseJWT() {
 
@@ -126,7 +132,8 @@ isDirection() {
   }
 isAuthenticated() {
 
-    return this.roles && (this.isDirection() || this.isCommercial() || this.isresponsableachat());
+    return this.roles && (this.isDirection() || this.isCommercial() || this.isresponsableachat() || this.isAssistanteCommercial() ||
+      this.isAdmin() || this.isAutresResponsables() || this.isDirecteur() || this.isTechnicien());
   }
 
 loadToken() {
@@ -137,7 +144,6 @@ loadToken() {
 logout() {
     localStorage.removeItem('token');
     this.initParams();
-
   }
 
 initParams() {
@@ -146,4 +152,12 @@ initParams() {
     this.roles = undefined;
   }
 
+  isAdmin() {
+    if (this.roles) {
+      if (this.roles.indexOf('ADMIN') >= 0) {
+
+        return this.roles.indexOf('ADMIN') >= 0;
+      }
+    }
+  }
 }

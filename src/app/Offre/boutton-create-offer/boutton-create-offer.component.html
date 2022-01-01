@@ -1,0 +1,95 @@
+<div class="card-header" style="color:#428bca">
+  <div class="form-group multiple-form-group input-group" style=" height: 30px; width: 1725px;">
+    <div class="input-group-btn input-group-select">
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+        <span class="concept" for="country-select" >Select Customer</span>
+      </button>
+    </div>
+    <select  id="country-select222" class="form-control"
+             name="client" [ngModel]="selectclient" (change)='onChangeSelectedClient($event)' [ngModelOptions]="{standalone: true}">
+      <option style=" font-size: 18px;"  selected="{{s.fullname}}" [value]="s.id" *ngFor="let s of listclient">{{s.fullname}}</option>
+    </select >
+  </div>
+</div>
+
+<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent1"  *ngIf="show === true">
+
+  <div class="card">
+    <div class="card-header" >
+      <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                      <span class="concept" for="country-select2">N° Project</span>
+                    </button>
+
+                  </div>
+                  <select id="country-select2" class="form-control"  name="projet" [ngModel]="selectprojet" (change)='onChangeSelectedProjet($event)' [ngModelOptions]="{standalone: true}">
+                    <option></option>
+
+                    <option selected="{{s.project}}" [value]="s.id" *ngFor="let s of listprojet">{{s.project}}</option>
+
+                  </select>
+                </div>
+              </div>
+    <div class="card-header" style="color:#428bca">
+                <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                      <span class="concept" for="country-select">Quotation</span>
+                    </button>
+                  </div>
+                  <select id="country-select9" class="form-control"  name="devis" [ngModel]="select" (change)='onChangeSelectedDevis($event)' [ngModelOptions]="{standalone: true}">
+                    <option selected="{{s.numdocdev}}" [value]="s.id" *ngFor="let s of listdevis">{{s.numdocdev}}</option>
+
+                  </select>
+                </div>
+              </div>
+    <div class="card-header" style="color:#428bca">
+              <a routerLink="/ajouted/{{idOffre}}" class="btn btn-primary btn-sm  pull-right"><b>+</b> Add new offer</a>
+              </div>
+    <div class="card-body ">
+
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th scope="col">N° Quotation Document</th>
+                    <th >N° Offer Document</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Designation</th>
+                    <th scope="col">Total</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" >Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <tr class="active" *ngFor="let e of listoffrebyDevis">
+                    <th scope="row">{{e.devis.numdocdev}}</th>
+                    <td>{{e.numdocoff}}</td>
+                    <td>{{e.date}}</td>
+                    <td>{{e.client.fullname}}</td>
+                    <td>{{e.projet.project}}</td>
+                    <td>{{e.projet.designation}}</td>
+                    <td>{{e.total}}</td>
+                    <td></td>
+                    <td>
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span></a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+
+                    </td>
+                  </tr>
+
+                  </tbody>
+                </table>
+
+
+
+              </div>
+  </div>
+</div>
+
+
+

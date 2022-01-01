@@ -1,0 +1,125 @@
+<div class="borderBox light bordered card-box">
+<div class="tab-pane active fontawesome-demo" >
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-box">
+        <div class="card-head">
+          <header>ALL TRIAL QUOTE </header>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <div class="col-2 col-lg-12" >
+                <form class="navbar-form navbar-left" method="GET" role="search">
+                  <div class="input-group">
+                    <input type="text" class="form-control" name="service" [(ngModel)]="service" (ngModelChange)="Search()" placeholder="Enter Service Name...">
+                    <span class="input-group-btn">
+						         	<button class="btn submit"><i class="icon-magnifier"></i></button></span>
+                  </div>
+                </form>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6 col-sm-6 col-6">
+              <div class="btn-group">
+                <a routerLink="/devisEssai" class="btn btn-info">
+                  Add New <i class="fa fa-plus"></i>
+                </a>
+
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-6">
+              <div class="btn-group pull-right">
+                <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                   data-toggle="dropdown">Tools
+                  <i class="fa fa-angle-down"></i>
+                </a>
+                <ul class="dropdown-menu pull-right">
+                  <li>
+                    <a href="javascript:;">
+                      <i class="fa fa-print"></i> Print </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <i class="fa fa-file-pdf-o"></i> Save as
+                      PDF </a>
+                  </li>
+                  <li>
+                    <a href="javascript:;">
+                      <i class="fa fa-file-excel-o"></i>
+                      Export to Excel </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="table-scrollable">
+            <table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle">
+              <thead>
+              <tr>
+                <th>
+                  <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline">
+                    <input type="checkbox" class="group-checkable"
+                           data-set="#sample_1 .checkboxes" />
+                    <span></span>
+                  </label>
+                </th>
+                <th class="text-center">Service</th>
+                <th class="text-center">N°Quotation</th>
+                <th class="text-center">Customer</th>
+                <th class="text-center">Reference</th>
+                <th class="text-center">Mold Number</th>
+                <th class="text-center">Project</th>
+                <th class="text-center">Joining Date</th>
+                <th class="text-center">Traceability</th>
+                <th class="text-center">Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr class="odd gradeX" *ngFor="let e of listDevEssai| paginate: { itemsPerPage:10, currentPage: p };">
+                <td>
+                  <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline">
+                    <input type="checkbox" class="checkboxes" value="1"/>
+                    <span></span>
+                  </label>
+                </td>
+                <td class="text-center" >{{e.service}}</td>
+                <td class="text-center">{{e.numdoc}}</td>
+                <td class="text-center">{{e.client}}</td>
+                <td class="text-center">{{e.ref}}</td>
+                <td class="text-center">{{e.mold}}</td>
+                <td class="text-center">{{e.proj}}</td>
+                <td class="text-center">{{e.date}}</td>
+                <td class="text-center"></td>
+                <td class="text-center">
+                  <button class="btn btn-primary btn-xs" type="submit">
+                    <i  routerLink="/editdev/{{e.id}}"class="fa fa-pencil" (click)="recuper(e.id,e.service,e.numdoc,e.date,e.client,e.proj,e.mold,e.ref,e.name,e.number,e.dest,
+                    e.sales,e.matqu,e.purp,e.cosma,e.marma,e.offma,e.comqu,e.purco,e.cospu,e.marcom,e.offpur,e.othqu,e.purot,e.cosu,e.marothe,e.offeoth,e.cosd,e.offtota,
+                    e.cost,e.offmar,e.cosq,e.offtot,e.proma,e.promu,e.proco,e.mapr,e.prmc,e.proop,e.propr,e.procop,e.prpr,e.pr,e.protec,e.prote,e.propc,e.mete,e.prtc,
+                    e.prooth,e.prootc,e.proth,e.protu,e.prot,e.prto,e.ofpr,e.prma,e.ofpa,e.prat,e.ofd,e.vme,e.qume,e.prme,e.come,e.mame,e.ofme,e.qumeq,e.prime,e.pme,
+                    e.cme,e.mgme,e.comec,e.tame,e.marme,e.txme,e.tome,e.tvme,e.prv,e.prq,e.pri,e.prc,e.prm,e.prr,e.pro,e.prt,e.prth,e.prco,e.pry,e.prti,e.proo,e.prmq,
+                    e.prx,e.prtt,e.pra,e.otv,e.otq,e.otp,e.otc,e.otm,e.oto,e.otu,e.otpi,e.otco,e.otmo,e.ott,e.otss,e.otsq,e.otma,e.otqs,e.otze,e.otvg,e.pckv,e.pckq,
+                    e.pckc,e.pcks,e.pckr,e.pckf,e.pcky,e.pcki,e.pcke,e.pckii,e.pckk,e.pckss,e.pckm,e.pcka,e.pckh,e.pckaq,e.pckg,e.prtvi,e.prtq,e.prtv,e.prtm,e.prtl,
+                    e.prtb,e.prtu,e.prtr,e.prtx,e.prta,e.prtf,e.prtfe,e.prtp,e.prtre,e.prtw,e.prtez,e.prmt,e.wov,e.woq,e.wod,e.wos,e.wom,e.wof,e.wok,e.wog,e.won,e.wou,
+                    e.wor,e.wop,e.wob,e.woz,e.wow,e.woa,e.woj,e.ayp,e.aya,e.ayz,e.aye,e.ayr,e.ayt,e.ayu,e.ayi,e.ayo,e.abp,e.ayq,e.ayw,e.ayg,e.ayx,e.aym,e.ayha,e.ayv,
+                    e.ina,e.inz,e.ine,e.inr,e.itn,e.iny,e.inu,e.ini,e.ino,e.inp,e.inq,e.ins,e.ing,e.ind,e.inh,e.inf,e.ink,e.macro,e.cond,e.validity)"></i>
+                  </button>
+                  <button class="btn btn-danger btn-xs" type="submit" >
+                    <i class="fa fa-trash-o" (click)="supprimer(e.id)"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+            <br>
+            <div class=" pull-right">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

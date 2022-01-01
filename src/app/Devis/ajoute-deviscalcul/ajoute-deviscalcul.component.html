@@ -1,0 +1,1240 @@
+<form [formGroup]="addDevis" (ngSubmit)="add()">
+<div class="borderBox light bordered card-box">
+  <div class="tab-pane active fontawesome-demo" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-box">
+          <div class="card-head">
+            <header>Internal Quotation</header>
+            <ul class="nav navbar-nav navbar-right">
+                <div class="input-group flex-nowrap col-4 col-lg-10">
+                  <div class="input-group-prepend">
+                    <input class="form-control" type="text" formControlName="trac" [(ngModel)]="user.username" disabled>
+                  </div>
+                  </div>
+            </ul>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">Date</a></div>
+              <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">Offer N°</a></div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <input class="form-control mdl-textfield__input" type="date" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+              </div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <input class="form-control"  formControlName="num" [(ngModel)]="detailsprojet.numoffer" disabled>
+              </div>
+              <br><br>
+              <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">DOC N°</a></div>
+              <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">QUOTATION N°</a></div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <input class="form-control" type="text" formControlName="numdoc" [(ngModel)]="document" disabled>
+              </div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <input class="form-control" type="text" formControlName="numdocdev"
+                       value="{{'Berry Monastir' + 'CBD ' + '-' + detailsclient.fullname + '-' + detailsprojet.project + '-' + detailsprojet.designation}}">
+              </div>
+            </div>
+            <hr>
+            <div class="card-header" style="background: #F0F0F0">
+              <ul class="nav nav-tabs justify-content-center" role="tablist">
+                <li class="nav-item"><a class="nav-link active btn-primary" data-toggle="tab" href="#projectt" role="tab">Project Information</a></li>
+                <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#contactuel" role="tab">Contractuel Information</a></li>
+                <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#quantity" role="tab">Quantity Information & lifetime Forecasts</a></li>
+                <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#parts" role="tab">Parts Technical Information</a></li>
+              </ul>
+            </div>
+            <div class="card-body" style="background: #F0F0F0">
+              <div class="tab-content text-center">
+                <div class="tab-pane active" id="projectt" role="tabpanel">
+                  <div class="invoice">
+                    <table class="table table-bordered">
+                      <thead>
+                      <tr>
+                        <th class="text-center" style="background:#FFFFFF">Customer</th>
+                        <th class="text-center" style="background:#FFFFFF">Segment </th>
+                        <th class="text-center" style=";background:#FFFFFF">RFQ Site</th>
+                        <th class="text-center" style=";background:#FFFFFF">Customer RFQ N°</th>
+                        <th class="text-center" style="background:#FFFFFF">RFQ Date</th>
+                        <th class="text-center" style="background:#FFFFFF">Project</th>
+                        <th class="text-center" style="background:#FFFFFF">Buyer</th>
+                        <th class="text-center" style="background:#FFFFFF">Delivery Adress</th>
+                        <th class="text-center" style="background:#FFFFFF">Incoterm</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr>
+                        <td style="background: #FFFFFF">
+                          <input class="form-control" size="10" type="text" formControlName="customer" [(ngModel)]="detailsclient.fullname" disabled>
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="form-control" type="text" size="10" formControlName="segment" placeholder="Enter...">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="form-control" type="text" formControlName="rfq" [(ngModel)]="detailsprojet.sitedeman" disabled>
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="form-control" type="text" size="10" formControlName="numCus" [(ngModel)]="detailsprojet.clientg" disabled>
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="form-control" type="text" size="10" formControlName="dateR" [(ngModel)]="detailsprojet.dateRFQ" disabled>
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="form-control" type="text" size="10" formControlName="project" [(ngModel)]="detailsprojet.project" disabled>
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="form-control" type="text" size="10" formControlName="buyer" [(ngModel)]="detailsprojet.acheteur" disabled>
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="form-control" type="text" size="10" formControlName="deliveryAd" [(ngModel)]="detailsprojet.sitelivr" disabled>
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <select class="form-control" formControlName="incoterm">
+                            <option  value="" disabled selected hidden>Select </option>
+                            <option>FCA</option>
+                            <option>EXW</option>
+                            <option>DDP</option>
+                            <option>DDI</option>
+                            <option>DAP</option>
+                            <option>FOB</option>
+                            <option>CIF</option>
+                          </select>
+                        </td>
+                      </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane" id="contactuel" role="tabpanel">
+                  <div class="invoice">
+                    <table class="table table-bordered">
+                      <thead>
+                      <tr>
+                        <th class="text-center col-md-3" style="background:#FFFFFF">Business Link / Participation (% of TO)</th>
+                        <th class="text-center" style="background:#FFFFFF">LTA</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+1</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+2</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+3</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+4</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+5</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="business" placeholder="Enter..." >
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="lta" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopU" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopD" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopT" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopQ" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopC" placeholder="Enter...">
+                      </td>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane" id="quantity" role="tabpanel">
+                  <div class="invoice">
+                    <table class="table table-bordered">
+                      <thead>
+                      <tr>
+                        <th class="text-center" style="background:#FFFFFF">Annual Quantity</th>
+                        <th class="text-center col-md-2" style="background:#FFFFFF">Project duration (years)</th>
+                        <th class="text-center" style="background:#FFFFFF">Lifetime volume</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+1</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+2</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+3</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+4</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10"  formControlName="annualQua" [value]="annualQua" (blur)="cslmjpb" disabled>
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="years" [value]="this.listcount.length" disabled>
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="life" disabled>
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sop" placeholder="Enter..." (blur)="countsop();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopUn" placeholder="Enter..." (blur)="countsop1();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopDe" placeholder="Enter..." (blur)="countsop2();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopTr" placeholder="Enter..." (blur)="countsop3();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopQu" placeholder="Enter..."  (blur)="countsop4();calculate()">
+                      </td>
+                      </tbody>
+                      <thead>
+                      <tr>
+                        <th class="text-center" style="background:#FFFFFF">SOP+5</th>
+                        <th class="text-center"  style="background:#FFFFFF">SOP+6</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+7</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+8</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+9</th>
+                        <th class="text-center" style="background:#FFFFFF">SOP+10</th>
+                        <th class="text-center col-md-2" style="background:#FFFFFF">Minimum Production Quantity</th>
+                        <th class="text-center col-md-2" style="background:#FFFFFF">Minimum Order Quantity</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopCi" placeholder="Enter..." (blur)="countsop5();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopSe" placeholder="Enter..." (blur)="countsop6();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopSet" placeholder="Enter..."(blur)="countsop7();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopWe" placeholder="Enter..." (blur)="countsop8();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopNe" placeholder="Enter..." (blur)="countsop9();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="sopDi" placeholder="Enter..." (blur)="countsop10();calculate()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="miniPro" placeholder="Enter..." (blur)="cslmb()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="miniOrd" placeholder="Enter...">
+                      </td>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="tab-pane" id="parts" role="tabpanel">
+                  <div class="invoice">
+                    <table class="table table-bordered">
+                      <thead>
+                      <tr>
+                        <th class="text-center" style="background:#FFFFFF">2D Number</th>
+                        <th class="text-center" style="background:#FFFFFF">3D Number</th>
+                        <th class="text-center col-md-2" style=";background:#FFFFFF">Part description</th>
+                        <th class="text-center col-md-2" style=";background:#FFFFFF">Photo</th>
+                        <th class="text-center" style="background:#FFFFFF">Part Name</th>
+                        <th class="text-center" style="background:#FFFFFF">Part Number</th>
+                        <th class="text-center" style="background:#FFFFFF">Lenght ( L)</th>
+                        <th class="text-center" style="background:#FFFFFF">weidth (L)</th>
+                        <th class="text-center" style="background:#FFFFFF">Hauteur</th>
+                        <th class="text-center col-md-2" style="background:#FFFFFF">Parts Surfacic Volume</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="deuxD" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="troisD" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="text" size="10" formControlName="partDes" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                          <div class="custom-file">
+                            <input type="file" class="form-control custom-file-input" id="inputf" accept="image/*" formControlName="photo">
+                            <label class="custom-file-label" for="inputf" aria-describedby="inputGroupFileAddon02">Choose file</label>
+                          </div>
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="text" size="10" formControlName="partNam" [(ngModel)]="detailsprojet.designation" disabled>
+                      </td>
+                      <td style="background: #FFFFFF">
+                      <input class="form-control" type="text"size="10" formControlName="partNum" placeholder="Enter...">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="lenghtP" placeholder="Enter..." (blur)="calculatep()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="weidthP" placeholder="Enter..." (blur)="calculatep()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="hauteurP" placeholder="Enter..." (blur)="calculatep()">
+                      </td>
+                      <td style="background: #FFFFFF">
+                        <input class="form-control" type="number" size="10" formControlName="partSur" disabled>
+                      </td>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <hr>
+            <div class="card">
+              <div class="row">
+                <div class="col-xs-12 ">
+                  <nav>
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                      <a class="nav-item nav-link active btn-primary" id="nav-mat-tab" data-toggle="tab" href="#nav-mat" role="tab" aria-controls="nav-mat" aria-selected="true">1.MATERIAL</a>
+                      <a class="nav-item nav-link btn-primary" id="nav-pur-tab" data-toggle="tab" href="#nav-pur" role="tab" aria-controls="nav-pur" aria-selected="false">2.PURCHASING</a>
+                      <a class="nav-item nav-link btn-primary" id="nav-pro-tab" data-toggle="tab" href="#nav-pro" role="tab" aria-controls="nav-pro" aria-selected="false">3.PROCESS COST</a>
+                      <a class="nav-item nav-link btn-primary" id="nav-energie-tab" data-toggle="tab" href="#nav-energie" role="tab" aria-controls="nav-energie" aria-selected="false">4.ENERGIE COST</a>
+                      <a class="nav-item nav-link btn-primary" id="nav-rem-tab" data-toggle="tab" href="#nav-rem" role="tab" aria-controls="nav-rem" aria-selected="false">5.MANUFACTURING COST</a>
+                      <a class="nav-item nav-link btn-primary" id="nav-man-tab" data-toggle="tab" href="#nav-man" role="tab" aria-controls="nav-man" aria-selected="false"> 6. WORKS PART PRICE </a>
+                      <a class="nav-item nav-link btn-primary" id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab" aria-controls="nav-add" aria-selected="false">7.ADDITIONNAL COSTS</a>
+                      <a class="nav-item nav-link btn-primary" id="nav-tot-tab" data-toggle="tab" href="#nav-tot" role="tab" aria-controls="nav-tot" aria-selected="false">8.TOTAL PRICE AT</a>
+                    </div>
+                  </nav>
+                  <div class="tab-content py-5 px-5 px-sm-0" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-mat" role="tabpanel" aria-labelledby="nav-mat-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#colorant" style="left: 3px">
+                            <i class="fa fa-plus pull-left"></i>Add Colorant</button>
+                          <div class="btn-group pull-right">
+                          <button class="btn btn-sm btn-danger mb-2" data-role="" style="right: 5px">
+                            <i class="fa fa-minus"></i></button>
+                          </div>
+                          <div class="btn-group pull-right">
+                          <button class="btn btn-sm btn-primary mb-2" data-role="" style="right: 10px">
+                            <i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                        <div class="col-md-12">
+                          <div class="table-scrollable">
+                            <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                <th class="text-center">Raw Material Family</th>
+                                <th class="text-center">Raw Material Description</th>
+                                <th class="text-center">Supplier</th>
+                                <th class="text-center">Incoterm</th>
+                                <th class="text-center">Sales Price</th>
+                                <th class="text-center">Part Name</th>
+                                <th class="text-center">Handling</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td rowspan="1">
+                                  <select class="form-control" formControlName="materialFa" [ngModel]="selectfamily" (change)="onChangeSelected($event)">
+                                    <option value="">Select</option>
+                                    <option selected="{{s.namefamily}}" [value]="s.id" *ngFor="let s of listfamily">{{s.namefamily}}</option>
+                                  </select>
+                                </td>
+                                <td>
+                                  <select class="form-control" formControlName="materialDe" [ngModel]="selectmaterial" (change)="onChangeSelectedMaterial($event)">
+                                    <option value="">Select</option>
+                                    <option selected="{{s.matRef}}" [value]="s.id" *ngFor="let s of listmaterial">{{s.matRef}}</option>
+                                  </select>
+                                </td>
+                                <td><input class="form-control" type="text"  formControlName="supplier"  value="{{detailmater.supplierr}}" disabled></td>
+                                <td><input class="form-control" type="number" formControlName="incotermS" [value]="detailmater.incoterm" disabled></td>
+                                <td><input class="form-control" type="number" formControlName="sales" [value]="detailmater.price" disabled></td>
+                                <td><input class="form-control" type="text"  formControlName="partN" placeholder="Enter..." ></td>
+                                <td><input class="form-control" type="number" formControlName="handlingg" [(ngModel)]="detailmachinep[0].handling" (blur)="cttpk()" disabled></td>
+                              </tr>
+                              </tbody>
+                              <thead>
+                              <tr>
+                                <th class="text-center">Density (gr/cm³)</th>
+                                <th class="text-center">Volum According</th>
+                                <th class="text-center">Net Weight</th>
+                                <th class="text-center">Section</th>
+                                <th class="text-center">Long</th>
+                                <th class="text-center">Estimated Sprue Volum cm³</th>
+                                <th class="text-center">Estimated Sprue (gr)</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input class="form-control" type="number" formControlName="densityy" [value]="detailmater.density" disabled></td>
+                                <td><input class="form-control" type="number" formControlName="volum" placeholder="Enter..." (blur)="calculatenet() ; csnet()"></td>
+                                <td><input class="form-control" type="number" formControlName="netW" (blur)="calculatl();cagrl()"></td>
+                                <td><input class="form-control" type="number" formControlName="section" placeholder="Enter..." (blur)="calculates()"></td>
+                                <td><input class="form-control" type="number" formControlName="llong" placeholder="Enter..." (blur)="calculates()"></td>
+                                <td><input class="form-control" type="number" formControlName="estimatedSp" (click)="calculatenets()"></td>
+                                <td><input class="form-control" type="number" formControlName="estimated" (click)="calculatl();caatl()"></td>
+                              </tr>
+                              </tbody>
+                              <thead>
+                              <tr>
+                                <th class="text-center">Injected Weight</th>
+                                <th class="text-center">% Of Sprue autorized</th>
+                                <th class="text-center">Regrind</th>
+                                <th class="text-center">Sprue Reused</th>
+                                <th class="text-center">Sprue Rejected</th>
+                                <th class="text-center">Scrap</th>
+                                <th class="text-center">Gross Weight</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="number" class="form-control" formControlName="injectedW" (blur)="calculatl();calc()"></td>
+                                <td><input class="form-control" type="number" formControlName="pourcentageSp" placeholder="Enter..." (blur)="calc()"></td>
+                                <td><select class="form-control" formControlName="regrind" (change)="calc()">
+                                  <option value="">Select</option>
+                                  <option value="YES">YES</option>
+                                  <option value="NO">NO</option>
+                                </select>
+                                <td><input type="number" class="form-control" formControlName="sprueU" (blur)="calc();caatl()"></td>
+                                <td><input type="number" class="form-control" formControlName="sprueJ" (blur)="caatl();cagrl()"></td>
+                                <td><input type="number" class="form-control" formControlName="scrap"  placeholder="Enter..." (blur)="cagrl() ;cttpk()"></td>
+                                <td><input type="number" class="form-control" formControlName="grossW" (blur)="catl() ; cslm() ; cslmb(); cslmjpb() ;csnetp() ; cttpk() ;cj()"></td>
+                              </tr>
+                              </tbody>
+                              <thead>
+                              <tr>
+                                <th class="text-center">Transport</th>
+                                <th class="text-center">Delivered Material Cost</th>
+                                <th class="text-center">% Of Material</th>
+                                <th class="text-center">Material weight for calculation</th>
+                                <th class="text-center">Batch Prod Qtt Material (kg)</th>
+                                <th class="text-center">Annual purchasing volum (Kg)</th>
+                                <th class="text-center">Netto</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="number" class="form-control" formControlName="transport" placeholder="Enter..." (blur)="catl();csl() ;cttpk()"></td>
+                                <td><input type="number" class="form-control" formControlName="delivered" (blur)="csl()"></td>
+                                <td><input type="number" class="form-control" formControlName="pourcentageMa" placeholder="Enter..." (blur)="cslm()"></td>
+                                <td><input type="number" class="form-control" formControlName="materialW" (blur)="cslm()" (click)="cslmb()"></td>
+                                <td><input type="number" class="form-control" formControlName="batch" (blur)="cslmb()"></td>
+                                <td><input type="number" class="form-control" formControlName="annualPur" (blur)="cslmjpb()"></td>
+                                <td><input type="number" class="form-control" formControlName="netto" (blur)="csnet()" (click)="csnetp()"></td>
+
+                              </tr>
+                              </tbody>
+                              <thead>
+                              <tr>
+                                <th class="text-center">Rate (€)</th>
+                                <th class="text-center">%Netto</th>
+                                <th class="text-center">Parts/assy</th>
+                                <th class="text-center">Pressure</th>
+                                <th class="text-center">Length</th>
+                                <th class="text-center">Width</th>
+                                <th class="text-center">Thikness</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="number" class="form-control" formControlName="rate" placeholder="Enter..." (blur)="cttpk()"></td>
+                                <td><input type="number" class="form-control" formControlName="pourcentageNe" (blur)="csnetp()"></td>
+                                <td><input type="number" class="form-control" formControlName="parts"placeholder="Enter..." (blur)="cttpk()"></td>
+                                <td><input type="number" class="form-control" formControlName="pressuree" [value]="detailmater.pressure" disabled></td>
+                                <td><input type="number" class="form-control" formControlName="length" placeholder="Enter..." (blur)="crp()"></td>
+                                <td><input type="number" class="form-control" formControlName="width" placeholder="Enter..." (blur)="crp()"></td>
+                                <td><input type="number" class="form-control" formControlName="thikness" placeholder="Enter..."></td>
+                              </tr>
+                              </tbody>
+                              <thead>
+                              <tr>
+                                <th class="text-center">Ray</th>
+                                <th class="text-center">Clamping force</th>
+                                <th colspan="5" class="text-center" style="background:#F0F0F0">Material costs / unit</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="number" class="form-control" formControlName="ray" placeholder="Enter..." (blur)="crp()"></td>
+                                <td><input type="number" class="form-control" formControlName="clamping" (blur)="crp()"></td>
+                                <td colspan="5" style="background:#F0F0F0;"><input type="number" class="form-control" formControlName="unit" (blur)="cttpk()"></td>
+                              </tr>
+                              <tr>
+                                <th colspan="5">
+                                <th style="background: #ddd;">TOTAL MATERIAL</th>
+                                <th class="text-right" style="color:  #2154cf;background: #ddd;">
+                                  <input type="number" value="" size="10" class="form-control" formControlName="totalMat"></th>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-pur" role="tabpanel" aria-labelledby="nav-pur-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-danger mb-2" data-role="removel" style="right: 5px"><i class="fa fa-minus"></i></button>
+                          </div>
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary mb-2" data-role="addl" style="right: 10px"><i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="table-scrollable">
+                            <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                <th class="col-md-2">Material Description</th>
+                                <th>Specification</th>
+                                <th>Supplier</th>
+                                <th>Netto</th>
+                                <th>Gross</th>
+                                <th>Rate (€)</th>
+                                <th>Transport</th>
+                                <th>Scrap % </th>
+                                <th>Handling%</th>
+                                <th>%Netto </th>
+                                <th>Parts/assy</th>
+                                <th>Inserts Cost </th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td rowspan="1">
+                                  <select class="form-control" formControlName="description" [ngModel]="selectinsert" (change)="onChangeSelectedInsert($event)">
+                                    <option value="">Select</option>
+                                    <option selected="{{s.design}}" [value]="s.id" *ngFor="let s of listinsert">{{s.design}}</option>
+                                  </select>
+                                </td>
+                                <td><input type="text" class="form-control" formControlName="specification" placeholder="Enter..."></td>
+                                <td><input type="text" class="form-control" formControlName="supplierP" placeholder="Enter..."></td>
+                            <!--    <td><input type="number" class="form-control" formControlName="nettoP" placeholder="Enter..." (blur)="calcu()"></td>
+                                <td><input type="number" class="form-control" formControlName="grossP" placeholder="Enter..." (blur)="calcu()"></td>
+                                <td><input type="number" class="form-control" formControlName="rateP" [value]="detailinsert.price" disabled></td>
+                                <td><input type="number" class="form-control" formControlName="transportP" [value]="detailinsert.trans" disabled></td>
+                                <td><input type="number" class="form-control" formControlName="scrapP" [value]="detailinsert.scrap" disabled></td>-->
+                                <td><input type="number" class="form-control" formControlName="handlingP" placeholder="Enter..."></td>
+                                <td><input type="number" class="form-control" formControlName="pourNet"></td>
+                                <td><input type="number" class="form-control" formControlName="partsAss" placeholder="Enter..."></td>
+                                <td><input type="number" class="form-control" formControlName="insertCost"></td>
+                              </tr>
+
+                              <tr >
+                                <th colspan="10"></th>
+                                <th style="background: #ddd;">TOTAL INSERT</th>
+                                <th class="text-right" style="color:  #2154cf;background: #ddd;">
+                                  <input type="text"  value="" size="10" class="form-control"  formControlName="total"></th>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-pro" role="tabpanel" aria-labelledby="nav-pro-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-danger mb-2" data-role="removel" style="right: 5px"><i class="fa fa-minus"></i></button>
+                          </div>
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary mb-2" data-role="addl" style="right: 10px"><i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="table-scrollable">
+                            <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                <th class="text-center">OPERATION</th>
+                                <th class="text-center">Machine type </th>
+                                <th class="text-center">Machine Rate</th>
+                                <th class="text-center">Parts / cycle</th>
+                                <th class="text-center">Cycle Time</th>
+                                <th class="text-center">Parts per Hour</th>
+                                <th class="text-center">Nº Heads</th>
+                                <th class="text-center">Direct Labor Rate/ hour (EUR)</th>
+
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td ><input type="text" class="form-control"  formControlName="operationcc"  placeholder="Enter..."></td>
+                                <td><input type="number" class="form-control" formControlName="machineT"></td>
+                                <td><input type="number" class="form-control" formControlName="machineR"></td>
+                                <td><input type="number" class="form-control" formControlName="partC" (blur)="crp()"></td>
+                                <td><input type="number" class="form-control" formControlName="cycleT"></td>
+                                <td><input type="number" class="form-control" formControlName="partH"></td>
+                                <td><input type="number" class="form-control" formControlName="nheads"></td>
+                                <td><input type="number" class="form-control"  formControlName="direct"></td>
+                              </tr>
+                              </tbody>
+                              <thead>
+                              <tr>
+                                <th class="text-center">Scrap  %</th>
+                                <th class="text-center">Machine Costs</th>
+                                <th class="text-center">Labor Costs</th>
+                                <th class="text-center">Parts per Assy</th>
+                                <th class="text-center">TRS</th>
+                                <th class="text-center">Capacity ( parts /year)</th>
+                                <th class="text-center">Weekly capacity (6 days)</th>
+                                <th class="text-center">Monthly capacity</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="number" class="form-control" formControlName="scrapC"></td>
+                                <td><input type="number" class="form-control" formControlName="machineC"></td>
+                                <td><input type="number" class="form-control" formControlName="laboC"></td>
+                                <td><input type="number" class="form-control" formControlName="partA"></td>
+                                <td><input type="number" class="form-control" formControlName="trs"></td>
+                                <td><input type="number" class="form-control" formControlName="capacity"></td>
+                                <td><input type="number" class="form-control" formControlName="weeklyC"></td>
+                                <td><input type="number" class="form-control" formControlName="monthylyC"></td>
+                              </tr>
+                              </tbody>
+                              <thead>
+                              <tr>
+                                <th class="text-center">Annual capacity</th>
+                                <th class="text-center">Machine occupancy days</th>
+                                <th class="text-center">Annual Occupancy (Hours)</th>
+                                <th class="text-center">Annual machine occupancy</th>
+                                <th class="text-center">COST</th>
+                                <th class="text-center" colspan="3">Starting Costs / Process</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="number" class="form-control" formControlName="annualC"></td>
+                                <td><input type="number" class="form-control" formControlName="machineO"></td>
+                                <td><input type="number" class="form-control" formControlName="annualO"></td>
+                                <td><input type="number" class="form-control" formControlName="annualM"></td>
+                                <td><input type="number" class="form-control" formControlName="cost"></td>
+                                <td  colspan="3"><input type="number" class="form-control " formControlName="start"></td>
+                              </tr>
+                              </tbody>
+                              <thead>
+                              <tr>
+                                <th style="background:  #F0F0F0;" class="text-center">Number of process</th>
+                                <th style="background:  #F0F0F0;" class="text-center">production minimum quantity</th>
+                                <th style="background:  #F0F0F0;" class="text-center">Total machine costs</th>
+                                <th style="background:  #F0F0F0;" class="text-center">Total labor costs</th>
+                                <th style="background:  #F0F0F0;" class="text-center">starting cost</th>
+                                <th colspan="3"  style="background:  #ddd;" class="text-center">TOTAL PROCESS</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="number" size="10" class="form-control" formControlName="numb">
+                                </td>
+                                <td style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text" size="10" class="form-control" formControlName="prodm">
+                                </td>
+                                <td style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text" size="10" class="form-control" formControlName="totalm">
+                                </td>
+                                <td style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text"  size="10" class="form-control" formControlName="totallab">
+                                </td>
+                                <td style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text"  size="10" class="form-control" formControlName="startc">
+                                </td>
+                                <td colspan="3" class="text-right" style="color:  #2154cf;background: #ddd;">
+                                  <input type="text"  value="" size="10" class="form-control" formControlName="totalp">
+                                </td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-energie" role="tabpanel" aria-labelledby="nav-energie-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-danger mb-2" data-role="removel" style="right: 5px"><i class="fa fa-minus"></i></button>
+                          </div>
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary mb-2" data-role="addl" style="right: 10px"><i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="table-scrollable">
+                            <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                <th>OPERATION</th>
+                                <th>Energy Rate</th>
+                                <th>Parts / cycle</th>
+                                <th>Parts per Hour</th>
+                                <th>Scrap  %</th>
+                                <th>CT</th>
+                                <th>Parts per Assy</th>
+                                <th>Energy costs</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="text" class="form-control" formControlName="operation"></td>
+                                <td><input type="text" class="form-control" formControlName="enrgyr"></td>
+                                <td><input type="text" class="form-control" formControlName="partss"></td>
+                                <td><input type="text" class="form-control" formControlName="partsh"></td>
+                                <td><input type="text" class="form-control" formControlName="scrappp"></td>
+                                <td><input type="text" class="form-control" formControlName="ct"></td>
+                                <td><input type="text" class="form-control" formControlName="partpa"></td>
+                                <td><input type="text" class="form-control" formControlName="enrgc"></td>
+                              </tr>
+                              <tr >
+                                <th style="background:  #F0F0F0;">Number of process</th>
+                                <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text" value="" size="10" class="form-control" formControlName="nump"></th>
+                                <th colspan="4"></th>
+                                <th  style="background:  #F0F0F0;">starting cost</th>
+                                <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text"  value="" size="10" class="form-control"  formControlName="startcc"></th>
+                              </tr>
+                              <th colspan="6"></th>
+                              <th  style="background:  #ddd;">TOTAL ENERGY</th>
+                              <th class="text-right" style="color:  #2154cf;background: #ddd;">
+                                <input type="text" class="form-control" formControlName="totale">
+                              </th>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-rem" role="tabpanel" aria-labelledby="nav-rem-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                          </div>
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="table-scrollable">
+                            <table class="table table-bordered">
+                              <tbody>
+                              <th  style="background:  #ddd;">TOTAL </th>
+                              <th  colspan="9" class="text-right" style="color:  #2154cf;background: #ddd;">
+                                <input type="text" size="10" class="form-control"  formControlName="totalmc" placeholder="EUR/Part *">
+                              </th>
+                              </tbody>
+                              <br>
+                              <tbody>
+                              <th  colspan="10"  style="background:  #ddd;">M A R K U P S (% of Manufacturing Cost)</th>
+                              <tr>
+                                <th style="background:  #F0F0F0;">Scrap %</th>
+                                <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text" size="10" class="form-control" formControlName="scrapm"></th>
+                                <th  style="background:  #F0F0F0;">Sales & Admin %</th>
+                                <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text" size="10" class="form-control" formControlName="salesa">
+                                </th>
+                                <th  style="background:  #F0F0F0;">R&D %</th>
+                                <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text" size="10" class="form-control"  formControlName="rd">
+                                </th>
+                                <th  style="background:  #F0F0F0;">Profit %</th>
+                                <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text" size="10" class="form-control" formControlName="profit"></th>
+                                <th  style="background:  #F0F0F0;">OTHER</th>
+                                <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text" size="10" class="form-control" formControlName="other" placeholder="Other (specify)"></th>
+                              </tr>
+                              <tr >
+                                <th  colspan="1" >Combined Markups Effect</th>
+                                <th  colspan="9" class="text-right" style="color:  #2154cf;">
+                                  <input type="text"  size="10" class="form-control" placeholder="EUR/Part *" formControlName="combine"></th>
+                              </tr>
+                              <th colspan="1"  >Combined Markups %</th>
+                              <th colspan="9" class="text-right" style="color:  #2154cf;">
+                                <input type="text"  size="10" class="form-control"  formControlName="combim"></th>
+                              </tbody>
+                            </table>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-man" role="tabpanel" aria-labelledby="nav-man-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-danger mb-2" data-role="removel" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                          </div>
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary mb-2" data-role="addl" style="right: 10px"><i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="table-scrollable">
+                            <table class="table table-bordered">
+                              <tbody>
+                              <th style="background:  #ddd;"> EX WORKS PART PRICE </th>
+                              <th class="text-right" style="color:  #2154cf;background: #ddd;">
+                                <input type="text"  class="form-control" placeholder="Manufacturing + Markups effect"  formControlName="exw">
+                              </th>
+                              </tbody>
+                            </table>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-add" role="tabpanel" aria-labelledby="nav-add-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCenter" style="left: 3px">
+                            <i class="fa fa-plus pull-left"></i> Add Disposable Packaging
+                          </button>
+                          <button type="button" class="btn btn-primary"  data-toggle="modal" data-target="#exampleModalCentert" style="left: 5px">
+                            <i class="fa fa-plus pull-left"></i> Add Transport
+                          </button>
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-danger mb-2" data-role="removel" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                          </div>
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary mb-2" data-role="addl" style="right: 10px"><i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="table-scrollable">
+                            <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                <th>TOTAL</th>
+                                <th>PACKAGING</th>
+                                <th>WAREHOUSE</th>
+                                <th>TRANSPORT</th>
+                                <th>Frequency</th>
+                                <th>Box type</th>
+                                <th>Box Dim</th>
+                                <th>Parts/Box</th>
+                                <th>Boxes/pallet</th>
+                                <th>Nbr parts/ Palette</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="text" class="form-control "  formControlName="totala"></td>
+                                <td><input type="text" class="form-control "  formControlName="pack" placeholder="..."></td>
+                                <td><input type="text" class="form-control "  formControlName="warehouse" placeholder="..."></td>
+                                <td><input type="text" class="form-control "  formControlName="trsporta" placeholder="..."></td>
+                                <td><input type="text" class="form-control "  formControlName="freqncy"></td>
+                                <td><input type="text" class="form-control "  formControlName="boxt"></td>
+                                <td><input type="text" class="form-control "  formControlName="boxd"></td>
+                                <td><input type="text" class="form-control "  formControlName="partb"></td>
+                                <td><input type="text" class="form-control "  formControlName="boxspa"></td>
+                                <td><input type="text" class="form-control "  formControlName="nbpa"></td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-tot" role="tabpanel" aria-labelledby="nav-tot-tab">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-danger mb-2" data-role="removel" style="right: 5px"><i class="fa fa-minus"></i></button>
+                          </div>
+                          <div class="btn-group pull-right">
+                            <button class="btn btn-sm btn-primary mb-2" data-role="addl" style="right: 10px"><i class="fa fa-plus"></i></button>
+                          </div>
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                          <div class="table-scrollable">
+                            <table class="table table-bordered">
+                              <thead>
+                              <tr>
+                                <th>€</th>
+                                <th>MOQ parts</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                <td><input type="text" class="form-control " formControlName="euro" ></td>
+                                <td><input type="text" class="form-control " formControlName="moqp" ></td>
+                              </tr>
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button type="reset"  class="btn btn-default " style="float: right;padding: 8px 40px;font-size: 16px;">Cancel</button>
+            <button type="submit" class="btn btn-primary " style="float: right;margin-right: 1%;padding: 8px 50px;font-size: 16px;">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="modal fade" id="colorant" tabindex="-1" role="dialog" aria-labelledby="example" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title" id="example">Colorant</h4>
+        <div class="col-md-11">
+          <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-danger mb-2" data-role="remove"><i class="fa fa-minus"></i></button>
+          </div>
+          <div class="btn-group pull-right">
+            <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 5px"><i class="fa fa-plus"></i></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-body ">
+        <div class="panel filterable" style="border-color:#2154cf ">
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+              <th colspan="1" class="text-center"></th>
+              <th class="text-center col-md-4"  style="color:  #2154cf;background:#FFFFFF">Colorant Description</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <th style=" color:  #2154cf;;background:#FFFFFF"> Designation </th>
+              <td style="background: #FFFFFF">
+                <select formControlName="colorant" class="form-control " name="colorant" [ngModel]="selectcolorant" (change)="onChangeSelectedColorant($event)">
+                  <option >Select</option>
+                  <option selected="{{s.designation}}" [value]="s.id" *ngFor="let s of listcolorant">{{s.designation}}</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th style="color:  #2154cf;background:#FFFFFF">Percentage </th>
+              <td style="background: #FFFFFF">
+                <input type="number" size="10" class="form-control" formControlName="perctcol" placeholder="Enter..." (blur)="cj()">
+              </td>
+            </tr>
+            <tr>
+              <th style="color:  #2154cf;background:#FFFFFF"> Gross</th>
+              <td style="background: #FFFFFF">
+                <input  type="number"  class="form-control" formControlName="grcol" size="10" (blur)="cj()">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background:#FFFFFF">Netto</th>
+              <td style="background: #FFFFFF">
+                <input type="number" size="10" class="form-control" formControlName="nettocol" name="nettocol">
+              </td>
+            </tr>
+            <tr>
+              <th style="color:  #2154cf ;background: #FFFFFF">Rate(€)</th>
+              <td style="background: #FFFFFF">
+                <input type="text" size="10" class="form-control" formControlName="ratecol" name="ratecol" [value]="detailcolorant.price">
+              </td>
+            </tr>
+            <tr>
+              <th style="color:  #2154cf ;background: #FFFFFF">Transport</th>
+              <td style="background: #FFFFFF">
+                <input type="text" size="10" class="form-control" formControlName="transpcolor" name="transpcolor"  placeholder="Enter...">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF">Scrap</th>
+              <td style="background: #FFFFFF">
+                <input type="text" size="10" class="form-control" formControlName="scrapcol" name="scrapcol">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF" >Handling</th>
+              <td style="background: #FFFFFF">
+                <input type="text" size="10" class="form-control" formControlName="handcol" name="handcol" [value]="detailmachinep.handling">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF">%Netto</th>
+              <td style="background: #FFFFFF">
+                <input type="text" size="10" class="form-control" formControlName="nettool" name="nettool">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF">Parts/assy</th>
+              <td style="background: #FFFFFF">
+                <input type="text" size="10" class="form-control" formControlName="assycol" name="assycol"  placeholder="Enter...">
+              </td>
+            </tr>
+            <tr  >
+              <th class="col-md-2" style="color:  #2154cf" >Colorant costs</th>
+              <th  class="text-right" style="color:  #2154cf;background :#ddd">
+                <input type="text" formControlName="costcolorn" name="costcolorn" size="10" class="form-control">
+              </th>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel & Return</button>
+        <button type="button" class="btn btn-primary">Save & Return</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header btn-primary text-white">-->
+<!--          <h4 class="modal-title" id="exampleModalCenterTitle">Disposable Packaging</h4>-->
+<!--          <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="modal-body ">-->
+<!--          <div class="panel filterable" style="border-color:#2154cf">-->
+<!--            <table class="table table-bordered">-->
+<!--              <thead>-->
+<!--              <tr>-->
+<!--                <th class="text-center" style="color:#2154cf;background:#FFFFFF;">Marge</th>-->
+<!--                <th class="text-center" style="color:#2154cf;background:#FFFFFF ">Rebut</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <input type="text"  class="form-control" placeholder="Enter..." formControlName="marge"></td>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <input type="text"  class="form-control" placeholder="Enter..." formControlName="rebut"></td>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
+<!--          </div>-->
+<!--          <hr>-->
+<!--          <div class="panel filterable" style="border-color:#2154cf">-->
+<!--            <table class="table table-bordered">-->
+<!--              <thead>-->
+<!--              <tr>-->
+<!--                <th class="col-md-2" style="color:  #2154cf;background:#FFFFFF;">Designation</th>-->
+<!--                <th class="text-center col-md-4"  style="color:  #2154cf;background:#FFFFFF">Designation</th>-->
+<!--                <th class="text-center col-md-2" style="color:  #2154cf;background:#FFFFFF">Qty / UC </th>-->
+<!--                <th class="text-center col-md-2" style="color:  #2154cf;background:#FFFFFF">Price</th>-->
+<!--                <th class="text-center col-md-2" style="color:  #2154cf;background:#FFFFFF">Cost %</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr>-->
+<!--                <th style=" color:  #2154cf;;background:#FFFFFF" > UC - Box </th>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <select formControlName="dbox" class="form-control">-->
+<!--                    <option>Select</option>-->
+<!--                  </select>-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <input type="text" size="10"  class="form-control" formControlName="qtyb" placeholder="Enter...">-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <input  type="number" class="form-control" formControlName="priceb" size="10">-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <input type="text" size="10" class="form-control" formControlName="poub">-->
+<!--                </td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th style="color:  #2154cf;background:#FFFFFF">Bag</th>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <select formControlName="dsac" class="form-control">-->
+<!--                    <option>Select</option>-->
+<!--                  </select>-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <input type="text" size="10" class="form-control" formControlName="qtys" placeholder="Enter...">-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <input class="form-control" type="text" formControlName="prices" size="10">-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF"><input class="form-control" type="text" formControlName="pous" size="10"></td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th style="color:  #2154cf;background:#FFFFFF"> Interlayer</th>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <select formControlName="dint" class="form-control">-->
+<!--                    <option>Select</option>-->
+<!--                  </select>-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF" ><input type="text" formControlName="qtyi" name="qtyi" size="10" class="form-control" placeholder="Enter..."></td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="pricei" name="pricei" size="10" class="form-control"></td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="poui" name="poui" size="10" class="form-control"></td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th style="color:  #2154cf ;background:#FFFFFF">Various</th>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <select class="form-control" formControlName="dv">-->
+<!--                    <option>Select</option>-->
+<!--                  </select>-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="qtyv" size="10" class="form-control" placeholder="Enter..."></td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="pricev" size="10" class="form-control"></td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="pouv"  size="10" class="form-control"></td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th style="color:#2154cf ;background: #FFFFFF">UM - Pallet</th>-->
+
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <select  class="form-control" formControlName="dp">-->
+<!--                    <option >Select</option>-->
+<!--                  </select>-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="qtyp" size="10" class="form-control" placeholder="Enter..."></td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="pricep" size="10" class="form-control"></td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="poup" size="10" class="form-control"></td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th colspan="1" style="background: #F0F0F0"></th>-->
+<!--                <th class="col-md-2" style="color:  #2154cf;">Number of pieces per UC</th>-->
+<!--                <th class="text-right" style="color:  #2154cf;background :#ddd">-->
+<!--                  <input type="text" class="form-control" formControlName="numpieces" size="10" placeholder="Enter..."></th>-->
+<!--                <th  colspan="2" style="background: #F0F0F0"></th>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th  colspan="1" style="background: #F0F0F0"></th>-->
+<!--                <th class="col-md-2" style="color:  #2154cf;" >Number of UC Per pallet</th>-->
+<!--                <th class="text-right" style="color:  #2154cf;background :#ddd">-->
+<!--                  <input type="text" class="form-control" formControlName="numuc" size="10" placeholder="Enter..."></th>-->
+<!--                <th  colspan="2" style="background: #F0F0F0"></th>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th colspan="1" style="background: #F0F0F0"></th>-->
+<!--                <th class="col-md-2" style="color:  #2154cf;">Number of products per UM</th>-->
+<!--                <th class="text-right" style="color:  #2154cf;background :#ddd">-->
+<!--                  <input type="text" class="form-control" formControlName="numproducts" size="10"></th>-->
+<!--                <th  colspan="2" style="background: #F0F0F0"></th>-->
+
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th colspan="1"  style="background: #F0F0F0"></th>-->
+<!--                <th class="col-md-2" style="color:  #2154cf;" >Cost of packaging per product</th>-->
+<!--                <th colspan="3"  class="text-right" style="color:  #2154cf;background :#ddd">-->
+<!--                  <input type="text" class="form-control" formControlName="costof"size="10"></th>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <th colspan="1" style="background: #F0F0F0"></th>-->
+<!--                <th class="col-md-2" style="color:  #2154cf">Selling price of packaging per product</th>-->
+<!--                <th colspan="3"  class="text-right" style="color:  #2154cf;background :#ddd">-->
+<!--                  <input type="text" formControlName="sellingprice" name="sellingprice" size="10" class="form-control">-->
+<!--                </th>-->
+<!--              </tr>-->
+<!--              </tbody>-->
+<!--            </table>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel & Return</button>-->
+<!--          <button type="button" class="btn btn-primary">Save & Return</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--  <div class="modal fade" id="exampleModalCentert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">-->
+<!--    <div class="modal-dialog modal-dialog-centered" role="document">-->
+<!--      <div class="modal-content">-->
+<!--        <div class="modal-header btn-primary text-white">-->
+<!--          <h4 class="modal-title" id="exampleModalCenterTitlet" >Transport</h4>-->
+<!--          <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+<!--            <span aria-hidden="true">&times;</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--        <div class="modal-body">-->
+<!--          <div class="panel filterable" style="border-color:#2154cf ">-->
+<!--            <table class="table table-bordered">-->
+<!--              <thead>-->
+<!--              <tr>-->
+<!--                <th class="col-md-4 text-center" style="color:  #2154cf;background:#FFFFFF;">Plan delivery</th>-->
+<!--                <th class="text-center" style="color:  #2154cf;background:#FFFFFF ">Cost / Pallet</th>-->
+<!--                <th class="text-center" style="color:  #2154cf;background:#FFFFFF">Sale</th>-->
+<!--              </tr>-->
+<!--              </thead>-->
+<!--              <tbody>-->
+<!--              <tr>-->
+<!--                <td style="background: #FFFFFF">-->
+<!--                  <select formControlName="plande" class="form-control">-->
+<!--                    <option>Select</option>-->
+<!--                  </select>-->
+<!--                </td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="costt" class="form-control" size="10"></td>-->
+<!--                <td style="background: #FFFFFF"><input type="text" formControlName="salet" class="form-control" size="10"></td>-->
+<!--              </tr>-->
+<!--              &lt;!&ndash;       <tr>-->
+
+<!--                       <td style="background: #FFFFFF">-->
+<!--                         <select formControlName="plande" class="form-control " name="plande" [ngModel]="selecttransport" (change)="onChangeSelectedTransport($event)">-->
+<!--                           <option >Select</option>-->
+<!--                           <option selected="{{s.destination}}" [value]="s.id" *ngFor="let s of listtransport">-->
+<!--                             {{s.destination}}-->
+<!--                           </option>-->
+<!--                         </select>-->
+<!--                       </td>-->
+<!--                       <td style="background: #FFFFFF"><input type="text" formControlName="costt" class="form-control " name="costt" size="10" [value]="detailtransport.quotation"></td>-->
+<!--                       <td style="background: #FFFFFF"><input type="text" formControlName="salet" class="form-control " name="salet"  size="10" [value]="detailtransport.offer"></td>-->
+
+
+<!--                     </tr>-->
+<!--                     <tr>-->
+
+<!--                       <td style="background: #FFFFFF">-->
+<!--                         <select formControlName="plande" class="form-control " name="plande" [ngModel]="selecttransport" (change)="onChangeSelectedTransport($event)">-->
+<!--                           <option >Select</option>-->
+<!--                           <option selected="{{s.destination}}" [value]="s.id" *ngFor="let s of listtransport">-->
+<!--                             {{s.destination}}-->
+<!--                           </option>-->
+<!--                         </select>-->
+<!--                       </td>-->
+<!--                       <td style="background: #FFFFFF"><input type="text" formControlName="costt" class="form-control " name="costt" size="10" [value]="detailtransport.quotation"></td>-->
+<!--                       <td style="background: #FFFFFF"><input type="text" formControlName="salet" class="form-control " name="salet"  size="10" [value]="detailtransport.offer"></td>-->
+
+
+
+<!--                     </tr>-->
+<!--&ndash;&gt;-->
+<!--              </tbody>-->
+<!--            </table>-->
+<!--          </div>-->
+
+<!--        </div>-->
+<!--        <div class="modal-footer">-->
+<!--          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel & Return</button>-->
+<!--          <button type="button" class="btn btn-primary">Save & Return</button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>&ndash;&gt;-->
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

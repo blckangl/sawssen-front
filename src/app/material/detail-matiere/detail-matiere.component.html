@@ -1,0 +1,92 @@
+
+  <div class="card ">
+    <div class="card-head">
+
+      <hr>
+          <div class="btn-group pull-right" style="right: 20px">
+            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+               data-toggle="dropdown">Print<i class="fa fa-print"></i></a>
+          </div>
+      <div class="btn-group pull-right"  style="right: 30px">
+        <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle" data-toggle="dropdown">Save as
+          PDF<i class="fa fa-file-pdf-o"></i></a>
+      </div>
+      <div class="btn-group pull-right" style="right: 40px">
+        <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+           data-toggle="dropdown"> Export to Excel
+          <i class="fa fa-file-excel-o"></i>
+        </a>
+
+      </div>
+      <div class="btn-group pull-left">
+        <header> Material Reference : {{detailsmaterial.matRef}}</header>
+
+      </div>
+<br>
+    </div>
+
+    <div class="card-body ">
+      <div class="table-scrollable">
+        <table class="table table-bordered">
+          <thead>
+          <tr>
+            <th  class="text-center">Family Name</th>
+            <th  class="text-center">Provider Reference</th>
+            <th  class="text-center">Provider </th>
+            <th  class="text-center">Supplier</th>
+            <th  class="text-center">Silver Code</th>
+            <th  class="text-center">Density <span style=" color: #4010ff;">xg/c3</span> </th>
+            <th  class="text-center">Purchasing Quantity </th>
+            <th  class="text-center">Automotive Material </th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr>
+            <td  class="text-center">{{detailsmaterial.matFam}}</td>
+            <td  class="text-center">{{detailsmaterial.codef}}</td>
+            <td  class="text-center">{{detailsmaterial.fournisseur}}</td>
+            <td  class="text-center">{{detailsmaterial.supplier}}</td>
+            <td  class="text-center">{{detailsmaterial.code}}</td>
+            <td  class="text-center">{{detailsmaterial.density}}</td>
+            <td  class="text-center">{{detailsmaterial.purchasing}}</td>
+            <td  class="text-center">{{detailsmaterial.automotive}}</td>
+
+
+          </tr>
+
+          </tbody>
+
+          <thead>
+          <tr>
+
+            <th  class="text-center">Ordered Quantity</th>
+            <th  class="text-center">Incoterm </th>
+            <th  class="text-center">Actual Purchasing Price</th>
+            <th  class="text-center">Sales Price</th>
+            <th  class="text-center">Load</th>
+            <th  class="text-center">Percentage Of Load <span style=" color: #4010ff;">%</span></th>
+            <th  class="text-center">Material Pressure</th>
+            <th  class="text-center">Joining Date</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr>
+            <td class="text-center">{{detailsmaterial.ordered}}</td>
+            <td class="text-center">{{detailsmaterial.incoterm}}</td>
+            <td class="text-center">{{detailsmaterial.actual}}</td>
+            <td class="text-center">{{detailsmaterial.price}}</td>
+            <td class="text-center">{{detailsmaterial.loadd}}</td>
+            <td class="text-center">{{detailsmaterial.percentage}}</td>
+            <td class="text-center">{{detailsmaterial.pressure}}</td>
+            <td class="text-center">{{detailsmaterial.date}}</td>
+
+          </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+

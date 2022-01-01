@@ -53,7 +53,7 @@ console.log('password', this.loginForm.value.password);
 
 const jwt = rep.headers.get('Authorization');
 this.authService.saveToken(jwt);
-this.router.navigateByUrl('');
+this.router.navigateByUrl('/home');
     }, error1 => {
 Swal.fire('Error ! ' , 'Check your data ! ');
 

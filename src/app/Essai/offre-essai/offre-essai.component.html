@@ -1,0 +1,738 @@
+<div class="card-header" style="color:#428bca">
+
+    <div class="form-group multiple-form-group input-group" style=" height: 30px; width: 1725px;">
+      <div class="input-group-btn input-group-select">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+          <span class="concept" for="country-select" >Select Customer</span>
+        </button>
+      </div>
+        <select  id="country-select222" class="form-control"
+                 name="client" [ngModel]="selectclient" (change)='onChangeSelectedClient($event)' [ngModelOptions]="{standalone: true}">
+          <option style=" font-size: 18px;"  selected="{{s.fullname}}" [value]="s.id" *ngFor="let s of listclient">{{s.fullname}}</option>
+        </select >
+
+    </div>
+  </div>
+  <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent1"  *ngIf="show === true">
+    <div class="card-header" style="color:#428bca">
+      <div class="form-group multiple-form-group input-group">
+        <div class="input-group-btn input-group-select">
+          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+            <span class="concept" for="country-select" >Select Trial Quote</span>
+          </button>
+
+        </div>
+
+
+        <select id="country-select9" class="form-control"  name="devis" [ngModel]="select" (change)='onChangeSelectedDevis($event)' [ngModelOptions]="{standalone: true}">
+          <option></option>
+          <option selected="{{s.numdoc}}" [value]="s.id" *ngFor="let s of listdevis">{{s.numdoc}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="borderBox light bordered card-box">
+      <form [formGroup]="addOffreEssai">
+  <div class="tab-pane active fontawesome-demo" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-box">
+          <div class="card-head">
+            <header>PRICE OFFER</header>
+          </div>
+          <div class="card-body ">
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-6">
+                  <input type="text" class="form-control" formControlName="service"  disabled >
+              </div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <input type="text" class="form-control" placeholder=" Enter Offer N°" formControlName="numdoc" >
+              </div>
+            </div>
+            <hr>
+            <table class="table table-bordered  " >
+              <thead  >
+              <tr class="filters" >
+                <th class="text-center btn-primary">Date</th>
+                <th class="text-center btn-primary">Customer</th>
+                <th class="text-center btn-primary">Project</th>
+                <th class="text-center btn-primary">Mold Number </th>
+                <th class="text-center btn-primary">Reference</th>
+                <th class="text-center btn-primary">Part Name</th>
+                <th class="text-center btn-primary">Part Number</th>
+                <th class="text-center btn-primary">Destination</th>
+                <th class="text-center btn-primary">Sales Manager</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <th><input type="date" size="10" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"disabled></th>
+                <th><input type="text" class="form-control" formControlName="client" disabled></th>
+                <th><input type="text" size="10" class="form-control" formControlName="proj" disabled></th>
+                <th><input type="text" size="10" class="form-control" formControlName="mold" disabled></th>
+                <th><input type="text" size="10" class="form-control" formControlName="ref" disabled></th>
+                <th><input type="text" size="10" class="form-control" formControlName="name" disabled></th>
+                <th><input type="text" size="10" class="form-control" formControlName="number" disabled></th>
+                <th><input type="text" size="10" class="form-control" formControlName="dest" disabled></th>
+                <th><input type="text" size="10" class="form-control" formControlName="sales" disabled></th>
+              </tr>
+              </tbody>
+            </table>
+            <hr>
+            <div class="card">
+              <div class="card-header">
+                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                  <li class="nav-item"><a class="nav-link active btn-primary" data-toggle="tab" href="#material" role="tab">Material</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#process" role="tab">Process</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#metrology" role="tab">Metrology</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#project" role="tab">Project Monitoring</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#other" role="tab">Other Service</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#packaging" role="tab">Packaging</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#transport" role="tab">Transport</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#work" role="tab">Reworks</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#spare" role="tab">Spare Part</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#margin" role="tab">Margin</a></li>
+                </ul>
+              </div>
+              <div class="card-body">
+                <!-- Tab panes -->
+                <div class="tab-content text-center">
+
+                  <div class="tab-pane active" id="material" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered" >
+                        <thead>
+                        <tr>
+                          <th class="col-md-2" style="text-decoration: underline;background:#FFFFFF;" >Material</th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th class="text-center" style="background:#FFFFFF">Price </th>
+                          <th class="text-center" style=";background:#FFFFFF">Cost</th>
+                          <th class="text-center" style=";background:#FFFFFF">Margin</th>
+                          <th class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <th style=" background:#FFFFFF" > Material Purchase </th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="matqu"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="purp"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="cosma"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="marma"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="offma"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Component Purchase </th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="comqu"></td>
+                          <td style="background: #FFFFFF"><input type="number"size="10" class="form-control" formControlName="purco"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="cospu"></td>
+                          <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="marcom"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="offpur"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other  </th>
+                          <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="othqu"></td>
+                          <td style="background: #FFFFFF" ><input type="text" size="10" class="form-control" formControlName="purot"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="cosu"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="marothe"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="offeoth"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="color:  #2154cf;background :#ddd"><input type="number" size="10" class="form-control" formControlName="cosd"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="color:  #2154cf;background: #ddd;"><input type="number" size="10" class="form-control" formControlName="offtota"></th>
+                        </tr>
+                        <tr>
+                          <th >Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="cost"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="offmar"></th>
+                        </tr>
+                        <tr>
+                          <th >Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="cosq"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="offtot"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="process" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Process</th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <th style="background:#FFFFFF" > Machine </th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="proma"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="promu"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="proco"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="mapr"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prmc"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Operator</th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="proop"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="propr"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="procop"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prpr"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pr"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Technician</th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="protec"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prote"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="propc"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="mete"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtc"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Other</th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prooth"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prootc"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="proth"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="protu"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prot"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prto"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ofpr"></th>
+                        </tr>
+                        <tr>
+                          <th>Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prma"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ofpa"></th>
+                        </tr>
+                        <tr>
+                          <th >Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prat"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ofd"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="metrology" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF">Metrology</th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="vme"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="qume"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prme"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="come"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="mame"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="ofme"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other  </th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="qumeq"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prime"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pme"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="cme"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="mgme"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="comec"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="tame"></th>
+                        </tr>
+                        <tr>
+                          <th>Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="marme"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="txme"></th>
+                        </tr>
+                        <tr>
+                          <th >Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="text" size="10" class="form-control" formControlName="tome"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="text" size="10" class="form-control" formControlName="tvme"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="project" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Project Monitoring </th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="prv"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prq"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pri"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prc"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prm"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prr"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other </th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pro"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prt"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prth"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prco"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pry"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prti"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd"><input type="number" size="10" class="form-control" formControlName="proo"></th>
+                        </tr>
+                        <tr>
+                          <th >Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prmq"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="prx"></th>
+                        </tr>
+                        <tr>
+                          <th >Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="text" size="10" class="form-control" formControlName="prtt"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="text" size="10" class="form-control" formControlName="pra"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="other" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Other Service  </th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF"><input type="text"  size="10" class="form-control" formControlName="otv"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otq"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otp"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otc"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otm"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="oto"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other </th>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otu"></td>
+                          <td style="background: #FFFFFF" ><input type="number" size="10" class="form-control" formControlName="otpi"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otco"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="otmo"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ott"></td>
+                        </tr>
+                        <tr>
+                          <th   style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="color:  #2154cf;background :#ddd"><input type="number" size="10" class="form-control" formControlName="otss"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="color:  #2154cf;background: #ddd;"><input type="number" size="10" class="form-control" formControlName="otsq"></th>
+                        </tr>
+                        <tr>
+                          <th>Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="otma"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="otqs"></th>
+                        </tr>
+                        <tr>
+                          <th>Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="text" size="10" class="form-control" formControlName="otze"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="text" size="10" class="form-control" formControlName="otvg"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="packaging" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Packaging </th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF"><input type="text"  size="10" class="form-control" formControlName="pckv"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pckq"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pckc"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pcks"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pckr"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="pckf"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other  </th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pcky"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pcki"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pcke"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pckii"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="pckk"></td>
+                        </tr>
+                        <tr>
+                          <th   style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="pckss"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="pckm"></th>
+                        </tr>
+                        <tr>
+                          <th>Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="pcka"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="pckh"></th>
+                        </tr>
+                        <tr>
+                          <th>Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="color:  #2154cf;background :#ddd"><input type="text" size="10" class="form-control" formControlName="pckaq"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="color:  #2154cf;background: #ddd;"><input type="text" size="10" class="form-control" formControlName="pckg"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="transport" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Transport </th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="prtvi"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtq"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtv"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtm"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtl"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtb"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other  </th>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtu"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtr"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtx"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prta"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="prtf"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prtfe"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="prtp"></th>
+                        </tr>
+                        <tr>
+                          <th>Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prtre"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="prtw"></th>
+                        </tr>
+                        <tr>
+                          <th >Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control" formControlName="prtez" ></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="prmt"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="work" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Reworks</th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF"><input type="text" size="10" class="form-control" formControlName="wov"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="woq"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="wod"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="wos"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="wom"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="wof"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other  </th>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="wok"></td>
+                          <td style="background: #FFFFFF" ><input type="number" size="10" class="form-control" formControlName="wog"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="won"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="wou"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="wor"></td>
+                        </tr>
+                        <tr>
+                          <th   style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="wop"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="wob"></th>
+                        </tr>
+                        <tr>
+                          <th>Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="woz"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="wow"></th>
+                        </tr>
+                        <tr>
+                          <th >Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="text"  size="10" class="form-control" formControlName="woa"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="text"  size="10" class="form-control" formControlName="woj"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="spare" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Spare Part </th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF"><input type="text"  size="10" class="form-control" formControlName="ayp"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="aya"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ayz"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="aye"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ayr"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ayt"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other  </th>
+                          <td style="background: #FFFFFF"><input type="number"   size="10" class="form-control" formControlName="ayu"></td>
+                          <td style="background: #FFFFFF" ><input type="number"  size="10" class="form-control" formControlName="ayi"></td>
+                          <td style="background: #FFFFFF"><input type="number"   size="10" class="form-control" formControlName="ayo"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="abp"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control" formControlName="ayq"></td>
+                        </tr>
+                        <tr>
+                          <th   style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="ayw"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ayg"></th>
+                        </tr>
+                        <tr>
+                          <th >Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="ayx"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="aym"></th>
+                        </tr>
+                        <tr>
+                          <th >Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number" size="10" class="form-control"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="tab-pane" id="margin" role="tabpanel">
+                    <div class="invoice ">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th  class="col-md-2" style="text-decoration: underline;background:#FFFFFF" >Margin </th>
+                          <th class="text-center"  style="background:#FFFFFF ">Quantity</th>
+                          <th  class="text-center" style="background:#FFFFFF">Price </th>
+                          <th   class="text-center" style="background:#FFFFFF">Cost</th>
+                          <th  class="text-center" style="background:#FFFFFF">Margin</th>
+                          <th  class="text-center" style="background:#FFFFFF">Offre</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF"><input type="text"  size="10" class="form-control" formControlName="ina"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="inz"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control"  formControlName="ine"></td>
+                          <td style="background: #FFFFFF"><input type="number" size="10" class="form-control"  formControlName="inr"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="itn"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="iny"></td>
+                        </tr>
+                        <tr>
+                          <th style="background:#FFFFFF"> Other  </th>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="inu"></td>
+                          <td style="background: #FFFFFF" ><input type="number" size="10" class="form-control" formControlName="ini"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="ino"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="inp"></td>
+                          <td style="background: #FFFFFF"><input type="number"  size="10" class="form-control" formControlName="inq"></td>
+                        </tr>
+                        <tr>
+                          <th   style="background:#FFFFFF">Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="ins"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="ing"></th>
+                        </tr>
+                        <tr>
+                          <th>Margin</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="ind"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number"  size="10" class="form-control" formControlName="inh"></th>
+                        </tr>
+                        <tr>
+                          <th >Total</th>
+                          <td colspan="2" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background :#ddd"><input type="number"  size="10" class="form-control" formControlName="inf"></th>
+                          <td colspan="1" style="background:#FFFFFF"></td>
+                          <th class="text-right" style="background: #ddd;"><input type="number" size="10" class="form-control" formControlName="ink"></th>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <a style="font-family:Bahnschrift ;margin-left: 1%;"> Macro-Planning  </a>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-12">
+                <input type="text" class="form-control"  formControlName="macro" required>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <a style="font-family:Bahnschrift ;margin-left: 1%;"> Condition</a>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-12">
+                <textarea type="text" height="175px" class="form-control" formControlName="cond"  placeholder="Description"  required></textarea>
+              </div>
+            </div>
+
+            <div class="row form-group">
+              <a style="font-family:Bahnschrift ;margin-left: 1%;">  Validity of the offer </a>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-md-12">
+                <input type="date" class="form-control" formControlName="validity"  required>
+              </div>
+            </div>
+
+            <br><br><br>
+            <button type="reset"  class="btn btn-default " style="float: right;padding: 8px 40px;font-size: 16px;">Cancel</button>
+            <button type="submit" class="btn btn-primary " style="float: right;margin-right: 1%;padding: 8px 50px;font-size: 16px;">Save</button>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+      </form>
+</div>
+
+  </div>
+
+
+

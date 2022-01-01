@@ -1,0 +1,91 @@
+
+    <div class="form-group col-md-12">
+
+            <div class="card edit-parameters btn-bordered-primary"  style="background:#fff;color:#0f1113;width:102%;right: 14px">
+              <div class="card-header" style="color:#428bca">
+                <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                      <span class="concept" for="country-select2">Select customer</span>
+                    </button>
+
+                  </div>
+                  <select id="country-select2" class="form-control" name="client" [ngModel]="selectclient" (change)='onChangeSelectedClient($event)' [ngModelOptions]="{standalone: true}">
+                    <option style=" font-size: 18px;"  selected="{{s.fullname}}" [value]="s.id" *ngFor="let s of listclient">{{s.fullname}}</option>
+                  </select >
+                </div>
+              </div>
+              <div class="card-header" style="color:#428bca">
+                <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                      <span class="concept" for="country-select" >Select N° Project</span>
+                    </button>
+
+                  </div>
+                  <select id="count" class="form-control"  name="projet" [ngModel]="selectprojet" (change)='onChangeSelectedProjet($event)' [ngModelOptions]="{standalone: true}">
+                    <option></option>
+
+                    <option selected="{{s.project}}" [value]="s.id" *ngFor="let s of listprojet">{{s.project}}</option>
+
+                  </select>
+                </div>
+              </div>
+              <div class="card-header" style="color:#428bca">
+                <div class="form-group multiple-form-group input-group">
+                  <div class="input-group-btn input-group-select">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" >
+                      <span class="concept" for="country-select" >Select Designation</span>
+                    </button>
+
+                  </div>
+                  <select id="co" class="form-control"  name="projet" [ngModel]="selectprojet" (change)='onChangeSelectedProjet($event)' [ngModelOptions]="{standalone: true}">
+                    <option></option>
+                    <option selected="{{s.designation}}" [value]="s.id" *ngFor="let s of listprojet">{{s.designation}}</option>
+                  </select>
+                </div>
+              </div>
+
+
+              <div class="card-header" style="color:#428bca">
+                <a routerLink="/home/ajoutedevis/{{selectclient}}/{{selectprojet}}" class="btn btn-primary btn-sm  pull-right"><b>+</b> Add new quotation</a>
+              </div>
+              <div class="card-body ">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th >Project</th>
+                    <th >N°Quotation Document</th>
+                    <th >Designation</th>
+                    <th>Reference</th>
+                    <th >Total</th>
+                    <th class="text-center" >Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr class="active" *ngFor="let e of listdevisbyProjet">
+                    <th scope="row"></th>
+                    <td>{{e.devis.numdevis}}</td>
+                    <td>{{e.date}}</td>
+                    <td>{{e.total}}</td>
+                    <td class="text-center" >
+                      <a class='btn btn-success btn-xs' ><span class="glyphicon glyphicon-home"></span> </a>
+                      <a class='btn btn-primary btn-xs' ><span class="glyphicon glyphicon-edit"></span> </a>
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> </a>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+
+
+    </div>
+
+
+
+
+
+
+

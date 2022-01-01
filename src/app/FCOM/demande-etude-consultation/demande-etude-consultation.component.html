@@ -1,0 +1,445 @@
+<!--<form [formGroup]="adddemande" (ngSubmit)="add()">-->
+<div class="borderBox light bordered card-box">
+  <div class="tab-pane active fontawesome-demo">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-box">
+          <div class="card-head"><header>Request Study Consultation</header></div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">Date</a></div>
+              <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">Document N°</a></div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <input class="form-control" type="date" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+              </div>
+              <div class="col-md-6 col-sm-6 col-6">
+                <input class="form-control mdl-textfield__input" type="text" formControlName="" placeholder="Document N°">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="card-body">
+            <div class="row">
+              <div class="table-scrollable">
+                <table class="table table-bordered">
+                  <thead>
+                  <tr>
+                    <th colspan="7" class="btn-primary" style="font-family:Bahnschrift">Preliminary data</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <th class="col-md-4">Customer</th>
+                    <td colspan="2">
+                      <select class="form-control" [ngModel]="selectclient" (change)='onChangeSelectedClient($event)' formControlName="customer">
+                        <option>Select</option>
+                        <option style=" font-size: 18px;"  selected="{{s.fullname}}" [value]="s.id" *ngFor="let s of listclient">{{s.fullname}}</option>
+                      </select >
+                    </td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">Final customer</th>
+                    <td style="background: #FFFFFF" colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">Sales representative</th>
+                    <td style="background: #FFFFFF" colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4"> Project</th>
+                    <td style="background: #FFFFFF" colspan="2">
+                      <select class="form-control"  [ngModel]="selectprojet" formControlName="project">
+                        <option>Select</option>
+                        <option selected="{{s.project}}" [value]="s.id" *ngFor="let s of listprojet">{{s.project}}</option>
+                      </select>
+                    </td>
+
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">N°RFQ customer</th>
+                    <td style="background: #FFFFFF" colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">Number of references</th>
+                    <td style="background: #FFFFFF" colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">N°Offer (According to monitoring project file)</th>
+                    <td style="background: #FFFFFF" colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">Date of receipt of the consultation</th>
+                    <td style="background: #FFFFFF" colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th class="col-md-4">Delivery date of the customer requested offer</th>
+                    <td style="background: #FFFFFF" colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr> <tr>
+                    <th class="col-md-4">Return date of quotation to the sales representative</th>
+                    <td style="background: #FFFFFF" colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr class="btn-primary">
+                    <th colspan="7" class="btn-primary" style="font-family:Bahnschrift">Customer received data check</th>
+                  </tr>
+                  </tbody>
+                  <tbody>
+                  <tr>
+                    <th></th>
+                    <th style="text-align: center">State (Received / Unsuccessful)</th>
+                    <th style="text-align: center">Comments</th>
+                  </tr>
+                  <tr>
+                    <th>Site to deliver</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Incoterm</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Annual quantity</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>MOQ</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Lifetime Project</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>2D drawing</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>3D part (igs/step)</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Draft(sketch)</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Sample</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option >Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Specific requirements</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Packaging: standard / special</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Quality and metrology</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Other</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF" class="col-md-4"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+
+                  <tr class="btn-primary">
+                    <th colspan="7" class="btn-primary" style="font-family:Bahnschrift">Techniques to study</th>
+                  </tr>
+                  </tbody>
+                  <tbody>
+                  <tr>
+                    <th></th>
+                    <th style="text-align: center">State (Yes / No)</th>
+                    <th style="text-align: center">Comments</th>
+                  </tr>
+                  <tr>
+                    <th>Molding 1k</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option value="Category 2">Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Overmolding</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Bi-injection</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Assembly</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Pad printing</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Ultrasonic welding</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>hot stamping</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>painting</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Other</th>
+                    <td>
+                      <select class="form-control">
+                        <option value="">Select</option>
+                        <option>Received</option>
+                        <option>Unsuccessful</option>
+                      </select>
+                    </td>
+                    <td style="background: #FFFFFF"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+
+
+                  <tr class="btn-primary">
+                    <th colspan="7" class="btn-primary" style="font-family:Bahnschrift">Economic data</th>
+                  </tr>
+                  </tbody>
+                  <tbody>
+                  <tr>
+                    <th>Target customer part price</th>
+                    <td style="background: #FFFFFF"colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>target customer invest</th>
+                    <td style="background: #FFFFFF"colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Annual CA Estimate</th>
+                    <td style="background: #FFFFFF"colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  <tr>
+                    <th>Productivity plan due</th>
+                    <td style="background: #FFFFFF"colspan="2"><input type="text" size="10" class="form-control"></td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="reset"  class="btn btn-default" style="float: right;padding: 8px 40px;font-size: 16px;">Cancel</button>
+        <button type="submit" class="btn btn-primary" style="float: right;margin-right: 1%;padding: 8px 50px;font-size: 16px;">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--</form>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

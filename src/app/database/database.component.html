@@ -1,0 +1,1907 @@
+<div class="borderBox light bordered card-box">
+  <div class="borderBox-title tabbable-line">
+    <div class="caption"><span class="caption-subject font-dark bold uppercase"> DataBase</span></div>
+    <ul class="nav nav-tabs">
+      <li class="nav-item"><a href="#borderBox_tab5" data-toggle="tab"> Machine </a></li>
+      <li class="nav-item"><a href="#borderBox_tab4" data-toggle="tab"> Colorant </a></li>
+      <li class="nav-item"><a href="#borderBox_tab3" data-toggle="tab"> Insert </a></li>
+      <li class="nav-item"><a href="#borderBox_tab2" data-toggle="tab"> Transport </a></li>
+      <li class="nav-item"><a href="#borderBox_tab1" data-toggle="tab" class="active"> Packaging </a></li>
+    </ul>
+  </div>
+  <div class="borderBox-body">
+    <div class="tab-content">
+      <div class="tab-pane active" id="borderBox_tab1">
+        <div class="tabbable-line">
+          <ul class="nav customtab nav-tabs" role="tablist">
+            <li class="nav-item"><a href="#tab1" class="nav-link active" data-toggle="tab">UC - Box</a></li>
+            <li class="nav-item"><a href="#tab2" class="nav-link" data-toggle="tab">Bag</a></li>
+            <li class="nav-item"><a href="#tab3" class="nav-link" data-toggle="tab">Separation</a></li>
+            <li class="nav-item"><a href="#tab5" class="nav-link" data-toggle="tab">UM - Pallet </a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="tab-pane active fontawesome-demo" id="tab1">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card card-box">
+                    <div class="card-head">
+                      <header>All UC-Box</header>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li>
+                          <div class="col-2 col-lg-12">
+                            <form class="navbar-form navbar-left" method="GET" role="search">
+                              <div class="input-group">
+                                <input type="text" class="form-control"
+                                       name="description" [(ngModel)]="description" (ngModelChange)="Searchca()"
+                                       placeholder="Enter Designation Name...">
+                                <span class="input-group-btn">
+                                    <button class="btn submit"><i class="icon-magnifier"></i></button>
+                                  </span>
+                              </div>
+                            </form>
+                          </div>
+
+                        </li>
+                      </ul>
+
+                    </div>
+                    <div class="card-body ">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group">
+                            <a class="btn btn-info" data-toggle="modal" data-target="#addBox">Add New <i
+                              class="fa fa-plus"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group pull-right">
+                            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                               data-toggle="dropdown">Tools
+                              <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-print"></i> Print </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-pdf-o"></i> Save as
+                                  PDF </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-excel-o"></i>
+                                  Export to Excel </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="table-scrollable">
+                        <table
+                          class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                          id="example4">
+                          <thead>
+                          <tr>
+                            <th class="col-md-4"> Designation</th>
+                            <th class="text-center"> Silver code</th>
+                            <th class="text-center">Length</th>
+                            <th class="text-center">Width</th>
+                            <th class="text-center"> Height</th>
+                            <th class="text-center"> Unity</th>
+                            <th class="text-center"> Costs</th>
+                            <th class="text-center">Joining Date</th>
+                            <th class="text-center">Traceability</th>
+                            <th class="text-center"> Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let e of listCarton | paginate: { itemsPerPage:10, currentPage: p };"
+                              class="odd gradeX">
+                            <td class="text-center">{{e.description}}</td>
+                            <td class="text-center">{{e.code}}</td>
+                            <td class="text-center">{{e.longeur}}</td>
+                            <td class="text-center">{{e.largeur}}</td>
+                            <td class="text-center">{{e.hauteur}}</td>
+                            <td class="text-center">{{e.unite}}</td>
+                            <td class="text-center">{{e.costs}}</td>
+                            <td class="text-center">{{e.date}}</td>
+                            <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                            <td class="text-center">
+                              <a class="btn btn-primary btn-xs">
+                                <i class="fa fa-pencil" data-toggle="modal" data-target="#editBox"
+                                   (click)="recuper(e.id,e.description,e.code,e.longeur,e.largeur,e.hauteur,e.unite,e.costs)"></i></a>
+                              <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                                     (click)="supprimer(e.id)"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <br>
+                      <div class=" pull-right">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab2">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card card-box">
+                    <div class="card-head">
+                      <header>All Bag</header>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li>
+                          <div class="col-2 col-lg-12">
+                            <form class="navbar-form navbar-left" method="GET" role="search">
+                              <div class="input-group">
+                                <input type="text" class="form-control" name="description" [(ngModel)]="description"
+                                       (ngModelChange)="Searchbag()" placeholder="Enter Destination Name...">
+                                <span class="input-group-btn"><button class="btn submit"><i class="icon-magnifier"></i></button>
+				                     		</span>
+                              </div>
+                            </form>
+                          </div>
+
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body ">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group">
+                            <a class="btn btn-info" data-toggle="modal" data-target="#addBag">Add New <i
+                              class="fa fa-plus"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group pull-right">
+                            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                               data-toggle="dropdown">Tools
+                              <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-print"></i> Print </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-pdf-o"></i> Save as
+                                  PDF </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-excel-o"></i>
+                                  Export to Excel </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-scrollable">
+                        <table
+                          class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                          id="example3">
+                          <thead>
+                          <tr>
+                            <th class="col-md-4"> Designation</th>
+                            <th class="text-center"> Silver code</th>
+                            <th class="text-center"> Unity</th>
+                            <th class="text-center"> Costs</th>
+                            <th class="text-center">Joining Date</th>
+                            <th class="text-center">Traceability</th>
+                            <th class="text-center"> Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let e of listSachet| paginate: { itemsPerPage:10, currentPage: p };"
+                              class="odd gradeX">
+                            <td class="text-center">{{e.description}}</td>
+                            <td class="text-center">{{e.code}}</td>
+                            <td class="text-center">{{e.unite}}</td>
+                            <td class="text-center">{{e.costs}}</td>
+                            <td class="text-center">{{e.date}}</td>
+                            <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                            <td class="text-center">
+                              <a class="btn btn-primary btn-xs">
+                                <i class="fa fa-pencil" data-toggle="modal" data-target="#editBag"
+                                   (click)="recupersach(e.id,e.description,e.code,e.unite,e.costs)"></i></a>
+                              <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                                     (click)="supprimersach(e.id)"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <br>
+                      <div class=" pull-right">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab3">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card card-box">
+                    <div class="card-head">
+                      <header>All Separation</header>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li>
+                          <div class="col-2 col-lg-12">
+                            <form class="navbar-form navbar-left" method="GET" role="search">
+                              <div class="input-group">
+                                <input type="text" class="form-control" name="description" [(ngModel)]="description"
+                                       (ngModelChange)="Searchsep()" placeholder="Enter Designation Name...">
+                                <span class="input-group-btn"><button class="btn submit"><i class="icon-magnifier"></i></button></span>
+                              </div>
+                            </form>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body ">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group">
+                            <a class="btn btn-info" data-toggle="modal" data-target="#addSepar">Add New <i
+                              class="fa fa-plus"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group pull-right">
+                            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                               data-toggle="dropdown">Tools
+                              <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-print"></i> Print </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-pdf-o"></i> Save as
+                                  PDF </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-excel-o"></i>
+                                  Export to Excel </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-scrollable">
+                        <table
+                          class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                          id="ex3">
+                          <thead>
+                          <tr>
+                            <th class="col-md-4"> Designation</th>
+                            <th class="text-center"> Silver code</th>
+                            <th class="text-center"> Unity</th>
+                            <th class="text-center"> Costs</th>
+                            <th class="text-center">Joining Date</th>
+                            <th class="text-center">Traceability</th>
+                            <th class="text-center"> Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let e of listSeparation| paginate: { itemsPerPage:10, currentPage: p };"
+                              class="odd gradeX">
+                            <td class="text-center">{{e.description}}</td>
+                            <td class="text-center">{{e.code}}</td>
+                            <td class="text-center">{{e.unite}}</td>
+                            <td class="text-center">{{e.cost}}</td>
+                            <td class="text-center">{{e.date}}</td>
+                            <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                            <td class="text-center">
+                              <a class="btn btn-primary btn-xs">
+                                <i class="fa fa-pencil" data-toggle="modal" data-target="#editsep"
+                                   (click)=" recupersepa(e.id,e.description,e.code,e.unite,e.cost)"></i></a>
+                              <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                                     (click)="supprimersep(e.id)"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <br>
+                      <div class=" pull-right">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab-pane" id="tab5">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card card-box">
+                    <div class="card-head">
+                      <header>All UM - Pallet</header>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li>
+                          <div class="col-2 col-lg-12">
+                            <form class="navbar-form navbar-left" method="GET" role="search">
+                              <div class="input-group">
+                                <input type="text" class="form-control" name="type" [(ngModel)]="type"
+                                       (ngModelChange)="Searchpal()" placeholder="Enter Designation Name...">
+                                <span class="input-group-btn"><button class="btn submit"><i class="icon-magnifier"></i></button></span>
+                              </div>
+                            </form>
+                          </div>
+
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body ">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group">
+                            <a class="btn btn-info" data-toggle="modal" data-target="#addpalet">Add New <i
+                              class="fa fa-plus"></i></a>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group pull-right">
+                            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                               data-toggle="dropdown">Tools
+                              <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-print"></i> Print </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-pdf-o"></i> Save as
+                                  PDF </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-excel-o"></i>
+                                  Export to Excel </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-scrollable">
+                        <table
+                          class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                          id="exd3">
+                          <thead>
+                          <tr>
+                            <th class="col-md-4"> Designation</th>
+                            <th class="text-center"> Silver code</th>
+                            <th class="text-center"> Unity</th>
+                            <th class="text-center"> Costs</th>
+                            <th class="text-center">Joining Date</th>
+                            <th class="text-center">Traceability</th>
+                            <th class="text-center"> Action</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr *ngFor="let e of listPalette| paginate: { itemsPerPage:10, currentPage: p };"
+                              class="odd gradeX">
+                            <td class="text-center">{{e.type}}</td>
+                            <td class="text-center">{{e.code}}</td>
+                            <td class="text-center">{{e.unite}}</td>
+                            <td class="text-center">{{e.costs}}</td>
+                            <td class="text-center">{{e.date}}</td>
+                            <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                            <td class="text-center">
+                              <a class="btn btn-primary btn-xs">
+                                <i class="fa fa-pencil" data-toggle="modal" data-target="#editpa"
+                                   (click)=" recuperpal(e.id,e.type,e.code,e.unite,e.costs)"></i></a>
+                              <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                                     (click)="supprimerpal(e.id)"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <br>
+                      <div class=" pull-right">
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="borderBox_tab2">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-box">
+              <div class="card-head">
+                <header>All Transport</header>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <div class="col-2 col-lg-12">
+                      <form class="navbar-form navbar-left" method="GET" role="search">
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="destination" [(ngModel)]="destination"
+                                 (ngModelChange)="Searchtr()" placeholder="Enter Destination Name...">
+                          <span class="input-group-btn"><button class="btn submit"><i
+                            class="icon-magnifier"></i></button></span>
+                        </div>
+                      </form>
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group">
+                      <a class="btn btn-info" data-toggle="modal" data-target="#addTran">Add New <i
+                        class="fa fa-plus"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group pull-right">
+                      <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                         data-toggle="dropdown">Tools
+                        <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu pull-right">
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-print"></i> Print </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-pdf-o"></i> Save as
+                            PDF </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-excel-o"></i>
+                            Export to Excel </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-scrollable">
+                  <table
+                    class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                    id="exampl">
+                    <thead>
+                    <tr>
+                      <th class="text-center"> Country</th>
+                      <th class="text-center"> Destination</th>
+                      <th class="text-center"> Quotation</th>
+                      <th class="text-center"> Offer</th>
+                      <th class="text-center">Joining Date</th>
+                      <th class="text-center">Traceability</th>
+                      <th class="text-center"> Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let e of listTransport| paginate: { itemsPerPage:10, currentPage: p };"
+                        class="odd gradeX">
+                      <td class="text-center">{{e.pays}}</td>
+                      <td class="text-center">{{e.destination}}r</td>
+                      <td class="text-center">{{e.quotation}}</td>
+                      <td class="text-center">{{e.offer}}</td>
+                      <td class="text-center">{{e.date}}</td>
+                      <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                      <td class="text-center">
+                        <a class="btn btn-primary btn-xs">
+                          <i class="fa fa-pencil" data-toggle="modal" data-target="#editTran"
+                             (click)="recupertransp(e.id,e.pays,e.destination,e.quotation,e.offer)"></i></a>
+                        <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                               (click)="supprimertr(e.id)"></i></button>
+                      </td>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class=" pull-right">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="borderBox_tab3">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-box">
+              <div class="card-head">
+                <header>All Insert</header>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <div class="col-2 col-lg-12">
+                      <form class="navbar-form navbar-left" method="GET" role="search">
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="design" [(ngModel)]="design"
+                                 (ngModelChange)="Searchin()" placeholder="Enter Designation Insert...">
+                          <span class="input-group-btn"><button class="btn submit"><i
+                            class="icon-magnifier"></i></button>
+					                	</span>
+                        </div>
+                      </form>
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group">
+                      <a class="btn btn-info" data-toggle="modal" data-target="#addins">Add New <i
+                        class="fa fa-plus"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group pull-right">
+                      <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                         data-toggle="dropdown">Tools
+                        <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu pull-right">
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-print"></i> Print </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-pdf-o"></i> Save as
+                            PDF </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-excel-o"></i>
+                            Export to Excel </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-scrollable">
+                  <table
+                    class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                    id="ex">
+                    <thead>
+                    <tr>
+                      <th class="col-md-2"> Designation</th>
+                      <th class="text-center"> Silver code</th>
+                      <th class="text-center"> Unity</th>
+                      <th class="text-center"> Costs</th>
+                      <th class="text-center"> Transport</th>
+                      <th class="text-center"> Scrap(%)</th>
+                      <th class="text-center">Joining Date</th>
+                      <th class="text-center">Traceability</th>
+                      <th class="text-center"> Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let e of listInserrt| paginate: { itemsPerPage:10, currentPage: p };"
+                        class="odd gradeX">
+                      <td class="text-center">{{e.design}}</td>
+                      <td class="text-center">{{e.code}}</td>
+                      <td class="text-center">{{e.unite}}</td>
+                      <td class="text-center">{{e.price}}</td>
+                      <td class="text-center">{{e.trans}}</td>
+                      <td class="text-center">{{e.scrap}}</td>
+                      <td class="text-center">{{e.date}}</td>
+                      <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                      <td class="text-center">
+                        <a class="btn btn-primary btn-xs">
+                          <i class="fa fa-pencil" data-toggle="modal" data-target="#editins"
+                             (click)="recuperinse(e.id,e.design,e.code,e.unite,e.price,e.trans,e.scrap)"></i></a>
+                        <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                               (click)="supprimerin(e.id)"></i></button>
+                      </td>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class=" pull-right">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="borderBox_tab4">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-box">
+              <div class="card-head">
+                <header>All Colorant</header>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <div class="col-2 col-lg-12">
+                      <form class="navbar-form navbar-left" method="GET" role="search">
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="designation" [(ngModel)]="designation"
+                                 (ngModelChange)="Searchde()" placeholder="Enter Designation Colorant...">
+                          <span class="input-group-btn"><button class="btn submit"><i
+                            class="icon-magnifier"></i></button>
+						</span>
+                        </div>
+                      </form>
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group">
+                      <a class="btn btn-info" data-toggle="modal" data-target="#addCol">Add New <i
+                        class="fa fa-plus"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group pull-right">
+                      <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                         data-toggle="dropdown">Tools
+                        <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu pull-right">
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-print"></i> Print </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-pdf-o"></i> Save as
+                            PDF </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-excel-o"></i>
+                            Export to Excel </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-scrollable">
+                  <table
+                    class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                    id="edx">
+                    <thead>
+                    <tr>
+                      <th class="col-md-4"> Designation</th>
+                      <th class="text-center"> Silver code</th>
+                      <th class="text-center"> Unity</th>
+                      <th class="text-center"> Costs</th>
+                      <th class="text-center">Joining Date</th>
+                      <th class="text-center">Traceability</th>
+                      <th class="text-center"> Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let e of listColorant| paginate: { itemsPerPage:10, currentPage: p };"
+                        class="odd gradeX">
+                      <td class="text-center">{{e.designation}}</td>
+                      <td class="text-center">{{e.code}}</td>
+                      <td class="text-center">{{e.unite}}</td>
+                      <td class="text-center">{{e.price}}</td>
+                      <td class="text-center">{{e.date}}</td>
+                      <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                      <td class="text-center">
+                        <a class="btn btn-primary btn-xs">
+                          <i class="fa fa-pencil" data-toggle="modal" data-target="#editCol"
+                             (click)="recupercol(e.id,e.designation,e.code,e.unite,e.price)"></i></a>
+                        <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                               (click)="supprimercol(e.id)"></i>
+                        </button>
+                      </td>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class=" pull-right">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tab-pane" id="borderBox_tab5">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-box">
+              <div class="card-head">
+                <header>All Machine</header>
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <div class="col-2 col-lg-12">
+                      <form class="navbar-form navbar-left" method="GET" role="search">
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="im" [(ngModel)]="im" (ngModelChange)="Search()"
+                                 placeholder="Enter IM Name...">
+                          <span class="input-group-btn"><button class="btn submit"><i
+                            class="icon-magnifier"></i></button>
+						</span>
+                        </div>
+                      </form>
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group">
+                      <a class="btn btn-info" data-toggle="modal" data-target="#addMach">Add New <i
+                        class="fa fa-plus"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group pull-right">
+                      <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                         data-toggle="dropdown">Tools
+                        <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu pull-right">
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-print"></i> Print </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-pdf-o"></i> Save as
+                            PDF </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-excel-o"></i>
+                            Export to Excel </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="table-scrollable">
+                  <table
+                    class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                    id="exampld">
+                    <thead>
+                    <tr>
+
+                      <th class="text-center col-md-2" style="background:#CFCFCF"> Taux horaire Industry</th>
+                      <th class="text-center" style="background:#CFCFCF"> Vente-Complet</th>
+                      <th colspan="4" class="text-center" style="background:#CFCFCF"> Quotation</th>
+                      <th colspan="2" class="text-center" style="background:#CFCFCF"> Offer</th>
+                      <th colspan="3" class="text-center" style="background:#CFCFCF"><i class="fa  fa-cogs"></i></th>
+
+                    </tr>
+                    <tr>
+                      <th class="col-md-2"> IM</th>
+                      <th class="text-center">Taux Horaire Complet</th>
+                      <th class="text-center"> Energie</th>
+                      <th class="text-center"> Complet- Energie</th>
+                      <th class="text-center"> Opé €/H devis</th>
+                      <th class="text-center">Starting costs</th>
+                      <th class="text-center">Opé €/Vente</th>
+                      <th class="text-center">Starting costs</th>
+                      <th class="text-center">Joining Date</th>
+                      <th class="text-center">Traceability</th>
+                      <th class="text-center"> Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let e of listMachine| paginate: { itemsPerPage:2, currentPage: p };" class="odd gradeX">
+                      <td class="text-center">{{e.im}}</td>
+                      <td class="text-center">{{e.tauxho}}</td>
+                      <td class="text-center">{{e.energie}}</td>
+                      <td class="text-center">{{e.completen}}</td>
+                      <td class="text-center">{{e.opedev}}</td>
+                      <td class="text-center">{{e.startingdev}}</td>
+                      <td class="text-center">{{e.opeven}}</td>
+                      <td class="text-center">{{e.startingof}}</td>
+                      <td class="text-center">{{e.date}}</td>
+                      <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                      <td class="text-center">
+                        <a class="btn btn-primary btn-xs">
+                          <i class="fa fa-pencil" data-toggle="modal" data-target="#editMch"
+                             (click)="recupermach(e.id,e.im,e.tauxho,e.energie,e.completen,e.opedev,e.startingdev,e.opeven,e.startingof)"></i></a>
+                        <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                               (click)="supprimermach(e.id)"></i>
+                        </button>
+                      </td>
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class=" pull-right">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card card-box">
+              <div class="card-head">
+                <ul class="nav navbar-nav navbar-right">
+                  <li>
+                    <div class="col-2 col-lg-12">
+                      <form class="navbar-form navbar-left" method="GET" role="search">
+                        <div class="input-group">
+                          <input type="text" class="form-control" name="customer" [(ngModel)]="customer"
+                                 (ngModelChange)="SearchP()" placeholder="Enter Customer Name...">
+                          <span class="input-group-btn"><button class="btn submit"><i
+                            class="icon-magnifier"></i></button>
+						</span>
+                        </div>
+                      </form>
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+              <div class="card-body ">
+                <div class="row">
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group">
+                      <a class="btn btn-info" data-toggle="modal" data-target="#addMachpa">Add New <i
+                        class="fa fa-plus"></i></a>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-sm-6 col-6">
+                    <div class="btn-group pull-right">
+                      <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                         data-toggle="dropdown">Tools
+                        <i class="fa fa-angle-down"></i>
+                      </a>
+                      <ul class="dropdown-menu pull-right">
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-print"></i> Print </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-pdf-o"></i> Save as
+                            PDF </a>
+                        </li>
+                        <li>
+                          <a href="javascript:;">
+                            <i class="fa fa-file-excel-o"></i>
+                            Export to Excel </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="table-scrollable">
+                  <table
+                    class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                    id="exam">
+                    <thead>
+
+                    <tr>
+                      <th class="col-md-2"> Customer</th>
+                      <th class="text-center">Handling%</th>
+                      <th class="text-center"> Scrap %</th>
+                      <th class="text-center"> Sales & Admin %</th>
+                      <th class="text-center"> R&D %</th>
+                      <th class="text-center">Profit %</th>
+                      <th class="text-center">Joining Date</th>
+                      <th class="text-center">Traceability</th>
+                      <th class="text-center"> Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let e of listMachineParam| paginate: { itemsPerPage:2, currentPage: p };"
+                        class="odd gradeX">
+                      <td class="text-center">{{e.customer}}</td>
+                      <td class="text-center">{{e.handling}}</td>
+                      <td class="text-center">{{e.scrap}}</td>
+                      <td class="text-center">{{e.sales}}</td>
+                      <td class="text-center">{{e.rd}}</td>
+                      <td class="text-center">{{e.profit}}</td>
+                      <td class="text-center">{{e.date}}</td>
+                      <td class="text-center"><span class="label label-warning label-mini">{{e.trac}}</span></td>
+                      <td class="text-center">
+                        <a class="btn btn-primary btn-xs">
+                          <i class="fa fa-pencil" data-toggle="modal" data-target="#editMchp"
+                             (click)="recupermachpa(e.id,e.customer,e.handling,e.scrap,e.sales,e.rd,e.profit)"></i></a>
+                        <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"
+                                                                               (click)="supprimermachpar(e.id)"></i>
+                        </button>
+                      </td>
+
+                    </tr>
+
+                    </tbody>
+                  </table>
+                </div>
+                <br>
+                <div class=" pull-right">
+                  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="addBox" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add UC-Box</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addcarton">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation</label><input type="text" class="form-control" formControlName="description"
+                                               placeholder="Designation">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code</label><input type="text" class="form-control" formControlName="code"
+                                               placeholder="Silver code">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Length</label><input type="text" class="form-control" formControlName="longeur"
+                                          placeholder="Length">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Width</label><input type="text" class="form-control" formControlName="largeur" placeholder="Width">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Height</label><input type="text" class="form-control" formControlName="hauteur"
+                                          placeholder="Height">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite" placeholder="Unity">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="costs" placeholder="Costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()">Save & Return</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel2" role="dialog" tabindex="-1" id="editBox" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update UC-Box</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addcarton">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="description">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code</label><input type="text" class="form-control" formControlName="code">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Length</label><input type="text" class="form-control" formControlName="longeur">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Width</label><input type="text" class="form-control" formControlName="largeur">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Height</label><input type="text" class="form-control" formControlName="hauteur">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" data-dismiss="modal" (click)="edit()">Save & Return</button>
+          </div>
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel3" role="dialog" tabindex="-1" id="addBag" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Bag</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addsachet">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="description"
+                                                placeholder="Designation	">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code</label><input type="text" class="form-control" formControlName="code"
+                                               placeholder="Silver code">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite" placeholder="Unity">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="costs" placeholder="Costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addsach()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel4" role="dialog" tabindex="-1" id="editBag" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Bag</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addsachet">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="description">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code</label><input type="text" class="form-control" formControlName="code">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="editsach()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel5" role="dialog" tabindex="-1" id="addSepar" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Separation</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addseparation">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="description"
+                                                placeholder="Designation	">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code</label><input type="text" class="form-control" formControlName="code"
+                                               placeholder="Silver code">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite" placeholder="Unity">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="cost" placeholder="Costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addsep()">Save & Return</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel6" role="dialog" tabindex="-1" id="editsep" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Separation</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addseparation">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="description">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code</label><input type="text" class="form-control" formControlName="code">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="cost">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="editsep()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel7" role="dialog" tabindex="-1" id="addpalet" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add UM - Pallet</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addpalette">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="type"
+                                                placeholder="Designation	">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code</label><input type="text" class="form-control" formControlName="code"
+                                               placeholder="Silver code">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite" placeholder="Unity">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="costs" placeholder="Costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addpalet()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel8" role="dialog" tabindex="-1" id="editpa" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Pallet</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addpalette">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="type">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code</label><input type="text" class="form-control" formControlName="code">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="editpale()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel9" role="dialog" tabindex="-1" id="addTran" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Transport</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addtransport">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Country </label><input type="text" class="form-control" formControlName="pays"
+                                            placeholder="Country	">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Destination </label><input type="text" class="form-control" formControlName="destination"
+                                                placeholder="Destination">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Quotation</label><input type="text" class="form-control" formControlName="quotation"
+                                             placeholder="Quotation">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Offer</label><input type="text" class="form-control" formControlName="offer" placeholder="Offer">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addtran()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel10" role="dialog" tabindex="-1" id="editTran" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Transport</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addtransport">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Country </label><input type="text" class="form-control" formControlName="pays">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Destination </label><input type="text" class="form-control" formControlName="destination">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Quotation</label><input type="text" class="form-control" formControlName="quotation">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Offer</label><input type="text" class="form-control" formControlName="offer">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="edittran()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel11" role="dialog" tabindex="-1" id="addins" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Insert</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addinsert">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="design"
+                                                placeholder="Designation	">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code </label><input type="text" class="form-control" formControlName="code"
+                                                placeholder="Silver code">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite" placeholder="Unity">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="price" placeholder="Costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Transport</label><input type="text" class="form-control" formControlName="trans"
+                                             placeholder="Transport">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Scrap(%)</label><input type="text" class="form-control" formControlName="scrap"
+                                            placeholder="Scrap(%)">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addins()">Save & Return</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel12" role="dialog" tabindex="-1" id="editins" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Insert</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addinsert">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="design">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code </label><input type="text" class="form-control" formControlName="code">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="price">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Transport</label><input type="text" class="form-control" formControlName="trans">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Scrap(%)</label><input type="text" class="form-control" formControlName="scrap">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="editins()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel13" role="dialog" tabindex="-1" id="addCol" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Colorant</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addcolorant">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="designation"
+                                                placeholder="Designation	">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code </label><input type="text" class="form-control" formControlName="code"
+                                                placeholder="Silver code">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite" placeholder="Unity">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="price" placeholder="Costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addcol()">Save & Return</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel14" role="dialog" tabindex="-1" id="editCol" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Colorant</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addcolorant">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation </label><input type="text" class="form-control" formControlName="designation">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Silver code </label><input type="text" class="form-control" formControlName="code">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Unity</label><input type="text" class="form-control" formControlName="unite">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Costs</label><input type="text" class="form-control" formControlName="price">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="editcol()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel15" role="dialog" tabindex="-1" id="addMach" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Machine</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmachine">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>IM </label><input type="text" class="form-control" formControlName="im" placeholder="IM	">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Taux Horaire Complet </label><input type="text" class="form-control" formControlName="tauxho"
+                                                         placeholder="Taux Horaire Complet">
+            </div>
+            <div class="form-group col-md-6">
+              <label> Energie</label><input type="text" class="form-control" formControlName="energie"
+                                            placeholder=" Energie">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Complet- Energie </label><input type="text" class="form-control" formControlName="completen"
+                                                     placeholder="Complet- Energie">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Opé €/H devis </label><input type="text" class="form-control" formControlName="opedev"
+                                                  placeholder="Opé €/H devis">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Starting costs </label><input type="text" class="form-control" formControlName="startingdev"
+                                                   placeholder="Starting costs">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Opé €/Vente </label><input type="text" class="form-control" formControlName="opeven"
+                                                placeholder="Opé €/Vente">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Starting costs </label><input type="text" class="form-control" formControlName="startingof"
+                                                   placeholder="Starting costs ">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addmach()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel16" role="dialog" tabindex="-1" id="editMch" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Machine</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmachine">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>IM </label><input type="text" class="form-control" formControlName="im">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Taux Horaire Complet </label><input type="text" class="form-control" formControlName="tauxho">
+            </div>
+            <div class="form-group col-md-6">
+              <label> Energie</label><input type="text" class="form-control" formControlName="energie">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Complet- Energie </label><input type="text" class="form-control" formControlName="completen">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Opé €/H devis </label><input type="text" class="form-control" formControlName="opedev">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Starting costs </label><input type="text" class="form-control" formControlName="startingdev">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Opé €/Vente </label><input type="text" class="form-control" formControlName="opeven">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Starting costs </label><input type="text" class="form-control" formControlName="startingof">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="editmach()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<div aria-hidden="true" aria-labelledby="myModalLabel17" role="dialog" tabindex="-1" id="addMachpa" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Machine Parameter</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmachineParam">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Customer</label>
+              <select id="country-select2" class="form-control" formControlName="customer" name="customer"
+                      [ngModel]="selectclient" (change)='onChangeSelectedClient($event)'>
+                <option style=" font-size: 18px;" selected="{{s.fullname}}" [value]="s.fullname"
+                        *ngFor="let s of listclient">{{s.fullname}}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Handling% </label><input type="text" class="form-control" formControlName="handling"
+                                              placeholder="Handling%">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Scrap % </label><input type="text" class="form-control" formControlName="scrap"
+                                            placeholder="Scrap %">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Sales & Admin % </label><input type="text" class="form-control" formControlName="sales"
+                                                    placeholder="Sales & Admin % ">
+            </div>
+            <div class="form-group col-md-6">
+              <label>R&D %</label><input type="text" class="form-control" formControlName="rd" placeholder="R&D %">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profit %</label><input type="text" class="form-control" formControlName="profit"
+                                            placeholder="Profit %">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addmachpar()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel17" role="dialog" tabindex="-1" id="editMchp" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Update Machine Parameter</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmachineParam">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Customer</label>
+              <select id="count" class="form-control" formControlName="customer" name="customer"
+                      [ngModel]="selectclient" (change)='onChangeSelectedClient($event)'>
+                <option style=" font-size: 18px;" selected="{{s.fullname}}" [value]="s.fullname"
+                        *ngFor="let s of listclient">{{s.fullname}}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Handling% </label><input type="text" class="form-control" formControlName="handling">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Scrap % </label><input type="text" class="form-control" formControlName="scrap">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Sales & Admin % </label><input type="text" class="form-control" formControlName="sales">
+            </div>
+            <div class="form-group col-md-6">
+              <label>R&D %</label><input type="text" class="form-control" formControlName="rd">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profit %</label><input type="text" class="form-control" formControlName="profit">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                     disabled>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Traceability</label>
+              <input type="text" class="form-control" formControlName="trac" [(ngModel)]="user.username" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="editmachpar()">Save & Return
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

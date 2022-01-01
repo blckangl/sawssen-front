@@ -1,0 +1,679 @@
+
+<div class="borderBox light bordered card-box">
+  <div class="tab-pane active fontawesome-demo" >
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card card-box">
+          <div class="card-head">
+            <header> Managers List</header>
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <div class="col-2 col-lg-12" >
+                  <form class="navbar-form navbar-left" method="GET" role="search" >
+                    <div class="input-group"  >
+                      <input type="text" class="form-control" placeholder="Search..." name="query" >
+                      <span class="input-group-btn">
+							<button class="btn submit"><i class="icon-magnifier"></i></button></span>
+                    </div>
+                  </form>
+                </div>
+
+              </li>
+            </ul>
+          </div>
+          <div class="card-body ">
+            <div class="row">
+              <div class="col-md-12 col-sm-12 col-12">
+                <div class="btn-group">
+                  <div class="btn-group">
+                    <a class="btn btn-info" data-toggle="modal" data-target="#admin">Add New<i class="fa fa-plus"></i></a>
+                  </div>
+                </div>
+
+                <div class="btn-group pull-right">
+                  <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                     data-toggle="dropdown">Tools
+                    <i class="fa fa-angle-down"></i>
+                  </a>
+                  <ul class="dropdown-menu pull-right">
+                    <li>
+                      <a href="javascript:;">
+                        <i class="fa fa-print"></i> Print </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <i class="fa fa-file-pdf-o"></i> Save as
+                        PDF </a>
+                    </li>
+                    <li>
+                      <a href="javascript:;">
+                        <i class="fa fa-file-excel-o"></i>
+                        Export to Excel </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="table-scrollable">
+              <table class="table table-striped table-bordered table-hover table-checkable order-column valign-middle">
+                <thead>
+                <tr>
+                  <th class="center">Photo</th>
+                  <th class="center">Name</th>
+                  <th class="center">Designation</th>
+                  <th class="center">Mobile</th>
+                  <th class="center">Email</th>
+                  <th class="center">Department</th>
+                  <th class="center">Joining Date</th>
+                  <th class="text-center">Traceability</th>
+                  <th class="center">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="odd gradeX" *ngFor="let e of listUser">
+                  <td class="patient-img"><img src="../assets/img/std/std1.jpg" alt=""></td>
+                  <td class="center">{{e.username}}</td>
+                  <td class="center">{{e.designation}}</td>
+                  <td class="center">{{e.mobileNo}}</td>
+                  <td class="center">{{e.email}}</td>
+                  <td class="center">{{e.designation}}</td>
+                  <td class="center">{{e.joiningDate}}</td>
+                  <td class="center"></td>
+                  <td class="text-center">
+                    <a routerLink="/manager" class="btn btn-success btn-xs"><i class="fa fa-home"></i></a>
+                    <button class="btn btn-primary btn-xs" type="submit"><i class="fa fa-pencil" ></i></button>
+                    <button class="btn btn-danger btn-xs" type="submit" ><i class="fa fa-trash-o"></i></button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <br>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="admin" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Manager</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form [formGroup]="addmanager">
+      <div class="modal-body">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Designation</label>
+              <select class="form-control" formControlName="Designation">
+                <option value="">Select...</option>
+                <option>Administrator</option>
+                <option>Director</option>
+                <option>Direction</option>
+                <option>Commercial</option>
+                <option>Technician Quote</option>
+                <option>Supply Manager</option>
+                <option>Sales Assistant</option>
+                <option>Others Responsible</option>
+              </select>
+            </div>
+
+            <div class="form-group col-md-6">
+              <label>First Name</label><input type="text" class="form-control" formControlName="firstName"  placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label><input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label>UserName</label><input type="text" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label><input type="text" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Confirm Password</label><input type="text" class="form-control" formControlName="confirm" placeholder="Confirm Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobileNo" placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Departments</label>
+              <input type="text" class="form-control" formControlName="departments" placeholder="Departments">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Gender</label>
+              <select class="form-control" name="gender" formControlName="gender">
+                <option value="">Select...</option>
+                <option value="Category 1">Male</option>
+                <option value="Category 2">Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Country</label>
+              <input type="text" class="form-control" formControlName="country" placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+                <input type="file" class="form-control" multiple formControlName="profilePicture">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="joiningDate" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+<!--            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="addAdmin()" >Save & Return</button>-->
+          </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!--<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="director" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Admin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmanager">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>First Name</label><input type="text" class="form-control" formControlName="firstName"  placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label><input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label>UserName</label><input type="text" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label><input type="text" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Confirm Password</label><input type="text" class="form-control" formControlName="confirm" placeholder="Confirm Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobileNo" placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Departments</label>
+              <input type="text" class="form-control" formControlName="departments" placeholder="Departments">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Gender</label>
+              <select class="form-control" name="gender" formControlName="gender">
+                <option value="">Select...</option>
+                <option value="Category 1">Male</option>
+                <option value="Category 2">Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Country</label>
+              <input type="text" class="form-control" formControlName="country" placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <input type="file" class="form-control" multiple formControlName="profilePicture">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="joiningDate" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            &lt;!&ndash;            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()" >Save & Return</button>&ndash;&gt;
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="firection" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Admin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmanager">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>First Name</label><input type="text" class="form-control" formControlName="firstName"  placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label><input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label>UserName</label><input type="text" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label><input type="text" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Confirm Password</label><input type="text" class="form-control" formControlName="confirm" placeholder="Confirm Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobileNo" placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Departments</label>
+              <input type="text" class="form-control" formControlName="departments" placeholder="Departments">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Gender</label>
+              <select class="form-control" name="gender" formControlName="gender">
+                <option value="">Select...</option>
+                <option value="Category 1">Male</option>
+                <option value="Category 2">Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Country</label>
+              <input type="text" class="form-control" formControlName="country" placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <input type="file" class="form-control" multiple formControlName="profilePicture">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="joiningDate" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            &lt;!&ndash;            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()" >Save & Return</button>&ndash;&gt;
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="comm" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Admin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmanager">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>First Name</label><input type="text" class="form-control" formControlName="firstName"  placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label><input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label>UserName</label><input type="text" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label><input type="text" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Confirm Password</label><input type="text" class="form-control" formControlName="confirm" placeholder="Confirm Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobileNo" placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Departments</label>
+              <input type="text" class="form-control" formControlName="departments" placeholder="Departments">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Gender</label>
+              <select class="form-control" name="gender" formControlName="gender">
+                <option value="">Select...</option>
+                <option value="Category 1">Male</option>
+                <option value="Category 2">Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Country</label>
+              <input type="text" class="form-control" formControlName="country" placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <input type="file" class="form-control" multiple formControlName="profilePicture">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="joiningDate" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            &lt;!&ndash;            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()" >Save & Return</button>&ndash;&gt;
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="techni" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Admin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmanager">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>First Name</label><input type="text" class="form-control" formControlName="firstName"  placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label><input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label>UserName</label><input type="text" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label><input type="text" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Confirm Password</label><input type="text" class="form-control" formControlName="confirm" placeholder="Confirm Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobileNo" placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Departments</label>
+              <input type="text" class="form-control" formControlName="departments" placeholder="Departments">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Gender</label>
+              <select class="form-control" name="gender" formControlName="gender">
+                <option value="">Select...</option>
+                <option value="Category 1">Male</option>
+                <option value="Category 2">Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Country</label>
+              <input type="text" class="form-control" formControlName="country" placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <input type="file" class="form-control" multiple formControlName="profilePicture">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="joiningDate" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            &lt;!&ndash;            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()" >Save & Return</button>&ndash;&gt;
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="suppl" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Admin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmanager">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>First Name</label><input type="text" class="form-control" formControlName="firstName"  placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label><input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label>UserName</label><input type="text" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label><input type="text" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Confirm Password</label><input type="text" class="form-control" formControlName="confirm" placeholder="Confirm Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobileNo" placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Departments</label>
+              <input type="text" class="form-control" formControlName="departments" placeholder="Departments">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Gender</label>
+              <select class="form-control" name="gender" formControlName="gender">
+                <option value="">Select...</option>
+                <option value="Category 1">Male</option>
+                <option value="Category 2">Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Country</label>
+              <input type="text" class="form-control" formControlName="country" placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <input type="file" class="form-control" multiple formControlName="profilePicture">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="joiningDate" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            &lt;!&ndash;            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()" >Save & Return</button>&ndash;&gt;
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="ass" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Admin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmanager">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>First Name</label><input type="text" class="form-control" formControlName="firstName"  placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label><input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label>UserName</label><input type="text" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label><input type="text" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Confirm Password</label><input type="text" class="form-control" formControlName="confirm" placeholder="Confirm Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobileNo" placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Departments</label>
+              <input type="text" class="form-control" formControlName="departments" placeholder="Departments">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Gender</label>
+              <select class="form-control" name="gender" formControlName="gender">
+                <option value="">Select...</option>
+                <option value="Category 1">Male</option>
+                <option value="Category 2">Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Country</label>
+              <input type="text" class="form-control" formControlName="country" placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <input type="file" class="form-control" multiple formControlName="profilePicture">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="joiningDate" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            &lt;!&ndash;            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()" >Save & Return</button>&ndash;&gt;
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" aria-labelledby="myModalLabel1" role="dialog" tabindex="-1" id="otherr" class="modal fade">
+  <div class="  modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white">
+        <h4 class="modal-title">Add Admin</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addmanager">
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>First Name</label><input type="text" class="form-control" formControlName="firstName"  placeholder="First Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Last Name</label><input type="text" class="form-control" formControlName="lastname" placeholder="Last Name">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Email</label><input type="email" class="form-control" formControlName="email" placeholder="Email">
+            </div>
+            <div class="form-group col-md-6">
+              <label>UserName</label><input type="text" class="form-control" formControlName="username" placeholder="UserName">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Password</label><input type="text" class="form-control" formControlName="password" placeholder="Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Confirm Password</label><input type="text" class="form-control" formControlName="confirm" placeholder="Confirm Password">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Mobile No.</label><input type="text" class="form-control" formControlName="mobileNo" placeholder="Mobile No.">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Departments</label>
+              <input type="text" class="form-control" formControlName="departments" placeholder="Departments">
+            </div>
+            <div class="form-group col-md-6">
+              <label >Gender</label>
+              <select class="form-control" name="gender" formControlName="gender">
+                <option value="">Select...</option>
+                <option value="Category 1">Male</option>
+                <option value="Category 2">Female</option>
+              </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label>Country</label>
+              <input type="text" class="form-control" formControlName="country" placeholder="Country">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Profile Picture</label>
+              <input type="file" class="form-control" multiple formControlName="profilePicture">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Joining Date</label>
+              <input type="date" class="form-control" formControlName="joiningDate" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+            &lt;!&ndash;            <button class="btn btn-primary" type="submit" data-dismiss="modal" (click)="add()" >Save & Return</button>&ndash;&gt;
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>-->
+
+<script src="../../../assets/plugins/jquery/jquery.min.js"></script>
+<script src="../../../assets/plugins/popper/popper.js"></script>
+<script src="../../../assets/plugins/jquery-blockui/jquery.blockui.min.js"></script>
+<script src="../../../assets/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>
+<!-- bootstrap -->
+<script src="../../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../../../assets/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+<!-- data tables -->
+<script src="../../../assets/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="../../../assets/plugins/datatables/plugins/bootstrap/dataTables.bootstrap4.min.js"></script>
+<script src="../../../assets/js/pages/table/table_data.js"></script>
+<!-- Common js-->
+<script src="../../../assets/js/app.js"></script>
+<script src="../../../assets/js/layout.js"></script>
+<script src="../../../assets/js/theme-color.js"></script>
+<!-- Material -->
+<script src="../../../assets/plugins/material/material.min.js"></script>

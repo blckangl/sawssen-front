@@ -1,494 +1,297 @@
+<div class="borderBox light bordered card-box">
+            <div class="tab-pane active fontawesome-demo" >
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="card card-box">
+                    <div class="card-head">
+                      <header>Quotation Dashboard</header>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li>
+                          <div class="col-2 col-lg-12">
+                            <form class="navbar-form navbar-left" method="GET" role="search">
+                              <div class="input-group">
+                                <input type="text" class="form-control">
+                                <span class="input-group-btn">
+							<button class="btn submit"><i class="icon-magnifier"></i></button></span>
+                              </div>
+                            </form>
+                          </div>
 
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group">
+                            <div class="btn-group">
+                              <a class="btn btn-info" data-toggle="modal" data-target="#addd"><i class="fa fa-cart-plus"></i>Add New <i class="fa fa-plus"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-6">
+                          <div class="btn-group pull-right">
+                            <a class="btn deepPink-bgcolor  btn-outline dropdown-toggle"
+                               data-toggle="dropdown">Tools
+                              <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-print"></i> Print </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-pdf-o"></i> Save as
+                                  PDF </a>
+                              </li>
+                              <li>
+                                <a href="javascript:;">
+                                  <i class="fa fa-file-excel-o"></i>
+                                  Export to Excel </a>
+                              </li>
+                            </ul>
+                          </div>
 
-
-          <header style="background: #fbfbfb;">
-
-
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-              <div class="btn-compose pull-left" style="float: left;margin-left:10%;">
-
-                <div class="row">
-                  <div class="col">
-                    <a target="_blank" href="https://lobianijs.com">
-                      <img src="../../assets/img/main-logo.png" alt="">
-                    </a>
+                          <div class="btn-group pull-right"style="right: 4px">
+                            <a class="btn btn-primary  btn-outline dropdown-toggle"
+                               data-toggle="dropdown"><i class="glyphicon glyphicon-filter pull-left"></i>Filter by
+                              <i class="fa fa-angle-down"></i>
+                            </a>
+                            <ul class="dropdown-menu pull-right">
+                              <li><a href="javascript:;">project </a></li>
+                              <li><a href="javascript:;">customer</a></li>
+                              <li><a href="javascript:;">year</a></li>
+                              <li><a href="javascript:;">month</a></li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="table-scrollable">
+                        <table
+                          class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                          id="example4">
+                          <thead>
+                          <tr>
+                            <th>
+                              <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline">
+                                <input type="checkbox" class="group-checkable" data-set="#sample_1 .checkboxes" /><span></span></label>
+                            </th>
+                            <th colspan="2" class="text-center"><i class="fa  fa-cogs"></i></th>
+                            <th class="col-md-2">Year</th>
+                            <th class="col-md-2">Month</th>
+                            <th class="col-md-2">Consult N ° / month</th>
+                            <th class="col-md-2">Revision index</th>
+                            <th class="col-md-2">N° Offer</th>
+                            <th class="col-md-2">Commercial Berry in charge</th>
+                            <th class="col-md-2">Customer-Group</th>
+                            <th class="col-md-2">Requesting site RFQ</th>
+                            <th class="col-md-2">Buyer</th>
+                            <th class="col-md-2">Reference RFQ</th>
+                            <th class="col-md-2">Project</th>
+                            <th class="col-md-2">Designation</th>
+                            <th class="col-md-2">Reference</th>
+                            <th class="col-md-2">Date RFQ</th>
+                            <th class="col-md-2">Deadline</th>
+                            <th class="col-md-2">Response statuses</th>
+                            <th class="col-md-2">Date Offer</th>
+                            <th class="col-md-2">Last Offer Date</th>
+                            <th class="col-md-2">Delivery site</th>
+                            <th class="col-md-2">Annual volume</th>
+                            <th class="col-md-2">Part type: PF / SF</th>
+                            <th class="col-md-2">Material</th>
+                            <th class="col-md-2">Net weight (gr)</th>
+                            <th class="col-md-2">Material price (€ / kg)</th>
+                            <th class="col-md-2">Tonnage</th>
+                            <th class="col-md-2">TC</th>
+                            <th class="col-md-2">Completion</th>
+                            <th class="col-md-2">Number emp of mold</th>
+                            <th class="col-md-2">Unit price</th>
+                            <th class="col-md-2">CA</th>
+                            <th class="col-md-2">GPM</th>
+                            <th class="col-md-2">Productivity</th>
+                            <th class="col-md-2">Mold purchase price</th>
+                            <th class="col-md-2">Selling price</th>
+                            <th class="col-md-2">Mouliste</th>
+                            <th class="col-md-2">Capex</th>
+                            <th class="col-md-2">Project Status</th>
+                            <th class="col-md-2">Cause of project loss</th>
+                            <th class="col-md-2">Project Manager</th>
+                            <th class="col-md-2">Decision date</th>
+                            <th class="col-md-2">Date SOP</th>
+                            <th class="col-md-2">SOP</th>
+                            <th class="col-md-2">SOP+1</th>
+                            <th class="col-md-2">SOP+2</th>
+                            <th class="col-md-2">SOP+3</th>
+                            <th class="col-md-2">SOP+4</th>
+                            <th class="col-md-2">SOP+5</th>
+                            <th class="col-md-2">SOP+6</th>
+                            <th class="col-md-2">SOP+7</th>
+                            <th class="col-md-2">SOP+8</th>
+                            <th class="col-md-2">SOP+9</th>
+                            <th class="col-md-2">SOP+10</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr class="odd gradeX" *ngFor="let e of listProject">
+                            <td>
+                              <label class="rt-chkbox rt-chkbox-single rt-chkbox-outline"><input type="checkbox" class="checkboxes" value="1" /><span></span></label>
+                            </td>
+                            <td  class="text-center">
+                              <a class="btn btn-primary btn-xs">
+                                <i class="fa fa-pencil"  data-toggle="modal" data-target="#editMch"></i></a>
+                            <td  class="text-center">
+                              <button class="btn btn-danger btn-xs" type="submit" ><i class="fa fa-trash-o" ></i></button>
+                            </td>
+                            <td class="col-md-2">{{e.anne}}</td>
+                            <td class="col-md-2">{{e.mois}}</td>
+                            <td class="col-md-2">{{e.numconsult}}</td>
+                            <td class="col-md-2">{{e.indicer}}</td>
+                            <td class="col-md-2">{{e.numoffer}}</td>
+                            <td class="col-md-2">{{e.commercialB}}</td>
+                            <td class="col-md-2">{{e.Clientg}}</td>
+                            <td class="col-md-2">{{e.sitedeman}}</td>
+                            <td class="col-md-2">{{e.acheteur}}</td>
+                            <td class="col-md-2">{{e.rfqref}}</td>
+                            <td class="col-md-2">{{e.project}}</td>
+                            <td class="col-md-2">{{e.designation}}</td>
+                            <td class="col-md-2">{{e.ref}}</td>
+                            <td class="col-md-2">{{e.dateRFQ}}</td>
+                            <td class="col-md-2">{{e.deadline}}</td>
+                            <td class="col-md-2">{{e.statutrep}}</td>
+                            <td class="col-md-2">{{e.dateoffer}}</td>
+                            <td class="col-md-2">{{e.dateder}}</td>
+                            <td class="col-md-2">{{e.sitelivr}}</td>
+                            <td class="col-md-2">{{e.volume}}</td>
+                            <td class="col-md-2">{{e.typepiece}}</td>
+                            <td class="col-md-2">{{e.matiere}}</td>
+                            <td class="col-md-2">{{e.poidsnet}}</td>
+                            <td class="col-md-2">{{e.prixmatiere}}</td>
+                            <td class="col-md-2">{{e.tonnage}}</td>
+                            <td class="col-md-2">{{e.tc}}</td>
+                            <td class="col-md-2">{{e.parachevement}}</td>
+                            <td class="col-md-2">{{e.nbremp}}</td>
+                            <td class="col-md-2">{{e.prixpiece}}</td>
+                            <td class="col-md-2">{{e.ca}}</td>
+                            <td class="col-md-2">{{e.gpm}}</td>
+                            <td class="col-md-2">{{e.productivite}}</td>
+                            <td class="col-md-2">{{e.prixachat}}</td>
+                            <td class="col-md-2">{{e.prixv}}</td>
+                            <td class="col-md-2">{{e.mouliste}}</td>
+                            <td class="col-md-2">{{e.capex}}</td>
+                            <td class="col-md-2">{{e.statutpro}}</td>
+                            <td class="col-md-2">{{e.causeperte}}</td>
+                            <td class="col-md-2">{{e.chefpro}}</td>
+                            <td class="col-md-2">{{e.datedecision}}</td>
+                            <td class="col-md-2">{{e.datesop}}</td>
+                            <td class="col-md-2">{{e.sop}}</td>
+                            <td class="col-md-2">{{e.sop1}}</td>
+                            <td class="col-md-2">{{e.sop2}}</td>
+                            <td class="col-md-2">{{e.sop3}}</td>
+                            <td class="col-md-2">{{e.sop4}}</td>
+                            <td class="col-md-2">{{e.sop5}}</td>
+                            <td class="col-md-2">{{e.sop6}}</td>
+                            <td class="col-md-2">{{e.sop7}}</td>
+                            <td class="col-md-2">{{e.sop8}}</td>
+                            <td class="col-md-2">{{e.sop9}}</td>
+                            <td class="col-md-2">{{e.sopdi}}</td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-
-              <ul class="nav navbar-nav navbar-right" style="float: right;margin-right: 18%; padding:5px ; " >
-
-                <h1 class="name " style="color: #2154cf ; letter-spacing: 2px ;" >
-                  Quotation Dashboard
-
-                </h1>
-
-              </ul>
-
-
-
             </div>
-
-        </header>
-
-          <div class="pull-right" >
-
-            <ul class="ds-btn" >
-
-              <li>
-                <a class="panel  btn-success " >
-                  <span>Target 85%</span></a>
-
-              </li>
-
-              <li>
-                <a class="panel btn-warning" >
-                  <span>60% à 85%</span></a>
-              </li>
-              <li>
-                <a class="panel btn-danger" >
-                  <span>Inf à 60%</span></a>
-
-              </li>
-            </ul>
-
-          </div>
-          <br>
-          <div class="panel filterable" style="border-color:#2154cf ">
+</div>
 
 
-
-              <table class="table table-bordered  " >
-                <thead  >
-
-                <tr class="filters" >
-                  <th style="color:  #2154cf">Month</th>
-                  <th style="color:  #2154cf">Octobe-20</th>
-                  <th style="color:  #2154cf">November-20</th>
-                  <th style="color:  #2154cf">December-20</th>
-                  <th style="color: #2154cf">January-21</th>
-                  <th style="color:  #2154cf">February-21</th>
-                  <th style="color:  #2154cf">March-21</th>
-                  <th style="color: #2154cf">April-21</th>
-                  <th style="color:  #2154cf">May-21</th>
-                  <th style="color:  #2154cf">June-21</th>
-                  <th style="color:  #2154cf">July-21</th>
-                  <th style="color:  #2154cf">August-21</th>
-                  <th style="color:  #2154cf">September-21</th>
-                  <th style="color:  #2154cf">YTD (20-21)</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr >
-                  <th style="color:  #2154cf">Num RFQ (received)</th>
-                  <th >6</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-
-
-                </tr>
-                <tr>
-                  <th  style="color:  #2154cf">TO Offer K€</th>
-                  <th > 2325</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-
-
-
-                </tr>
-                <tr>
-                  <th style="color:  #2154cf">TO Won RFQ current period (K€)</th>
-                  <th>0</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-
-
-                </tr>
-                <tr>
-                  <th style="color:  #2154cf">TO Won RFQ Previous period (K€)</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-
-                </tr>
-                <tr>
-                  <th style="color:  #2154cf">Conversion rate CA</th>
-                  <th>0%</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-
-                </tr>
-
-                <tr>
-                  <th style="color:  #2154cf" >Num RFQ late</th>
-                  <th>2</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-
-                  <th></th>
-
-                </tr>
-                <tr>
-                  <th   style="color:  #2154cf">Deadline compliance rate</th>
-                  <th>67%</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-
-                </tr>
-
-
-                </tbody>
-
-              </table>
-
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="addd" class="modal fade">
+  <div class=" modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Add Project</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addProjet">
+          <div class="form-row">
+            <div class="form-group col-md-4">
+              <label >Year</label><input type="text" class="form-control" formControlName="anne"  placeholder="Year">
             </div>
+            <div class="form-group col-md-4">
+              <label >Month</label><input type="text" class="form-control" formControlName="mois" placeholder="Month">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Consult N°/ month</label><input type="text" class="form-control" formControlName="numconsult" placeholder="Consult N°/ month">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Revision index</label>
+              <select class="form-control " name="list3" id="districtSel" required formControlName="indicer">
+                <option  value="" disabled selected hidden>Select </option>
+                <option value="">A</option>
+                <option value="">B</option>
+                <option value="">C</option>
+                <option value="">D</option>
 
-          <div class="card edit-parameters btn-bordered-primary"  style="background:#fff;color:#0f1113;width:100%">
-
-            <ul class="ds-btn" style="background:#2154cf">
-              <li class="pull-left" style="float: left;margin-left: 0%;" >
-                <a class="btn btn-sm "  routerLink="/addProject" style="background: #FFFFFF;color:#2154cf ">
-                  <i class="glyphicon glyphicon-plus-sign pull-left"></i><span>Add new project</span></a>
-
-              </li>
-              <li>
-                <a class="btn btn-sm btn-primary" href="http://dotstrap.com/">
-                  <i class="glyphicon glyphicon-edit pull-left"></i><span>Edit project</span></a>
-
-              </li>
-
-              <li>
-                <a class="btn btn-sm btn-danger" href="http://dotstrap.com/">
-                  <i class="glyphicon glyphicon-remove pull-left"></i><span>Delete project</span></a>
-
-              </li>
-
-              <li  class="pull-right">
-                <a class="btn btn-sm btn-warning"  >
-                  <i class="glyphicon glyphicon-filter pull-left"></i><span>Filter by project</span></a>
-              </li>
-              <li  class="pull-right">
-                <a class="btn btn-sm btn-warning"  >
-                  <i class="glyphicon glyphicon-filter pull-left"></i><span>Filter by customer</span></a>
-              </li>
-              <li  class="pull-right">
-                <a class="btn btn-sm btn-warning"  >
-                  <i class="glyphicon glyphicon-filter pull-left"></i><span>Filter by year</span></a>
-              </li>
-              <li  class="pull-right">
-                <a class="btn btn-sm btn-warning" >
-                  <i class="glyphicon glyphicon-filter pull-left"></i><span>Filter by month</span></a>
-              </li>
-
-            </ul>
-
-              <div class="table-scrollable">
-              <table class="table table-bordered ">
-                <thead>
-                <tr>
-                  <th scope="col">Year</th>
-                  <th scope="col">Month</th>
-                  <th scope="col">Consult N ° / month</th>
-                  <th scope="col">Revision index</th>
-                  <th scope="col">N° Offer</th>
-                  <th scope="col">Commercial Berry in charge</th>
-                  <th scope="col">Customer-Group</th>
-                  <th scope="col">Requesting site RFQ</th>
-                  <th scope="col">Buyer</th>
-                  <th scope="col">Reference RFQ</th>
-                  <th scope="col">Project</th>
-                  <th scope="col">Designation</th>
-                  <th scope="col">Ref</th>
-                  <th scope="col">Date RFQ</th>
-                  <th scope="col">Deadline</th>
-                  <th scope="col">Response statuses</th>
-                  <th scope="col">Date Offer</th>
-                  <th scope="col">Last Offer Date</th>
-                  <th scope="col">Delivery site</th>
-                  <th scope="col">Annual volume</th>
-                  <th scope="col">Part type: PF / SF</th>
-                  <th scope="col">Material</th>
-                  <th scope="col">Net weight (gr)</th>
-                  <th scope="col">Material price (€ / kg)</th>
-                  <th scope="col">Tonnage</th>
-                  <th scope="col">TC</th>
-                  <th scope="col">Completion</th>
-                  <th scope="col">Number emp of mold</th>
-                  <th scope="col">Unit price</th>
-                  <th scope="col">CA</th>
-                  <th scope="col">GPM</th>
-                  <th scope="col">Productivity</th>
-                  <th scope="col">Mold purchase price</th>
-                  <th scope="col">Selling price</th>
-                  <th scope="col">Mouliste</th>
-                  <th scope="col">Capex</th>
-                  <th scope="col">Project Status</th>
-                  <th scope="col">Cause of project loss</th>
-                  <th scope="col">Project Manager</th>
-                  <th scope="col">Decision date</th>
-                  <th scope="col">Date SOP</th>
-                  <th scope="col">SOP</th>
-                  <th scope="col">SOP+1</th>
-                  <th scope="col">SOP+2</th>
-                  <th scope="col">SOP+3</th>
-                  <th scope="col">SOP+4</th>
-                  <th scope="col">SOP+5</th>
-                  <th scope="col">SOP+6</th>
-                  <th scope="col">SOP+7</th>
-                  <th scope="col">SOP+8</th>
-
-
-                </tr>
-                </thead>
-                <tbody>
-
-                <tr >
-                  <td>2020</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>jnh</td>
-                  <td>OF2</td>
-                  <th>LSU 40</th>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-
-
-
-                </tr>
-                <tr >
-                  <td>2020</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>jnh</td>
-                  <td>OF2</td>
-                  <th>LSU 40</th>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-
-
-
-                </tr>
-                <tr >
-                  <td>2020</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>jnh</td>
-                  <td>OF2</td>
-                  <th>LSU 40</th>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-                  <td>180$</td>
-                  <td>Finalized</td>
-                  <td>OF2</td>
-                  <td>22/03/2021</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Quote2</td>
-                  <td>Sagem</td>
-                  <td>Injection</td>
-
-
-
-                </tr>
-
-                </tbody>
-              </table>
-
-              </div>
-
-
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label >Commercial Berry in charge</label><input type="text" class="form-control" formControlName="commercialB" placeholder="Commercial Berry">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Customer-Group</label>
+              <select  class="form-control" formControlName="Clientg"  name="description" [ngModel]="selectclient" (change)="onChangeSelectedClient($event)">
+                <option selected>Select</option>
+                <option selected="{{s.fullname}}" [value]="s.id" *ngFor="let s of listclient">  {{s.fullname}}</option>
+              </select>
+            </div>
+            <div class="form-group col-md-4">
+              <label >Requesting site RFQ</label><input type="text" class="form-control" formControlName="sitedeman" placeholder="Requesting site RFQ">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Buyer</label><input type="text" class="form-control" formControlName="acheteur" placeholder="Buyer">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Reference RFQ</label><input type="text" class="form-control" formControlName="rfqref" placeholder="Reference RFQ">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Project</label><input type="text" class="form-control"  formControlName="project" placeholder="Project">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Designation</label><input type="text" class="form-control" formControlName="designation" placeholder="Designation">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Reference</label><input type="text" class="form-control" formControlName="ref" placeholder="Reference">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Date RFQ</label><input type="text" class="form-control"  formControlName="dateRFQ" placeholder="Date RFQ">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Deadline</label><input type="text" class="form-control"  formControlName="deadline" placeholder="Deadline">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Last Offer Date</label><input type="text" class="form-control" formControlName="dateder" placeholder="Last Offer Date">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Delivery site</label><input type="text" class="form-control"  formControlName="sitelivr" placeholder="Delivery site">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Part type: PF / SF</label><input type="text" class="form-control" formControlName="typepiece" placeholder="Part type: PF / SF">
+            </div>
+            <div class="form-group col-md-4">
+              <label >Completion</label><input type="text" class="form-control" formControlName="parachevement" placeholder="Completion">
+            </div>
           </div>
-       <!--   <a class="box-btn" style="float: right;margin-right: 0%;">Save</a> -->
-
-
-
-
-
-
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-default" type="button">Cancel & Return</button>
+        <button class="btn btn-primary" type="button" (click)="add()" data-dismiss="modal">Save & Return</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,56 +8,58 @@ import { SidebarComponent } from './home/sidebar/sidebar.component';
 import { TopbarComponent } from './home/topbar/topbar.component';
 import { FooterComponent } from './home/footer/footer.component';
 import { ContainerComponent } from './home/container/container.component';
-import { AjouteDevisComponent } from './ajoute-devis/ajoute-devis.component';
+import { AjouteDevisComponent } from './Offre/ajoute-devis/ajoute-devis.component';
 import { LoginComponent } from './login/login.component';
-import { AjouteOffreComponent } from './ajoute-offre/ajoute-offre.component';
-import { EtudeFaiComponent } from './etude-fai/etude-fai.component';
-import { MatiereComponent } from './matiere/matiere.component';
-import { ManagerComponent } from './manager/manager.component';
-import { AjouteManagerComponent } from './ajoute-manager/ajoute-manager.component';
-import { AjouteClientComponent } from './ajoute-client/ajoute-client.component';
-import { AjouteMatiereComponent } from './ajoute-matiere/ajoute-matiere.component';
-import { EditManagerComponent } from './edit-manager/edit-manager.component';
-import { AllManagerComponent } from './all-manager/all-manager.component';
-import { DetailMatiereComponent } from './detail-matiere/detail-matiere.component';
-import { EditMatiereComponent } from './edit-matiere/edit-matiere.component';
-import { EditFamiliyComponent } from './edit-familiy/edit-familiy.component';
-import { DetailFamiliyComponent } from './detail-familiy/detail-familiy.component';
-import { AllClientComponent } from './all-client/all-client.component';
-import { BouttonCreateOfferComponent } from './boutton-create-offer/boutton-create-offer.component';
-import { BouttonExportComponent } from './boutton-export/boutton-export.component';
-import { OffreProvisoireComponent } from './offre-provisoire/offre-provisoire.component';
-import { OffreFinalisesComponent } from './offre-finalises/offre-finalises.component';
-import { OffreRefusesComponent } from './offre-refuses/offre-refuses.component';
-import { OffreSignesComponent } from './offre-signes/offre-signes.component';
-import { BtnFinaliserComponent } from './btn-finaliser/btn-finaliser.component';
-import { BtnRefuseOffreFinaliseComponent } from './btn-refuse-offre-finalise/btn-refuse-offre-finalise.component';
-import { BtnSigneOffreFinaliseComponent } from './btn-signe-offre-finalise/btn-signe-offre-finalise.component';
-import { SyntheseProjetParOffreComponent } from './synthese-projet-par-offre/synthese-projet-par-offre.component';
-import { TestComponent } from './test/test.component';
-import { AnnulerSingComponent } from './annuler-sing/annuler-sing.component';
-import { AddQuotationComponent } from './add-quotation/add-quotation.component';
-import { AllQuotationComponent } from './all-quotation/all-quotation.component';
-import { DemandeEtudeConsultationComponent } from './demande-etude-consultation/demande-etude-consultation.component';
-import { ExquiseFaisabiliteInterneComponent } from './exquise-faisabilite-interne/exquise-faisabilite-interne.component';
-import { QuotationMouleComponent } from './quotation-moule/quotation-moule.component';
-import { OfferMouleComponent } from './offer-moule/offer-moule.component';
-import { AjoutQuotationMouleComponent } from './ajout-quotation-moule/ajout-quotation-moule.component';
-import { AjoutOffreMouleComponent } from './ajout-offre-moule/ajout-offre-moule.component';
+import { AjouteOffreComponent } from './Offre/ajoute-offre/ajoute-offre.component';
+import { EtudeFaiComponent } from './FCOM/etude-fai/etude-fai.component';
+import { MatiereComponent } from './material/matiere/matiere.component';
+import { ManagerComponent } from './managers/manager/manager.component';
+import { AjouteMatiereComponent } from './Familiy matiere/ajoute-matiere/ajoute-matiere.component';
+import { AllManagerComponent } from './managers/all-manager/all-manager.component';
+import { DetailMatiereComponent } from './material/detail-matiere/detail-matiere.component';
+import { AllClientComponent } from './client/all-client/all-client.component';
+import { BouttonCreateOfferComponent } from './Offre/boutton-create-offer/boutton-create-offer.component';
+import { SyntheseProjetParOffreComponent } from './Offre/synthese-projet-par-offre/synthese-projet-par-offre.component';
+import { AddQuotationComponent } from './Devis/add-quotation/add-quotation.component';
+import { DemandeEtudeConsultationComponent } from './FCOM/demande-etude-consultation/demande-etude-consultation.component';
+import { ExquiseFaisabiliteInterneComponent } from './FCOM/exquise-faisabilite-interne/exquise-faisabilite-interne.component';
+import { QuotationMouleComponent } from './Mold/quotation-moule/quotation-moule.component';
+import { OfferMouleComponent } from './Mold/offer-moule/offer-moule.component';
+import { AjoutQuotationMouleComponent } from './Mold/ajout-quotation-moule/ajout-quotation-moule.component';
+import { AjoutOffreMouleComponent } from './Mold/ajout-offre-moule/ajout-offre-moule.component';
 import { ProjectComponent } from './project/project.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
-import { AddProjectComponent } from './add-project/add-project.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {DevisEssaiComponent} from './devis-essai/devis-essai.component';
-import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
+import {DevisEssaiComponent} from './Essai/devis-essai/devis-essai.component';
+import {OffreEssaiComponent} from './Essai/offre-essai/offre-essai.component';
+import { DatabaseComponent } from './database/database.component';
+import { AjouteDeviscalculComponent } from './Devis/ajoute-deviscalcul/ajoute-deviscalcul.component';
+import { AllExquiseComponent } from './FCOM/all-exquise/all-exquise.component';
+import { AllEtudeComponent } from './FCOM/all-etude/all-etude.component';
+import { AllDemandeconComponent } from './FCOM/all-demandecon/all-demandecon.component';
+import { ListDevisComponent } from './Devis/list-devis/list-devis.component';
+import { Test2Component } from './test2/test2.component';
+import { AlldevisEssaiComponent } from './Essai/alldevis-essai/alldevis-essai.component';
+import { AlloffreEssaiComponent } from './Essai/alloffre-essai/alloffre-essai.component';
+import { DetailclietnComponent } from './client/detailclietn/detailclietn.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { EditDevisEssaiComponent } from './Essai/edit-devis-essai/edit-devis-essai.component';
+import { EditOffreEssaiComponent } from './Essai/edit-offre-essai/edit-offre-essai.component';
+import { ReclamationComponent } from './Reclamations/reclamation/reclamation.component';
+import { TracabiliteReclamComponent } from './Tracabilite/tracabilite-reclam/tracabilite-reclam.component';
+import { AlloffremoldComponent } from './Mold/alloffremold/alloffremold.component';
+import { AlldevismoldComponent } from './Mold/alldevismold/alldevismold.component';
+import { ExportdevisComponent } from './Devis/exportdevis/exportdevis.component';
+import { TracabiliteSalesComponent } from './Tracabilite/tracabilite-sales/tracabilite-sales.component';
+import { TracabpurchComponent } from './Tracabilite/tracabpurch/tracabpurch.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-   // AjoutePackagingComponent,
-  //  AjouteTransportComponent,
     HomeComponent,
     SidebarComponent,
     TopbarComponent,
@@ -69,30 +71,13 @@ import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
     EtudeFaiComponent,
     MatiereComponent,
     ManagerComponent,
-    AjouteManagerComponent,
-    AjouteClientComponent,
     AjouteMatiereComponent,
-    EditManagerComponent,
     AllManagerComponent,
     DetailMatiereComponent,
-    EditMatiereComponent,
-    EditFamiliyComponent,
-    DetailFamiliyComponent,
     AllClientComponent,
     BouttonCreateOfferComponent,
-    BouttonExportComponent,
-    OffreProvisoireComponent,
-    OffreFinalisesComponent,
-    OffreRefusesComponent,
-    OffreSignesComponent,
-    BtnFinaliserComponent,
-    BtnRefuseOffreFinaliseComponent,
-    BtnSigneOffreFinaliseComponent,
     SyntheseProjetParOffreComponent,
-    TestComponent,
-    AnnulerSingComponent,
     AddQuotationComponent,
-    AllQuotationComponent,
     DemandeEtudeConsultationComponent,
     ExquiseFaisabiliteInterneComponent,
     QuotationMouleComponent,
@@ -101,16 +86,37 @@ import {OffreEssaiComponent} from './offre-essai/offre-essai.component';
     AjoutOffreMouleComponent,
     ProjectComponent,
     AcceuilComponent,
-    AddProjectComponent,
- DevisEssaiComponent,
-  OffreEssaiComponent
+  DevisEssaiComponent,
+  OffreEssaiComponent,
+  DatabaseComponent,
+  AjouteDeviscalculComponent,
+  AllExquiseComponent,
+  AllEtudeComponent,
+  AllDemandeconComponent,
+  ListDevisComponent,
+  Test2Component,
+  AlldevisEssaiComponent,
+  AlloffreEssaiComponent,
+  DetailclietnComponent,
+  EditDevisEssaiComponent,
+  EditOffreEssaiComponent,
+  ReclamationComponent,
+  TracabiliteReclamComponent,
+  AlloffremoldComponent,
+  AlldevismoldComponent,
+  ExportdevisComponent,
+  TracabiliteSalesComponent,
+  TracabpurchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    NgxPaginationModule,
+    Ng2OrderModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

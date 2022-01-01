@@ -1,0 +1,1246 @@
+<form [formGroup]="addOffer">
+<div class="borderBox light bordered card-box">
+    <div class="tab-pane active fontawesome-demo" >
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-box">
+            <div class="card-head">
+              <header>OFFER</header>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">Date</a></div>
+                <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">Offer N°</a></div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <input class="form-control mdl-textfield__input" type="text"  formControlName="date"[(ngModel)]="DevisDetails.date">
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <input class="form-control mdl-textfield__input" type="text" formControlName="numdevis"  placeholder="Offer N°" [(ngModel)]="DevisDetails.numoffer">
+                </div>
+                <br><br>
+                <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">DOC N°</a></div>
+                <div class="col-md-6 col-sm-6 col-6"><a style="font-family:Bahnschrift">QUOTATION N°</a></div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <input class="form-control mdl-textfield__input" type="text"  formControlName="numdoc" [(ngModel)]="DevisDetails.numdoc">
+                </div>
+                <div class="col-md-6 col-sm-6 col-6">
+                  <input class="form-control" type="text" formControlName="numdocdev">
+                </div>
+              </div>
+              <hr>
+              <div class="card-header" style="background: #F0F0F0">
+                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                  <li class="nav-item"><a class="nav-link active btn-primary" data-toggle="tab" href="#projectt" role="tab">Project Information</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#contactuel" role="tab">Contractuel Information</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#quantity" role="tab">Quantity Information & lifetime Forecasts</a></li>
+                  <li class="nav-item"><a class="nav-link btn-primary" data-toggle="tab" href="#parts" role="tab">Parts Technical Information</a></li>
+                </ul>
+              </div>
+              <div class="card-body" style="background: #F0F0F0">
+                <div class="tab-content text-center">
+                  <div class="tab-pane active" id="projectt" role="tabpanel">
+                    <div class="invoice">
+                      <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                          <th class="text-center" style="background:#FFFFFF">Customer</th>
+                          <th class="text-center" style="background:#FFFFFF">Segment </th>
+                          <th class="text-center" style=";background:#FFFFFF">RFQ Site</th>
+                          <th class="text-center" style=";background:#FFFFFF">Customer RFQ N°</th>
+                          <th class="text-center" style="background:#FFFFFF">RFQ Date</th>
+                          <th class="text-center" style="background:#FFFFFF">Project</th>
+                          <th class="text-center" style="background:#FFFFFF">Buyer</th>
+                          <th class="text-center" style="background:#FFFFFF">Delivery Adress</th>
+                          <th class="text-center" style="background:#FFFFFF">Incoterm</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td style="background: #FFFFFF">
+                            <input class="form-control mdl-textfield__input" type="text" formControlName="customer" [(ngModel)]="DevisDetails.client.fullname">
+                          </td>
+                          <td style="background: #FFFFFF">
+                            <input class="form-control mdl-textfield__input" type="text"  formControlName="segment" [(ngModel)]="DevisDetails.segment">
+                          </td>
+                          <td style="background: #FFFFFF">
+                            <input class="mdl-textfield__input" type="text"  formControlName="rfq" [(ngModel)]="DevisDetails.rfq">
+                          </td>
+                          <td style="background: #FFFFFF">
+                            <input class="form-control mdl-textfield__input" type="text"  formControlName="numCus" [(ngModel)]="DevisDetails.numCus">
+                          </td>
+                          <td style="background: #FFFFFF">
+                            <input class="form-control mdl-textfield__input" type="text" formControlName="dateR" [(ngModel)]="DevisDetails.dateR">
+                          </td>
+                          <td style="background: #FFFFFF">
+                            <input class="form-control mdl-textfield__input" type="text" formControlName="project" [(ngModel)]="DevisDetails.projet.project">
+                          </td>
+                          <td style="background: #FFFFFF">
+                            <input class="form-control mdl-textfield__input" type="text" formControlName="buyer"   [(ngModel)]="DevisDetails.buyer">
+                          </td>
+                          <td style="background: #FFFFFF">
+                            <input class="form-control mdl-textfield__input" type="text" formControlName="deliveryAd"  [(ngModel)]="DevisDetails.deliveryAd">
+                          </td>
+                          <td style="background: #FFFFFF">
+                            <input class="form-control mdl-textfield__input" type="text" formControlName="incoterm"  [(ngModel)]="DevisDetails.incoterm">
+                          </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="contactuel" role="tabpanel">
+                    <div class="invoice">
+                      <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                          <th class="text-center col-md-3" style="background:#FFFFFF">Business Link / Participation (% of TO)</th>
+                          <th class="text-center" style="background:#FFFFFF">LTA</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+1</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+2</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+3</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+4</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+5</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="business"   [(ngModel)]="DevisDetails.business">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="lta"  [(ngModel)]="DevisDetails.lta">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopU"   [(ngModel)]="DevisDetails.sopU">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopD"  [(ngModel)]="DevisDetails.sopD">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopT"  [(ngModel)]="DevisDetails.sopT">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopQ"  [(ngModel)]="DevisDetails.sopQ">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopC"  [(ngModel)]="DevisDetails.sopC">
+                        </td>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="quantity" role="tabpanel">
+                    <div class="invoice">
+                      <table class="table table-bordered " >
+                        <thead>
+                        <tr>
+                          <th class="text-center" style="background:#FFFFFF">Annual Quantity</th>
+                          <th class="text-center col-md-2" style="background:#FFFFFF">Project duration (years)</th>
+                          <th class="text-center" style="background:#FFFFFF">Lifetime volume</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+1</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+2</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+3</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+4</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="annualQua"  [(ngModel)]="DevisDetails.annualQua">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="years"  [(ngModel)]="DevisDetails.years">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="life"  [(ngModel)]="DevisDetails.life">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sop"   [(ngModel)]="DevisDetails.sop">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopUn"  [(ngModel)]="DevisDetails.sopUn">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text"  formControlName="sopDe"  [(ngModel)]="DevisDetails.sopDe">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text"  formControlName="sopTr"  [(ngModel)]="DevisDetails.sopTr">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text"  formControlName="sopQu"  [(ngModel)]="DevisDetails.sopQu">
+                        </tbody>
+                        <thead>
+                        <tr>
+                          <th class="text-center" style="background:#FFFFFF">SOP+5</th>
+                          <th class="text-center"  style="background:#FFFFFF">SOP+6</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+7</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+8</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+9</th>
+                          <th class="text-center" style="background:#FFFFFF">SOP+10</th>
+                          <th class="text-center col-md-2" style="background:#FFFFFF">Minimum Production Quantity</th>
+                          <th class="text-center col-md-2" style="background:#FFFFFF">Minimum Order Quantity</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopCi"  [(ngModel)]="DevisDetails.sopCi">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopSe"  [(ngModel)]="DevisDetails.sopSe">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopSet"  [(ngModel)]="DevisDetails.sopSet">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopWe" [(ngModel)]="DevisDetails.sopWe">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopNe"  [(ngModel)]="DevisDetails.sopNe">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="sopDi"  [(ngModel)]="DevisDetails.sopDi">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="miniPro"  [(ngModel)]="DevisDetails.miniPro">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text"  formControlName="miniOrd" [(ngModel)]="DevisDetails.miniOrd">
+                        </td>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="parts" role="tabpanel">
+                    <div class="invoice">
+                      <table class="table table-bordered  " >
+                        <thead>
+                        <tr>
+                          <th class="text-center" style="background:#FFFFFF">2D Number</th>
+                          <th class="text-center" style="background:#FFFFFF">3D Number</th>
+                          <th class="text-center col-md-2" style=";background:#FFFFFF">Part description</th>
+                          <th class="text-center" style=";background:#FFFFFF">Photo</th>
+                          <th class="text-center" style="background:#FFFFFF">Part Name</th>
+                          <th class="text-center" style="background:#FFFFFF">Part Number</th>
+                          <th class="text-center" style="background:#FFFFFF">Lenght ( L)</th>
+                          <th class="text-center" style="background:#FFFFFF">weidth (L)</th>
+                          <th class="text-center" style="background:#FFFFFF">Hauteur</th>
+                          <th class="text-center col-md-2" style="background:#FFFFFF">Parts Surfacic Volume</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text"   formControlName="deuxD" [(ngModel)]="DevisDetails.deuxD">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="troisD" [(ngModel)]="DevisDetails.troisD">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="partDes" [(ngModel)]="DevisDetails.partDes">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="photo"  [(ngModel)]="DevisDetails.photo">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="partNam" [(ngModel)]="DevisDetails.partNam">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="partNum" [(ngModel)]="DevisDetails.partNum">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="lenghtP" [(ngModel)]="DevisDetails.lenghtP">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="weidthP" [(ngModel)]="DevisDetails.weidthP">
+
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text"  formControlName="hauteurP" [(ngModel)]="DevisDetails.hauteurP">
+                        </td>
+                        <td style="background: #FFFFFF">
+                          <input class="mdl-textfield__input" type="text" formControlName="partSur"  [(ngModel)]="DevisDetails.partSur">
+                        </td>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <hr>
+              <div class="card">
+                <div class="row">
+                  <div class="col-xs-12 ">
+                    <nav>
+                      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active btn-primary" id="nav-mat-tab" data-toggle="tab" href="#nav-mat" role="tab" aria-controls="nav-mat" aria-selected="true">1.MATERIAL</a>
+                        <a class="nav-item nav-link btn-primary" id="nav-pur-tab" data-toggle="tab" href="#nav-pur" role="tab" aria-controls="nav-pur" aria-selected="false">2.PURCHASING</a>
+                        <a class="nav-item nav-link btn-primary" id="nav-pro-tab" data-toggle="tab" href="#nav-pro" role="tab" aria-controls="nav-pro" aria-selected="false">3.PROCESS COST</a>
+                        <a class="nav-item nav-link btn-primary" id="nav-energie-tab" data-toggle="tab" href="#nav-energie" role="tab" aria-controls="nav-energie" aria-selected="false">4.ENERGIE COST</a>
+                        <a class="nav-item nav-link btn-primary" id="nav-rem-tab" data-toggle="tab" href="#nav-rem" role="tab" aria-controls="nav-rem" aria-selected="false">5.MANUFACTURING COST</a>
+                        <a class="nav-item nav-link btn-primary" id="nav-man-tab" data-toggle="tab" href="#nav-man" role="tab" aria-controls="nav-man" aria-selected="false"> 6. WORKS PART PRICE </a>
+                        <a class="nav-item nav-link btn-primary" id="nav-add-tab" data-toggle="tab" href="#nav-add" role="tab" aria-controls="nav-add" aria-selected="false">7.ADDITIONNAL COSTS</a>
+                        <a class="nav-item nav-link btn-primary" id="nav-tot-tab" data-toggle="tab" href="#nav-tot" role="tab" aria-controls="nav-tot" aria-selected="false">8.TOTAL PRICE AT</a>
+                      </div>
+                    </nav>
+                    <div class="tab-content py-5 px-5 px-sm-0" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="nav-mat" role="tabpanel" aria-labelledby="nav-mat-tab">
+                        <div class="row">
+                                <div class="col-md-12">
+                                  <button type="button" class="btn btn-primary"   data-toggle="modal" data-target="#Center">
+                                    <i class="fa fa-plus pull-left"></i>  Add Colorant
+                                  </button>
+                                </div>
+                          <div class="col-md-12">
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                            </div>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="table-scrollable">
+                              <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                  <th class="text-center">Raw Material Family</th>
+                                  <th class="text-center">Raw Material Description</th>
+                                  <th class="text-center">Supplier</th>
+                                  <th class="text-center">Incoterm</th>
+                                  <th class="text-center">Sales Price</th>
+                                  <th class="text-center">Part Name</th>
+                                  <th class="text-center">Handling</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td rowspan="1">
+                                    <input type="text" class="form-control" formControlName="materialFa"  [(ngModel)]="DevisDetails.materialFa">
+                                  </td>
+                                  <td>
+                                    <input type="text" class="form-control " formControlName="materialDe"  [(ngModel)]="DevisDetails.materialDe">
+                                  </td>
+                                  <td><input type="text" class="form-control " formControlName="supplier"  [(ngModel)]="DevisDetails.supplier"></td>
+                                  <td><input type="text" class="form-control " formControlName="incotermS"  [(ngModel)]="DevisDetails.incotermS"></td>
+                                  <td><input type="text" class="form-control " formControlName="sales"  [(ngModel)]="DevisDetails.sales"></td>
+                                  <td><input type="text" class="form-control " formControlName="partN"  [(ngModel)]="DevisDetails.partN"></td>
+                                  <td><input type="text" class="form-control "  formControlName="handling" [(ngModel)]="DevisDetails.handling"></td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                  <th class="text-center">Volum According</th>
+                                  <th class="text-center">Density (gr/cm³)</th>
+                                  <th class="text-center">Net Weight</th>
+                                  <th class="text-center">Estimated Sprue Volum cm³</th>
+                                  <th class="text-center">Estimated Sprue (gr)</th>
+                                  <th class="text-center">Regrind</th>
+                                  <th class="text-center">% Of Sprue autorized</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control "  formControlName="volum"   [(ngModel)]="DevisDetails.volum"></td>
+                                  <td><input type="text" class="form-control "  formControlName="density"   [(ngModel)]="DevisDetails.density"></td>
+                                  <td><input type="text" class="form-control "  formControlName="netW"   [(ngModel)]="DevisDetails.netW"></td>
+                                  <td><input type="text" class="form-control "  formControlName="estimatedSp"   [(ngModel)]="DevisDetails.estimatedSp"></td>
+                                  <td><input type="text" class="form-control "  formControlName="estimated"   [(ngModel)]="DevisDetails.estimated"></td>
+                                  <td><input type="text" class="form-control "  formControlName="regrind"    [(ngModel)]="DevisDetails.regrind">
+                                  <td><input type="text" class="form-control "  formControlName="pourcentageSp"    [(ngModel)]="DevisDetails.pourcentageSp"></td>
+                                </tr>
+
+                                </tbody>
+                                <thead>
+                                <tr >
+                                  <th class="text-center">Injected Weight</th>
+                                  <th class="text-center">Sprue Reused</th>
+                                  <th class="text-center">Sprue Rejected</th>
+                                  <th class="text-center">Scrap</th>
+                                  <th class="text-center">Gross Weight</th>
+                                  <th class="text-center">Transport</th>
+                                  <th class="text-center">Delivered Material Cost</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr >
+                                  <td><input type="text" class="form-control "  formControlName="injectedW"    [(ngModel)]="DevisDetails.injectedW"></td>
+                                  <td ><input type="text" class="form-control "  formControlName="sprueU"    [(ngModel)]="DevisDetails.sprueU"></td>
+                                  <td><input type="text" class="form-control "  formControlName="sprueJ"    [(ngModel)]="DevisDetails.sprueJ"></td>
+                                  <td><input type="text" class="form-control "  formControlName="scrap"    [(ngModel)]="DevisDetails.scrap"></td>
+                                  <td><input type="text" class="form-control "  formControlName="grossW"     [(ngModel)]="DevisDetails.grossW"></td>
+                                  <td><input type="text" class="form-control "  formControlName="transport"  [(ngModel)]="DevisDetails.transport"></td>
+                                  <td><input type="text" class="form-control "  formControlName="delivered"   [(ngModel)]="DevisDetails.delivered"></td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                  <th class="text-center">% Of Material</th>
+                                  <th class="text-center">Material weight for calculation</th>
+                                  <th class="text-center">Batch Prod Qtt Material (kg)</th>
+                                  <th class="text-center">Annual purchasing volum (Kg)</th>
+                                  <th class="text-center">Netto</th>
+                                  <th class="text-center">Rate (€)</th>
+                                  <th class="text-center">%Netto</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control "  formControlName="pourcentageMa"      [(ngModel)]="DevisDetails.pourcentageMa"></td>
+                                  <td><input type="text" class="form-control "  formControlName="materialW"      [(ngModel)]="DevisDetails.materialW"></td>
+                                  <td><input type="text" class="form-control "  formControlName="batch"      [(ngModel)]="DevisDetails.batch"></td>
+                                  <td><input type="text" class="form-control "  formControlName="annualPur"      [(ngModel)]="DevisDetails.annualPur"></td>
+                                  <td><input type="text" class="form-control "  formControlName="netto"     [(ngModel)]="DevisDetails.netto"></td>
+                                  <td><input type="text" class="form-control "  formControlName="rate"    [(ngModel)]="DevisDetails.rate"></td>
+                                  <td><input type="text" class="form-control "  formControlName="pourcentageNe"    [(ngModel)]="DevisDetails.pourcentageNe"></td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                  <th class="text-center">Parts/assy</th>
+                                  <th class="text-center">Pressure</th>
+                                  <th class="text-center">Length</th>
+                                  <th class="text-center">Width</th>
+                                  <th class="text-center">Thikness</th>
+                                  <th class="text-center">Ray</th>
+                                  <th class="text-center">Section</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control "  formControlName="parts"   [(ngModel)]="DevisDetails.parts"></td>
+                                  <td><input type="text" class="form-control "  formControlName="pressure" [(ngModel)]="DevisDetails.pressure"></td>
+                                  <td><input type="text" class="form-control "  formControlName="length"   [(ngModel)]="DevisDetails.length"></td>
+                                  <td><input type="text" class="form-control "  formControlName="width"   [(ngModel)]="DevisDetails.width"></td>
+                                  <td><input type="text" class="form-control "  formControlName="thikness"   [(ngModel)]="DevisDetails.thikness"></td>
+                                  <td><input type="text" class="form-control "  formControlName="ray"   [(ngModel)]="DevisDetails.ray"></td>
+                                  <td><input type="text" class="form-control "  formControlName="section"   [(ngModel)]="DevisDetails.section"></td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                  <th class="text-center">Long</th>
+                                  <th class="text-center">Clamping force</th>
+                                  <th colspan="5" class="text-center" style="background:#F0F0F0">Material costs / unit</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control "  formControlName="llong"   [(ngModel)]="DevisDetails.llong"></td>
+                                  <td><input type="text" class="form-control "  formControlName="clamping"   [(ngModel)]="DevisDetails.clamping"></td>
+                                  <td colspan="5" style="background:#F0F0F0;"><input type="text" class="form-control "  formControlName="unit"  [(ngModel)]="DevisDetails.unit"></td>
+                                </tr>
+                                <tr>
+                                  <th colspan="5">
+                                  <th style="background: #ddd;">TOTAL MATERIAL</th>
+                                  <th class="text-right" style="color:  #2154cf;background: #ddd;">
+                                    <input type="text"  value="" size="10" class="form-control"  formControlName="totalMat"  [(ngModel)]="DevisDetails.totalMat"></th>
+                                </tr>
+                                </tbody>
+
+                              </table>
+
+                            </div>
+                          </div>
+
+
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-pur" role="tabpanel" aria-labelledby="nav-pur-tab">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                            </div>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <div class="table-scrollable">
+                              <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                  <th>Material Description</th>
+                                  <th>Specification</th>
+                                  <th>Supplier</th>
+                                  <th>Gross</th>
+                                  <th>Netto</th>
+                                  <th>Rate (€)</th>
+                                  <th>Transport</th>
+                                  <th>Scrap % </th>
+                                  <th>Handling%</th>
+                                  <th>%Netto </th>
+                                  <th>Parts/assy</th>
+                                  <th>Inserts Cost </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td rowspan="1">
+                                    <input type="text" class="form-control "  formControlName="description"  [(ngModel)]="DevisDetails.description">
+                                  </td>
+                                  <td><input type="text" class="form-control " formControlName="specification"  [(ngModel)]="DevisDetails.specification"></td>
+                                  <td><input type="text" class="form-control " formControlName="supplierP"  [(ngModel)]="DevisDetails.supplierP"></td>
+                                  <td><input type="text" class="form-control " formControlName="grossP"  [(ngModel)]="DevisDetails.grossP"></td>
+                                  <td><input type="text" class="form-control " formControlName="nettoP"  [(ngModel)]="DevisDetails.nettoP"></td>
+                                  <td><input type="text" class="form-control "  formControlName="rateP"  [(ngModel)]="DevisDetails.rateP"></td>
+                                  <td><input type="text" class="form-control "  formControlName="transportP"  [(ngModel)]="DevisDetails.transportP"></td>
+                                  <td><input type="text" class="form-control "  formControlName="scrapP"  [(ngModel)]="DevisDetails.scrapP"></td>
+                                  <td><input type="text" class="form-control "  formControlName="handlingP"  [(ngModel)]="DevisDetails.handlingP"></td>
+                                  <td><input type="text" class="form-control "  formControlName="pourNet"  [(ngModel)]="DevisDetails.pourNet"></td>
+                                  <td><input type="text" class="form-control "  formControlName="partsAss"  [(ngModel)]="DevisDetails.partsAss"></td>
+                                  <td><input type="text" class="form-control "  formControlName="insertCost"  [(ngModel)]="DevisDetails.insertCost"></td>
+                                </tr>
+
+                                <tr >
+                                  <th colspan="10"></th>
+                                  <th  style="background: #ddd;">TOTAL INSERT</th>
+                                  <th class="text-right" style="color:  #2154cf;background: #ddd;">
+                                    <input type="text"  value="" size="10" class="form-control"  formControlName="total"  [(ngModel)]="DevisDetails.total"></th>
+                                </tr>
+
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-pro" role="tabpanel" aria-labelledby="nav-pro-tab">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                            </div>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <div class="table-scrollable">
+                              <table class="table table-bordered">
+
+                                <thead>
+                                <tr>
+                                  <th class="text-center">OPERATION</th>
+                                  <th class="text-center">Machine type </th>
+                                  <th class="text-center">Machine Rate</th>
+                                  <th class="text-center">Parts / cycle</th>
+                                  <th class="text-center">Cycle Time</th>
+                                  <th class="text-center">Parts per Hour</th>
+                                  <th class="text-center">Nº Heads</th>
+                                  <th class="text-center">Direct Labor Rate/ hour (EUR)</th>
+
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td ><input type="text" class="form-control "    formControlName="operationcc"   [(ngModel)]="DevisDetails.operationcc"></td>
+                                  <td><input type="text" class="form-control "     formControlName="machineT"    [(ngModel)]="DevisDetails.machineT"></td>
+                                  <td><input type="text" class="form-control "     formControlName="machineR"    [(ngModel)]="DevisDetails.machineR"></td>
+                                  <td><input type="text" class="form-control "     formControlName="partC"    [(ngModel)]="DevisDetails.partC"></td>
+                                  <td><input type="text" class="form-control "     formControlName="cycleT"    [(ngModel)]="DevisDetails.cycleT"></td>
+                                  <td><input type="text" class="form-control "     formControlName="partH"    [(ngModel)]="DevisDetails.partH"></td>
+                                  <td><input type="text" class="form-control "     formControlName="nheads"    [(ngModel)]="DevisDetails.nheads"></td>
+                                  <td><input type="text" class="form-control "     formControlName="direct"      [(ngModel)]="DevisDetails.direct"></td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                  <th class="text-center">Scrap  %</th>
+                                  <th class="text-center">Machine Costs</th>
+                                  <th class="text-center">Labor Costs</th>
+                                  <th class="text-center">Parts per Assy</th>
+                                  <th class="text-center">TRS</th>
+                                  <th class="text-center">Capacity ( parts /year)</th>
+                                  <th class="text-center">Weekly capacity (6 days)</th>
+                                  <th class="text-center">Monthly capacity</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control "     formControlName="scrapC"    [(ngModel)]="DevisDetails.scrapC"></td>
+                                  <td><input type="text" class="form-control "     formControlName="machineC"    [(ngModel)]="DevisDetails.machineC"></td>
+                                  <td><input type="text" class="form-control "     formControlName="laboC"    [(ngModel)]="DevisDetails.laboC"></td>
+                                  <td><input type="text" class="form-control "     formControlName="partA"    [(ngModel)]="DevisDetails.partA"></td>
+                                  <td><input type="text" class="form-control "     formControlName="trs"    [(ngModel)]="DevisDetails.trs"></td>
+                                  <td><input type="text" class="form-control "     formControlName="capacity"    [(ngModel)]="DevisDetails.capacity"></td>
+                                  <td><input type="text" class="form-control "     formControlName="weeklyC"    [(ngModel)]="DevisDetails.weeklyC"></td>
+                                  <td><input type="text" class="form-control "     formControlName="monthylyC"    [(ngModel)]="DevisDetails.monthylyC"></td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                  <th class="text-center">Annual capacity</th>
+                                  <th class="text-center">Machine occupancy days</th>
+                                  <th class="text-center">Annual Occupancy (Hours)</th>
+                                  <th class="text-center">Annual machine occupancy</th>
+                                  <th class="text-center">COST</th>
+                                  <th class="text-center" colspan="3">Starting Costs / Process</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control "     formControlName="annualC"    [(ngModel)]="DevisDetails.annualC"></td>
+                                  <td><input type="text" class="form-control "     formControlName="machineO"    [(ngModel)]="DevisDetails.machineO"></td>
+                                  <td><input type="text" class="form-control "     formControlName="annualO"    [(ngModel)]="DevisDetails.annualO"></td>
+                                  <td><input type="text" class="form-control "     formControlName="annualM"    [(ngModel)]="DevisDetails.annualM"></td>
+                                  <td><input type="text" class="form-control "     formControlName="cost"    [(ngModel)]="DevisDetails.cost"></td>
+                                  <td  colspan="3"><input type="text" class="form-control "     formControlName="start"    [(ngModel)]="DevisDetails.start"></td>
+                                </tr>
+                                </tbody>
+                                <thead>
+                                <tr>
+                                  <th style="background:  #F0F0F0;" class="text-center">Number of process</th>
+                                  <th style="background:  #F0F0F0;" class="text-center">production minimum quantity</th>
+                                  <th style="background:  #F0F0F0;" class="text-center">Total machine costs</th>
+                                  <th style="background:  #F0F0F0;" class="text-center">Total labor costs</th>
+                                  <th style="background:  #F0F0F0;" class="text-center">starting cost</th>
+                                  <th colspan="3"  style="background:  #ddd;" class="text-center">TOTAL PROCESS</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td style="color:  #2154cf;background:  #F0F0F0;">
+                                    <input type="text" value="" size="10" class="form-control"   formControlName="numb"  [(ngModel)]="DevisDetails.numb">
+                                  </td>
+                                  <td style="color:  #2154cf;background:  #F0F0F0;">
+                                    <input type="text"  value="" size="10" class="form-control"  formControlName="prodm"  [(ngModel)]="DevisDetails.prodm">
+                                  </td>
+                                  <td style="color:  #2154cf;background:  #F0F0F0;">
+                                    <input type="text"  value="" size="10" class="form-control"  formControlName="totalm"  [(ngModel)]="DevisDetails.totalm">
+                                  </td>
+                                  <td style="color:  #2154cf;background:  #F0F0F0;">
+                                    <input type="text"   value="" size="10" class="form-control" formControlName="totallab"  [(ngModel)]="DevisDetails.totallab">
+                                  <td style="color:  #2154cf;background:  #F0F0F0;">
+                                  <input type="text"  value="" size="10" class="form-control" formControlName="startc"  [(ngModel)]="DevisDetails.startc">
+                                  <td colspan="3" class="text-right" style="color:  #2154cf;background: #ddd;">
+                                  <input type="text"  value="" size="10" class="form-control" formControlName="totalp" [(ngModel)]="DevisDetails.totalp">
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-energie" role="tabpanel" aria-labelledby="nav-energie-tab">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                            </div>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <div class="table-scrollable">
+                              <table class="table table-bordered">
+                                <thead>
+                                <tr>
+                                  <th>OPERATION</th>
+                                  <th>Energy Rate</th>
+                                  <th>Parts / cycle</th>
+                                  <th>Parts per Hour</th>
+                                  <th>Scrap  %</th>
+                                  <th>CT</th>
+                                  <th>Parts per Assy</th>
+                                  <th>Energy costs</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control "   formControlName="operation" [(ngModel)]="DevisDetails.operation"></td>
+                                  <td><input type="text" class="form-control "   formControlName="enrgyr" [(ngModel)]="DevisDetails.enrgyr"></td>
+                                  <td><input type="text" class="form-control "   formControlName="partss" [(ngModel)]="DevisDetails.partss"></td>
+                                  <td><input type="text" class="form-control "   formControlName="partsh" [(ngModel)]="DevisDetails.partsh"></td>
+                                  <td><input type="text" class="form-control "   formControlName="scrappp" [(ngModel)]="DevisDetails.scrappp"></td>
+                                  <td><input type="text" class="form-control "   formControlName="ct" [(ngModel)]="DevisDetails.ct"></td>
+                                  <td><input type="text" class="form-control "   formControlName="partpa" [(ngModel)]="DevisDetails.partpa"></td>
+                                  <td><input type="text" class="form-control "   formControlName="enrgc" [(ngModel)]="DevisDetails.enrgc"></td>
+                                </tr>
+                                <tr >
+                                  <th style="background:  #F0F0F0;">Number of process</th>
+                                  <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;"><input type="text" value="" size="10" class="form-control" formControlName="nump"  [(ngModel)]="DevisDetails.nump"></th>
+                                  <th colspan="4"></th>
+                                  <th  style="background:  #F0F0F0;">starting cost</th>
+                                  <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;"><input type="text"  value="" size="10" class="form-control"  formControlName="startcc" [(ngModel)]="DevisDetails.startcc"></th>
+                                </tr>
+                                <th colspan="6"></th>
+                                <th  style="background:  #ddd;">TOTAL ENERGY</th>
+                                <th class="text-right" style="color:  #2154cf;background: #ddd;"><input type="text" class="form-control"  formControlName="totale"  [(ngModel)]="DevisDetails.totale"></th>
+                                </tbody>
+                              </table>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-rem" role="tabpanel" aria-labelledby="nav-rem-tab">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                            </div>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <div class="table-scrollable">
+                              <table class="table table-bordered">
+                                <tbody>
+                                <th  style="background:  #ddd;">TOTAL </th>
+                                <th  colspan="9" class="text-right" style="color:  #2154cf;background: #ddd;">
+                                  <input type="text"   value="" size="10" class="form-control"  formControlName="totalmc" placeholder="EUR/Part * " [(ngModel)]="DevisDetails.totalmc">
+                                </th>
+
+
+                                </tbody>
+                                <br>
+                                <tbody>
+                                <th  colspan="10"  style="background:  #ddd;">M A R K U P S (% of Manufacturing Cost) </th>
+                                <tr>
+                                  <th style="background:  #F0F0F0;">Scrap %</th>
+                                  <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;"><input type="text"  value="" size="10" class="form-control" formControlName="scrapm"  [(ngModel)]="DevisDetails.scrapm"></th>
+                                  <th  style="background:  #F0F0F0;">Sales & Admin %</th>
+                                  <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;"><input type="text"  value="" size="10" class="form-control" formControlName="salesa"  [(ngModel)]="DevisDetails.salesa"></th>
+                                  <th  style="background:  #F0F0F0;">R&D %</th>
+                                  <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;"><input type="text"  value="" size="10" class="form-control"  formControlName="rd" ></th>
+                                  <th  style="background:  #F0F0F0;">Profit %</th>
+                                  <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;"><input type="text"   value="" size="10" class="form-control" formControlName="profit" ></th>
+                                  <th  style="background:  #F0F0F0;">OTHER</th>
+                                  <th class="text-right" style="color:  #2154cf;background:  #F0F0F0;"><input type="text"   value="" size="10" class="form-control" formControlName="other"  placeholder="Other (specify)" ></th>
+                                </tr>
+                                <tr >
+                                  <th    colspan="1" >Combined Markups Effect</th>
+                                  <th   colspan="9" class="text-right" style="color:  #2154cf;">
+                                    <input type="text"   value="" size="10" class="form-control" placeholder="EUR/Part *" formControlName="combine" [(ngModel)]="DevisDetails.combine"></th>
+                                </tr>
+                                <th  colspan="1"  >Combined Markups %</th>
+                                <th   colspan="9" class="text-right" style="color:  #2154cf;">
+                                  <input type="text"   value="" size="10" class="form-control"  formControlName="combim" [(ngModel)]="DevisDetails.combim"></th>
+                                </tbody>
+                              </table>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-man" role="tabpanel" aria-labelledby="nav-man-tab">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                            </div>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <div class="table-scrollable">
+                              <table class="table table-bordered">
+                                <tbody>
+                                <th   style="background:  #ddd;"> EX WORKS PART PRICE </th>
+                                <th   class="text-right" style="color:  #2154cf;background: #ddd;">
+                                  <input type="text"  class="form-control" placeholder="Manufacturing + Markups effect"  formControlName="exw"  [(ngModel)]="DevisDetails.exw">
+                                </th>
+
+                                </tbody>
+
+                              </table>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-add" role="tabpanel" aria-labelledby="nav-add-tab">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                            </div>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+
+                            <button type="button" class="btn btn-primary"   data-toggle="modal" data-target="#exampleModalCenter">
+                              <i class="fa fa-plus pull-left"></i>  Add Disposable Packaging
+                            </button>
+
+                            <!-- Modal pack -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                              <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header btn-primary text-white " >
+                                    <h4 class="modal-title" id="exampleModalCenterTitle">Disposable Packaging</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body ">
+                                    <div class="panel filterable" style="border-color:#2154cf ">
+
+                                      <table class="table table-bordered  ">
+                                        <thead>
+                                        <tr>
+                                          <th class="text-center"  style="color:  #2154cf;background:#FFFFFF;" >Marge</th>
+                                          <th class="text-center"  style="color:  #2154cf;background:#FFFFFF " >Rebut</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                          <td style="background: #FFFFFF">
+                                            <input type="text"  class="form-control" placeholder="Enter..." formControlName="marge"  name="marge"></td>
+                                          <td style="background: #FFFFFF">
+                                            <input type="text"  class="form-control" placeholder="Enter..." formControlName="rebut"  name="rebut" ></td>
+                                        </tr>
+
+                                        </tbody>
+
+                                      </table>
+                                    </div>
+                                    <hr>
+                                    <div class="panel filterable" style="border-color:#2154cf ">
+
+                                      <table class="table table-bordered  ">
+                                        <thead>
+                                        <tr>
+                                          <th class="col-md-2" style="color:  #2154cf;background:#FFFFFF;" >Designation</th>
+                                          <th class="text-center col-md-4"  style="color:  #2154cf;background:#FFFFFF ">Designation</th>
+                                          <th  class="text-center col-md-2" style="color:  #2154cf;background:#FFFFFF">Qty / UC </th>
+                                          <th   class="text-center col-md-2" style="color:  #2154cf;background:#FFFFFF">Price</th>
+                                          <th  class="text-center col-md-2" style="color:  #2154cf;background:#FFFFFF">Cost %</th>
+
+                                        </tr>
+
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                          <th style=" color:  #2154cf;;background:#FFFFFF" > UC - Box </th>
+                                          <td style="background: #FFFFFF">
+                                            <select formControlName="dbox" class="form-control " name="dbox">
+                                              <option >Select</option>
+                                            </select>
+                                          </td>
+                                          <td style="background: #FFFFFF">
+                                            <input type="text" size="10"  class="form-control"  formControlName="qtyb"  name="qtyb" placeholder="Enter...">
+                                          </td>
+                                          <td style="background: #FFFFFF">
+                                            <input  type="number"  class="form-control" formControlName="priceb" name="priceb" size="10">
+                                          </td>
+                                          <td style="background: #FFFFFF">
+                                            <input type="text" size="10" class="form-control" formControlName="poub" name="poub">
+                                          </td>
+                                        </tr>
+                                        <tr>
+                                          <th style="color:  #2154cf;background:#FFFFFF">Bag </th>
+                                          <td style="background: #FFFFFF">
+                                            <select formControlName="dsac" class="form-control " name="dsac">
+                                              <option >Select</option>
+                                            </select>
+                                          </td>
+                                          <td style="background: #FFFFFF" >
+                                            <input type="text" size="10" class="form-control" formControlName="qtys"  name="qtys" placeholder="Enter...">
+                                          </td>
+                                          <td style="background: #FFFFFF">
+                                            <input class="form-control" type="text"  formControlName="prices"  name="prices" size="10" >
+                                          </td>
+                                          <td style="background: #FFFFFF"><input class="form-control" type="text" formControlName="pous" name="pous" size="10"></td>
+                                        </tr>
+
+                                        <tr>
+                                          <th style="color:  #2154cf;background:#FFFFFF"> Interlayer  </th>
+                                          <td style="background: #FFFFFF">
+                                            <select formControlName="dint" class="form-control "  name="dint">
+                                              <option >Select</option>
+                                            </select>
+                                          </td>
+                                          <td style="background: #FFFFFF" ><input type="text"  formControlName="qtyi" name="qtyi" size="10" class="form-control" placeholder="Enter..."></td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="pricei" name="pricei" size="10" class="form-control"></td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="poui" name="poui" size="10" class="form-control" ></td>
+                                        </tr>
+                                        <tr>
+                                          <th style="color:  #2154cf ;background:#FFFFFF">Various</th>
+                                          <td style="background: #FFFFFF">
+                                            <select class="form-control" formControlName="dv" name="dv" >
+                                              <option >Select</option>
+                                            </select>
+                                          </td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="qtyv" name="qtyv" size="10" class="form-control" placeholder="Enter..."></td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="pricev" name="pricev" size="10" class="form-control"></td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="pouv" name="pouv" size="10" class="form-control" ></td>
+                                        </tr>
+                                        <tr>
+                                          <th   style="color:  #2154cf ;background: #FFFFFF">UM - Pallet</th>
+
+                                          <td style="background: #FFFFFF">
+                                            <select  class="form-control" formControlName="dp" name="dp" >
+                                              <option >Select</option>
+
+                                            </select>
+                                          </td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="qtyp" name="qtyp" size="10" class="form-control" placeholder="Enter..."></td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="pricep" name="pricep" size="10" class="form-control"></td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="poup" name="poup" size="10" class="form-control"></td>
+
+                                        </tr>
+                                        <tr   >
+                                          <th  colspan="1" style="background: #F0F0F0" ></th>
+                                          <th class="col-md-2" style="color:  #2154cf;" >Number of pieces per UC</th>
+                                          <th    class="text-right" style="color:  #2154cf;background :#ddd">
+                                            <input type="text" class="form-control" formControlName="numpieces" name="numpieces" size="10" placeholder="Enter..."></th>
+                                          <th  colspan="2" style="background: #F0F0F0" ></th>
+
+                                        </tr>
+                                        <tr   >
+                                          <th  colspan="1" style="background: #F0F0F0"  ></th>
+                                          <th class="col-md-2" style="color:  #2154cf;" >Number of UC Per pallet</th>
+                                          <th    class="text-right" style="color:  #2154cf;background :#ddd">
+                                            <input type="text" class="form-control" formControlName="numuc" name="numuc" size="10" placeholder="Enter..."></th>
+                                          <th  colspan="2" style="background: #F0F0F0" ></th>
+
+                                        </tr>
+                                        <tr   >
+                                          <th  colspan="1" style="background: #F0F0F0"  ></th>
+                                          <th class="col-md-2" style="color:  #2154cf;" >Number of products per UM</th>
+                                          <th    class="text-right" style="color:  #2154cf;background :#ddd">
+                                            <input type="text" class="form-control" formControlName="numproducts" name="numproducts" size="10" ></th>
+                                          <th  colspan="2" style="background: #F0F0F0" ></th>
+
+                                        </tr>
+                                        <tr   >
+                                          <th  colspan="1"  style="background: #F0F0F0" ></th>
+                                          <th class="col-md-2" style="color:  #2154cf;" >Cost of packaging per product</th>
+                                          <th  colspan="3"  class="text-right" style="color:  #2154cf;background :#ddd"><input type="text" class="form-control" formControlName="costof" name="costof" size="10" ></th>
+                                        </tr>
+                                        <tr   >
+                                          <th  colspan="1" style="background: #F0F0F0" ></th>
+                                          <th class="col-md-2" style="color:  #2154cf" >Selling price of packaging per product</th>
+                                          <th  colspan="3"  class="text-right" style="color:  #2154cf;background :#ddd"><input type="text" formControlName="sellingprice" name="sellingprice" size="10" class="form-control"></th>
+
+                                        </tr>
+                                        </tbody>
+
+                                      </table>
+                                    </div>
+
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel & Return</button>
+                                    <button type="button" class="btn btn-primary">Save & Return</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+                            <button type="button" class="btn btn-primary "   data-toggle="modal" data-target="#exampleModalCentert">
+                              <i class="fa fa-plus pull-left"></i> Add Transport
+                            </button>
+
+                            <!-- Modal transpo-->
+                            <div class="modal fade" id="exampleModalCentert" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                              <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                  <div class="modal-header btn-primary text-white">
+                                    <h4 class="modal-title" id="exampleModalCenterTitlet" >Transport</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                      <span aria-hidden="true">&times;</span>
+                                    </button>
+                                  </div>
+                                  <div class="modal-body">
+
+
+                                    <div class="panel filterable" style="border-color:#2154cf ">
+
+                                      <table class="table table-bordered  ">
+                                        <thead>
+                                        <tr>
+                                          <th class="col-md-4 text-center" style="color:  #2154cf;background:#FFFFFF;" >Plan delivery</th>
+                                          <th class="text-center"  style="color:  #2154cf;background:#FFFFFF ">Cost / Pallet</th>
+                                          <th  class="text-center" style="color:  #2154cf;background:#FFFFFF">Sale </th>
+
+
+                                        </tr>
+
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                          <td style="background: #FFFFFF">
+                                            <select formControlName="plande" class="form-control " name="plande" >
+                                              <option >Select</option>
+
+                                            </select>
+                                          </td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="costt" class="form-control " name="costt" size="10"></td>
+                                          <td style="background: #FFFFFF"><input type="text" formControlName="salet" class="form-control " name="salet"  size="10"></td>
+
+                                        </tr>
+                                        <!--       <tr>
+
+                                                 <td style="background: #FFFFFF">
+                                                   <select formControlName="plande" class="form-control " name="plande" [ngModel]="selecttransport" (change)="onChangeSelectedTransport($event)">
+                                                     <option >Select</option>
+                                                     <option selected="{{s.destination}}" [value]="s.id" *ngFor="let s of listtransport">
+                                                       {{s.destination}}
+                                                     </option>
+                                                   </select>
+                                                 </td>
+                                                 <td style="background: #FFFFFF"><input type="text" formControlName="costt" class="form-control " name="costt" size="10" [value]="detailtransport.quotation"></td>
+                                                 <td style="background: #FFFFFF"><input type="text" formControlName="salet" class="form-control " name="salet"  size="10" [value]="detailtransport.offer"></td>
+
+
+                                               </tr>
+                                               <tr>
+
+                                                 <td style="background: #FFFFFF">
+                                                   <select formControlName="plande" class="form-control " name="plande" [ngModel]="selecttransport" (change)="onChangeSelectedTransport($event)">
+                                                     <option >Select</option>
+                                                     <option selected="{{s.destination}}" [value]="s.id" *ngFor="let s of listtransport">
+                                                       {{s.destination}}
+                                                     </option>
+                                                   </select>
+                                                 </td>
+                                                 <td style="background: #FFFFFF"><input type="text" formControlName="costt" class="form-control " name="costt" size="10" [value]="detailtransport.quotation"></td>
+                                                 <td style="background: #FFFFFF"><input type="text" formControlName="salet" class="form-control " name="salet"  size="10" [value]="detailtransport.offer"></td>
+
+
+
+                                               </tr>
+                   -->
+                                        </tbody>
+
+                                      </table>
+                                    </div>
+
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel & Return</button>
+                                    <button type="button" class="btn btn-primary">Save & Return</button>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+
+
+                            <div class="table-scrollable">
+                              <table class="table table-bordered">
+                                <thead>
+                                <tr>
+
+                                  <th>TOTAL</th>
+                                  <th>PACKAGING</th>
+                                  <th>WAREHOUSE</th>
+                                  <th>TRANSPORT</th>
+                                  <th>Frequency</th>
+                                  <th>Box type</th>
+                                  <th>Box Dim</th>
+                                  <th>Parts/Box</th>
+                                  <th>Boxes/pallet</th>
+                                  <th>Nbr parts/ Palette</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control "  formControlName="totala" [(ngModel)]="DevisDetails.totala"></td>
+                                  <td><input type="text" class="form-control "  formControlName="pack" placeholder="..." ></td>
+                                  <td><input type="text" class="form-control "  formControlName="warehouse" placeholder="..." [(ngModel)]="DevisDetails.warehouse"></td>
+                                  <td><input type="text" class="form-control "  formControlName="trsporta" placeholder="..." ></td>
+                                  <td><input type="text" class="form-control "  formControlName="freqncy" [(ngModel)]="DevisDetails.freqncy"></td>
+                                  <td><input type="text" class="form-control "  formControlName="boxt" [(ngModel)]="DevisDetails.boxt"></td>
+                                  <td><input type="text" class="form-control "  formControlName="boxd" [(ngModel)]="DevisDetails.boxd"></td>
+                                  <td><input type="text" class="form-control "  formControlName="partb" [(ngModel)]="DevisDetails.partb"></td>
+                                  <td><input type="text" class="form-control "  formControlName="boxspa" [(ngModel)]="DevisDetails.boxspa"></td>
+                                  <td><input type="text" class="form-control "  formControlName="nbpa" [(ngModel)]="DevisDetails.nbpa"></td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="tab-pane fade" id="nav-tot" role="tabpanel" aria-labelledby="nav-tot-tab">
+                        <div class="row">
+                          <div class="col-md-12">
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-danger mb-2" data-role="remove" style="right: 5px" ><i class="fa fa-minus"></i></button>
+                            </div>
+                            <div class="btn-group pull-right">
+                              <button class="btn btn-sm btn-primary mb-2" data-role="add" style="right: 10px"><i class="fa fa-plus"></i></button>
+                            </div>
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <div class="table-scrollable">
+                              <table class="table table-bordered">
+                                <thead>
+                                <tr>
+
+                                  <th>€</th>
+                                  <th>MOQ parts</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                  <td><input type="text" class="form-control " formControlName="euro" [(ngModel)]="DevisDetails.euro"></td>
+                                  <td><input type="text" class="form-control " formControlName="moqp" [(ngModel)]="DevisDetails.moqp"></td>
+                                </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button type="reset"  class="btn btn-default " style="float: right;padding: 8px 40px;font-size: 16px;">Cancel</button>
+              <button type="submit" class="btn btn-primary" style="float: right;margin-right: 1%;" (click)="onSubmit()">Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
+</form>
+<div class="modal fade" id="Center" tabindex="-1" role="dialog" aria-labelledby="example" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header btn-primary text-white " >
+        <h4 class="modal-title" id="example">Colorant</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body ">
+
+        <div class="panel filterable" style="border-color:#2154cf ">
+
+          <table class="table table-bordered  ">
+            <thead>
+            <tr>
+              <th  colspan="1" class="text-center" >+</th>
+              <th class="text-center col-md-4"  style="color:  #2154cf;background:#FFFFFF ">Colorant Description</th>
+              <th  class="text-center col-md-4" style="color:  #2154cf;background:#FFFFFF">Colorant Description </th>
+            </tr>
+
+            </thead>
+            <tbody>
+            <tr>
+              <th style=" color:  #2154cf;;background:#FFFFFF" > Designation </th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="colorant"  [(ngModel)]="DevisDetails.colorant">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="colorant"  [(ngModel)]="DevisDetails.colorant">
+              </td>
+            </tr>
+            <tr>
+              <th style="color:  #2154cf;background:#FFFFFF">Percentage </th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="perctcol"  [(ngModel)]="DevisDetails.perctcol">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="perctcol"  [(ngModel)]="DevisDetails.perctcol">
+              </td>
+            </tr>
+            <tr>
+              <th style="color:  #2154cf;background:#FFFFFF"> Gross  </th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="grcol"  [(ngModel)]="DevisDetails.grcol">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="grcol"  [(ngModel)]="DevisDetails.grcol">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background:#FFFFFF">Netto</th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="nettocol"  [(ngModel)]="DevisDetails.nettocol">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="nettocol"  [(ngModel)]="DevisDetails.nettocol">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF">Rate(€)</th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="ratecol"  [(ngModel)]="DevisDetails.ratecol">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="ratecol"  [(ngModel)]="DevisDetails.ratecol">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF">Transport</th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="transpcolor"  [(ngModel)]="DevisDetails.transpcolor">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control " formControlName="transpcolor"  [(ngModel)]="DevisDetails.transpcolor">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF">Scrap</th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control "  formControlName="scrapcol"  [(ngModel)]="DevisDetails.scrapcol">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control "  formControlName="scrapcol"  [(ngModel)]="DevisDetails.scrapcol">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF" >Handling</th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control "  formControlName="handcol"   [(ngModel)]="DevisDetails.handcol">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control "  formControlName="handcol"   [(ngModel)]="DevisDetails.handcol">
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF">%Netto</th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control "  formControlName="nettool"     [(ngModel)]="DevisDetails.nettool" >
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control "  formControlName="nettool"     [(ngModel)]="DevisDetails.nettool" >
+              </td>
+            </tr>
+            <tr>
+              <th   style="color:  #2154cf ;background: #FFFFFF">Parts/assy</th>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control "  formControlName="assycol"   [(ngModel)]="DevisDetails.assycol">
+              </td>
+              <td style="background: #FFFFFF">
+                <input type="text" class="form-control "  formControlName="assycol"   [(ngModel)]="DevisDetails.assycol">
+              </td>
+            </tr>
+            <tr   >
+              <th class="col-md-2" style="color:  #2154cf" >Colorant costs</th>
+              <th  class="text-right" style="color:  #2154cf;background :#ddd">
+                <input type="text" class="form-control "  formControlName="costcolorn"   [(ngModel)]="DevisDetails.costcolorn">
+              </th>
+              <th  class="text-right" style="color:  #2154cf;background :#ddd">
+                <input type="text" class="form-control "  formControlName="costcolorn"   [(ngModel)]="DevisDetails.costcolorn">
+              </th>
+            </tr>
+            </tbody>
+
+          </table>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel & Return</button>
+        <button type="button" class="btn btn-primary">Save & Return</button>
+      </div>
+    </div>
+  </div>
+</div>
