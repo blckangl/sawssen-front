@@ -60,7 +60,7 @@ const routes: Routes = [
       {path: 'matiere/:idfamily', component: MatiereComponent, canActivate: [AuthGuard]},
       {path: 'AjouteMat', component: AjouteMatiereComponent, canActivate: [AuthGuard]},
       {path: 'detailMat/:idmaterial', component: DetailMatiereComponent, canActivate: [AuthGuard]},
-      {path: 'allClient', component: AllClientComponent, canActivate: [AuthGuard]},
+      {path: 'allClient', component: AllClientComponent},
       {path: 'createOf', component: BouttonCreateOfferComponent, canActivate: [AuthGuard]},
       {path: 'SynteseOf', component: SyntheseProjetParOffreComponent, canActivate: [AuthGuard]},
       {path: 'demEtudeCons', component: DemandeEtudeConsultationComponent, canActivate: [AuthGuard]},

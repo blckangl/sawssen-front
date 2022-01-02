@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {AuthentificationService} from '../services/authentification.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {HttpHeaders} from '@angular/common/http';
 import {BehaviorSubject} from 'rxjs';
 import Swal from 'sweetalert2';
-
 
 
 @Component({
@@ -15,7 +14,7 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private  authService: AuthentificationService,
+  constructor(private authService: AuthentificationService,
               private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder) {
 
   }
@@ -33,7 +32,6 @@ export class LoginComponent implements OnInit {
   submit = false;
 
 
-
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.email]],
@@ -48,15 +46,14 @@ export class LoginComponent implements OnInit {
     console.log('data', this.loginForm.value);
 
     this.authService.login(this.loginForm.value).subscribe(rep => {
-console.log('username', this.loginForm.value.username);
-console.log('password', this.loginForm.value.password);
+      console.log('username', this.loginForm.value.username);
+      console.log('password', this.loginForm.value.password);
 
-const jwt = rep.headers.get('Authorization');
-this.authService.saveToken(jwt);
-this.router.navigateByUrl('/home');
+      const jwt = rep.headers.get('Authorization');
+      this.authService.saveToken(jwt);
+      this.router.navigateByUrl('/home');
     }, error1 => {
-Swal.fire('Error ! ' , 'Check your data ! ');
-
+      Swal.fire('Error ! ', 'Check your data ! ');
 
 
     });

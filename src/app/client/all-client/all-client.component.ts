@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ClientService} from '../../services/client.service';
@@ -18,9 +18,11 @@ export class AllClientComponent implements OnInit {
   submitted = false;
   filesToUpload: Array<File>;
   selectedFile: File;
-  public  userFile: any = File;
-  constructor(private actvroute: ActivatedRoute, private ServiceClient: ClientService , private formBuilder: FormBuilder,
-              private  srvcimg: ImageService, private router: Router) { }
+  public userFile: any = File;
+
+  constructor(private actvroute: ActivatedRoute, private ServiceClient: ClientService, private formBuilder: FormBuilder,
+              private srvcimg: ImageService, private router: Router) {
+  }
 
   ngOnInit() {
     this.getallClient();
@@ -65,13 +67,16 @@ export class AllClientComponent implements OnInit {
     this.submitted = false;
     this.addClient.reset();
   }
+
   getallClient() {
     this.ServiceClient.all().subscribe(result => {
-
-      this.listClient = result ;
+      console.log('getting all clinets with res ', result);
+      this.listClient = result;
 
       console.log('listClient', this.listClient);
 
+    }, (err) => {
+      console.log('error while getting clinets ', err);
     });
   }
 
@@ -80,6 +85,8 @@ export class AllClientComponent implements OnInit {
     this.ServiceClient.ajout(this.addClient.value).subscribe(res => {
       console.log(res);
       this.getallClient();
+    }, (err) => {
+      console.log('error while adding ', err);
     });
     Swal.fire({
       position: 'center',
@@ -92,6 +99,7 @@ export class AllClientComponent implements OnInit {
     });
 
   }
+
   supprimer(idClient) {
     Swal.fire({
       position: 'center',
@@ -166,7 +174,6 @@ export class AllClientComponent implements OnInit {
       title: 'The changes saved'
     });
   }
-
 
 
 }

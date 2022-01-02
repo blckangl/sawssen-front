@@ -13,15 +13,17 @@ export class ClientService {
 
   all() {
 
-    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+    const headers = new HttpHeaders();
 
+    // {authorization: 'Bearer ' + this.authService.jwt}
     return this.http.get(environment.baseUrl + '/client/all', {headers});
 
   }
 
 
   ajout(c) {
-    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+    const headers = new HttpHeaders();
+    // {authorization: 'Bearer ' + this.authService.jwt}
     return this.http.post(environment.baseUrl + '/client/add/', c, {headers});
 
 
