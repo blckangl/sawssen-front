@@ -7,7 +7,7 @@ import {AuthentificationService} from '../services/authentification.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+user;
   constructor(public authServ: AuthentificationService) {
   }
 
@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   getprofileadmine() {
     this.authServ.getprofile().subscribe(res => {
       console.log(res);
+      this.user = res;
       // console.log(res['roles'][0]['roleName']);
     });
   }

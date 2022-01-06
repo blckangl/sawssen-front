@@ -44,14 +44,14 @@ export class AdminService {
   //
   //
   //
-  // supprimer(id) {
-  //   const headers = new HttpHeaders({authorization: 'Bearer ' +  this.authService.jwt});
-  //
-  //
-  //   return this.http.delete(environment.baseUrl + '/client/delete/' + id, {headers});
-  //
-  //
-  // }
+  supprimer(id) {
+    const headers = new HttpHeaders({authorization: 'Bearer ' +  this.authService.jwt});
+
+
+    return this.http.delete(environment.baseUrl + '/admin/remove/' + id, {headers});
+
+
+  }
   // modifier(id, c) {
   //   const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
   //   return this.http.put( environment.baseUrl + '/client/edit/' + id , c, {headers});
