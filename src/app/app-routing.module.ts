@@ -43,9 +43,12 @@ import {ExportdevisComponent} from './Devis/exportdevis/exportdevis.component';
 import {TracabiliteSalesComponent} from './Tracabilite/tracabilite-sales/tracabilite-sales.component';
 import {TracabpurchComponent} from './Tracabilite/tracabpurch/tracabpurch.component';
 import {AuthGuard} from './auth-guard.service';
+import {ForgetPageComponent} from './forget-page/forget-page.component';
 
 
 const routes: Routes = [
+  {path: 'forget', component: ForgetPageComponent},
+
   {path: '', component: LoginComponent},
   {
     path: 'home', component: HomeComponent, children: [
@@ -70,7 +73,7 @@ const routes: Routes = [
       {path: 'ajoutQuotMoule', component: AjoutQuotationMouleComponent, canActivate: [AuthGuard]},
       {path: 'ajoutOfferMoule', component: AjoutOffreMouleComponent, canActivate: [AuthGuard]},
       {path: 'project', component: ProjectComponent, canActivate: [AuthGuard]},
-      {path: 'acceuil', component: AcceuilComponent, canActivate: [AuthGuard]},
+      {path: '', component: AcceuilComponent, canActivate: [AuthGuard]},
       {path: 'devisEssai', component: DevisEssaiComponent, canActivate: [AuthGuard]},
       {path: 'offreEssai', component: OffreEssaiComponent, canActivate: [AuthGuard]},
       {path: 'database', component: DatabaseComponent, canActivate: [AuthGuard]},

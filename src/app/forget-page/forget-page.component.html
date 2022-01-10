@@ -1,0 +1,26 @@
+<div class="bg-img">
+
+  <div class="content">
+    <header>Reset your password</header>
+    <form [formGroup]="resetForm" >
+      <div class="field" style="  border: 4px solid #3498db" >
+        <span class="fa fa-user" ></span>
+        <input type="email" required  placeholder="Email" class="form-control"   formControlName="email" [ngClass]="{'is-invalid': submit && f.username.errors}">
+        <div *ngIf="submit && f.username.errors" class="invalid-feedback">
+          <div *ngIf="f.username.errors?.required"> E'mail est obligatoire</div>
+        </div>
+      </div>
+
+
+      <div class="field">
+        <input type="submit" value="SEND" (click)="onReset()">
+      </div>
+    </form>
+
+
+  </div>
+
+
+
+</div>
+

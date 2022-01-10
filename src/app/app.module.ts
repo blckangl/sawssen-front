@@ -56,6 +56,7 @@ import {ExportdevisComponent} from './Devis/exportdevis/exportdevis.component';
 import {TracabiliteSalesComponent} from './Tracabilite/tracabilite-sales/tracabilite-sales.component';
 import {TracabpurchComponent} from './Tracabilite/tracabpurch/tracabpurch.component';
 import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
+import { ForgetPageComponent } from './forget-page/forget-page.component';
 
 
 @NgModule({
@@ -108,6 +109,7 @@ import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
     ExportdevisComponent,
     TracabiliteSalesComponent,
     TracabpurchComponent,
+    ForgetPageComponent,
   ],
   imports: [
     BrowserModule,
