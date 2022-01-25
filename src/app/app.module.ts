@@ -57,6 +57,7 @@ import {TracabiliteSalesComponent} from './Tracabilite/tracabilite-sales/tracabi
 import {TracabpurchComponent} from './Tracabilite/tracabpurch/tracabpurch.component';
 import {JwtHelperService, JwtModule} from '@auth0/angular-jwt';
 import { ForgetPageComponent } from './forget-page/forget-page.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -110,6 +111,7 @@ import { ForgetPageComponent } from './forget-page/forget-page.component';
     TracabiliteSalesComponent,
     TracabpurchComponent,
     ForgetPageComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

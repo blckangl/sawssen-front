@@ -22,6 +22,21 @@ export class AuthentificationService {
 
   }
 
+  resetPasswrod({email}: any) {
+    console.log({email: email});
+    return this.http.post(environment.baseUrl + '/reset', {email});
+  }
+
+  verifyPasswrod({code, password}: any) {
+    return this.http.post(environment.baseUrl + '/reset/verify', {code, password});
+  }
+
+  changePassword(newPass: string, id: string) {
+    console.log('user id is ', id);
+    console.log('path is ', environment.baseUrl + `/user/password/${id}`);
+    return this.http.post(environment.baseUrl + `/user/password/${id}`, {password: newPass});
+  }
+
   //
   // registeradmin(c) {
   //   const headers = new HttpHeaders({authorization: 'Bearer ' + this.jwt});

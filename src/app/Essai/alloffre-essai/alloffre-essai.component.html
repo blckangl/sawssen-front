@@ -1,16 +1,16 @@
 <div class="borderBox light bordered card-box">
-  <div class="tab-pane active fontawesome-demo" >
+  <div class="tab-pane active fontawesome-demo">
     <div class="row">
       <div class="col-md-12">
         <div class="card card-box">
           <div class="card-head">
-            <header>ALL TRIAL OFFER </header>
+            <header>ALL TRIAL OFFER</header>
             <ul class="nav navbar-nav navbar-right">
               <li>
-                <div class="col-2 col-lg-12" >
+                <div class="col-2 col-lg-12">
                   <form class="navbar-form navbar-left" method="GET" role="search">
                     <div class="input-group">
-                      <input type="text" class="form-control"  >
+                      <input type="text" class="form-control">
                       <span class="input-group-btn">
 						         	<button class="btn submit"><i class="icon-magnifier"></i></button></span>
                     </div>
@@ -55,333 +55,344 @@
               </div>
             </div>
           </div>
-          <div class="card-body" style="background-color: #F0F0F0" >
-            <div class="row" >
-              <div class="col-md-6 col-sm-6 col-6" >
+          <div class="card-body" style="background-color: #F0F0F0">
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-6">
                 <select class="form-control " required formControlName="service">
-                  <option value="" disabled selected hidden>Select Customer </option>
+                  <option value="" disabled selected hidden>Select Customer</option>
                   <option></option>
                 </select>
               </div>
               <div class="col-md-6 col-sm-6 col-6">
                 <select class="form-control" required formControlName="service">
-                  <option value="" disabled selected hidden>Select Trial Quote </option>
+                  <option value="" disabled selected hidden>Select Trial Quote</option>
                   <option></option>
                 </select>
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="borderBox light bordered card-box">
+          <div class="borderBox-title tabbable-line">
+            <div class="caption"><span class="caption-subject font-dark bold uppercase">Status</span></div>
+            <ul class="nav nav-tabs">
+              <li class="nav-item"><a href="#borderBox_tab1" data-toggle="tab" class="active"> All </a></li>
+              <li class="nav-item"><a href="#borderBox_tab2" data-toggle="tab"> PROVISIONAL </a></li>
+              <li class="nav-item"><a href="#borderBox_tab3" data-toggle="tab"> FINALIZED </a></li>
+              <li class="nav-item"><a href="#borderBox_tab4" data-toggle="tab"> REFUSED </a></li>
+              <li class="nav-item"><a href="#borderBox_tab5" data-toggle="tab"> SIGNED </a></li>
+            </ul>
           </div>
+          <div class="borderBox-body">
+            <div class="tab-content">
+              <div class="tab-pane active" id="borderBox_tab1">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-box">
+                      <div class="card-head">
+                        <header>All</header>
+                      </div>
+                      <div class="card-body ">
+                        <div class="table-scrollable">
+                          <table
+                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                            id="example4">
+                            <thead>
+                            <tr>
+                              <th class="col-md-2">Offer N°</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Customer</th>
+                              <th class="text-center">Trial Quote</th>
+                              <th class="text-center">Cost</th>
+                              <th class="text-center">Joining Date</th>
+                              <th class="text-center">Traceability</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ng-container *ngFor="let off of offres;let i = index">
+                              <tr class="active" [ngClass]="{'active':i==0}">
+                                <th scope="row">{{off.id}}</th>
+                                <td class="text-center">{{getStatus(off.status)}}</td>
+                                <td>customer</td>
+                                <td>{{off.quote}}</td>
+                                <td>{{off.cost}}</td>
+                                <td>{{off.date}}</td>
+                                <td></td>
+                              </tr>
+                            </ng-container>
 
-          <div class="borderBox light bordered card-box">
-            <div class="borderBox-title tabbable-line">
-              <div class="caption"><span class="caption-subject font-dark bold uppercase">Status</span></div>
-              <ul class="nav nav-tabs">
-                <li class="nav-item"><a href="#borderBox_tab1" data-toggle="tab"  class="active"> All </a></li>
-                <li class="nav-item"><a href="#borderBox_tab2" data-toggle="tab" > PROVISIONAL </a></li>
-                <li class="nav-item"><a href="#borderBox_tab3" data-toggle="tab" > FINALIZED </a></li>
-                <li class="nav-item"><a href="#borderBox_tab4" data-toggle="tab"> REFUSED  </a></li>
-                <li class="nav-item"><a href="#borderBox_tab5" data-toggle="tab"> SIGNED </a></li>
-              </ul>
-            </div>
-            <div class="borderBox-body">
-              <div class="tab-content">
-                <div class="tab-pane active" id="borderBox_tab1">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card card-box">
-                        <div class="card-head">
-                          <header>All </header>
-                        </div>
-                        <div class="card-body ">
-                          <div class="table-scrollable">
-                            <table
-                              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
-                              id="example4">
-                              <thead>
-                              <tr>
-                                <th class="col-md-2">Offer N° </th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Customer</th>
-                                <th class="text-center">Trial Quote</th>
-                                <th class="text-center">Cost </th>
-                                <th class="text-center">Joining Date</th>
-                                <th class="text-center">Traceability</th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr class="active" >
-                                <th scope="row">3</th>
-                                <td class="text-center">Provisional</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr >
-                                <th scope="row">2</th>
-                                <td class="text-center">Finalized</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr class="success">
-                                <th scope="row">4</th>
-                                <td class="text-center">Signed</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              <tr  class="danger">
-                                <th scope="row">1</th>
-                                <td class="text-center">Refused</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                              </tr>
-                              </tbody>
-                            </table>
-                          </div>
+                            <!--                              <tr >-->
+                            <!--                                <th scope="row">2</th>-->
+                            <!--                                <td class="text-center">Finalized</td>-->
+                            <!--                                <td></td>-->
+                            <!--                                <td></td>-->
+                            <!--                                <td></td>-->
+                            <!--                                <td></td>-->
+                            <!--                                <td></td>-->
+                            <!--                              </tr>-->
+                            <!--                              <tr class="success">-->
+                            <!--                                <th scope="row">4</th>-->
+                            <!--                                <td class="text-center">Signed</td>-->
+                            <!--                                <td></td>-->
+                            <!--                                <td></td>-->
+                            <!--                                <td></td>-->
+                            <!--                                <td></td>-->
+                            <!--                                <td></td>-->
+                            <!--                              </tr>-->
+
+                            </tbody>
+                          </table>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="tab-pane" id="borderBox_tab2">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card card-box">
-                        <div class="card-head">
-                          <header>PROVISIONAL</header>
-
-                        </div>
-                        <div class="card-body ">
-                          <div class="table-scrollable">
-                            <table
-                              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
-                              id="example2">
-                              <thead>
-                              <tr>
-                                <th class="col-md-2">Offer N° </th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Customer</th>
-                                <th class="text-center">Trial Quote</th>
-                                <th class="text-center">Cost </th>
-                                <th class="text-center">Joining Date</th>
-                                <th class="text-center">Traceability</th>
-                                <th class="text-center">Action </th>
-                                <th class="text-center">Change Status </th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr class="active">
-                                <th scope="row">3</th>
-                                <td class="text-center">Provisional</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="text-center">
-                                  <a class="btn btn-primary btn-xs">
-                                    <i class="fa fa-pencil"></i></a>
-                                  <button class="btn btn-danger btn-xs" type="submit" ><i class="fa fa-trash-o"></i></button>
-                                  <button class="btn btn-default btn-xs" type="submit" ><i class="glyphicon glyphicon-download-alt"></i></button>
-                                </td>
-                                <td class="text-center">
-                                  <button class="btn btn-info btn-xs tooltips" data-original-title="Mark as finalized"  type="submit"><i class="fa fa-hourglass-half"></i></button>
-                                </td>
-                              </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="borderBox_tab3">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card card-box">
-                        <div class="card-head">
-                          <header>FINALIZED</header>
-
-                        </div>
-                        <div class="card-body ">
-                          <div class="table-scrollable">
-                            <table
-                              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
-                              id="example3">
-                              <thead>
-                              <tr>
-                                <th class="col-md-2">Offer N° </th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Customer</th>
-                                <th class="text-center">Trial Quote</th>
-                                <th class="text-center">Cost </th>
-                                <th class="text-center">Joining Date</th>
-                                <th class="text-center">Traceability</th>
-                                <th class="text-center">Action </th>
-                                <th class="text-center">Change Status </th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr >
-                                <th scope="row">2</th>
-                                <td class="text-center">Finalized</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="text-center">
-                                  <a class="btn btn-primary btn-xs">
-                                    <i class="fa fa-pencil"></i></a>
-                                  <button class="btn btn-default btn-xs" type="submit" ><i class="glyphicon glyphicon-download-alt"></i></button>
-                                </td>
-                                <td class="text-center">
-                                  <button class="btn btn-success btn-xs tooltips"  data-original-title="Mark as signed" type="submit" ><span class="glyphicon glyphicon-floppy-saved"></span> </button>
-                                  <button class="btn btn-danger btn-xs tooltips"  data-original-title="Mark as refused" type="submit" ><span class="glyphicon glyphicon-floppy-remove "></span> </button>
-                                </td>
-
-                              </tr>
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="borderBox_tab4">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card card-box">
-                        <div class="card-head">
-                          <header>REFUSED</header>
-
-                        </div>
-                        <div class="card-body ">
-                          <div class="table-scrollable">
-                            <table
-                              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
-                              id="example6">
-                              <thead>
-                              <tr>
-                                <th class="col-md-2">Offer N° </th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Customer</th>
-                                <th class="text-center">Trial Quote</th>
-                                <th class="text-center">Cost </th>
-                                <th class="text-center">Joining Date</th>
-                                <th class="text-center">Traceability</th>
-                                <th class="text-center">Action </th>
-                                <th class="text-center">Change Status </th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr  class="danger">
-                                <th scope="row">1</th>
-                                <td class="text-center">Refused</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                               <td></td>
-                                <td class="text-center">
-                                  <a class="btn btn-primary btn-xs">
-                                    <i class="fa fa-pencil"></i></a>
-                                  <button class="btn btn-default btn-xs" type="submit" ><i class="glyphicon glyphicon-download-alt"></i></button>
-                                  <button class="btn btn-facebook btn-xs" type="submit" data-toggle="modal" data-target="#myModal" >  <i class="glyphicon glyphicon-envelope"></i></button>
-                                </td>
-                                <td class="text-center">
-                                  <button class="btn btn-warning btn-xs tooltips"
-                                          data-original-title="Cancel the refusal"><i class="fa fa-minus-circle"></i></button>
-                                </td>
-                              </tr>
-
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="tab-pane" id="borderBox_tab5">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <div class="card card-box">
-                        <div class="card-head">
-                          <header>SIGNED</header>
-
-                        </div>
-                        <div class="card-body ">
-                          <div class="table-scrollable">
-                            <table
-                              class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
-                              id="example5">
-                              <thead>
-                              <tr>
-                                <th class="col-md-4">Offer N° </th>
-                                <th class="text-center">Status</th>
-                                <th class="text-center">Customer</th>
-                                <th class="text-center">Trial Quote</th>
-                                <th class="text-center">Cost </th>
-                                <th class="text-center">Joining Date</th>
-                                <th class="text-center">Traceability</th>
-                                <th class="text-center">Action </th>
-                                <th class="text-center">Change Status </th>
-                              </tr>
-                              </thead>
-                              <tbody>
-
-                              <tr class="success">
-                                <th scope="row">4</th>
-                                <td class="text-center">Signed</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td class="text-center">
-                                  <a class="btn btn-primary btn-xs">
-                                    <i class="fa fa-pencil"></i></a>
-                                  <button class="btn btn-default btn-xs" type="submit" ><i class="glyphicon glyphicon-download-alt"></i></button>
-
-                                </td>
-                                <td class="text-center">
-                                  <button class="btn btn-warning btn-xs tooltips"
-                                          data-original-title="Cancel the signature"><i class="fa fa-minus-circle"></i></button>
-                                </td>
-                              </tr>
-
-                              </tbody>
-                            </table>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
                 </div>
               </div>
+              <div class="tab-pane" id="borderBox_tab2">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-box">
+                      <div class="card-head">
+                        <header>PROVISIONAL</header>
+
+                      </div>
+                      <div class="card-body ">
+                        <div class="table-scrollable">
+                          <table
+                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                            id="example2">
+                            <thead>
+                            <tr>
+                              <th class="col-md-2">Offer N°</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Customer</th>
+                              <th class="text-center">Trial Quote</th>
+                              <th class="text-center">Cost</th>
+                              <th class="text-center">Joining Date</th>
+                              <th class="text-center">Traceability</th>
+                              <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ng-container *ngFor="let off of offres;let i = index">
+                              <tr *ngIf="off.status.toString()=='0'" class="active" [ngClass]="{'active':i==0}">
+                                <th scope="row">{{off.id}}</th>
+                                <td class="text-center">{{getStatus(off.status)}}</td>
+                                <td>customer</td>
+                                <td>{{off.quote}}</td>
+                                <td>{{off.cost}}</td>
+                                <td>{{off.date}}</td>
+                                <td></td>
+                                <td class="text-center">
+                                  <button class="btn btn-success btn-xs tooltips" data-original-title="Mark as signed"
+                                          type="submit"><span class="glyphicon glyphicon-floppy-saved"></span></button>
+                                  <button class="btn btn-danger btn-xs tooltips" data-original-title="Mark as refused"
+                                          type="submit"><span class="glyphicon glyphicon-floppy-remove "></span>
+                                  </button>
+                                </td>
+                              </tr>
+                            </ng-container>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="borderBox_tab3">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-box">
+                      <div class="card-head">
+                        <header>FINALIZED</header>
+
+                      </div>
+                      <div class="card-body ">
+                        <div class="table-scrollable">
+                          <table
+                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                            id="example3">
+                            <thead>
+                            <tr>
+                              <th class="col-md-2">Offer N°</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Customer</th>
+                              <th class="text-center">Trial Quote</th>
+                              <th class="text-center">Cost</th>
+                              <th class="text-center">Joining Date</th>
+                              <th class="text-center">Traceability</th>
+                              <th class="text-center">Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ng-container *ngFor="let off of offres;let i = index">
+                              <tr *ngIf="off.status.toString()=='3'" class="active" [ngClass]="{'active':i==0}">
+                                <th scope="row">{{off.id}}</th>
+                                <td class="text-center">{{getStatus(off.status)}}</td>
+                                <td>customer</td>
+                                <td>{{off.quote}}</td>
+                                <td>{{off.cost}}</td>
+                                <td>{{off.date}}</td>
+                                <td></td>
+                                <td class="text-center">
+                                  <a class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil"></i></a>
+                                  <button class="btn btn-default btn-xs" type="submit"><i
+                                    class="glyphicon glyphicon-download-alt"></i></button>
+                                </td>
+                                <td class="text-center">
+                                  <button class="btn btn-success btn-xs tooltips" data-original-title="Mark as signed"
+                                          type="submit"><span class="glyphicon glyphicon-floppy-saved"></span></button>
+                                  <button class="btn btn-danger btn-xs tooltips" data-original-title="Mark as refused"
+                                          type="submit"><span class="glyphicon glyphicon-floppy-remove "></span>
+                                  </button>
+                                </td>
+                              </tr>
+                            </ng-container>
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="borderBox_tab4">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-box">
+                      <div class="card-head">
+                        <header>REFUSED</header>
+
+                      </div>
+                      <div class="card-body ">
+                        <div class="table-scrollable">
+                          <table
+                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                            id="example6">
+                            <thead>
+                            <tr>
+                              <th class="col-md-2">Offer N°</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Customer</th>
+                              <th class="text-center">Trial Quote</th>
+                              <th class="text-center">Cost</th>
+                              <th class="text-center">Joining Date</th>
+                              <th class="text-center">Traceability</th>
+                              <th class="text-center">Action</th>
+                              <th class="text-center">Change Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ng-container *ngFor="let off of offres;let i = index">
+                              <tr *ngIf="off.status.toString()=='3'" class="active" [ngClass]="{'active':i==0,'danger':true}">
+                                <th scope="row">{{off.id}}</th>
+                                <td class="text-center">{{getStatus(off.status)}}</td>
+                                <td>customer</td>
+                                <td>{{off.quote}}</td>
+                                <td>{{off.cost}}</td>
+                                <td>{{off.date}}</td>
+                                <td></td>
+                                <td class="text-center">
+                                  <a class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil"></i></a>
+                                  <button class="btn btn-default btn-xs" type="submit"><i
+                                    class="glyphicon glyphicon-download-alt"></i></button>
+                                </td>
+                                <td class="text-center">
+                                  <button class="btn btn-success btn-xs tooltips" data-original-title="Mark as signed"
+                                          type="submit"><span class="glyphicon glyphicon-floppy-saved"></span></button>
+                                  <button class="btn btn-danger btn-xs tooltips" data-original-title="Mark as refused"
+                                          type="submit"><span class="glyphicon glyphicon-floppy-remove "></span>
+                                  </button>
+                                </td>
+                              </tr>
+                            </ng-container>
+
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="tab-pane" id="borderBox_tab5">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="card card-box">
+                      <div class="card-head">
+                        <header>SIGNED</header>
+
+                      </div>
+                      <div class="card-body ">
+                        <div class="table-scrollable">
+                          <table
+                            class="table table-striped table-bordered table-hover table-checkable order-column valign-middle"
+                            id="example5">
+                            <thead>
+                            <tr>
+                              <th class="col-md-4">Offer N°</th>
+                              <th class="text-center">Status</th>
+                              <th class="text-center">Customer</th>
+                              <th class="text-center">Trial Quote</th>
+                              <th class="text-center">Cost</th>
+                              <th class="text-center">Joining Date</th>
+                              <th class="text-center">Traceability</th>
+                              <th class="text-center">Action</th>
+                              <th class="text-center">Change Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <ng-container *ngFor="let off of offres;let i = index">
+                              <tr *ngIf="off.status.toString()=='3'" class="active" [ngClass]="{'active':i==0,'success':true}">
+                                <th scope="row">{{off.id}}</th>
+                                <td class="text-center">{{getStatus(off.status)}}</td>
+                                <td>customer</td>
+                                <td>{{off.quote}}</td>
+                                <td>{{off.cost}}</td>
+                                <td>{{off.date}}</td>
+                                <td></td>
+                                <td class="text-center">
+                                  <a class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil"></i></a>
+                                  <button class="btn btn-default btn-xs" type="submit"><i
+                                    class="glyphicon glyphicon-download-alt"></i></button>
+                                </td>
+                                <td class="text-center">
+                                  <button class="btn btn-success btn-xs tooltips" data-original-title="Mark as signed"
+                                          type="submit"><span class="glyphicon glyphicon-floppy-saved"></span></button>
+                                  <button class="btn btn-danger btn-xs tooltips" data-original-title="Mark as refused"
+                                          type="submit"><span class="glyphicon glyphicon-floppy-remove "></span>
+                                  </button>
+                                </td>
+                              </tr>
+                            </ng-container>
+
+
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
             </div>
+          </div>
 
 
-        </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 
 <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
   <div class="modal-dialog">
@@ -396,30 +407,31 @@
         <form role="form">
           <div class="form-group">
             <label> Destinataire : </label>
-            <input type="email" class="form-control" placeholder="Destinataire" >
+            <input type="email" class="form-control" placeholder="Destinataire">
           </div>
           <div class="form-group">
             <label>Subject : </label>
-            <input type="text" class="form-control" placeholder="Object"  >
+            <input type="text" class="form-control" placeholder="Object">
           </div>
 
           <div class="form-group">
             <label>Content : </label>
-            <textarea type="text" class="form-control"  placeholder="Content"></textarea>
+            <textarea type="text" class="form-control" placeholder="Content"></textarea>
           </div>
 
           <div class="form-group">
-            <label >Joining Date</label>
-            <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}" disabled>
+            <label>Joining Date</label>
+            <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+                   disabled>
           </div>
 
 
-          &nbsp;&nbsp;     &nbsp;&nbsp; &nbsp;&nbsp;     &nbsp;&nbsp; &nbsp;&nbsp;     &nbsp;&nbsp;
-          &nbsp;&nbsp;     &nbsp;&nbsp; &nbsp;&nbsp;     &nbsp;&nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
           <button type="submit" class="btn btn-primary">Envoyer</button>
-          &nbsp;&nbsp;     &nbsp;&nbsp; &nbsp;&nbsp;     &nbsp;&nbsp; &nbsp;&nbsp;     &nbsp;&nbsp;
+          &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 
-          <button type="submit" class="btn btn-danger"> Annuler </button>
+          <button type="submit" class="btn btn-danger"> Annuler</button>
 
 
         </form>

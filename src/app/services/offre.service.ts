@@ -15,7 +15,7 @@ export class OffreService {
 
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
 
-    return this.http.get(environment.baseUrl + '/offre/all', {headers});
+    return this.http.get<any>(environment.baseUrl + '/offre/all', {headers});
 
   }
   delete(id) {

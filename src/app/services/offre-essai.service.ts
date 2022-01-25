@@ -14,7 +14,7 @@ export class OffreEssaiService {
 
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
 
-    return this.http.get(environment.baseUrl + '/essaiOffre/all', {headers});
+    return this.http.get<any>(environment.baseUrl + '/essaiOffre/all', {headers});
 
   }
   supprimer(id) {

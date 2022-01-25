@@ -44,6 +44,7 @@ import {TracabiliteSalesComponent} from './Tracabilite/tracabilite-sales/tracabi
 import {TracabpurchComponent} from './Tracabilite/tracabpurch/tracabpurch.component';
 import {AuthGuard} from './auth-guard.service';
 import {ForgetPageComponent} from './forget-page/forget-page.component';
+import {ProfileComponent} from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -82,7 +83,7 @@ const routes: Routes = [
       {path: 'testt', component: Test2Component, canActivate: [AuthGuard]},
       {path: 'allexquise', component: AllExquiseComponent, canActivate: [AuthGuard]},
       {path: 'allDevEss', component: AlldevisEssaiComponent, canActivate: [AuthGuard]},
-      {path: 'allOffrEss', component: AlloffreEssaiComponent, canActivate: [AuthGuard]},
+      {path: 'allOffrEss', component: AlloffreEssaiComponent},
       {path: 'editdev/:idDevisEssai', component: EditDevisEssaiComponent, canActivate: [AuthGuard]},
       {path: 'editoff', component: EditOffreEssaiComponent, canActivate: [AuthGuard]},
       {path: 'tracesales', component: TracabiliteSalesComponent, canActivate: [AuthGuard]},
@@ -92,6 +93,7 @@ const routes: Routes = [
       {path: 'exportd', component: ExportdevisComponent, canActivate: [AuthGuard]},
       {path: 'allmolddevis', component: AlldevismoldComponent, canActivate: [AuthGuard]},
       {path: 'allmoldoffre', component: AlloffremoldComponent, canActivate: [AuthGuard]},
+      {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
     ]
   }
 ];
