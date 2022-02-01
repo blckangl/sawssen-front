@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {OffreService} from '../../services/offre.service';
 import {OffreEssaiService} from '../../services/offre-essai.service';
+import {ReclamationService} from '../../services/reclamation.service';
 
 @Component({
   selector: 'app-alloffre-essai',
@@ -8,13 +9,28 @@ import {OffreEssaiService} from '../../services/offre-essai.service';
   styleUrls: ['./alloffre-essai.component.scss']
 })
 export class AlloffreEssaiComponent implements OnInit {
-  currentDate = new Date().toLocaleDateString();
+  currentDate: Date = new Date();
   public offres: any;
+  public reclamation: Reclamation = {date: new Date(), sujet: '', description: ''};
 
-  constructor(private offreService: OffreEssaiService) {
+  recSujet: string;
+  recContent: string;
+
+  constructor(private offreService: OffreEssaiService, private reclamationService: ReclamationService) {
   }
 
   ngOnInit() {
+    this.getAlloffs();
+  }
+
+  private addReclamation(recSujet: HTMLInputElement, recdesc: HTMLTextAreaElement, dest: HTMLInputElement) {
+    this.reclamation.date = new Date();
+    this.reclamation.sujet = recSujet.value;
+    this.reclamation.description = recdesc.value;
+    this.reclamationService.add(this.reclamation, dest.value);
+  }
+
+  private getAlloffs() {
     this.offreService.getall().subscribe(res => {
       console.log('all offre', res);
       this.offres = res.map(x => {
@@ -57,4 +73,11 @@ export class AlloffreEssaiComponent implements OnInit {
         return '';
     }
   }
+
+  changeStatus(id: any, status: number) {
+    this.offreService.changeStatus(id, status).subscribe(() => {
+      this.getAlloffs();
+    }, (error => console.log(error)));
+  }
+
 }

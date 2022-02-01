@@ -76,7 +76,7 @@ const routes: Routes = [
       {path: 'project', component: ProjectComponent, canActivate: [AuthGuard]},
       {path: '', component: AcceuilComponent, canActivate: [AuthGuard]},
       {path: 'devisEssai', component: DevisEssaiComponent, canActivate: [AuthGuard]},
-      {path: 'offreEssai', component: OffreEssaiComponent, canActivate: [AuthGuard]},
+      {path: 'offreEssai', component: OffreEssaiComponent},
       {path: 'database', component: DatabaseComponent, canActivate: [AuthGuard]},
       {path: 'allDem', component: AllDemandeconComponent, canActivate: [AuthGuard]},
       {path: 'alletude', component: AllEtudeComponent, canActivate: [AuthGuard]},

@@ -23,7 +23,7 @@
             <div class="row">
               <div class="col-md-6 col-sm-6 col-6">
                 <div class="btn-group">
-                  <a routerLink="/offreEssai" class="btn btn-info">
+                  <a [routerLink]="['/home/offreEssai']" class="btn btn-info">
                     Add New <i class="fa fa-plus"></i>
                   </a>
 
@@ -58,13 +58,13 @@
           <div class="card-body" style="background-color: #F0F0F0">
             <div class="row">
               <div class="col-md-6 col-sm-6 col-6">
-                <select class="form-control " required formControlName="service">
+                <select class="form-control " required>
                   <option value="" disabled selected hidden>Select Customer</option>
                   <option></option>
                 </select>
               </div>
               <div class="col-md-6 col-sm-6 col-6">
-                <select class="form-control" required formControlName="service">
+                <select class="form-control" required>
                   <option value="" disabled selected hidden>Select Trial Quote</option>
                   <option></option>
                 </select>
@@ -122,24 +122,6 @@
                               </tr>
                             </ng-container>
 
-                            <!--                              <tr >-->
-                            <!--                                <th scope="row">2</th>-->
-                            <!--                                <td class="text-center">Finalized</td>-->
-                            <!--                                <td></td>-->
-                            <!--                                <td></td>-->
-                            <!--                                <td></td>-->
-                            <!--                                <td></td>-->
-                            <!--                                <td></td>-->
-                            <!--                              </tr>-->
-                            <!--                              <tr class="success">-->
-                            <!--                                <th scope="row">4</th>-->
-                            <!--                                <td class="text-center">Signed</td>-->
-                            <!--                                <td></td>-->
-                            <!--                                <td></td>-->
-                            <!--                                <td></td>-->
-                            <!--                                <td></td>-->
-                            <!--                                <td></td>-->
-                            <!--                              </tr>-->
 
                             </tbody>
                           </table>
@@ -172,6 +154,7 @@
                               <th class="text-center">Joining Date</th>
                               <th class="text-center">Traceability</th>
                               <th class="text-center">Action</th>
+                              <th class="text-center">Change Status</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -185,13 +168,20 @@
                                 <td>{{off.date}}</td>
                                 <td></td>
                                 <td class="text-center">
-                                  <button class="btn btn-success btn-xs tooltips" data-original-title="Mark as signed"
-                                          type="submit"><span class="glyphicon glyphicon-floppy-saved"></span></button>
-                                  <button class="btn btn-danger btn-xs tooltips" data-original-title="Mark as refused"
-                                          type="submit"><span class="glyphicon glyphicon-floppy-remove "></span>
+                                  <a class="btn btn-primary btn-xs">
+                                    <i class="fa fa-pencil"></i></a>
+                                  <button class="btn btn-danger btn-xs" type="submit"><i class="fa fa-trash-o"></i>
                                   </button>
+                                  <button class="btn btn-default btn-xs" type="submit"><i
+                                    class="glyphicon glyphicon-download-alt"></i></button>
+                                </td>
+                                <td class="text-center">
+                                  <button (click)="changeStatus(off.id,3)" class="btn btn-info btn-xs tooltips"
+                                          data-original-title="Mark as finalized" type="submit"><i
+                                    class="fa fa-hourglass-half"></i></button>
                                 </td>
                               </tr>
+
                             </ng-container>
 
                             </tbody>
@@ -225,6 +215,7 @@
                               <th class="text-center">Joining Date</th>
                               <th class="text-center">Traceability</th>
                               <th class="text-center">Action</th>
+                              <th class="text-center">Change Status</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -244,11 +235,12 @@
                                     class="glyphicon glyphicon-download-alt"></i></button>
                                 </td>
                                 <td class="text-center">
-                                  <button class="btn btn-success btn-xs tooltips" data-original-title="Mark as signed"
-                                          type="submit"><span class="glyphicon glyphicon-floppy-saved"></span></button>
-                                  <button class="btn btn-danger btn-xs tooltips" data-original-title="Mark as refused"
-                                          type="submit"><span class="glyphicon glyphicon-floppy-remove "></span>
-                                  </button>
+                                  <button (click)="changeStatus(off.id,1)" class="btn btn-success btn-xs tooltips"
+                                          data-original-title="Mark as signed" type="submit"><span
+                                    class="glyphicon glyphicon-floppy-saved"></span></button>
+                                  <button (click)="changeStatus(off.id,2)" class="btn btn-danger btn-xs tooltips"
+                                          data-original-title="Mark as refused" type="submit"><span
+                                    class="glyphicon glyphicon-floppy-remove "></span></button>
                                 </td>
                               </tr>
                             </ng-container>
@@ -289,7 +281,8 @@
                             </thead>
                             <tbody>
                             <ng-container *ngFor="let off of offres;let i = index">
-                              <tr *ngIf="off.status.toString()=='3'" class="active" [ngClass]="{'active':i==0,'danger':true}">
+                              <tr *ngIf="off.status.toString()=='2'" class="active"
+                                  [ngClass]="{'active':i==0,'danger':true}">
                                 <th scope="row">{{off.id}}</th>
                                 <td class="text-center">{{getStatus(off.status)}}</td>
                                 <td>customer</td>
@@ -302,12 +295,12 @@
                                     <i class="fa fa-pencil"></i></a>
                                   <button class="btn btn-default btn-xs" type="submit"><i
                                     class="glyphicon glyphicon-download-alt"></i></button>
+                                  <button class="btn btn-facebook btn-xs" type="submit" data-toggle="modal"
+                                          data-target="#myModal"><i class="glyphicon glyphicon-envelope"></i></button>
                                 </td>
                                 <td class="text-center">
-                                  <button class="btn btn-success btn-xs tooltips" data-original-title="Mark as signed"
-                                          type="submit"><span class="glyphicon glyphicon-floppy-saved"></span></button>
-                                  <button class="btn btn-danger btn-xs tooltips" data-original-title="Mark as refused"
-                                          type="submit"><span class="glyphicon glyphicon-floppy-remove "></span>
+                                  <button (click)="changeStatus(off.id,0)" class="btn btn-warning btn-xs tooltips"
+                                          data-original-title="Cancel the refusal"><i class="fa fa-minus-circle"></i>
                                   </button>
                                 </td>
                               </tr>
@@ -350,7 +343,8 @@
                             </thead>
                             <tbody>
                             <ng-container *ngFor="let off of offres;let i = index">
-                              <tr *ngIf="off.status.toString()=='3'" class="active" [ngClass]="{'active':i==0,'success':true}">
+                              <tr *ngIf="off.status.toString()=='1'" class="active"
+                                  [ngClass]="{'active':i==0,'success':true}">
                                 <th scope="row">{{off.id}}</th>
                                 <td class="text-center">{{getStatus(off.status)}}</td>
                                 <td>customer</td>
@@ -363,12 +357,11 @@
                                     <i class="fa fa-pencil"></i></a>
                                   <button class="btn btn-default btn-xs" type="submit"><i
                                     class="glyphicon glyphicon-download-alt"></i></button>
+
                                 </td>
                                 <td class="text-center">
-                                  <button class="btn btn-success btn-xs tooltips" data-original-title="Mark as signed"
-                                          type="submit"><span class="glyphicon glyphicon-floppy-saved"></span></button>
-                                  <button class="btn btn-danger btn-xs tooltips" data-original-title="Mark as refused"
-                                          type="submit"><span class="glyphicon glyphicon-floppy-remove "></span>
+                                  <button (click)="changeStatus(off.id,0)" class="btn btn-warning btn-xs tooltips"
+                                          data-original-title="Cancel the signature"><i class="fa fa-minus-circle"></i>
                                   </button>
                                 </td>
                               </tr>
@@ -407,31 +400,32 @@
         <form role="form">
           <div class="form-group">
             <label> Destinataire : </label>
-            <input type="email" class="form-control" placeholder="Destinataire">
+            <input #destInput type="email" class="form-control" placeholder="Destinataire">
           </div>
           <div class="form-group">
             <label>Subject : </label>
-            <input type="text" class="form-control" placeholder="Object">
+            <input #recSujet type="text" class="form-control" placeholder="Object">
           </div>
 
           <div class="form-group">
             <label>Content : </label>
-            <textarea type="text" class="form-control" placeholder="Content"></textarea>
+            <textarea #recdesc type="text" class="form-control"
+                      placeholder="Content"></textarea>
           </div>
 
           <div class="form-group">
             <label>Joining Date</label>
-            <input type="date" class="form-control" formControlName="date" value="{{currentDate | date:'yyyy-MM-dd'}}"
+            <input type="date" class="form-control" value="{{currentDate | date:'yyyy-MM-dd'}}"
                    disabled>
           </div>
 
 
           &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
           &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
-          <button type="submit" class="btn btn-primary">Envoyer</button>
+          <button (click)="addReclamation(recSujet,recdesc,destInput)" type="submit" class="btn btn-primary" data-dismiss="modal" aria-label="Close">Envoyer</button>
           &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;
 
-          <button type="submit" class="btn btn-danger"> Annuler</button>
+          <button type="submit" class="btn btn-danger" data-dismiss="modal" aria-label="Close"> Annuler</button>
 
 
         </form>

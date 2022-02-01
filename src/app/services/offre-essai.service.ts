@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AuthentificationService} from './authentification.service';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
@@ -8,7 +8,8 @@ import {environment} from '../../environments/environment';
 })
 export class OffreEssaiService {
 
-  constructor(private authService: AuthentificationService, private http: HttpClient) { }
+  constructor(private authService: AuthentificationService, private http: HttpClient) {
+  }
 
   getall() {
 
@@ -17,8 +18,9 @@ export class OffreEssaiService {
     return this.http.get<any>(environment.baseUrl + '/essaiOffre/all', {headers});
 
   }
+
   supprimer(id) {
-    const headers = new HttpHeaders({authorization: 'Bearer ' +  this.authService.jwt});
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
     return this.http.delete(environment.baseUrl + '/essaiOffre/delete/' + id, {headers});
 
   }
@@ -26,18 +28,16 @@ export class OffreEssaiService {
 
   modifier(id, idD, c) {
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
-    return this.http.put( environment.baseUrl + '/essaiOffre/edit/' + id + '/'  + idD, c, {headers});
+    return this.http.put(environment.baseUrl + '/essaiOffre/edit/' + id + '/' + idD, c, {headers});
 
 
   }
 
   ajout(idD, c) {
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
-    return this.http.post( environment.baseUrl + '/essaiOffre/add/'  + idD, c, {headers});
+    return this.http.post(environment.baseUrl + '/essaiOffre/add/' + idD, c, {headers});
 
   }
-
-
 
 
   getoffreByDevis(id) {
@@ -49,7 +49,6 @@ export class OffreEssaiService {
   }
 
 
-
   getbyId(id) {
 
     const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
@@ -58,5 +57,10 @@ export class OffreEssaiService {
 
   }
 
+  changeStatus(id: number, status: number) {
+    const headers = new HttpHeaders({authorization: 'Bearer ' + this.authService.jwt});
+
+    return this.http.get(environment.baseUrl + `/essaiOffre/status/${id}/${status}`, {headers});
+  }
 
 }
