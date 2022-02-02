@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import Swal from 'sweetalert2';
 import {ReclamationService} from '../../services/reclamation.service';
+import {AuthentificationService} from '../../services/authentification.service';
 
 @Component({
   selector: 'app-reclamation',
@@ -11,11 +12,18 @@ export class ReclamationComponent implements OnInit {
   listerec;
   idrec;
   p = 1;
-  constructor(private srvcrec: ReclamationService) {
+  recievedReclamation:Array<any>;
+
+  constructor(private srvcrec: ReclamationService, private authService: AuthentificationService) {
   }
 
   ngOnInit() {
     this.getallreclamation();
+    this.authService.getprofile().subscribe(profile => {
+      console.log('profile ', profile);
+      this.recievedReclamation = profile.recievedReclamation;
+      console.log("recieved",this.recievedReclamation);
+    });
   }
 
   getallreclamation() {

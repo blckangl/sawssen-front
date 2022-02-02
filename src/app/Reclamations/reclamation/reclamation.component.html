@@ -24,11 +24,11 @@
           <div class="card-body ">
             <div class="row">
 
-              <div class="col-md-4 column sortable"  *ngFor="let e of listerec  | paginate: { itemsPerPage: 8, currentPage: p }">
+              <div class="col-md-4 column sortable"  *ngFor="let e of recievedReclamation  ">
                 <!-- BEGIN Portlet PORTLET-->
                 <div class="card">
 
-                  <div class="card-header">{{e.appUser.lastname}} &nbsp; {{e.appUser.firstName}}
+                  <div class="card-header">{{e.appUser?.lastname}} &nbsp; {{e.appUser?.firstName}}
                     <button class="btn btn-success btn-sm pull-right"><i class="fa fa-trash-o" (click)="supprimer(e.id)"></i></button></div>
                   <div class="card-body">
                     <h5 style="color: #007bff"> Sujet : &nbsp; {{e.sujet}}</h5>
