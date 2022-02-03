@@ -5,3 +5,8 @@ body{
 .white-sidebar-color .page-container {
   background-color: #eaeef3 !important;
 }
+
+.page-content-wrapper{
+  max-height: 100vh;
+  overflow: auto;
+}

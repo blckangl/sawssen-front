@@ -101,6 +101,7 @@ export class AllManagerComponent implements OnInit {
 
 
   add() {
+    console.log("adding ",this.addmanager.controls['designation'].value)
     switch (this.addmanager.controls['designation'].value) {
       case'ADMIN':
         this.admin.register(this.addmanager.value).subscribe(res => {
@@ -111,6 +112,7 @@ export class AllManagerComponent implements OnInit {
         break;
       case'DIRECTOR':
         this.directeur.register(this.addmanager.value).subscribe(res => {
+          console.log(res)
           this.getalluser();
         }, (err) => {
           console.log('error while adding ', err);
